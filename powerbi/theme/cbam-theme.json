@@ -1,0 +1,125 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/powerbi-desktop-samples/main/Report%20Theme%20JSON%20Schema/reportThemeSchema.json",
+  "name": "CBAM Screen light canvas",
+  "dataColors": [
+    "#0F5132",
+    "#0072B2",
+    "#E0B061",
+    "#009E73",
+    "#CC79A7",
+    "#56B4E9",
+    "#D55E00",
+    "#495057"
+  ],
+  "good": "#0F5132",
+  "neutral": "#E0B061",
+  "bad": "#B42318",
+  "minimum": "#E6EFEA",
+  "center": "#7FB39A",
+  "maximum": "#12402F",
+  "null": "#F2F5F3",
+  "background": "#FFFFFF",
+  "secondaryBackground": "#F2F5F3",
+  "firstLevelElements": "#0B1512",
+  "secondLevelElements": "#3F4A45",
+  "thirdLevelElements": "#D6DEDA",
+  "fourthLevelElements": "#7A8681",
+  "tableAccent": "#0F5132",
+  "hyperlink": "#0F5132",
+  "visitedHyperlink": "#12402F",
+  "disabledText": "#9AA5A0",
+  "shapeStroke": "#D6DEDA",
+  "textClasses": {
+    "callout": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 32,
+      "color": "#0B1512"
+    },
+    "title": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 13,
+      "color": "#0B1512"
+    },
+    "header": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 11,
+      "color": "#0B1512"
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "fontSize": 10,
+      "color": "#3F4A45"
+    }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [
+          {
+            "show": true,
+            "color": { "solid": { "color": "#FFFFFF" } },
+            "transparency": 0
+          }
+        ],
+        "border": [
+          {
+            "show": true,
+            "color": { "solid": { "color": "#D6DEDA" } },
+            "radius": 4
+          }
+        ],
+        "title": [
+          {
+            "show": true,
+            "fontColor": { "solid": { "color": "#0B1512" } },
+            "background": { "solid": { "color": "#FFFFFF" } },
+            "alignment": "left",
+            "fontSize": 13
+          }
+        ],
+        "visualHeader": [
+          {
+            "show": true,
+            "foreground": { "solid": { "color": "#7A8681" } }
+          }
+        ],
+        "outspace": [
+          {
+            "color": { "solid": { "color": "#FFFFFF" } }
+          }
+        ]
+      }
+    },
+    "page": {
+      "*": {
+        "outspace": [
+          {
+            "color": { "solid": { "color": "#F2F5F3" } }
+          }
+        ],
+        "background": [
+          {
+            "color": { "solid": { "color": "#FFFFFF" } },
+            "transparency": 0
+          }
+        ]
+      }
+    },
+    "textbox": {
+      "*": {
+        "background": [
+          {
+            "show": true,
+            "color": { "solid": { "color": "#0B1512" } },
+            "transparency": 0
+          }
+        ],
+        "border": [
+          {
+            "show": false
+          }
+        ]
+      }
+    }
+  }
+}
