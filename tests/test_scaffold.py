@@ -45,9 +45,21 @@ def test_config_file_parses_and_has_meta(filename: str) -> None:
     assert "meta" in loaded, f"config/{filename} must carry a meta block"
 
 
-def test_no_em_dashes_in_docs_and_configs() -> None:
+def test_no_em_dashes_in_docs_configs_or_source() -> None:
     """CLAUDE.md forbids em dashes in documentation."""
-    checked = [REPO_ROOT / "README.md", REPO_ROOT / "docs" / "METHODOLOGY.md"]
-    checked += [REPO_ROOT / "config" / name for name in CONFIG_FILES]
+    checked = [
+        REPO_ROOT / "README.md",
+        REPO_ROOT / "docs" / "METHODOLOGY.md",
+        REPO_ROOT / "data" / "SOURCES.md",
+    ]
+    checked += sorted((REPO_ROOT / "config").glob("*.yaml"))
+    checked += sorted((REPO_ROOT / "src").glob("*.py"))
+    checked += sorted((REPO_ROOT / "tools").glob("*.py"))
     offenders = [p.name for p in checked if "—" in p.read_text(encoding="utf-8")]
     assert not offenders, f"em dash found in: {offenders}"
+
+
+def test_raw_data_directory_is_gitignored() -> None:
+    """Third-party source files must never be committed."""
+    ignore = (REPO_ROOT / ".gitignore").read_text(encoding="utf-8")
+    assert "data/raw/" in ignore
