@@ -10,8 +10,11 @@
 # The one exception is the timing block, where the dates are law and only the
 # split of cash across the year is an assumption. Each entry says which it is.
 
+# FIXTURE copy of config/thresholds.yaml. Kept identical on purpose, so the
+# engine tests exercise the same bands and parameters that ship.
+
 meta:
-  config_version: "1.0.0"
+  config_version: "fixture"
   last_updated: "2026-09-14"
   warning: >-
     Materiality bands and flag parameters are the author's assumptions, not law
