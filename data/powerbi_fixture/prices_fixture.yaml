@@ -1,0 +1,109 @@
+# FIXTURE PRICE SET. fixture_not_a_forecast.
+#
+# ===========================================================================
+# THESE ARE NOT CARBON PRICES. THEY ARE NOT NGFS OUTPUT. THEY ARE NOT A
+# FORECAST, A PROJECTION OR AN ESTIMATE OF ANYTHING.
+# ===========================================================================
+#
+# config/scenarios.yaml is gated. The NGFS Phase V EU carbon prices could not be
+# fetched on 2026-09-14, the Scenario Explorer is login-walled, and CLAUDE.md
+# section 2 says never to invent a number. So config/scenarios.yaml carries the
+# schema, the gap and the exact document needed, and no prices at all.
+#
+# The Power BI track still needs something to export, otherwise there is no way
+# to check that the exporter, the star schema and the DAX work. This file is
+# that something. The three values are flat round numbers, deliberately
+# obviously fake, chosen so that arithmetic can be checked by eye:
+#
+#   net_zero_2050      100 EUR per tonne, every year
+#   delayed_transition  80 EUR per tonne, every year
+#   current_policies    60 EUR per tonne, every year
+#
+# 80 is the price in the CLAUDE.md Task 6 hand example, so the Delayed
+# Transition column of the fixture export reproduces it:
+#   1000 t steel * 1.9 tCO2/t * 80 EUR * (1 - 0.975) = 3800 EUR in 2026.
+#
+# A flat path is the point. A real scenario price rises, and no flat path could
+# be mistaken for one. Anything computed from this file is a wiring test, not a
+# number about the world.
+#
+# Pass this file to the exporter with --prices. The exporter refuses to stamp
+# any data label other than FIXTURE when it is used, and writes the file name
+# and its sha256 into meta.csv, so no chart built on it can lose the label.
+#
+# HOW THIS BECOMES REAL: see docs/POWERBI.md, section "The gates". In short, the
+# owner downloads NGFS Phase V Price|Carbon for the EU region, annual 2026 to
+# 2035, fills config/scenarios.yaml, and then runs the exporter WITHOUT
+# --prices. Nothing else changes.
+
+meta:
+  config_version: "fixture-1.0.0"
+  last_updated: "2026-09-14"
+  price_unit: "EUR per tCO2, fixture, not a forecast"
+  region: "fixture, no region"
+  status: fixture
+  label: fixture_not_a_forecast
+  note: >-
+    Fixture prices for the Power BI export only. Not NGFS. Not a forecast. Flat
+    by construction so that no reader can mistake the shape for a scenario path.
+
+scenarios:
+  net_zero_2050:
+    label: "Net Zero 2050 (FIXTURE, flat 100)"
+    source: "fixture_not_a_forecast. Invented flat value, no source."
+    source_url: "fixture"
+    retrieved: "2026-09-14"
+    status: scenario
+    region: "fixture"
+    price_unit: "EUR per tCO2, fixture"
+    by_year:
+      2026: {price: 100.0, interpolated: false}
+      2027: {price: 100.0, interpolated: false}
+      2028: {price: 100.0, interpolated: false}
+      2029: {price: 100.0, interpolated: false}
+      2030: {price: 100.0, interpolated: false}
+      2031: {price: 100.0, interpolated: false}
+      2032: {price: 100.0, interpolated: false}
+      2033: {price: 100.0, interpolated: false}
+      2034: {price: 100.0, interpolated: false}
+      2035: {price: 100.0, interpolated: false}
+
+  delayed_transition:
+    label: "Delayed Transition (FIXTURE, flat 80)"
+    source: "fixture_not_a_forecast. Invented flat value, no source."
+    source_url: "fixture"
+    retrieved: "2026-09-14"
+    status: scenario
+    region: "fixture"
+    price_unit: "EUR per tCO2, fixture"
+    by_year:
+      2026: {price: 80.0, interpolated: false}
+      2027: {price: 80.0, interpolated: false}
+      2028: {price: 80.0, interpolated: false}
+      2029: {price: 80.0, interpolated: false}
+      2030: {price: 80.0, interpolated: false}
+      2031: {price: 80.0, interpolated: false}
+      2032: {price: 80.0, interpolated: false}
+      2033: {price: 80.0, interpolated: false}
+      2034: {price: 80.0, interpolated: false}
+      2035: {price: 80.0, interpolated: false}
+
+  current_policies:
+    label: "Current Policies (FIXTURE, flat 60)"
+    source: "fixture_not_a_forecast. Invented flat value, no source."
+    source_url: "fixture"
+    retrieved: "2026-09-14"
+    status: scenario
+    region: "fixture"
+    price_unit: "EUR per tCO2, fixture"
+    by_year:
+      2026: {price: 60.0, interpolated: false}
+      2027: {price: 60.0, interpolated: false}
+      2028: {price: 60.0, interpolated: false}
+      2029: {price: 60.0, interpolated: false}
+      2030: {price: 60.0, interpolated: false}
+      2031: {price: 60.0, interpolated: false}
+      2032: {price: 60.0, interpolated: false}
+      2033: {price: 60.0, interpolated: false}
+      2034: {price: 60.0, interpolated: false}
+      2035: {price: 60.0, interpolated: false}

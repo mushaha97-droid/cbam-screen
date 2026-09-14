@@ -20,6 +20,23 @@ sectors:
     pass_through_share: {value: 0.5, source: "fixture", status: assumption}
     source: "fixture"
     status: assumption
+  "23.51":
+    label: "Manufacture of cement"
+    tier: 1
+    confidence: high
+    # A producer sector that DOES carry an intensity, unlike 24.10 above. The
+    # Tier 1 lost-allowance path needs production tonnes, and the input schema
+    # has no production column, so the engine derives them from this intensity.
+    # 24.10 deliberately has none, so tests can cover the missing-intensity path.
+    import_intensity:
+      cement:
+        value: 250.0
+        unit: "t per EUR million turnover"
+        source: "fixture"
+        status: assumption
+    pass_through_share: {value: 0.5, source: "fixture", status: assumption}
+    source: "fixture"
+    status: assumption
   "25.11":
     label: "Manufacture of metal structures"
     tier: 3

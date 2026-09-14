@@ -1,0 +1,1498 @@
+borrower_id,scenario,branch,year,window,quarter,kind,obligation_year,cash_out_eur,share_of_working_capital
+B001,current_policies,adopted,2027,2027 February to September,,block,2026,2850.0,0.0007125000000000007
+B001,current_policies,adopted,2027,2027 Q1,1,prepayment,2027,712.5,0.00017812500000000017
+B001,current_policies,adopted,2027,2027 Q2,2,prepayment,2027,712.5,0.00017812500000000017
+B001,current_policies,adopted,2027,2027 Q3,3,prepayment,2027,712.5,0.00017812500000000017
+B001,current_policies,adopted,2027,2027 Q4,4,prepayment,2027,712.5,0.00017812500000000017
+B001,current_policies,adopted,2028,2028 Q1,1,prepayment,2028,1425.0,0.00035624999999999996
+B001,current_policies,adopted,2028,2028 Q2,2,prepayment,2028,1425.0,0.00035624999999999996
+B001,current_policies,adopted,2028,2028 Q3,3,prepayment,2028,1425.0,0.00035624999999999996
+B001,current_policies,adopted,2028,2028 Q4,4,prepayment,2028,1425.0,0.00035624999999999996
+B001,current_policies,adopted,2028,2028 settlement by 30 September,,settlement,2027,2850.0,0.0007125000000000007
+B001,current_policies,adopted,2029,2029 Q1,1,prepayment,2029,3206.25,0.0008015624999999999
+B001,current_policies,adopted,2029,2029 Q2,2,prepayment,2029,3206.25,0.0008015624999999999
+B001,current_policies,adopted,2029,2029 Q3,3,prepayment,2029,3206.25,0.0008015624999999999
+B001,current_policies,adopted,2029,2029 Q4,4,prepayment,2029,3206.25,0.0008015624999999999
+B001,current_policies,adopted,2029,2029 settlement by 30 September,,settlement,2028,5700.0,0.0014249999999999998
+B001,current_policies,adopted,2030,2030 Q1,1,prepayment,2030,6911.25,0.0017278125
+B001,current_policies,adopted,2030,2030 Q2,2,prepayment,2030,6911.25,0.0017278125
+B001,current_policies,adopted,2030,2030 Q3,3,prepayment,2030,6911.25,0.0017278125
+B001,current_policies,adopted,2030,2030 Q4,4,prepayment,2030,6911.25,0.0017278125
+B001,current_policies,adopted,2030,2030 settlement by 30 September,,settlement,2029,12825.0,0.0032062499999999995
+B001,current_policies,adopted,2031,2031 Q1,1,prepayment,2031,8692.5,0.002173125
+B001,current_policies,adopted,2031,2031 Q2,2,prepayment,2031,8692.5,0.002173125
+B001,current_policies,adopted,2031,2031 Q3,3,prepayment,2031,8692.5,0.002173125
+B001,current_policies,adopted,2031,2031 Q4,4,prepayment,2031,8692.5,0.002173125
+B001,current_policies,adopted,2031,2031 settlement by 30 September,,settlement,2030,27645.0,0.00691125
+B001,current_policies,adopted,2032,2032 Q1,1,prepayment,2032,10473.75,0.0026184375
+B001,current_policies,adopted,2032,2032 Q2,2,prepayment,2032,10473.75,0.0026184375
+B001,current_policies,adopted,2032,2032 Q3,3,prepayment,2032,10473.75,0.0026184375
+B001,current_policies,adopted,2032,2032 Q4,4,prepayment,2032,10473.75,0.0026184375
+B001,current_policies,adopted,2032,2032 settlement by 30 September,,settlement,2031,34770.0,0.0086925
+B001,current_policies,adopted,2033,2033 Q1,1,prepayment,2033,12255.0,0.00306375
+B001,current_policies,adopted,2033,2033 Q2,2,prepayment,2033,12255.0,0.00306375
+B001,current_policies,adopted,2033,2033 Q3,3,prepayment,2033,12255.0,0.00306375
+B001,current_policies,adopted,2033,2033 Q4,4,prepayment,2033,12255.0,0.00306375
+B001,current_policies,adopted,2033,2033 settlement by 30 September,,settlement,2032,41895.0,0.01047375
+B001,current_policies,adopted,2034,2034 Q1,1,prepayment,2034,14250.0,0.0035625
+B001,current_policies,adopted,2034,2034 Q2,2,prepayment,2034,14250.0,0.0035625
+B001,current_policies,adopted,2034,2034 Q3,3,prepayment,2034,14250.0,0.0035625
+B001,current_policies,adopted,2034,2034 Q4,4,prepayment,2034,14250.0,0.0035625
+B001,current_policies,adopted,2034,2034 settlement by 30 September,,settlement,2033,49020.0,0.012255
+B001,current_policies,adopted,2035,2035 Q1,1,prepayment,2035,14250.0,0.0035625
+B001,current_policies,adopted,2035,2035 Q2,2,prepayment,2035,14250.0,0.0035625
+B001,current_policies,adopted,2035,2035 Q3,3,prepayment,2035,14250.0,0.0035625
+B001,current_policies,adopted,2035,2035 Q4,4,prepayment,2035,14250.0,0.0035625
+B001,current_policies,adopted,2035,2035 settlement by 30 September,,settlement,2034,57000.0,0.01425
+B001,current_policies,adopted,2036,2036 settlement by 30 September,,settlement,2035,57000.0,0.01425
+B001,current_policies,proposal,2027,2027 February to September,,block,2026,2850.0,0.0007125000000000007
+B001,current_policies,proposal,2027,2027 Q1,1,prepayment,2027,712.5,0.00017812500000000017
+B001,current_policies,proposal,2027,2027 Q2,2,prepayment,2027,712.5,0.00017812500000000017
+B001,current_policies,proposal,2027,2027 Q3,3,prepayment,2027,712.5,0.00017812500000000017
+B001,current_policies,proposal,2027,2027 Q4,4,prepayment,2027,712.5,0.00017812500000000017
+B001,current_policies,proposal,2028,2028 Q1,1,prepayment,2028,1425.0,0.00035624999999999996
+B001,current_policies,proposal,2028,2028 Q2,2,prepayment,2028,1425.0,0.00035624999999999996
+B001,current_policies,proposal,2028,2028 Q3,3,prepayment,2028,1425.0,0.00035624999999999996
+B001,current_policies,proposal,2028,2028 Q4,4,prepayment,2028,1425.0,0.00035624999999999996
+B001,current_policies,proposal,2028,2028 settlement by 30 September,,settlement,2027,2850.0,0.0007125000000000007
+B001,current_policies,proposal,2029,2029 Q1,1,prepayment,2029,2137.5,0.0005343750000000001
+B001,current_policies,proposal,2029,2029 Q2,2,prepayment,2029,2137.5,0.0005343750000000001
+B001,current_policies,proposal,2029,2029 Q3,3,prepayment,2029,2137.5,0.0005343750000000001
+B001,current_policies,proposal,2029,2029 Q4,4,prepayment,2029,2137.5,0.0005343750000000001
+B001,current_policies,proposal,2029,2029 settlement by 30 September,,settlement,2028,5700.0,0.0014249999999999998
+B001,current_policies,proposal,2030,2030 Q1,1,prepayment,2030,2850.0,0.0007124999999999999
+B001,current_policies,proposal,2030,2030 Q2,2,prepayment,2030,2850.0,0.0007124999999999999
+B001,current_policies,proposal,2030,2030 Q3,3,prepayment,2030,2850.0,0.0007124999999999999
+B001,current_policies,proposal,2030,2030 Q4,4,prepayment,2030,2850.0,0.0007124999999999999
+B001,current_policies,proposal,2030,2030 settlement by 30 September,,settlement,2029,8550.0,0.0021375000000000005
+B001,current_policies,proposal,2031,2031 Q1,1,prepayment,2031,4275.0,0.0010687500000000003
+B001,current_policies,proposal,2031,2031 Q2,2,prepayment,2031,4275.0,0.0010687500000000003
+B001,current_policies,proposal,2031,2031 Q3,3,prepayment,2031,4275.0,0.0010687500000000003
+B001,current_policies,proposal,2031,2031 Q4,4,prepayment,2031,4275.0,0.0010687500000000003
+B001,current_policies,proposal,2031,2031 settlement by 30 September,,settlement,2030,11400.0,0.0028499999999999997
+B001,current_policies,proposal,2032,2032 Q1,1,prepayment,2032,5700.0,0.001425
+B001,current_policies,proposal,2032,2032 Q2,2,prepayment,2032,5700.0,0.001425
+B001,current_policies,proposal,2032,2032 Q3,3,prepayment,2032,5700.0,0.001425
+B001,current_policies,proposal,2032,2032 Q4,4,prepayment,2032,5700.0,0.001425
+B001,current_policies,proposal,2032,2032 settlement by 30 September,,settlement,2031,17100.0,0.004275000000000001
+B001,current_policies,proposal,2033,2033 Q1,1,prepayment,2033,7125.0,0.00178125
+B001,current_policies,proposal,2033,2033 Q2,2,prepayment,2033,7125.0,0.00178125
+B001,current_policies,proposal,2033,2033 Q3,3,prepayment,2033,7125.0,0.00178125
+B001,current_policies,proposal,2033,2033 Q4,4,prepayment,2033,7125.0,0.00178125
+B001,current_policies,proposal,2033,2033 settlement by 30 September,,settlement,2032,22800.0,0.0057
+B001,current_policies,proposal,2034,2034 Q1,1,prepayment,2034,8550.0,0.0021375
+B001,current_policies,proposal,2034,2034 Q2,2,prepayment,2034,8550.0,0.0021375
+B001,current_policies,proposal,2034,2034 Q3,3,prepayment,2034,8550.0,0.0021375
+B001,current_policies,proposal,2034,2034 Q4,4,prepayment,2034,8550.0,0.0021375
+B001,current_policies,proposal,2034,2034 settlement by 30 September,,settlement,2033,28500.0,0.007125
+B001,current_policies,proposal,2035,2035 Q1,1,prepayment,2035,9975.0,0.00249375
+B001,current_policies,proposal,2035,2035 Q2,2,prepayment,2035,9975.0,0.00249375
+B001,current_policies,proposal,2035,2035 Q3,3,prepayment,2035,9975.0,0.00249375
+B001,current_policies,proposal,2035,2035 Q4,4,prepayment,2035,9975.0,0.00249375
+B001,current_policies,proposal,2035,2035 settlement by 30 September,,settlement,2034,34200.0,0.00855
+B001,current_policies,proposal,2036,2036 settlement by 30 September,,settlement,2035,39900.0,0.009975
+B001,delayed_transition,adopted,2027,2027 February to September,,block,2026,3800.0,0.0009500000000000008
+B001,delayed_transition,adopted,2027,2027 Q1,1,prepayment,2027,950.0,0.0002375000000000002
+B001,delayed_transition,adopted,2027,2027 Q2,2,prepayment,2027,950.0,0.0002375000000000002
+B001,delayed_transition,adopted,2027,2027 Q3,3,prepayment,2027,950.0,0.0002375000000000002
+B001,delayed_transition,adopted,2027,2027 Q4,4,prepayment,2027,950.0,0.0002375000000000002
+B001,delayed_transition,adopted,2028,2028 Q1,1,prepayment,2028,1900.0,0.0004749999999999999
+B001,delayed_transition,adopted,2028,2028 Q2,2,prepayment,2028,1900.0,0.0004749999999999999
+B001,delayed_transition,adopted,2028,2028 Q3,3,prepayment,2028,1900.0,0.0004749999999999999
+B001,delayed_transition,adopted,2028,2028 Q4,4,prepayment,2028,1900.0,0.0004749999999999999
+B001,delayed_transition,adopted,2028,2028 settlement by 30 September,,settlement,2027,3800.0,0.0009500000000000008
+B001,delayed_transition,adopted,2029,2029 Q1,1,prepayment,2029,4275.0,0.00106875
+B001,delayed_transition,adopted,2029,2029 Q2,2,prepayment,2029,4275.0,0.00106875
+B001,delayed_transition,adopted,2029,2029 Q3,3,prepayment,2029,4275.0,0.00106875
+B001,delayed_transition,adopted,2029,2029 Q4,4,prepayment,2029,4275.0,0.00106875
+B001,delayed_transition,adopted,2029,2029 settlement by 30 September,,settlement,2028,7600.0,0.0018999999999999996
+B001,delayed_transition,adopted,2030,2030 Q1,1,prepayment,2030,9215.0,0.00230375
+B001,delayed_transition,adopted,2030,2030 Q2,2,prepayment,2030,9215.0,0.00230375
+B001,delayed_transition,adopted,2030,2030 Q3,3,prepayment,2030,9215.0,0.00230375
+B001,delayed_transition,adopted,2030,2030 Q4,4,prepayment,2030,9215.0,0.00230375
+B001,delayed_transition,adopted,2030,2030 settlement by 30 September,,settlement,2029,17100.0,0.004275
+B001,delayed_transition,adopted,2031,2031 Q1,1,prepayment,2031,11590.0,0.0028975
+B001,delayed_transition,adopted,2031,2031 Q2,2,prepayment,2031,11590.0,0.0028975
+B001,delayed_transition,adopted,2031,2031 Q3,3,prepayment,2031,11590.0,0.0028975
+B001,delayed_transition,adopted,2031,2031 Q4,4,prepayment,2031,11590.0,0.0028975
+B001,delayed_transition,adopted,2031,2031 settlement by 30 September,,settlement,2030,36860.0,0.009215
+B001,delayed_transition,adopted,2032,2032 Q1,1,prepayment,2032,13965.0,0.00349125
+B001,delayed_transition,adopted,2032,2032 Q2,2,prepayment,2032,13965.0,0.00349125
+B001,delayed_transition,adopted,2032,2032 Q3,3,prepayment,2032,13965.0,0.00349125
+B001,delayed_transition,adopted,2032,2032 Q4,4,prepayment,2032,13965.0,0.00349125
+B001,delayed_transition,adopted,2032,2032 settlement by 30 September,,settlement,2031,46360.0,0.01159
+B001,delayed_transition,adopted,2033,2033 Q1,1,prepayment,2033,16340.0,0.004085
+B001,delayed_transition,adopted,2033,2033 Q2,2,prepayment,2033,16340.0,0.004085
+B001,delayed_transition,adopted,2033,2033 Q3,3,prepayment,2033,16340.0,0.004085
+B001,delayed_transition,adopted,2033,2033 Q4,4,prepayment,2033,16340.0,0.004085
+B001,delayed_transition,adopted,2033,2033 settlement by 30 September,,settlement,2032,55860.0,0.013965
+B001,delayed_transition,adopted,2034,2034 Q1,1,prepayment,2034,19000.0,0.00475
+B001,delayed_transition,adopted,2034,2034 Q2,2,prepayment,2034,19000.0,0.00475
+B001,delayed_transition,adopted,2034,2034 Q3,3,prepayment,2034,19000.0,0.00475
+B001,delayed_transition,adopted,2034,2034 Q4,4,prepayment,2034,19000.0,0.00475
+B001,delayed_transition,adopted,2034,2034 settlement by 30 September,,settlement,2033,65360.0,0.01634
+B001,delayed_transition,adopted,2035,2035 Q1,1,prepayment,2035,19000.0,0.00475
+B001,delayed_transition,adopted,2035,2035 Q2,2,prepayment,2035,19000.0,0.00475
+B001,delayed_transition,adopted,2035,2035 Q3,3,prepayment,2035,19000.0,0.00475
+B001,delayed_transition,adopted,2035,2035 Q4,4,prepayment,2035,19000.0,0.00475
+B001,delayed_transition,adopted,2035,2035 settlement by 30 September,,settlement,2034,76000.0,0.019
+B001,delayed_transition,adopted,2036,2036 settlement by 30 September,,settlement,2035,76000.0,0.019
+B001,delayed_transition,proposal,2027,2027 February to September,,block,2026,3800.0,0.0009500000000000008
+B001,delayed_transition,proposal,2027,2027 Q1,1,prepayment,2027,950.0,0.0002375000000000002
+B001,delayed_transition,proposal,2027,2027 Q2,2,prepayment,2027,950.0,0.0002375000000000002
+B001,delayed_transition,proposal,2027,2027 Q3,3,prepayment,2027,950.0,0.0002375000000000002
+B001,delayed_transition,proposal,2027,2027 Q4,4,prepayment,2027,950.0,0.0002375000000000002
+B001,delayed_transition,proposal,2028,2028 Q1,1,prepayment,2028,1900.0,0.0004749999999999999
+B001,delayed_transition,proposal,2028,2028 Q2,2,prepayment,2028,1900.0,0.0004749999999999999
+B001,delayed_transition,proposal,2028,2028 Q3,3,prepayment,2028,1900.0,0.0004749999999999999
+B001,delayed_transition,proposal,2028,2028 Q4,4,prepayment,2028,1900.0,0.0004749999999999999
+B001,delayed_transition,proposal,2028,2028 settlement by 30 September,,settlement,2027,3800.0,0.0009500000000000008
+B001,delayed_transition,proposal,2029,2029 Q1,1,prepayment,2029,2850.0,0.0007125000000000001
+B001,delayed_transition,proposal,2029,2029 Q2,2,prepayment,2029,2850.0,0.0007125000000000001
+B001,delayed_transition,proposal,2029,2029 Q3,3,prepayment,2029,2850.0,0.0007125000000000001
+B001,delayed_transition,proposal,2029,2029 Q4,4,prepayment,2029,2850.0,0.0007125000000000001
+B001,delayed_transition,proposal,2029,2029 settlement by 30 September,,settlement,2028,7600.0,0.0018999999999999996
+B001,delayed_transition,proposal,2030,2030 Q1,1,prepayment,2030,3800.0,0.0009499999999999998
+B001,delayed_transition,proposal,2030,2030 Q2,2,prepayment,2030,3800.0,0.0009499999999999998
+B001,delayed_transition,proposal,2030,2030 Q3,3,prepayment,2030,3800.0,0.0009499999999999998
+B001,delayed_transition,proposal,2030,2030 Q4,4,prepayment,2030,3800.0,0.0009499999999999998
+B001,delayed_transition,proposal,2030,2030 settlement by 30 September,,settlement,2029,11400.0,0.0028500000000000005
+B001,delayed_transition,proposal,2031,2031 Q1,1,prepayment,2031,5700.0,0.0014250000000000003
+B001,delayed_transition,proposal,2031,2031 Q2,2,prepayment,2031,5700.0,0.0014250000000000003
+B001,delayed_transition,proposal,2031,2031 Q3,3,prepayment,2031,5700.0,0.0014250000000000003
+B001,delayed_transition,proposal,2031,2031 Q4,4,prepayment,2031,5700.0,0.0014250000000000003
+B001,delayed_transition,proposal,2031,2031 settlement by 30 September,,settlement,2030,15200.0,0.003799999999999999
+B001,delayed_transition,proposal,2032,2032 Q1,1,prepayment,2032,7600.0,0.0019
+B001,delayed_transition,proposal,2032,2032 Q2,2,prepayment,2032,7600.0,0.0019
+B001,delayed_transition,proposal,2032,2032 Q3,3,prepayment,2032,7600.0,0.0019
+B001,delayed_transition,proposal,2032,2032 Q4,4,prepayment,2032,7600.0,0.0019
+B001,delayed_transition,proposal,2032,2032 settlement by 30 September,,settlement,2031,22800.0,0.005700000000000001
+B001,delayed_transition,proposal,2033,2033 Q1,1,prepayment,2033,9500.0,0.002375
+B001,delayed_transition,proposal,2033,2033 Q2,2,prepayment,2033,9500.0,0.002375
+B001,delayed_transition,proposal,2033,2033 Q3,3,prepayment,2033,9500.0,0.002375
+B001,delayed_transition,proposal,2033,2033 Q4,4,prepayment,2033,9500.0,0.002375
+B001,delayed_transition,proposal,2033,2033 settlement by 30 September,,settlement,2032,30400.0,0.0076
+B001,delayed_transition,proposal,2034,2034 Q1,1,prepayment,2034,11400.0,0.00285
+B001,delayed_transition,proposal,2034,2034 Q2,2,prepayment,2034,11400.0,0.00285
+B001,delayed_transition,proposal,2034,2034 Q3,3,prepayment,2034,11400.0,0.00285
+B001,delayed_transition,proposal,2034,2034 Q4,4,prepayment,2034,11400.0,0.00285
+B001,delayed_transition,proposal,2034,2034 settlement by 30 September,,settlement,2033,38000.0,0.0095
+B001,delayed_transition,proposal,2035,2035 Q1,1,prepayment,2035,13300.0,0.003325
+B001,delayed_transition,proposal,2035,2035 Q2,2,prepayment,2035,13300.0,0.003325
+B001,delayed_transition,proposal,2035,2035 Q3,3,prepayment,2035,13300.0,0.003325
+B001,delayed_transition,proposal,2035,2035 Q4,4,prepayment,2035,13300.0,0.003325
+B001,delayed_transition,proposal,2035,2035 settlement by 30 September,,settlement,2034,45600.0,0.0114
+B001,delayed_transition,proposal,2036,2036 settlement by 30 September,,settlement,2035,53200.0,0.0133
+B001,net_zero_2050,adopted,2027,2027 February to September,,block,2026,4750.0,0.001187500000000001
+B001,net_zero_2050,adopted,2027,2027 Q1,1,prepayment,2027,1187.5,0.00029687500000000026
+B001,net_zero_2050,adopted,2027,2027 Q2,2,prepayment,2027,1187.5,0.00029687500000000026
+B001,net_zero_2050,adopted,2027,2027 Q3,3,prepayment,2027,1187.5,0.00029687500000000026
+B001,net_zero_2050,adopted,2027,2027 Q4,4,prepayment,2027,1187.5,0.00029687500000000026
+B001,net_zero_2050,adopted,2028,2028 Q1,1,prepayment,2028,2375.0,0.0005937499999999999
+B001,net_zero_2050,adopted,2028,2028 Q2,2,prepayment,2028,2375.0,0.0005937499999999999
+B001,net_zero_2050,adopted,2028,2028 Q3,3,prepayment,2028,2375.0,0.0005937499999999999
+B001,net_zero_2050,adopted,2028,2028 Q4,4,prepayment,2028,2375.0,0.0005937499999999999
+B001,net_zero_2050,adopted,2028,2028 settlement by 30 September,,settlement,2027,4750.0,0.001187500000000001
+B001,net_zero_2050,adopted,2029,2029 Q1,1,prepayment,2029,5343.75,0.0013359374999999997
+B001,net_zero_2050,adopted,2029,2029 Q2,2,prepayment,2029,5343.75,0.0013359374999999997
+B001,net_zero_2050,adopted,2029,2029 Q3,3,prepayment,2029,5343.75,0.0013359374999999997
+B001,net_zero_2050,adopted,2029,2029 Q4,4,prepayment,2029,5343.75,0.0013359374999999997
+B001,net_zero_2050,adopted,2029,2029 settlement by 30 September,,settlement,2028,9500.0,0.0023749999999999995
+B001,net_zero_2050,adopted,2030,2030 Q1,1,prepayment,2030,11518.75,0.0028796875
+B001,net_zero_2050,adopted,2030,2030 Q2,2,prepayment,2030,11518.75,0.0028796875
+B001,net_zero_2050,adopted,2030,2030 Q3,3,prepayment,2030,11518.75,0.0028796875
+B001,net_zero_2050,adopted,2030,2030 Q4,4,prepayment,2030,11518.75,0.0028796875
+B001,net_zero_2050,adopted,2030,2030 settlement by 30 September,,settlement,2029,21375.0,0.005343749999999999
+B001,net_zero_2050,adopted,2031,2031 Q1,1,prepayment,2031,14487.5,0.003621875
+B001,net_zero_2050,adopted,2031,2031 Q2,2,prepayment,2031,14487.5,0.003621875
+B001,net_zero_2050,adopted,2031,2031 Q3,3,prepayment,2031,14487.5,0.003621875
+B001,net_zero_2050,adopted,2031,2031 Q4,4,prepayment,2031,14487.5,0.003621875
+B001,net_zero_2050,adopted,2031,2031 settlement by 30 September,,settlement,2030,46075.0,0.01151875
+B001,net_zero_2050,adopted,2032,2032 Q1,1,prepayment,2032,17456.25,0.0043640625
+B001,net_zero_2050,adopted,2032,2032 Q2,2,prepayment,2032,17456.25,0.0043640625
+B001,net_zero_2050,adopted,2032,2032 Q3,3,prepayment,2032,17456.25,0.0043640625
+B001,net_zero_2050,adopted,2032,2032 Q4,4,prepayment,2032,17456.25,0.0043640625
+B001,net_zero_2050,adopted,2032,2032 settlement by 30 September,,settlement,2031,57950.0,0.0144875
+B001,net_zero_2050,adopted,2033,2033 Q1,1,prepayment,2033,20425.0,0.00510625
+B001,net_zero_2050,adopted,2033,2033 Q2,2,prepayment,2033,20425.0,0.00510625
+B001,net_zero_2050,adopted,2033,2033 Q3,3,prepayment,2033,20425.0,0.00510625
+B001,net_zero_2050,adopted,2033,2033 Q4,4,prepayment,2033,20425.0,0.00510625
+B001,net_zero_2050,adopted,2033,2033 settlement by 30 September,,settlement,2032,69825.0,0.01745625
+B001,net_zero_2050,adopted,2034,2034 Q1,1,prepayment,2034,23750.0,0.0059375
+B001,net_zero_2050,adopted,2034,2034 Q2,2,prepayment,2034,23750.0,0.0059375
+B001,net_zero_2050,adopted,2034,2034 Q3,3,prepayment,2034,23750.0,0.0059375
+B001,net_zero_2050,adopted,2034,2034 Q4,4,prepayment,2034,23750.0,0.0059375
+B001,net_zero_2050,adopted,2034,2034 settlement by 30 September,,settlement,2033,81700.0,0.020425
+B001,net_zero_2050,adopted,2035,2035 Q1,1,prepayment,2035,23750.0,0.0059375
+B001,net_zero_2050,adopted,2035,2035 Q2,2,prepayment,2035,23750.0,0.0059375
+B001,net_zero_2050,adopted,2035,2035 Q3,3,prepayment,2035,23750.0,0.0059375
+B001,net_zero_2050,adopted,2035,2035 Q4,4,prepayment,2035,23750.0,0.0059375
+B001,net_zero_2050,adopted,2035,2035 settlement by 30 September,,settlement,2034,95000.0,0.02375
+B001,net_zero_2050,adopted,2036,2036 settlement by 30 September,,settlement,2035,95000.0,0.02375
+B001,net_zero_2050,proposal,2027,2027 February to September,,block,2026,4750.0,0.001187500000000001
+B001,net_zero_2050,proposal,2027,2027 Q1,1,prepayment,2027,1187.5,0.00029687500000000026
+B001,net_zero_2050,proposal,2027,2027 Q2,2,prepayment,2027,1187.5,0.00029687500000000026
+B001,net_zero_2050,proposal,2027,2027 Q3,3,prepayment,2027,1187.5,0.00029687500000000026
+B001,net_zero_2050,proposal,2027,2027 Q4,4,prepayment,2027,1187.5,0.00029687500000000026
+B001,net_zero_2050,proposal,2028,2028 Q1,1,prepayment,2028,2375.0,0.0005937499999999999
+B001,net_zero_2050,proposal,2028,2028 Q2,2,prepayment,2028,2375.0,0.0005937499999999999
+B001,net_zero_2050,proposal,2028,2028 Q3,3,prepayment,2028,2375.0,0.0005937499999999999
+B001,net_zero_2050,proposal,2028,2028 Q4,4,prepayment,2028,2375.0,0.0005937499999999999
+B001,net_zero_2050,proposal,2028,2028 settlement by 30 September,,settlement,2027,4750.0,0.001187500000000001
+B001,net_zero_2050,proposal,2029,2029 Q1,1,prepayment,2029,3562.5,0.0008906250000000001
+B001,net_zero_2050,proposal,2029,2029 Q2,2,prepayment,2029,3562.5,0.0008906250000000001
+B001,net_zero_2050,proposal,2029,2029 Q3,3,prepayment,2029,3562.5,0.0008906250000000001
+B001,net_zero_2050,proposal,2029,2029 Q4,4,prepayment,2029,3562.5,0.0008906250000000001
+B001,net_zero_2050,proposal,2029,2029 settlement by 30 September,,settlement,2028,9500.0,0.0023749999999999995
+B001,net_zero_2050,proposal,2030,2030 Q1,1,prepayment,2030,4750.0,0.0011874999999999998
+B001,net_zero_2050,proposal,2030,2030 Q2,2,prepayment,2030,4750.0,0.0011874999999999998
+B001,net_zero_2050,proposal,2030,2030 Q3,3,prepayment,2030,4750.0,0.0011874999999999998
+B001,net_zero_2050,proposal,2030,2030 Q4,4,prepayment,2030,4750.0,0.0011874999999999998
+B001,net_zero_2050,proposal,2030,2030 settlement by 30 September,,settlement,2029,14250.0,0.0035625000000000006
+B001,net_zero_2050,proposal,2031,2031 Q1,1,prepayment,2031,7125.0,0.0017812500000000003
+B001,net_zero_2050,proposal,2031,2031 Q2,2,prepayment,2031,7125.0,0.0017812500000000003
+B001,net_zero_2050,proposal,2031,2031 Q3,3,prepayment,2031,7125.0,0.0017812500000000003
+B001,net_zero_2050,proposal,2031,2031 Q4,4,prepayment,2031,7125.0,0.0017812500000000003
+B001,net_zero_2050,proposal,2031,2031 settlement by 30 September,,settlement,2030,19000.0,0.004749999999999999
+B001,net_zero_2050,proposal,2032,2032 Q1,1,prepayment,2032,9500.0,0.002375
+B001,net_zero_2050,proposal,2032,2032 Q2,2,prepayment,2032,9500.0,0.002375
+B001,net_zero_2050,proposal,2032,2032 Q3,3,prepayment,2032,9500.0,0.002375
+B001,net_zero_2050,proposal,2032,2032 Q4,4,prepayment,2032,9500.0,0.002375
+B001,net_zero_2050,proposal,2032,2032 settlement by 30 September,,settlement,2031,28500.0,0.007125000000000001
+B001,net_zero_2050,proposal,2033,2033 Q1,1,prepayment,2033,11875.0,0.00296875
+B001,net_zero_2050,proposal,2033,2033 Q2,2,prepayment,2033,11875.0,0.00296875
+B001,net_zero_2050,proposal,2033,2033 Q3,3,prepayment,2033,11875.0,0.00296875
+B001,net_zero_2050,proposal,2033,2033 Q4,4,prepayment,2033,11875.0,0.00296875
+B001,net_zero_2050,proposal,2033,2033 settlement by 30 September,,settlement,2032,38000.0,0.0095
+B001,net_zero_2050,proposal,2034,2034 Q1,1,prepayment,2034,14250.0,0.0035625
+B001,net_zero_2050,proposal,2034,2034 Q2,2,prepayment,2034,14250.0,0.0035625
+B001,net_zero_2050,proposal,2034,2034 Q3,3,prepayment,2034,14250.0,0.0035625
+B001,net_zero_2050,proposal,2034,2034 Q4,4,prepayment,2034,14250.0,0.0035625
+B001,net_zero_2050,proposal,2034,2034 settlement by 30 September,,settlement,2033,47500.0,0.011875
+B001,net_zero_2050,proposal,2035,2035 Q1,1,prepayment,2035,16625.0,0.00415625
+B001,net_zero_2050,proposal,2035,2035 Q2,2,prepayment,2035,16625.0,0.00415625
+B001,net_zero_2050,proposal,2035,2035 Q3,3,prepayment,2035,16625.0,0.00415625
+B001,net_zero_2050,proposal,2035,2035 Q4,4,prepayment,2035,16625.0,0.00415625
+B001,net_zero_2050,proposal,2035,2035 settlement by 30 September,,settlement,2034,57000.0,0.01425
+B001,net_zero_2050,proposal,2036,2036 settlement by 30 September,,settlement,2035,66500.0,0.016625
+B002,current_policies,adopted,2027,2027 February to September,,block,2026,12000.0,0.006000000000000005
+B002,current_policies,adopted,2027,2027 Q1,1,prepayment,2027,3000.0,0.0015000000000000013
+B002,current_policies,adopted,2027,2027 Q2,2,prepayment,2027,3000.0,0.0015000000000000013
+B002,current_policies,adopted,2027,2027 Q3,3,prepayment,2027,3000.0,0.0015000000000000013
+B002,current_policies,adopted,2027,2027 Q4,4,prepayment,2027,3000.0,0.0015000000000000013
+B002,current_policies,adopted,2028,2028 Q1,1,prepayment,2028,6000.0,0.0029999999999999996
+B002,current_policies,adopted,2028,2028 Q2,2,prepayment,2028,6000.0,0.0029999999999999996
+B002,current_policies,adopted,2028,2028 Q3,3,prepayment,2028,6000.0,0.0029999999999999996
+B002,current_policies,adopted,2028,2028 Q4,4,prepayment,2028,6000.0,0.0029999999999999996
+B002,current_policies,adopted,2028,2028 settlement by 30 September,,settlement,2027,12000.0,0.006000000000000005
+B002,current_policies,adopted,2029,2029 Q1,1,prepayment,2029,13500.0,0.006749999999999999
+B002,current_policies,adopted,2029,2029 Q2,2,prepayment,2029,13500.0,0.006749999999999999
+B002,current_policies,adopted,2029,2029 Q3,3,prepayment,2029,13500.0,0.006749999999999999
+B002,current_policies,adopted,2029,2029 Q4,4,prepayment,2029,13500.0,0.006749999999999999
+B002,current_policies,adopted,2029,2029 settlement by 30 September,,settlement,2028,24000.0,0.011999999999999999
+B002,current_policies,adopted,2030,2030 Q1,1,prepayment,2030,29100.0,0.01455
+B002,current_policies,adopted,2030,2030 Q2,2,prepayment,2030,29100.0,0.01455
+B002,current_policies,adopted,2030,2030 Q3,3,prepayment,2030,29100.0,0.01455
+B002,current_policies,adopted,2030,2030 Q4,4,prepayment,2030,29100.0,0.01455
+B002,current_policies,adopted,2030,2030 settlement by 30 September,,settlement,2029,54000.0,0.026999999999999996
+B002,current_policies,adopted,2031,2031 Q1,1,prepayment,2031,36600.0,0.0183
+B002,current_policies,adopted,2031,2031 Q2,2,prepayment,2031,36600.0,0.0183
+B002,current_policies,adopted,2031,2031 Q3,3,prepayment,2031,36600.0,0.0183
+B002,current_policies,adopted,2031,2031 Q4,4,prepayment,2031,36600.0,0.0183
+B002,current_policies,adopted,2031,2031 settlement by 30 September,,settlement,2030,116400.0,0.0582
+B002,current_policies,adopted,2032,2032 Q1,1,prepayment,2032,44100.0,0.02205
+B002,current_policies,adopted,2032,2032 Q2,2,prepayment,2032,44100.0,0.02205
+B002,current_policies,adopted,2032,2032 Q3,3,prepayment,2032,44100.0,0.02205
+B002,current_policies,adopted,2032,2032 Q4,4,prepayment,2032,44100.0,0.02205
+B002,current_policies,adopted,2032,2032 settlement by 30 September,,settlement,2031,146400.0,0.0732
+B002,current_policies,adopted,2033,2033 Q1,1,prepayment,2033,51600.0,0.0258
+B002,current_policies,adopted,2033,2033 Q2,2,prepayment,2033,51600.0,0.0258
+B002,current_policies,adopted,2033,2033 Q3,3,prepayment,2033,51600.0,0.0258
+B002,current_policies,adopted,2033,2033 Q4,4,prepayment,2033,51600.0,0.0258
+B002,current_policies,adopted,2033,2033 settlement by 30 September,,settlement,2032,176400.0,0.0882
+B002,current_policies,adopted,2034,2034 Q1,1,prepayment,2034,60000.0,0.03
+B002,current_policies,adopted,2034,2034 Q2,2,prepayment,2034,60000.0,0.03
+B002,current_policies,adopted,2034,2034 Q3,3,prepayment,2034,60000.0,0.03
+B002,current_policies,adopted,2034,2034 Q4,4,prepayment,2034,60000.0,0.03
+B002,current_policies,adopted,2034,2034 settlement by 30 September,,settlement,2033,206400.0,0.1032
+B002,current_policies,adopted,2035,2035 Q1,1,prepayment,2035,60000.0,0.03
+B002,current_policies,adopted,2035,2035 Q2,2,prepayment,2035,60000.0,0.03
+B002,current_policies,adopted,2035,2035 Q3,3,prepayment,2035,60000.0,0.03
+B002,current_policies,adopted,2035,2035 Q4,4,prepayment,2035,60000.0,0.03
+B002,current_policies,adopted,2035,2035 settlement by 30 September,,settlement,2034,240000.0,0.12
+B002,current_policies,adopted,2036,2036 settlement by 30 September,,settlement,2035,240000.0,0.12
+B002,current_policies,proposal,2027,2027 February to September,,block,2026,12000.0,0.006000000000000005
+B002,current_policies,proposal,2027,2027 Q1,1,prepayment,2027,3000.0,0.0015000000000000013
+B002,current_policies,proposal,2027,2027 Q2,2,prepayment,2027,3000.0,0.0015000000000000013
+B002,current_policies,proposal,2027,2027 Q3,3,prepayment,2027,3000.0,0.0015000000000000013
+B002,current_policies,proposal,2027,2027 Q4,4,prepayment,2027,3000.0,0.0015000000000000013
+B002,current_policies,proposal,2028,2028 Q1,1,prepayment,2028,6000.0,0.0029999999999999996
+B002,current_policies,proposal,2028,2028 Q2,2,prepayment,2028,6000.0,0.0029999999999999996
+B002,current_policies,proposal,2028,2028 Q3,3,prepayment,2028,6000.0,0.0029999999999999996
+B002,current_policies,proposal,2028,2028 Q4,4,prepayment,2028,6000.0,0.0029999999999999996
+B002,current_policies,proposal,2028,2028 settlement by 30 September,,settlement,2027,12000.0,0.006000000000000005
+B002,current_policies,proposal,2029,2029 Q1,1,prepayment,2029,9000.0,0.0045000000000000005
+B002,current_policies,proposal,2029,2029 Q2,2,prepayment,2029,9000.0,0.0045000000000000005
+B002,current_policies,proposal,2029,2029 Q3,3,prepayment,2029,9000.0,0.0045000000000000005
+B002,current_policies,proposal,2029,2029 Q4,4,prepayment,2029,9000.0,0.0045000000000000005
+B002,current_policies,proposal,2029,2029 settlement by 30 September,,settlement,2028,24000.0,0.011999999999999999
+B002,current_policies,proposal,2030,2030 Q1,1,prepayment,2030,12000.0,0.005999999999999999
+B002,current_policies,proposal,2030,2030 Q2,2,prepayment,2030,12000.0,0.005999999999999999
+B002,current_policies,proposal,2030,2030 Q3,3,prepayment,2030,12000.0,0.005999999999999999
+B002,current_policies,proposal,2030,2030 Q4,4,prepayment,2030,12000.0,0.005999999999999999
+B002,current_policies,proposal,2030,2030 settlement by 30 September,,settlement,2029,36000.0,0.018000000000000002
+B002,current_policies,proposal,2031,2031 Q1,1,prepayment,2031,18000.0,0.009000000000000001
+B002,current_policies,proposal,2031,2031 Q2,2,prepayment,2031,18000.0,0.009000000000000001
+B002,current_policies,proposal,2031,2031 Q3,3,prepayment,2031,18000.0,0.009000000000000001
+B002,current_policies,proposal,2031,2031 Q4,4,prepayment,2031,18000.0,0.009000000000000001
+B002,current_policies,proposal,2031,2031 settlement by 30 September,,settlement,2030,48000.0,0.023999999999999997
+B002,current_policies,proposal,2032,2032 Q1,1,prepayment,2032,24000.0,0.012
+B002,current_policies,proposal,2032,2032 Q2,2,prepayment,2032,24000.0,0.012
+B002,current_policies,proposal,2032,2032 Q3,3,prepayment,2032,24000.0,0.012
+B002,current_policies,proposal,2032,2032 Q4,4,prepayment,2032,24000.0,0.012
+B002,current_policies,proposal,2032,2032 settlement by 30 September,,settlement,2031,72000.0,0.036000000000000004
+B002,current_policies,proposal,2033,2033 Q1,1,prepayment,2033,30000.0,0.015
+B002,current_policies,proposal,2033,2033 Q2,2,prepayment,2033,30000.0,0.015
+B002,current_policies,proposal,2033,2033 Q3,3,prepayment,2033,30000.0,0.015
+B002,current_policies,proposal,2033,2033 Q4,4,prepayment,2033,30000.0,0.015
+B002,current_policies,proposal,2033,2033 settlement by 30 September,,settlement,2032,96000.0,0.048
+B002,current_policies,proposal,2034,2034 Q1,1,prepayment,2034,36000.0,0.018
+B002,current_policies,proposal,2034,2034 Q2,2,prepayment,2034,36000.0,0.018
+B002,current_policies,proposal,2034,2034 Q3,3,prepayment,2034,36000.0,0.018
+B002,current_policies,proposal,2034,2034 Q4,4,prepayment,2034,36000.0,0.018
+B002,current_policies,proposal,2034,2034 settlement by 30 September,,settlement,2033,120000.0,0.06
+B002,current_policies,proposal,2035,2035 Q1,1,prepayment,2035,42000.0,0.021
+B002,current_policies,proposal,2035,2035 Q2,2,prepayment,2035,42000.0,0.021
+B002,current_policies,proposal,2035,2035 Q3,3,prepayment,2035,42000.0,0.021
+B002,current_policies,proposal,2035,2035 Q4,4,prepayment,2035,42000.0,0.021
+B002,current_policies,proposal,2035,2035 settlement by 30 September,,settlement,2034,144000.0,0.072
+B002,current_policies,proposal,2036,2036 settlement by 30 September,,settlement,2035,168000.0,0.084
+B002,delayed_transition,adopted,2027,2027 February to September,,block,2026,16000.0,0.008000000000000007
+B002,delayed_transition,adopted,2027,2027 Q1,1,prepayment,2027,4000.0,0.0020000000000000018
+B002,delayed_transition,adopted,2027,2027 Q2,2,prepayment,2027,4000.0,0.0020000000000000018
+B002,delayed_transition,adopted,2027,2027 Q3,3,prepayment,2027,4000.0,0.0020000000000000018
+B002,delayed_transition,adopted,2027,2027 Q4,4,prepayment,2027,4000.0,0.0020000000000000018
+B002,delayed_transition,adopted,2028,2028 Q1,1,prepayment,2028,8000.0,0.003999999999999999
+B002,delayed_transition,adopted,2028,2028 Q2,2,prepayment,2028,8000.0,0.003999999999999999
+B002,delayed_transition,adopted,2028,2028 Q3,3,prepayment,2028,8000.0,0.003999999999999999
+B002,delayed_transition,adopted,2028,2028 Q4,4,prepayment,2028,8000.0,0.003999999999999999
+B002,delayed_transition,adopted,2028,2028 settlement by 30 September,,settlement,2027,16000.0,0.008000000000000007
+B002,delayed_transition,adopted,2029,2029 Q1,1,prepayment,2029,18000.0,0.009
+B002,delayed_transition,adopted,2029,2029 Q2,2,prepayment,2029,18000.0,0.009
+B002,delayed_transition,adopted,2029,2029 Q3,3,prepayment,2029,18000.0,0.009
+B002,delayed_transition,adopted,2029,2029 Q4,4,prepayment,2029,18000.0,0.009
+B002,delayed_transition,adopted,2029,2029 settlement by 30 September,,settlement,2028,32000.0,0.015999999999999997
+B002,delayed_transition,adopted,2030,2030 Q1,1,prepayment,2030,38800.0,0.0194
+B002,delayed_transition,adopted,2030,2030 Q2,2,prepayment,2030,38800.0,0.0194
+B002,delayed_transition,adopted,2030,2030 Q3,3,prepayment,2030,38800.0,0.0194
+B002,delayed_transition,adopted,2030,2030 Q4,4,prepayment,2030,38800.0,0.0194
+B002,delayed_transition,adopted,2030,2030 settlement by 30 September,,settlement,2029,72000.0,0.036
+B002,delayed_transition,adopted,2031,2031 Q1,1,prepayment,2031,48800.0,0.0244
+B002,delayed_transition,adopted,2031,2031 Q2,2,prepayment,2031,48800.0,0.0244
+B002,delayed_transition,adopted,2031,2031 Q3,3,prepayment,2031,48800.0,0.0244
+B002,delayed_transition,adopted,2031,2031 Q4,4,prepayment,2031,48800.0,0.0244
+B002,delayed_transition,adopted,2031,2031 settlement by 30 September,,settlement,2030,155200.0,0.0776
+B002,delayed_transition,adopted,2032,2032 Q1,1,prepayment,2032,58800.0,0.0294
+B002,delayed_transition,adopted,2032,2032 Q2,2,prepayment,2032,58800.0,0.0294
+B002,delayed_transition,adopted,2032,2032 Q3,3,prepayment,2032,58800.0,0.0294
+B002,delayed_transition,adopted,2032,2032 Q4,4,prepayment,2032,58800.0,0.0294
+B002,delayed_transition,adopted,2032,2032 settlement by 30 September,,settlement,2031,195200.0,0.0976
+B002,delayed_transition,adopted,2033,2033 Q1,1,prepayment,2033,68800.0,0.0344
+B002,delayed_transition,adopted,2033,2033 Q2,2,prepayment,2033,68800.0,0.0344
+B002,delayed_transition,adopted,2033,2033 Q3,3,prepayment,2033,68800.0,0.0344
+B002,delayed_transition,adopted,2033,2033 Q4,4,prepayment,2033,68800.0,0.0344
+B002,delayed_transition,adopted,2033,2033 settlement by 30 September,,settlement,2032,235200.0,0.1176
+B002,delayed_transition,adopted,2034,2034 Q1,1,prepayment,2034,80000.0,0.04
+B002,delayed_transition,adopted,2034,2034 Q2,2,prepayment,2034,80000.0,0.04
+B002,delayed_transition,adopted,2034,2034 Q3,3,prepayment,2034,80000.0,0.04
+B002,delayed_transition,adopted,2034,2034 Q4,4,prepayment,2034,80000.0,0.04
+B002,delayed_transition,adopted,2034,2034 settlement by 30 September,,settlement,2033,275200.0,0.1376
+B002,delayed_transition,adopted,2035,2035 Q1,1,prepayment,2035,80000.0,0.04
+B002,delayed_transition,adopted,2035,2035 Q2,2,prepayment,2035,80000.0,0.04
+B002,delayed_transition,adopted,2035,2035 Q3,3,prepayment,2035,80000.0,0.04
+B002,delayed_transition,adopted,2035,2035 Q4,4,prepayment,2035,80000.0,0.04
+B002,delayed_transition,adopted,2035,2035 settlement by 30 September,,settlement,2034,320000.0,0.16
+B002,delayed_transition,adopted,2036,2036 settlement by 30 September,,settlement,2035,320000.0,0.16
+B002,delayed_transition,proposal,2027,2027 February to September,,block,2026,16000.0,0.008000000000000007
+B002,delayed_transition,proposal,2027,2027 Q1,1,prepayment,2027,4000.0,0.0020000000000000018
+B002,delayed_transition,proposal,2027,2027 Q2,2,prepayment,2027,4000.0,0.0020000000000000018
+B002,delayed_transition,proposal,2027,2027 Q3,3,prepayment,2027,4000.0,0.0020000000000000018
+B002,delayed_transition,proposal,2027,2027 Q4,4,prepayment,2027,4000.0,0.0020000000000000018
+B002,delayed_transition,proposal,2028,2028 Q1,1,prepayment,2028,8000.0,0.003999999999999999
+B002,delayed_transition,proposal,2028,2028 Q2,2,prepayment,2028,8000.0,0.003999999999999999
+B002,delayed_transition,proposal,2028,2028 Q3,3,prepayment,2028,8000.0,0.003999999999999999
+B002,delayed_transition,proposal,2028,2028 Q4,4,prepayment,2028,8000.0,0.003999999999999999
+B002,delayed_transition,proposal,2028,2028 settlement by 30 September,,settlement,2027,16000.0,0.008000000000000007
+B002,delayed_transition,proposal,2029,2029 Q1,1,prepayment,2029,12000.0,0.006000000000000001
+B002,delayed_transition,proposal,2029,2029 Q2,2,prepayment,2029,12000.0,0.006000000000000001
+B002,delayed_transition,proposal,2029,2029 Q3,3,prepayment,2029,12000.0,0.006000000000000001
+B002,delayed_transition,proposal,2029,2029 Q4,4,prepayment,2029,12000.0,0.006000000000000001
+B002,delayed_transition,proposal,2029,2029 settlement by 30 September,,settlement,2028,32000.0,0.015999999999999997
+B002,delayed_transition,proposal,2030,2030 Q1,1,prepayment,2030,16000.0,0.007999999999999998
+B002,delayed_transition,proposal,2030,2030 Q2,2,prepayment,2030,16000.0,0.007999999999999998
+B002,delayed_transition,proposal,2030,2030 Q3,3,prepayment,2030,16000.0,0.007999999999999998
+B002,delayed_transition,proposal,2030,2030 Q4,4,prepayment,2030,16000.0,0.007999999999999998
+B002,delayed_transition,proposal,2030,2030 settlement by 30 September,,settlement,2029,48000.0,0.024000000000000004
+B002,delayed_transition,proposal,2031,2031 Q1,1,prepayment,2031,24000.0,0.012000000000000002
+B002,delayed_transition,proposal,2031,2031 Q2,2,prepayment,2031,24000.0,0.012000000000000002
+B002,delayed_transition,proposal,2031,2031 Q3,3,prepayment,2031,24000.0,0.012000000000000002
+B002,delayed_transition,proposal,2031,2031 Q4,4,prepayment,2031,24000.0,0.012000000000000002
+B002,delayed_transition,proposal,2031,2031 settlement by 30 September,,settlement,2030,64000.0,0.031999999999999994
+B002,delayed_transition,proposal,2032,2032 Q1,1,prepayment,2032,32000.0,0.016
+B002,delayed_transition,proposal,2032,2032 Q2,2,prepayment,2032,32000.0,0.016
+B002,delayed_transition,proposal,2032,2032 Q3,3,prepayment,2032,32000.0,0.016
+B002,delayed_transition,proposal,2032,2032 Q4,4,prepayment,2032,32000.0,0.016
+B002,delayed_transition,proposal,2032,2032 settlement by 30 September,,settlement,2031,96000.0,0.04800000000000001
+B002,delayed_transition,proposal,2033,2033 Q1,1,prepayment,2033,40000.0,0.02
+B002,delayed_transition,proposal,2033,2033 Q2,2,prepayment,2033,40000.0,0.02
+B002,delayed_transition,proposal,2033,2033 Q3,3,prepayment,2033,40000.0,0.02
+B002,delayed_transition,proposal,2033,2033 Q4,4,prepayment,2033,40000.0,0.02
+B002,delayed_transition,proposal,2033,2033 settlement by 30 September,,settlement,2032,128000.0,0.064
+B002,delayed_transition,proposal,2034,2034 Q1,1,prepayment,2034,48000.0,0.024
+B002,delayed_transition,proposal,2034,2034 Q2,2,prepayment,2034,48000.0,0.024
+B002,delayed_transition,proposal,2034,2034 Q3,3,prepayment,2034,48000.0,0.024
+B002,delayed_transition,proposal,2034,2034 Q4,4,prepayment,2034,48000.0,0.024
+B002,delayed_transition,proposal,2034,2034 settlement by 30 September,,settlement,2033,160000.0,0.08
+B002,delayed_transition,proposal,2035,2035 Q1,1,prepayment,2035,56000.0,0.028
+B002,delayed_transition,proposal,2035,2035 Q2,2,prepayment,2035,56000.0,0.028
+B002,delayed_transition,proposal,2035,2035 Q3,3,prepayment,2035,56000.0,0.028
+B002,delayed_transition,proposal,2035,2035 Q4,4,prepayment,2035,56000.0,0.028
+B002,delayed_transition,proposal,2035,2035 settlement by 30 September,,settlement,2034,192000.0,0.096
+B002,delayed_transition,proposal,2036,2036 settlement by 30 September,,settlement,2035,224000.0,0.112
+B002,net_zero_2050,adopted,2027,2027 February to September,,block,2026,20000.0,0.010000000000000009
+B002,net_zero_2050,adopted,2027,2027 Q1,1,prepayment,2027,5000.0,0.0025000000000000022
+B002,net_zero_2050,adopted,2027,2027 Q2,2,prepayment,2027,5000.0,0.0025000000000000022
+B002,net_zero_2050,adopted,2027,2027 Q3,3,prepayment,2027,5000.0,0.0025000000000000022
+B002,net_zero_2050,adopted,2027,2027 Q4,4,prepayment,2027,5000.0,0.0025000000000000022
+B002,net_zero_2050,adopted,2028,2028 Q1,1,prepayment,2028,10000.0,0.004999999999999999
+B002,net_zero_2050,adopted,2028,2028 Q2,2,prepayment,2028,10000.0,0.004999999999999999
+B002,net_zero_2050,adopted,2028,2028 Q3,3,prepayment,2028,10000.0,0.004999999999999999
+B002,net_zero_2050,adopted,2028,2028 Q4,4,prepayment,2028,10000.0,0.004999999999999999
+B002,net_zero_2050,adopted,2028,2028 settlement by 30 September,,settlement,2027,20000.0,0.010000000000000009
+B002,net_zero_2050,adopted,2029,2029 Q1,1,prepayment,2029,22500.0,0.011249999999999998
+B002,net_zero_2050,adopted,2029,2029 Q2,2,prepayment,2029,22500.0,0.011249999999999998
+B002,net_zero_2050,adopted,2029,2029 Q3,3,prepayment,2029,22500.0,0.011249999999999998
+B002,net_zero_2050,adopted,2029,2029 Q4,4,prepayment,2029,22500.0,0.011249999999999998
+B002,net_zero_2050,adopted,2029,2029 settlement by 30 September,,settlement,2028,40000.0,0.019999999999999997
+B002,net_zero_2050,adopted,2030,2030 Q1,1,prepayment,2030,48500.0,0.02425
+B002,net_zero_2050,adopted,2030,2030 Q2,2,prepayment,2030,48500.0,0.02425
+B002,net_zero_2050,adopted,2030,2030 Q3,3,prepayment,2030,48500.0,0.02425
+B002,net_zero_2050,adopted,2030,2030 Q4,4,prepayment,2030,48500.0,0.02425
+B002,net_zero_2050,adopted,2030,2030 settlement by 30 September,,settlement,2029,90000.0,0.04499999999999999
+B002,net_zero_2050,adopted,2031,2031 Q1,1,prepayment,2031,61000.0,0.0305
+B002,net_zero_2050,adopted,2031,2031 Q2,2,prepayment,2031,61000.0,0.0305
+B002,net_zero_2050,adopted,2031,2031 Q3,3,prepayment,2031,61000.0,0.0305
+B002,net_zero_2050,adopted,2031,2031 Q4,4,prepayment,2031,61000.0,0.0305
+B002,net_zero_2050,adopted,2031,2031 settlement by 30 September,,settlement,2030,194000.0,0.097
+B002,net_zero_2050,adopted,2032,2032 Q1,1,prepayment,2032,73500.0,0.03675
+B002,net_zero_2050,adopted,2032,2032 Q2,2,prepayment,2032,73500.0,0.03675
+B002,net_zero_2050,adopted,2032,2032 Q3,3,prepayment,2032,73500.0,0.03675
+B002,net_zero_2050,adopted,2032,2032 Q4,4,prepayment,2032,73500.0,0.03675
+B002,net_zero_2050,adopted,2032,2032 settlement by 30 September,,settlement,2031,244000.0,0.122
+B002,net_zero_2050,adopted,2033,2033 Q1,1,prepayment,2033,86000.0,0.043
+B002,net_zero_2050,adopted,2033,2033 Q2,2,prepayment,2033,86000.0,0.043
+B002,net_zero_2050,adopted,2033,2033 Q3,3,prepayment,2033,86000.0,0.043
+B002,net_zero_2050,adopted,2033,2033 Q4,4,prepayment,2033,86000.0,0.043
+B002,net_zero_2050,adopted,2033,2033 settlement by 30 September,,settlement,2032,294000.0,0.147
+B002,net_zero_2050,adopted,2034,2034 Q1,1,prepayment,2034,100000.0,0.05
+B002,net_zero_2050,adopted,2034,2034 Q2,2,prepayment,2034,100000.0,0.05
+B002,net_zero_2050,adopted,2034,2034 Q3,3,prepayment,2034,100000.0,0.05
+B002,net_zero_2050,adopted,2034,2034 Q4,4,prepayment,2034,100000.0,0.05
+B002,net_zero_2050,adopted,2034,2034 settlement by 30 September,,settlement,2033,344000.0,0.172
+B002,net_zero_2050,adopted,2035,2035 Q1,1,prepayment,2035,100000.0,0.05
+B002,net_zero_2050,adopted,2035,2035 Q2,2,prepayment,2035,100000.0,0.05
+B002,net_zero_2050,adopted,2035,2035 Q3,3,prepayment,2035,100000.0,0.05
+B002,net_zero_2050,adopted,2035,2035 Q4,4,prepayment,2035,100000.0,0.05
+B002,net_zero_2050,adopted,2035,2035 settlement by 30 September,,settlement,2034,400000.0,0.2
+B002,net_zero_2050,adopted,2036,2036 settlement by 30 September,,settlement,2035,400000.0,0.2
+B002,net_zero_2050,proposal,2027,2027 February to September,,block,2026,20000.0,0.010000000000000009
+B002,net_zero_2050,proposal,2027,2027 Q1,1,prepayment,2027,5000.0,0.0025000000000000022
+B002,net_zero_2050,proposal,2027,2027 Q2,2,prepayment,2027,5000.0,0.0025000000000000022
+B002,net_zero_2050,proposal,2027,2027 Q3,3,prepayment,2027,5000.0,0.0025000000000000022
+B002,net_zero_2050,proposal,2027,2027 Q4,4,prepayment,2027,5000.0,0.0025000000000000022
+B002,net_zero_2050,proposal,2028,2028 Q1,1,prepayment,2028,10000.0,0.004999999999999999
+B002,net_zero_2050,proposal,2028,2028 Q2,2,prepayment,2028,10000.0,0.004999999999999999
+B002,net_zero_2050,proposal,2028,2028 Q3,3,prepayment,2028,10000.0,0.004999999999999999
+B002,net_zero_2050,proposal,2028,2028 Q4,4,prepayment,2028,10000.0,0.004999999999999999
+B002,net_zero_2050,proposal,2028,2028 settlement by 30 September,,settlement,2027,20000.0,0.010000000000000009
+B002,net_zero_2050,proposal,2029,2029 Q1,1,prepayment,2029,15000.0,0.007500000000000001
+B002,net_zero_2050,proposal,2029,2029 Q2,2,prepayment,2029,15000.0,0.007500000000000001
+B002,net_zero_2050,proposal,2029,2029 Q3,3,prepayment,2029,15000.0,0.007500000000000001
+B002,net_zero_2050,proposal,2029,2029 Q4,4,prepayment,2029,15000.0,0.007500000000000001
+B002,net_zero_2050,proposal,2029,2029 settlement by 30 September,,settlement,2028,40000.0,0.019999999999999997
+B002,net_zero_2050,proposal,2030,2030 Q1,1,prepayment,2030,20000.0,0.009999999999999998
+B002,net_zero_2050,proposal,2030,2030 Q2,2,prepayment,2030,20000.0,0.009999999999999998
+B002,net_zero_2050,proposal,2030,2030 Q3,3,prepayment,2030,20000.0,0.009999999999999998
+B002,net_zero_2050,proposal,2030,2030 Q4,4,prepayment,2030,20000.0,0.009999999999999998
+B002,net_zero_2050,proposal,2030,2030 settlement by 30 September,,settlement,2029,60000.0,0.030000000000000002
+B002,net_zero_2050,proposal,2031,2031 Q1,1,prepayment,2031,30000.0,0.015000000000000001
+B002,net_zero_2050,proposal,2031,2031 Q2,2,prepayment,2031,30000.0,0.015000000000000001
+B002,net_zero_2050,proposal,2031,2031 Q3,3,prepayment,2031,30000.0,0.015000000000000001
+B002,net_zero_2050,proposal,2031,2031 Q4,4,prepayment,2031,30000.0,0.015000000000000001
+B002,net_zero_2050,proposal,2031,2031 settlement by 30 September,,settlement,2030,80000.0,0.039999999999999994
+B002,net_zero_2050,proposal,2032,2032 Q1,1,prepayment,2032,40000.0,0.02
+B002,net_zero_2050,proposal,2032,2032 Q2,2,prepayment,2032,40000.0,0.02
+B002,net_zero_2050,proposal,2032,2032 Q3,3,prepayment,2032,40000.0,0.02
+B002,net_zero_2050,proposal,2032,2032 Q4,4,prepayment,2032,40000.0,0.02
+B002,net_zero_2050,proposal,2032,2032 settlement by 30 September,,settlement,2031,120000.0,0.060000000000000005
+B002,net_zero_2050,proposal,2033,2033 Q1,1,prepayment,2033,50000.0,0.025
+B002,net_zero_2050,proposal,2033,2033 Q2,2,prepayment,2033,50000.0,0.025
+B002,net_zero_2050,proposal,2033,2033 Q3,3,prepayment,2033,50000.0,0.025
+B002,net_zero_2050,proposal,2033,2033 Q4,4,prepayment,2033,50000.0,0.025
+B002,net_zero_2050,proposal,2033,2033 settlement by 30 September,,settlement,2032,160000.0,0.08
+B002,net_zero_2050,proposal,2034,2034 Q1,1,prepayment,2034,60000.0,0.03
+B002,net_zero_2050,proposal,2034,2034 Q2,2,prepayment,2034,60000.0,0.03
+B002,net_zero_2050,proposal,2034,2034 Q3,3,prepayment,2034,60000.0,0.03
+B002,net_zero_2050,proposal,2034,2034 Q4,4,prepayment,2034,60000.0,0.03
+B002,net_zero_2050,proposal,2034,2034 settlement by 30 September,,settlement,2033,200000.0,0.1
+B002,net_zero_2050,proposal,2035,2035 Q1,1,prepayment,2035,70000.0,0.035
+B002,net_zero_2050,proposal,2035,2035 Q2,2,prepayment,2035,70000.0,0.035
+B002,net_zero_2050,proposal,2035,2035 Q3,3,prepayment,2035,70000.0,0.035
+B002,net_zero_2050,proposal,2035,2035 Q4,4,prepayment,2035,70000.0,0.035
+B002,net_zero_2050,proposal,2035,2035 settlement by 30 September,,settlement,2034,240000.0,0.12
+B002,net_zero_2050,proposal,2036,2036 settlement by 30 September,,settlement,2035,280000.0,0.14
+B004,current_policies,adopted,2027,2027 February to September,,block,2026,3510.0,0.0014040000000000012
+B004,current_policies,adopted,2027,2027 Q1,1,prepayment,2027,877.5,0.0003510000000000003
+B004,current_policies,adopted,2027,2027 Q2,2,prepayment,2027,877.5,0.0003510000000000003
+B004,current_policies,adopted,2027,2027 Q3,3,prepayment,2027,877.5,0.0003510000000000003
+B004,current_policies,adopted,2027,2027 Q4,4,prepayment,2027,877.5,0.0003510000000000003
+B004,current_policies,adopted,2028,2028 Q1,1,prepayment,2028,1755.0,0.0007019999999999998
+B004,current_policies,adopted,2028,2028 Q2,2,prepayment,2028,1755.0,0.0007019999999999998
+B004,current_policies,adopted,2028,2028 Q3,3,prepayment,2028,1755.0,0.0007019999999999998
+B004,current_policies,adopted,2028,2028 Q4,4,prepayment,2028,1755.0,0.0007019999999999998
+B004,current_policies,adopted,2028,2028 settlement by 30 September,,settlement,2027,3510.0,0.0014040000000000012
+B004,current_policies,adopted,2029,2029 Q1,1,prepayment,2029,3948.75,0.0015794999999999997
+B004,current_policies,adopted,2029,2029 Q2,2,prepayment,2029,3948.75,0.0015794999999999997
+B004,current_policies,adopted,2029,2029 Q3,3,prepayment,2029,3948.75,0.0015794999999999997
+B004,current_policies,adopted,2029,2029 Q4,4,prepayment,2029,3948.75,0.0015794999999999997
+B004,current_policies,adopted,2029,2029 settlement by 30 September,,settlement,2028,7020.0,0.0028079999999999993
+B004,current_policies,adopted,2030,2030 Q1,1,prepayment,2030,8511.75,0.0034047
+B004,current_policies,adopted,2030,2030 Q2,2,prepayment,2030,8511.75,0.0034047
+B004,current_policies,adopted,2030,2030 Q3,3,prepayment,2030,8511.75,0.0034047
+B004,current_policies,adopted,2030,2030 Q4,4,prepayment,2030,8511.75,0.0034047
+B004,current_policies,adopted,2030,2030 settlement by 30 September,,settlement,2029,15795.0,0.006317999999999999
+B004,current_policies,adopted,2031,2031 Q1,1,prepayment,2031,10705.5,0.0042822
+B004,current_policies,adopted,2031,2031 Q2,2,prepayment,2031,10705.5,0.0042822
+B004,current_policies,adopted,2031,2031 Q3,3,prepayment,2031,10705.5,0.0042822
+B004,current_policies,adopted,2031,2031 Q4,4,prepayment,2031,10705.5,0.0042822
+B004,current_policies,adopted,2031,2031 settlement by 30 September,,settlement,2030,34047.0,0.0136188
+B004,current_policies,adopted,2032,2032 Q1,1,prepayment,2032,12899.25,0.0051597
+B004,current_policies,adopted,2032,2032 Q2,2,prepayment,2032,12899.25,0.0051597
+B004,current_policies,adopted,2032,2032 Q3,3,prepayment,2032,12899.25,0.0051597
+B004,current_policies,adopted,2032,2032 Q4,4,prepayment,2032,12899.25,0.0051597
+B004,current_policies,adopted,2032,2032 settlement by 30 September,,settlement,2031,42822.0,0.0171288
+B004,current_policies,adopted,2033,2033 Q1,1,prepayment,2033,15093.0,0.0060372
+B004,current_policies,adopted,2033,2033 Q2,2,prepayment,2033,15093.0,0.0060372
+B004,current_policies,adopted,2033,2033 Q3,3,prepayment,2033,15093.0,0.0060372
+B004,current_policies,adopted,2033,2033 Q4,4,prepayment,2033,15093.0,0.0060372
+B004,current_policies,adopted,2033,2033 settlement by 30 September,,settlement,2032,51597.0,0.0206388
+B004,current_policies,adopted,2034,2034 Q1,1,prepayment,2034,17550.0,0.00702
+B004,current_policies,adopted,2034,2034 Q2,2,prepayment,2034,17550.0,0.00702
+B004,current_policies,adopted,2034,2034 Q3,3,prepayment,2034,17550.0,0.00702
+B004,current_policies,adopted,2034,2034 Q4,4,prepayment,2034,17550.0,0.00702
+B004,current_policies,adopted,2034,2034 settlement by 30 September,,settlement,2033,60372.0,0.0241488
+B004,current_policies,adopted,2035,2035 Q1,1,prepayment,2035,17550.0,0.00702
+B004,current_policies,adopted,2035,2035 Q2,2,prepayment,2035,17550.0,0.00702
+B004,current_policies,adopted,2035,2035 Q3,3,prepayment,2035,17550.0,0.00702
+B004,current_policies,adopted,2035,2035 Q4,4,prepayment,2035,17550.0,0.00702
+B004,current_policies,adopted,2035,2035 settlement by 30 September,,settlement,2034,70200.0,0.02808
+B004,current_policies,adopted,2036,2036 settlement by 30 September,,settlement,2035,70200.0,0.02808
+B004,current_policies,proposal,2027,2027 February to September,,block,2026,3510.0,0.0014040000000000012
+B004,current_policies,proposal,2027,2027 Q1,1,prepayment,2027,877.5,0.0003510000000000003
+B004,current_policies,proposal,2027,2027 Q2,2,prepayment,2027,877.5,0.0003510000000000003
+B004,current_policies,proposal,2027,2027 Q3,3,prepayment,2027,877.5,0.0003510000000000003
+B004,current_policies,proposal,2027,2027 Q4,4,prepayment,2027,877.5,0.0003510000000000003
+B004,current_policies,proposal,2028,2028 Q1,1,prepayment,2028,1755.0,0.0007019999999999998
+B004,current_policies,proposal,2028,2028 Q2,2,prepayment,2028,1755.0,0.0007019999999999998
+B004,current_policies,proposal,2028,2028 Q3,3,prepayment,2028,1755.0,0.0007019999999999998
+B004,current_policies,proposal,2028,2028 Q4,4,prepayment,2028,1755.0,0.0007019999999999998
+B004,current_policies,proposal,2028,2028 settlement by 30 September,,settlement,2027,3510.0,0.0014040000000000012
+B004,current_policies,proposal,2029,2029 Q1,1,prepayment,2029,2632.5,0.0010530000000000001
+B004,current_policies,proposal,2029,2029 Q2,2,prepayment,2029,2632.5,0.0010530000000000001
+B004,current_policies,proposal,2029,2029 Q3,3,prepayment,2029,2632.5,0.0010530000000000001
+B004,current_policies,proposal,2029,2029 Q4,4,prepayment,2029,2632.5,0.0010530000000000001
+B004,current_policies,proposal,2029,2029 settlement by 30 September,,settlement,2028,7020.0,0.0028079999999999993
+B004,current_policies,proposal,2030,2030 Q1,1,prepayment,2030,3510.0,0.0014039999999999996
+B004,current_policies,proposal,2030,2030 Q2,2,prepayment,2030,3510.0,0.0014039999999999996
+B004,current_policies,proposal,2030,2030 Q3,3,prepayment,2030,3510.0,0.0014039999999999996
+B004,current_policies,proposal,2030,2030 Q4,4,prepayment,2030,3510.0,0.0014039999999999996
+B004,current_policies,proposal,2030,2030 settlement by 30 September,,settlement,2029,10530.0,0.0042120000000000005
+B004,current_policies,proposal,2031,2031 Q1,1,prepayment,2031,5265.0,0.0021060000000000002
+B004,current_policies,proposal,2031,2031 Q2,2,prepayment,2031,5265.0,0.0021060000000000002
+B004,current_policies,proposal,2031,2031 Q3,3,prepayment,2031,5265.0,0.0021060000000000002
+B004,current_policies,proposal,2031,2031 Q4,4,prepayment,2031,5265.0,0.0021060000000000002
+B004,current_policies,proposal,2031,2031 settlement by 30 September,,settlement,2030,14040.0,0.005615999999999999
+B004,current_policies,proposal,2032,2032 Q1,1,prepayment,2032,7020.0,0.002808
+B004,current_policies,proposal,2032,2032 Q2,2,prepayment,2032,7020.0,0.002808
+B004,current_policies,proposal,2032,2032 Q3,3,prepayment,2032,7020.0,0.002808
+B004,current_policies,proposal,2032,2032 Q4,4,prepayment,2032,7020.0,0.002808
+B004,current_policies,proposal,2032,2032 settlement by 30 September,,settlement,2031,21060.0,0.008424000000000001
+B004,current_policies,proposal,2033,2033 Q1,1,prepayment,2033,8775.0,0.00351
+B004,current_policies,proposal,2033,2033 Q2,2,prepayment,2033,8775.0,0.00351
+B004,current_policies,proposal,2033,2033 Q3,3,prepayment,2033,8775.0,0.00351
+B004,current_policies,proposal,2033,2033 Q4,4,prepayment,2033,8775.0,0.00351
+B004,current_policies,proposal,2033,2033 settlement by 30 September,,settlement,2032,28080.0,0.011232
+B004,current_policies,proposal,2034,2034 Q1,1,prepayment,2034,10530.0,0.004212
+B004,current_policies,proposal,2034,2034 Q2,2,prepayment,2034,10530.0,0.004212
+B004,current_policies,proposal,2034,2034 Q3,3,prepayment,2034,10530.0,0.004212
+B004,current_policies,proposal,2034,2034 Q4,4,prepayment,2034,10530.0,0.004212
+B004,current_policies,proposal,2034,2034 settlement by 30 September,,settlement,2033,35100.0,0.01404
+B004,current_policies,proposal,2035,2035 Q1,1,prepayment,2035,12285.0,0.004914
+B004,current_policies,proposal,2035,2035 Q2,2,prepayment,2035,12285.0,0.004914
+B004,current_policies,proposal,2035,2035 Q3,3,prepayment,2035,12285.0,0.004914
+B004,current_policies,proposal,2035,2035 Q4,4,prepayment,2035,12285.0,0.004914
+B004,current_policies,proposal,2035,2035 settlement by 30 September,,settlement,2034,42120.0,0.016848
+B004,current_policies,proposal,2036,2036 settlement by 30 September,,settlement,2035,49140.0,0.019656
+B004,delayed_transition,adopted,2027,2027 February to September,,block,2026,4680.0,0.001872000000000002
+B004,delayed_transition,adopted,2027,2027 Q1,1,prepayment,2027,1170.0,0.0004680000000000005
+B004,delayed_transition,adopted,2027,2027 Q2,2,prepayment,2027,1170.0,0.0004680000000000005
+B004,delayed_transition,adopted,2027,2027 Q3,3,prepayment,2027,1170.0,0.0004680000000000005
+B004,delayed_transition,adopted,2027,2027 Q4,4,prepayment,2027,1170.0,0.0004680000000000005
+B004,delayed_transition,adopted,2028,2028 Q1,1,prepayment,2028,2340.0,0.0009359999999999998
+B004,delayed_transition,adopted,2028,2028 Q2,2,prepayment,2028,2340.0,0.0009359999999999998
+B004,delayed_transition,adopted,2028,2028 Q3,3,prepayment,2028,2340.0,0.0009359999999999998
+B004,delayed_transition,adopted,2028,2028 Q4,4,prepayment,2028,2340.0,0.0009359999999999998
+B004,delayed_transition,adopted,2028,2028 settlement by 30 September,,settlement,2027,4680.0,0.001872000000000002
+B004,delayed_transition,adopted,2029,2029 Q1,1,prepayment,2029,5265.0,0.002106
+B004,delayed_transition,adopted,2029,2029 Q2,2,prepayment,2029,5265.0,0.002106
+B004,delayed_transition,adopted,2029,2029 Q3,3,prepayment,2029,5265.0,0.002106
+B004,delayed_transition,adopted,2029,2029 Q4,4,prepayment,2029,5265.0,0.002106
+B004,delayed_transition,adopted,2029,2029 settlement by 30 September,,settlement,2028,9360.0,0.003743999999999999
+B004,delayed_transition,adopted,2030,2030 Q1,1,prepayment,2030,11349.0,0.0045396
+B004,delayed_transition,adopted,2030,2030 Q2,2,prepayment,2030,11349.0,0.0045396
+B004,delayed_transition,adopted,2030,2030 Q3,3,prepayment,2030,11349.0,0.0045396
+B004,delayed_transition,adopted,2030,2030 Q4,4,prepayment,2030,11349.0,0.0045396
+B004,delayed_transition,adopted,2030,2030 settlement by 30 September,,settlement,2029,21060.0,0.008424
+B004,delayed_transition,adopted,2031,2031 Q1,1,prepayment,2031,14274.0,0.0057096
+B004,delayed_transition,adopted,2031,2031 Q2,2,prepayment,2031,14274.0,0.0057096
+B004,delayed_transition,adopted,2031,2031 Q3,3,prepayment,2031,14274.0,0.0057096
+B004,delayed_transition,adopted,2031,2031 Q4,4,prepayment,2031,14274.0,0.0057096
+B004,delayed_transition,adopted,2031,2031 settlement by 30 September,,settlement,2030,45396.0,0.0181584
+B004,delayed_transition,adopted,2032,2032 Q1,1,prepayment,2032,17199.0,0.0068796
+B004,delayed_transition,adopted,2032,2032 Q2,2,prepayment,2032,17199.0,0.0068796
+B004,delayed_transition,adopted,2032,2032 Q3,3,prepayment,2032,17199.0,0.0068796
+B004,delayed_transition,adopted,2032,2032 Q4,4,prepayment,2032,17199.0,0.0068796
+B004,delayed_transition,adopted,2032,2032 settlement by 30 September,,settlement,2031,57096.0,0.0228384
+B004,delayed_transition,adopted,2033,2033 Q1,1,prepayment,2033,20124.0,0.0080496
+B004,delayed_transition,adopted,2033,2033 Q2,2,prepayment,2033,20124.0,0.0080496
+B004,delayed_transition,adopted,2033,2033 Q3,3,prepayment,2033,20124.0,0.0080496
+B004,delayed_transition,adopted,2033,2033 Q4,4,prepayment,2033,20124.0,0.0080496
+B004,delayed_transition,adopted,2033,2033 settlement by 30 September,,settlement,2032,68796.0,0.0275184
+B004,delayed_transition,adopted,2034,2034 Q1,1,prepayment,2034,23400.0,0.00936
+B004,delayed_transition,adopted,2034,2034 Q2,2,prepayment,2034,23400.0,0.00936
+B004,delayed_transition,adopted,2034,2034 Q3,3,prepayment,2034,23400.0,0.00936
+B004,delayed_transition,adopted,2034,2034 Q4,4,prepayment,2034,23400.0,0.00936
+B004,delayed_transition,adopted,2034,2034 settlement by 30 September,,settlement,2033,80496.0,0.0321984
+B004,delayed_transition,adopted,2035,2035 Q1,1,prepayment,2035,23400.0,0.00936
+B004,delayed_transition,adopted,2035,2035 Q2,2,prepayment,2035,23400.0,0.00936
+B004,delayed_transition,adopted,2035,2035 Q3,3,prepayment,2035,23400.0,0.00936
+B004,delayed_transition,adopted,2035,2035 Q4,4,prepayment,2035,23400.0,0.00936
+B004,delayed_transition,adopted,2035,2035 settlement by 30 September,,settlement,2034,93600.0,0.03744
+B004,delayed_transition,adopted,2036,2036 settlement by 30 September,,settlement,2035,93600.0,0.03744
+B004,delayed_transition,proposal,2027,2027 February to September,,block,2026,4680.0,0.001872000000000002
+B004,delayed_transition,proposal,2027,2027 Q1,1,prepayment,2027,1170.0,0.0004680000000000005
+B004,delayed_transition,proposal,2027,2027 Q2,2,prepayment,2027,1170.0,0.0004680000000000005
+B004,delayed_transition,proposal,2027,2027 Q3,3,prepayment,2027,1170.0,0.0004680000000000005
+B004,delayed_transition,proposal,2027,2027 Q4,4,prepayment,2027,1170.0,0.0004680000000000005
+B004,delayed_transition,proposal,2028,2028 Q1,1,prepayment,2028,2340.0,0.0009359999999999998
+B004,delayed_transition,proposal,2028,2028 Q2,2,prepayment,2028,2340.0,0.0009359999999999998
+B004,delayed_transition,proposal,2028,2028 Q3,3,prepayment,2028,2340.0,0.0009359999999999998
+B004,delayed_transition,proposal,2028,2028 Q4,4,prepayment,2028,2340.0,0.0009359999999999998
+B004,delayed_transition,proposal,2028,2028 settlement by 30 September,,settlement,2027,4680.0,0.001872000000000002
+B004,delayed_transition,proposal,2029,2029 Q1,1,prepayment,2029,3510.0,0.001404
+B004,delayed_transition,proposal,2029,2029 Q2,2,prepayment,2029,3510.0,0.001404
+B004,delayed_transition,proposal,2029,2029 Q3,3,prepayment,2029,3510.0,0.001404
+B004,delayed_transition,proposal,2029,2029 Q4,4,prepayment,2029,3510.0,0.001404
+B004,delayed_transition,proposal,2029,2029 settlement by 30 September,,settlement,2028,9360.0,0.003743999999999999
+B004,delayed_transition,proposal,2030,2030 Q1,1,prepayment,2030,4680.0,0.0018719999999999995
+B004,delayed_transition,proposal,2030,2030 Q2,2,prepayment,2030,4680.0,0.0018719999999999995
+B004,delayed_transition,proposal,2030,2030 Q3,3,prepayment,2030,4680.0,0.0018719999999999995
+B004,delayed_transition,proposal,2030,2030 Q4,4,prepayment,2030,4680.0,0.0018719999999999995
+B004,delayed_transition,proposal,2030,2030 settlement by 30 September,,settlement,2029,14040.0,0.005616
+B004,delayed_transition,proposal,2031,2031 Q1,1,prepayment,2031,7020.0,0.002808
+B004,delayed_transition,proposal,2031,2031 Q2,2,prepayment,2031,7020.0,0.002808
+B004,delayed_transition,proposal,2031,2031 Q3,3,prepayment,2031,7020.0,0.002808
+B004,delayed_transition,proposal,2031,2031 Q4,4,prepayment,2031,7020.0,0.002808
+B004,delayed_transition,proposal,2031,2031 settlement by 30 September,,settlement,2030,18720.0,0.007487999999999998
+B004,delayed_transition,proposal,2032,2032 Q1,1,prepayment,2032,9360.0,0.003744
+B004,delayed_transition,proposal,2032,2032 Q2,2,prepayment,2032,9360.0,0.003744
+B004,delayed_transition,proposal,2032,2032 Q3,3,prepayment,2032,9360.0,0.003744
+B004,delayed_transition,proposal,2032,2032 Q4,4,prepayment,2032,9360.0,0.003744
+B004,delayed_transition,proposal,2032,2032 settlement by 30 September,,settlement,2031,28080.0,0.011232
+B004,delayed_transition,proposal,2033,2033 Q1,1,prepayment,2033,11700.0,0.00468
+B004,delayed_transition,proposal,2033,2033 Q2,2,prepayment,2033,11700.0,0.00468
+B004,delayed_transition,proposal,2033,2033 Q3,3,prepayment,2033,11700.0,0.00468
+B004,delayed_transition,proposal,2033,2033 Q4,4,prepayment,2033,11700.0,0.00468
+B004,delayed_transition,proposal,2033,2033 settlement by 30 September,,settlement,2032,37440.0,0.014976
+B004,delayed_transition,proposal,2034,2034 Q1,1,prepayment,2034,14040.0,0.005616
+B004,delayed_transition,proposal,2034,2034 Q2,2,prepayment,2034,14040.0,0.005616
+B004,delayed_transition,proposal,2034,2034 Q3,3,prepayment,2034,14040.0,0.005616
+B004,delayed_transition,proposal,2034,2034 Q4,4,prepayment,2034,14040.0,0.005616
+B004,delayed_transition,proposal,2034,2034 settlement by 30 September,,settlement,2033,46800.0,0.01872
+B004,delayed_transition,proposal,2035,2035 Q1,1,prepayment,2035,16380.0,0.006552
+B004,delayed_transition,proposal,2035,2035 Q2,2,prepayment,2035,16380.0,0.006552
+B004,delayed_transition,proposal,2035,2035 Q3,3,prepayment,2035,16380.0,0.006552
+B004,delayed_transition,proposal,2035,2035 Q4,4,prepayment,2035,16380.0,0.006552
+B004,delayed_transition,proposal,2035,2035 settlement by 30 September,,settlement,2034,56160.0,0.022464
+B004,delayed_transition,proposal,2036,2036 settlement by 30 September,,settlement,2035,65520.0,0.026208
+B004,net_zero_2050,adopted,2027,2027 February to September,,block,2026,5850.0,0.0023400000000000022
+B004,net_zero_2050,adopted,2027,2027 Q1,1,prepayment,2027,1462.5,0.0005850000000000006
+B004,net_zero_2050,adopted,2027,2027 Q2,2,prepayment,2027,1462.5,0.0005850000000000006
+B004,net_zero_2050,adopted,2027,2027 Q3,3,prepayment,2027,1462.5,0.0005850000000000006
+B004,net_zero_2050,adopted,2027,2027 Q4,4,prepayment,2027,1462.5,0.0005850000000000006
+B004,net_zero_2050,adopted,2028,2028 Q1,1,prepayment,2028,2925.0,0.0011699999999999998
+B004,net_zero_2050,adopted,2028,2028 Q2,2,prepayment,2028,2925.0,0.0011699999999999998
+B004,net_zero_2050,adopted,2028,2028 Q3,3,prepayment,2028,2925.0,0.0011699999999999998
+B004,net_zero_2050,adopted,2028,2028 Q4,4,prepayment,2028,2925.0,0.0011699999999999998
+B004,net_zero_2050,adopted,2028,2028 settlement by 30 September,,settlement,2027,5850.0,0.0023400000000000022
+B004,net_zero_2050,adopted,2029,2029 Q1,1,prepayment,2029,6581.25,0.0026324999999999994
+B004,net_zero_2050,adopted,2029,2029 Q2,2,prepayment,2029,6581.25,0.0026324999999999994
+B004,net_zero_2050,adopted,2029,2029 Q3,3,prepayment,2029,6581.25,0.0026324999999999994
+B004,net_zero_2050,adopted,2029,2029 Q4,4,prepayment,2029,6581.25,0.0026324999999999994
+B004,net_zero_2050,adopted,2029,2029 settlement by 30 September,,settlement,2028,11700.0,0.004679999999999999
+B004,net_zero_2050,adopted,2030,2030 Q1,1,prepayment,2030,14186.25,0.0056745
+B004,net_zero_2050,adopted,2030,2030 Q2,2,prepayment,2030,14186.25,0.0056745
+B004,net_zero_2050,adopted,2030,2030 Q3,3,prepayment,2030,14186.25,0.0056745
+B004,net_zero_2050,adopted,2030,2030 Q4,4,prepayment,2030,14186.25,0.0056745
+B004,net_zero_2050,adopted,2030,2030 settlement by 30 September,,settlement,2029,26325.0,0.010529999999999998
+B004,net_zero_2050,adopted,2031,2031 Q1,1,prepayment,2031,17842.5,0.007137
+B004,net_zero_2050,adopted,2031,2031 Q2,2,prepayment,2031,17842.5,0.007137
+B004,net_zero_2050,adopted,2031,2031 Q3,3,prepayment,2031,17842.5,0.007137
+B004,net_zero_2050,adopted,2031,2031 Q4,4,prepayment,2031,17842.5,0.007137
+B004,net_zero_2050,adopted,2031,2031 settlement by 30 September,,settlement,2030,56745.0,0.022698
+B004,net_zero_2050,adopted,2032,2032 Q1,1,prepayment,2032,21498.75,0.0085995
+B004,net_zero_2050,adopted,2032,2032 Q2,2,prepayment,2032,21498.75,0.0085995
+B004,net_zero_2050,adopted,2032,2032 Q3,3,prepayment,2032,21498.75,0.0085995
+B004,net_zero_2050,adopted,2032,2032 Q4,4,prepayment,2032,21498.75,0.0085995
+B004,net_zero_2050,adopted,2032,2032 settlement by 30 September,,settlement,2031,71370.0,0.028548
+B004,net_zero_2050,adopted,2033,2033 Q1,1,prepayment,2033,25155.0,0.010062
+B004,net_zero_2050,adopted,2033,2033 Q2,2,prepayment,2033,25155.0,0.010062
+B004,net_zero_2050,adopted,2033,2033 Q3,3,prepayment,2033,25155.0,0.010062
+B004,net_zero_2050,adopted,2033,2033 Q4,4,prepayment,2033,25155.0,0.010062
+B004,net_zero_2050,adopted,2033,2033 settlement by 30 September,,settlement,2032,85995.0,0.034398
+B004,net_zero_2050,adopted,2034,2034 Q1,1,prepayment,2034,29250.0,0.0117
+B004,net_zero_2050,adopted,2034,2034 Q2,2,prepayment,2034,29250.0,0.0117
+B004,net_zero_2050,adopted,2034,2034 Q3,3,prepayment,2034,29250.0,0.0117
+B004,net_zero_2050,adopted,2034,2034 Q4,4,prepayment,2034,29250.0,0.0117
+B004,net_zero_2050,adopted,2034,2034 settlement by 30 September,,settlement,2033,100620.0,0.040248
+B004,net_zero_2050,adopted,2035,2035 Q1,1,prepayment,2035,29250.0,0.0117
+B004,net_zero_2050,adopted,2035,2035 Q2,2,prepayment,2035,29250.0,0.0117
+B004,net_zero_2050,adopted,2035,2035 Q3,3,prepayment,2035,29250.0,0.0117
+B004,net_zero_2050,adopted,2035,2035 Q4,4,prepayment,2035,29250.0,0.0117
+B004,net_zero_2050,adopted,2035,2035 settlement by 30 September,,settlement,2034,117000.0,0.0468
+B004,net_zero_2050,adopted,2036,2036 settlement by 30 September,,settlement,2035,117000.0,0.0468
+B004,net_zero_2050,proposal,2027,2027 February to September,,block,2026,5850.0,0.0023400000000000022
+B004,net_zero_2050,proposal,2027,2027 Q1,1,prepayment,2027,1462.5,0.0005850000000000006
+B004,net_zero_2050,proposal,2027,2027 Q2,2,prepayment,2027,1462.5,0.0005850000000000006
+B004,net_zero_2050,proposal,2027,2027 Q3,3,prepayment,2027,1462.5,0.0005850000000000006
+B004,net_zero_2050,proposal,2027,2027 Q4,4,prepayment,2027,1462.5,0.0005850000000000006
+B004,net_zero_2050,proposal,2028,2028 Q1,1,prepayment,2028,2925.0,0.0011699999999999998
+B004,net_zero_2050,proposal,2028,2028 Q2,2,prepayment,2028,2925.0,0.0011699999999999998
+B004,net_zero_2050,proposal,2028,2028 Q3,3,prepayment,2028,2925.0,0.0011699999999999998
+B004,net_zero_2050,proposal,2028,2028 Q4,4,prepayment,2028,2925.0,0.0011699999999999998
+B004,net_zero_2050,proposal,2028,2028 settlement by 30 September,,settlement,2027,5850.0,0.0023400000000000022
+B004,net_zero_2050,proposal,2029,2029 Q1,1,prepayment,2029,4387.5,0.0017550000000000003
+B004,net_zero_2050,proposal,2029,2029 Q2,2,prepayment,2029,4387.5,0.0017550000000000003
+B004,net_zero_2050,proposal,2029,2029 Q3,3,prepayment,2029,4387.5,0.0017550000000000003
+B004,net_zero_2050,proposal,2029,2029 Q4,4,prepayment,2029,4387.5,0.0017550000000000003
+B004,net_zero_2050,proposal,2029,2029 settlement by 30 September,,settlement,2028,11700.0,0.004679999999999999
+B004,net_zero_2050,proposal,2030,2030 Q1,1,prepayment,2030,5850.0,0.0023399999999999996
+B004,net_zero_2050,proposal,2030,2030 Q2,2,prepayment,2030,5850.0,0.0023399999999999996
+B004,net_zero_2050,proposal,2030,2030 Q3,3,prepayment,2030,5850.0,0.0023399999999999996
+B004,net_zero_2050,proposal,2030,2030 Q4,4,prepayment,2030,5850.0,0.0023399999999999996
+B004,net_zero_2050,proposal,2030,2030 settlement by 30 September,,settlement,2029,17550.0,0.007020000000000001
+B004,net_zero_2050,proposal,2031,2031 Q1,1,prepayment,2031,8775.0,0.0035100000000000005
+B004,net_zero_2050,proposal,2031,2031 Q2,2,prepayment,2031,8775.0,0.0035100000000000005
+B004,net_zero_2050,proposal,2031,2031 Q3,3,prepayment,2031,8775.0,0.0035100000000000005
+B004,net_zero_2050,proposal,2031,2031 Q4,4,prepayment,2031,8775.0,0.0035100000000000005
+B004,net_zero_2050,proposal,2031,2031 settlement by 30 September,,settlement,2030,23400.0,0.009359999999999999
+B004,net_zero_2050,proposal,2032,2032 Q1,1,prepayment,2032,11700.0,0.00468
+B004,net_zero_2050,proposal,2032,2032 Q2,2,prepayment,2032,11700.0,0.00468
+B004,net_zero_2050,proposal,2032,2032 Q3,3,prepayment,2032,11700.0,0.00468
+B004,net_zero_2050,proposal,2032,2032 Q4,4,prepayment,2032,11700.0,0.00468
+B004,net_zero_2050,proposal,2032,2032 settlement by 30 September,,settlement,2031,35100.0,0.014040000000000002
+B004,net_zero_2050,proposal,2033,2033 Q1,1,prepayment,2033,14625.0,0.00585
+B004,net_zero_2050,proposal,2033,2033 Q2,2,prepayment,2033,14625.0,0.00585
+B004,net_zero_2050,proposal,2033,2033 Q3,3,prepayment,2033,14625.0,0.00585
+B004,net_zero_2050,proposal,2033,2033 Q4,4,prepayment,2033,14625.0,0.00585
+B004,net_zero_2050,proposal,2033,2033 settlement by 30 September,,settlement,2032,46800.0,0.01872
+B004,net_zero_2050,proposal,2034,2034 Q1,1,prepayment,2034,17550.0,0.00702
+B004,net_zero_2050,proposal,2034,2034 Q2,2,prepayment,2034,17550.0,0.00702
+B004,net_zero_2050,proposal,2034,2034 Q3,3,prepayment,2034,17550.0,0.00702
+B004,net_zero_2050,proposal,2034,2034 Q4,4,prepayment,2034,17550.0,0.00702
+B004,net_zero_2050,proposal,2034,2034 settlement by 30 September,,settlement,2033,58500.0,0.0234
+B004,net_zero_2050,proposal,2035,2035 Q1,1,prepayment,2035,20475.0,0.00819
+B004,net_zero_2050,proposal,2035,2035 Q2,2,prepayment,2035,20475.0,0.00819
+B004,net_zero_2050,proposal,2035,2035 Q3,3,prepayment,2035,20475.0,0.00819
+B004,net_zero_2050,proposal,2035,2035 Q4,4,prepayment,2035,20475.0,0.00819
+B004,net_zero_2050,proposal,2035,2035 settlement by 30 September,,settlement,2034,70200.0,0.02808
+B004,net_zero_2050,proposal,2036,2036 settlement by 30 September,,settlement,2035,81900.0,0.03276
+B006,current_policies,adopted,2027,2027 February to September,,block,2026,855.0,0.0009500000000000009
+B006,current_policies,adopted,2027,2027 Q1,1,prepayment,2027,213.75,0.00023750000000000022
+B006,current_policies,adopted,2027,2027 Q2,2,prepayment,2027,213.75,0.00023750000000000022
+B006,current_policies,adopted,2027,2027 Q3,3,prepayment,2027,213.75,0.00023750000000000022
+B006,current_policies,adopted,2027,2027 Q4,4,prepayment,2027,213.75,0.00023750000000000022
+B006,current_policies,adopted,2028,2028 Q1,1,prepayment,2028,427.5,0.0004749999999999999
+B006,current_policies,adopted,2028,2028 Q2,2,prepayment,2028,427.5,0.0004749999999999999
+B006,current_policies,adopted,2028,2028 Q3,3,prepayment,2028,427.5,0.0004749999999999999
+B006,current_policies,adopted,2028,2028 Q4,4,prepayment,2028,427.5,0.0004749999999999999
+B006,current_policies,adopted,2028,2028 settlement by 30 September,,settlement,2027,855.0,0.0009500000000000009
+B006,current_policies,adopted,2029,2029 Q1,1,prepayment,2029,961.87,0.0010687499999999998
+B006,current_policies,adopted,2029,2029 Q2,2,prepayment,2029,961.87,0.0010687499999999998
+B006,current_policies,adopted,2029,2029 Q3,3,prepayment,2029,961.87,0.0010687499999999998
+B006,current_policies,adopted,2029,2029 Q4,4,prepayment,2029,961.87,0.0010687499999999998
+B006,current_policies,adopted,2029,2029 settlement by 30 September,,settlement,2028,1710.0,0.0018999999999999996
+B006,current_policies,adopted,2030,2030 Q1,1,prepayment,2030,2073.38,0.00230375
+B006,current_policies,adopted,2030,2030 Q2,2,prepayment,2030,2073.38,0.00230375
+B006,current_policies,adopted,2030,2030 Q3,3,prepayment,2030,2073.38,0.00230375
+B006,current_policies,adopted,2030,2030 Q4,4,prepayment,2030,2073.38,0.00230375
+B006,current_policies,adopted,2030,2030 settlement by 30 September,,settlement,2029,3847.5,0.004274999999999999
+B006,current_policies,adopted,2031,2031 Q1,1,prepayment,2031,2607.75,0.0028975
+B006,current_policies,adopted,2031,2031 Q2,2,prepayment,2031,2607.75,0.0028975
+B006,current_policies,adopted,2031,2031 Q3,3,prepayment,2031,2607.75,0.0028975
+B006,current_policies,adopted,2031,2031 Q4,4,prepayment,2031,2607.75,0.0028975
+B006,current_policies,adopted,2031,2031 settlement by 30 September,,settlement,2030,8293.5,0.009215
+B006,current_policies,adopted,2032,2032 Q1,1,prepayment,2032,3142.12,0.00349125
+B006,current_policies,adopted,2032,2032 Q2,2,prepayment,2032,3142.12,0.00349125
+B006,current_policies,adopted,2032,2032 Q3,3,prepayment,2032,3142.12,0.00349125
+B006,current_policies,adopted,2032,2032 Q4,4,prepayment,2032,3142.12,0.00349125
+B006,current_policies,adopted,2032,2032 settlement by 30 September,,settlement,2031,10431.0,0.01159
+B006,current_policies,adopted,2033,2033 Q1,1,prepayment,2033,3676.5,0.004085
+B006,current_policies,adopted,2033,2033 Q2,2,prepayment,2033,3676.5,0.004085
+B006,current_policies,adopted,2033,2033 Q3,3,prepayment,2033,3676.5,0.004085
+B006,current_policies,adopted,2033,2033 Q4,4,prepayment,2033,3676.5,0.004085
+B006,current_policies,adopted,2033,2033 settlement by 30 September,,settlement,2032,12568.5,0.013965
+B006,current_policies,adopted,2034,2034 Q1,1,prepayment,2034,4275.0,0.00475
+B006,current_policies,adopted,2034,2034 Q2,2,prepayment,2034,4275.0,0.00475
+B006,current_policies,adopted,2034,2034 Q3,3,prepayment,2034,4275.0,0.00475
+B006,current_policies,adopted,2034,2034 Q4,4,prepayment,2034,4275.0,0.00475
+B006,current_policies,adopted,2034,2034 settlement by 30 September,,settlement,2033,14706.0,0.01634
+B006,current_policies,adopted,2035,2035 Q1,1,prepayment,2035,4275.0,0.00475
+B006,current_policies,adopted,2035,2035 Q2,2,prepayment,2035,4275.0,0.00475
+B006,current_policies,adopted,2035,2035 Q3,3,prepayment,2035,4275.0,0.00475
+B006,current_policies,adopted,2035,2035 Q4,4,prepayment,2035,4275.0,0.00475
+B006,current_policies,adopted,2035,2035 settlement by 30 September,,settlement,2034,17100.0,0.019
+B006,current_policies,adopted,2036,2036 settlement by 30 September,,settlement,2035,17100.0,0.019
+B006,current_policies,proposal,2027,2027 February to September,,block,2026,855.0,0.0009500000000000009
+B006,current_policies,proposal,2027,2027 Q1,1,prepayment,2027,213.75,0.00023750000000000022
+B006,current_policies,proposal,2027,2027 Q2,2,prepayment,2027,213.75,0.00023750000000000022
+B006,current_policies,proposal,2027,2027 Q3,3,prepayment,2027,213.75,0.00023750000000000022
+B006,current_policies,proposal,2027,2027 Q4,4,prepayment,2027,213.75,0.00023750000000000022
+B006,current_policies,proposal,2028,2028 Q1,1,prepayment,2028,427.5,0.0004749999999999999
+B006,current_policies,proposal,2028,2028 Q2,2,prepayment,2028,427.5,0.0004749999999999999
+B006,current_policies,proposal,2028,2028 Q3,3,prepayment,2028,427.5,0.0004749999999999999
+B006,current_policies,proposal,2028,2028 Q4,4,prepayment,2028,427.5,0.0004749999999999999
+B006,current_policies,proposal,2028,2028 settlement by 30 September,,settlement,2027,855.0,0.0009500000000000009
+B006,current_policies,proposal,2029,2029 Q1,1,prepayment,2029,641.25,0.0007125000000000001
+B006,current_policies,proposal,2029,2029 Q2,2,prepayment,2029,641.25,0.0007125000000000001
+B006,current_policies,proposal,2029,2029 Q3,3,prepayment,2029,641.25,0.0007125000000000001
+B006,current_policies,proposal,2029,2029 Q4,4,prepayment,2029,641.25,0.0007125000000000001
+B006,current_policies,proposal,2029,2029 settlement by 30 September,,settlement,2028,1710.0,0.0018999999999999996
+B006,current_policies,proposal,2030,2030 Q1,1,prepayment,2030,855.0,0.0009499999999999998
+B006,current_policies,proposal,2030,2030 Q2,2,prepayment,2030,855.0,0.0009499999999999998
+B006,current_policies,proposal,2030,2030 Q3,3,prepayment,2030,855.0,0.0009499999999999998
+B006,current_policies,proposal,2030,2030 Q4,4,prepayment,2030,855.0,0.0009499999999999998
+B006,current_policies,proposal,2030,2030 settlement by 30 September,,settlement,2029,2565.0,0.0028500000000000005
+B006,current_policies,proposal,2031,2031 Q1,1,prepayment,2031,1282.5,0.0014250000000000003
+B006,current_policies,proposal,2031,2031 Q2,2,prepayment,2031,1282.5,0.0014250000000000003
+B006,current_policies,proposal,2031,2031 Q3,3,prepayment,2031,1282.5,0.0014250000000000003
+B006,current_policies,proposal,2031,2031 Q4,4,prepayment,2031,1282.5,0.0014250000000000003
+B006,current_policies,proposal,2031,2031 settlement by 30 September,,settlement,2030,3420.0,0.003799999999999999
+B006,current_policies,proposal,2032,2032 Q1,1,prepayment,2032,1710.0,0.0019
+B006,current_policies,proposal,2032,2032 Q2,2,prepayment,2032,1710.0,0.0019
+B006,current_policies,proposal,2032,2032 Q3,3,prepayment,2032,1710.0,0.0019
+B006,current_policies,proposal,2032,2032 Q4,4,prepayment,2032,1710.0,0.0019
+B006,current_policies,proposal,2032,2032 settlement by 30 September,,settlement,2031,5130.0,0.005700000000000001
+B006,current_policies,proposal,2033,2033 Q1,1,prepayment,2033,2137.5,0.002375
+B006,current_policies,proposal,2033,2033 Q2,2,prepayment,2033,2137.5,0.002375
+B006,current_policies,proposal,2033,2033 Q3,3,prepayment,2033,2137.5,0.002375
+B006,current_policies,proposal,2033,2033 Q4,4,prepayment,2033,2137.5,0.002375
+B006,current_policies,proposal,2033,2033 settlement by 30 September,,settlement,2032,6840.0,0.0076
+B006,current_policies,proposal,2034,2034 Q1,1,prepayment,2034,2565.0,0.00285
+B006,current_policies,proposal,2034,2034 Q2,2,prepayment,2034,2565.0,0.00285
+B006,current_policies,proposal,2034,2034 Q3,3,prepayment,2034,2565.0,0.00285
+B006,current_policies,proposal,2034,2034 Q4,4,prepayment,2034,2565.0,0.00285
+B006,current_policies,proposal,2034,2034 settlement by 30 September,,settlement,2033,8550.0,0.0095
+B006,current_policies,proposal,2035,2035 Q1,1,prepayment,2035,2992.5,0.003325
+B006,current_policies,proposal,2035,2035 Q2,2,prepayment,2035,2992.5,0.003325
+B006,current_policies,proposal,2035,2035 Q3,3,prepayment,2035,2992.5,0.003325
+B006,current_policies,proposal,2035,2035 Q4,4,prepayment,2035,2992.5,0.003325
+B006,current_policies,proposal,2035,2035 settlement by 30 September,,settlement,2034,10260.0,0.0114
+B006,current_policies,proposal,2036,2036 settlement by 30 September,,settlement,2035,11970.0,0.0133
+B006,delayed_transition,adopted,2027,2027 February to September,,block,2026,1140.0,0.0012666666666666677
+B006,delayed_transition,adopted,2027,2027 Q1,1,prepayment,2027,285.0,0.0003166666666666669
+B006,delayed_transition,adopted,2027,2027 Q2,2,prepayment,2027,285.0,0.0003166666666666669
+B006,delayed_transition,adopted,2027,2027 Q3,3,prepayment,2027,285.0,0.0003166666666666669
+B006,delayed_transition,adopted,2027,2027 Q4,4,prepayment,2027,285.0,0.0003166666666666669
+B006,delayed_transition,adopted,2028,2028 Q1,1,prepayment,2028,570.0,0.0006333333333333332
+B006,delayed_transition,adopted,2028,2028 Q2,2,prepayment,2028,570.0,0.0006333333333333332
+B006,delayed_transition,adopted,2028,2028 Q3,3,prepayment,2028,570.0,0.0006333333333333332
+B006,delayed_transition,adopted,2028,2028 Q4,4,prepayment,2028,570.0,0.0006333333333333332
+B006,delayed_transition,adopted,2028,2028 settlement by 30 September,,settlement,2027,1140.0,0.0012666666666666677
+B006,delayed_transition,adopted,2029,2029 Q1,1,prepayment,2029,1282.5,0.0014249999999999998
+B006,delayed_transition,adopted,2029,2029 Q2,2,prepayment,2029,1282.5,0.0014249999999999998
+B006,delayed_transition,adopted,2029,2029 Q3,3,prepayment,2029,1282.5,0.0014249999999999998
+B006,delayed_transition,adopted,2029,2029 Q4,4,prepayment,2029,1282.5,0.0014249999999999998
+B006,delayed_transition,adopted,2029,2029 settlement by 30 September,,settlement,2028,2280.0,0.0025333333333333328
+B006,delayed_transition,adopted,2030,2030 Q1,1,prepayment,2030,2764.5,0.0030716666666666666
+B006,delayed_transition,adopted,2030,2030 Q2,2,prepayment,2030,2764.5,0.0030716666666666666
+B006,delayed_transition,adopted,2030,2030 Q3,3,prepayment,2030,2764.5,0.0030716666666666666
+B006,delayed_transition,adopted,2030,2030 Q4,4,prepayment,2030,2764.5,0.0030716666666666666
+B006,delayed_transition,adopted,2030,2030 settlement by 30 September,,settlement,2029,5130.0,0.005699999999999999
+B006,delayed_transition,adopted,2031,2031 Q1,1,prepayment,2031,3477.0,0.003863333333333333
+B006,delayed_transition,adopted,2031,2031 Q2,2,prepayment,2031,3477.0,0.003863333333333333
+B006,delayed_transition,adopted,2031,2031 Q3,3,prepayment,2031,3477.0,0.003863333333333333
+B006,delayed_transition,adopted,2031,2031 Q4,4,prepayment,2031,3477.0,0.003863333333333333
+B006,delayed_transition,adopted,2031,2031 settlement by 30 September,,settlement,2030,11058.0,0.012286666666666666
+B006,delayed_transition,adopted,2032,2032 Q1,1,prepayment,2032,4189.5,0.004655
+B006,delayed_transition,adopted,2032,2032 Q2,2,prepayment,2032,4189.5,0.004655
+B006,delayed_transition,adopted,2032,2032 Q3,3,prepayment,2032,4189.5,0.004655
+B006,delayed_transition,adopted,2032,2032 Q4,4,prepayment,2032,4189.5,0.004655
+B006,delayed_transition,adopted,2032,2032 settlement by 30 September,,settlement,2031,13908.0,0.015453333333333333
+B006,delayed_transition,adopted,2033,2033 Q1,1,prepayment,2033,4902.0,0.0054466666666666665
+B006,delayed_transition,adopted,2033,2033 Q2,2,prepayment,2033,4902.0,0.0054466666666666665
+B006,delayed_transition,adopted,2033,2033 Q3,3,prepayment,2033,4902.0,0.0054466666666666665
+B006,delayed_transition,adopted,2033,2033 Q4,4,prepayment,2033,4902.0,0.0054466666666666665
+B006,delayed_transition,adopted,2033,2033 settlement by 30 September,,settlement,2032,16758.0,0.01862
+B006,delayed_transition,adopted,2034,2034 Q1,1,prepayment,2034,5700.0,0.006333333333333333
+B006,delayed_transition,adopted,2034,2034 Q2,2,prepayment,2034,5700.0,0.006333333333333333
+B006,delayed_transition,adopted,2034,2034 Q3,3,prepayment,2034,5700.0,0.006333333333333333
+B006,delayed_transition,adopted,2034,2034 Q4,4,prepayment,2034,5700.0,0.006333333333333333
+B006,delayed_transition,adopted,2034,2034 settlement by 30 September,,settlement,2033,19608.0,0.021786666666666666
+B006,delayed_transition,adopted,2035,2035 Q1,1,prepayment,2035,5700.0,0.006333333333333333
+B006,delayed_transition,adopted,2035,2035 Q2,2,prepayment,2035,5700.0,0.006333333333333333
+B006,delayed_transition,adopted,2035,2035 Q3,3,prepayment,2035,5700.0,0.006333333333333333
+B006,delayed_transition,adopted,2035,2035 Q4,4,prepayment,2035,5700.0,0.006333333333333333
+B006,delayed_transition,adopted,2035,2035 settlement by 30 September,,settlement,2034,22800.0,0.025333333333333333
+B006,delayed_transition,adopted,2036,2036 settlement by 30 September,,settlement,2035,22800.0,0.025333333333333333
+B006,delayed_transition,proposal,2027,2027 February to September,,block,2026,1140.0,0.0012666666666666677
+B006,delayed_transition,proposal,2027,2027 Q1,1,prepayment,2027,285.0,0.0003166666666666669
+B006,delayed_transition,proposal,2027,2027 Q2,2,prepayment,2027,285.0,0.0003166666666666669
+B006,delayed_transition,proposal,2027,2027 Q3,3,prepayment,2027,285.0,0.0003166666666666669
+B006,delayed_transition,proposal,2027,2027 Q4,4,prepayment,2027,285.0,0.0003166666666666669
+B006,delayed_transition,proposal,2028,2028 Q1,1,prepayment,2028,570.0,0.0006333333333333332
+B006,delayed_transition,proposal,2028,2028 Q2,2,prepayment,2028,570.0,0.0006333333333333332
+B006,delayed_transition,proposal,2028,2028 Q3,3,prepayment,2028,570.0,0.0006333333333333332
+B006,delayed_transition,proposal,2028,2028 Q4,4,prepayment,2028,570.0,0.0006333333333333332
+B006,delayed_transition,proposal,2028,2028 settlement by 30 September,,settlement,2027,1140.0,0.0012666666666666677
+B006,delayed_transition,proposal,2029,2029 Q1,1,prepayment,2029,855.0,0.0009500000000000001
+B006,delayed_transition,proposal,2029,2029 Q2,2,prepayment,2029,855.0,0.0009500000000000001
+B006,delayed_transition,proposal,2029,2029 Q3,3,prepayment,2029,855.0,0.0009500000000000001
+B006,delayed_transition,proposal,2029,2029 Q4,4,prepayment,2029,855.0,0.0009500000000000001
+B006,delayed_transition,proposal,2029,2029 settlement by 30 September,,settlement,2028,2280.0,0.0025333333333333328
+B006,delayed_transition,proposal,2030,2030 Q1,1,prepayment,2030,1140.0,0.0012666666666666664
+B006,delayed_transition,proposal,2030,2030 Q2,2,prepayment,2030,1140.0,0.0012666666666666664
+B006,delayed_transition,proposal,2030,2030 Q3,3,prepayment,2030,1140.0,0.0012666666666666664
+B006,delayed_transition,proposal,2030,2030 Q4,4,prepayment,2030,1140.0,0.0012666666666666664
+B006,delayed_transition,proposal,2030,2030 settlement by 30 September,,settlement,2029,3420.0,0.0038000000000000004
+B006,delayed_transition,proposal,2031,2031 Q1,1,prepayment,2031,1710.0,0.0019000000000000002
+B006,delayed_transition,proposal,2031,2031 Q2,2,prepayment,2031,1710.0,0.0019000000000000002
+B006,delayed_transition,proposal,2031,2031 Q3,3,prepayment,2031,1710.0,0.0019000000000000002
+B006,delayed_transition,proposal,2031,2031 Q4,4,prepayment,2031,1710.0,0.0019000000000000002
+B006,delayed_transition,proposal,2031,2031 settlement by 30 September,,settlement,2030,4560.0,0.0050666666666666655
+B006,delayed_transition,proposal,2032,2032 Q1,1,prepayment,2032,2280.0,0.002533333333333333
+B006,delayed_transition,proposal,2032,2032 Q2,2,prepayment,2032,2280.0,0.002533333333333333
+B006,delayed_transition,proposal,2032,2032 Q3,3,prepayment,2032,2280.0,0.002533333333333333
+B006,delayed_transition,proposal,2032,2032 Q4,4,prepayment,2032,2280.0,0.002533333333333333
+B006,delayed_transition,proposal,2032,2032 settlement by 30 September,,settlement,2031,6840.0,0.007600000000000001
+B006,delayed_transition,proposal,2033,2033 Q1,1,prepayment,2033,2850.0,0.0031666666666666666
+B006,delayed_transition,proposal,2033,2033 Q2,2,prepayment,2033,2850.0,0.0031666666666666666
+B006,delayed_transition,proposal,2033,2033 Q3,3,prepayment,2033,2850.0,0.0031666666666666666
+B006,delayed_transition,proposal,2033,2033 Q4,4,prepayment,2033,2850.0,0.0031666666666666666
+B006,delayed_transition,proposal,2033,2033 settlement by 30 September,,settlement,2032,9120.0,0.010133333333333333
+B006,delayed_transition,proposal,2034,2034 Q1,1,prepayment,2034,3420.0,0.0038
+B006,delayed_transition,proposal,2034,2034 Q2,2,prepayment,2034,3420.0,0.0038
+B006,delayed_transition,proposal,2034,2034 Q3,3,prepayment,2034,3420.0,0.0038
+B006,delayed_transition,proposal,2034,2034 Q4,4,prepayment,2034,3420.0,0.0038
+B006,delayed_transition,proposal,2034,2034 settlement by 30 September,,settlement,2033,11400.0,0.012666666666666666
+B006,delayed_transition,proposal,2035,2035 Q1,1,prepayment,2035,3990.0,0.0044333333333333325
+B006,delayed_transition,proposal,2035,2035 Q2,2,prepayment,2035,3990.0,0.0044333333333333325
+B006,delayed_transition,proposal,2035,2035 Q3,3,prepayment,2035,3990.0,0.0044333333333333325
+B006,delayed_transition,proposal,2035,2035 Q4,4,prepayment,2035,3990.0,0.0044333333333333325
+B006,delayed_transition,proposal,2035,2035 settlement by 30 September,,settlement,2034,13680.0,0.0152
+B006,delayed_transition,proposal,2036,2036 settlement by 30 September,,settlement,2035,15960.0,0.01773333333333333
+B006,net_zero_2050,adopted,2027,2027 February to September,,block,2026,1425.0,0.0015833333333333348
+B006,net_zero_2050,adopted,2027,2027 Q1,1,prepayment,2027,356.25,0.0003958333333333337
+B006,net_zero_2050,adopted,2027,2027 Q2,2,prepayment,2027,356.25,0.0003958333333333337
+B006,net_zero_2050,adopted,2027,2027 Q3,3,prepayment,2027,356.25,0.0003958333333333337
+B006,net_zero_2050,adopted,2027,2027 Q4,4,prepayment,2027,356.25,0.0003958333333333337
+B006,net_zero_2050,adopted,2028,2028 Q1,1,prepayment,2028,712.5,0.0007916666666666665
+B006,net_zero_2050,adopted,2028,2028 Q2,2,prepayment,2028,712.5,0.0007916666666666665
+B006,net_zero_2050,adopted,2028,2028 Q3,3,prepayment,2028,712.5,0.0007916666666666665
+B006,net_zero_2050,adopted,2028,2028 Q4,4,prepayment,2028,712.5,0.0007916666666666665
+B006,net_zero_2050,adopted,2028,2028 settlement by 30 September,,settlement,2027,1425.0,0.0015833333333333348
+B006,net_zero_2050,adopted,2029,2029 Q1,1,prepayment,2029,1603.12,0.0017812499999999998
+B006,net_zero_2050,adopted,2029,2029 Q2,2,prepayment,2029,1603.12,0.0017812499999999998
+B006,net_zero_2050,adopted,2029,2029 Q3,3,prepayment,2029,1603.12,0.0017812499999999998
+B006,net_zero_2050,adopted,2029,2029 Q4,4,prepayment,2029,1603.12,0.0017812499999999998
+B006,net_zero_2050,adopted,2029,2029 settlement by 30 September,,settlement,2028,2850.0,0.003166666666666666
+B006,net_zero_2050,adopted,2030,2030 Q1,1,prepayment,2030,3455.62,0.0038395833333333333
+B006,net_zero_2050,adopted,2030,2030 Q2,2,prepayment,2030,3455.62,0.0038395833333333333
+B006,net_zero_2050,adopted,2030,2030 Q3,3,prepayment,2030,3455.62,0.0038395833333333333
+B006,net_zero_2050,adopted,2030,2030 Q4,4,prepayment,2030,3455.62,0.0038395833333333333
+B006,net_zero_2050,adopted,2030,2030 settlement by 30 September,,settlement,2029,6412.5,0.007124999999999999
+B006,net_zero_2050,adopted,2031,2031 Q1,1,prepayment,2031,4346.25,0.0048291666666666665
+B006,net_zero_2050,adopted,2031,2031 Q2,2,prepayment,2031,4346.25,0.0048291666666666665
+B006,net_zero_2050,adopted,2031,2031 Q3,3,prepayment,2031,4346.25,0.0048291666666666665
+B006,net_zero_2050,adopted,2031,2031 Q4,4,prepayment,2031,4346.25,0.0048291666666666665
+B006,net_zero_2050,adopted,2031,2031 settlement by 30 September,,settlement,2030,13822.5,0.015358333333333333
+B006,net_zero_2050,adopted,2032,2032 Q1,1,prepayment,2032,5236.88,0.00581875
+B006,net_zero_2050,adopted,2032,2032 Q2,2,prepayment,2032,5236.88,0.00581875
+B006,net_zero_2050,adopted,2032,2032 Q3,3,prepayment,2032,5236.88,0.00581875
+B006,net_zero_2050,adopted,2032,2032 Q4,4,prepayment,2032,5236.88,0.00581875
+B006,net_zero_2050,adopted,2032,2032 settlement by 30 September,,settlement,2031,17385.0,0.019316666666666666
+B006,net_zero_2050,adopted,2033,2033 Q1,1,prepayment,2033,6127.5,0.006808333333333333
+B006,net_zero_2050,adopted,2033,2033 Q2,2,prepayment,2033,6127.5,0.006808333333333333
+B006,net_zero_2050,adopted,2033,2033 Q3,3,prepayment,2033,6127.5,0.006808333333333333
+B006,net_zero_2050,adopted,2033,2033 Q4,4,prepayment,2033,6127.5,0.006808333333333333
+B006,net_zero_2050,adopted,2033,2033 settlement by 30 September,,settlement,2032,20947.5,0.023275
+B006,net_zero_2050,adopted,2034,2034 Q1,1,prepayment,2034,7125.0,0.007916666666666667
+B006,net_zero_2050,adopted,2034,2034 Q2,2,prepayment,2034,7125.0,0.007916666666666667
+B006,net_zero_2050,adopted,2034,2034 Q3,3,prepayment,2034,7125.0,0.007916666666666667
+B006,net_zero_2050,adopted,2034,2034 Q4,4,prepayment,2034,7125.0,0.007916666666666667
+B006,net_zero_2050,adopted,2034,2034 settlement by 30 September,,settlement,2033,24510.0,0.02723333333333333
+B006,net_zero_2050,adopted,2035,2035 Q1,1,prepayment,2035,7125.0,0.007916666666666667
+B006,net_zero_2050,adopted,2035,2035 Q2,2,prepayment,2035,7125.0,0.007916666666666667
+B006,net_zero_2050,adopted,2035,2035 Q3,3,prepayment,2035,7125.0,0.007916666666666667
+B006,net_zero_2050,adopted,2035,2035 Q4,4,prepayment,2035,7125.0,0.007916666666666667
+B006,net_zero_2050,adopted,2035,2035 settlement by 30 September,,settlement,2034,28500.0,0.03166666666666667
+B006,net_zero_2050,adopted,2036,2036 settlement by 30 September,,settlement,2035,28500.0,0.03166666666666667
+B006,net_zero_2050,proposal,2027,2027 February to September,,block,2026,1425.0,0.0015833333333333348
+B006,net_zero_2050,proposal,2027,2027 Q1,1,prepayment,2027,356.25,0.0003958333333333337
+B006,net_zero_2050,proposal,2027,2027 Q2,2,prepayment,2027,356.25,0.0003958333333333337
+B006,net_zero_2050,proposal,2027,2027 Q3,3,prepayment,2027,356.25,0.0003958333333333337
+B006,net_zero_2050,proposal,2027,2027 Q4,4,prepayment,2027,356.25,0.0003958333333333337
+B006,net_zero_2050,proposal,2028,2028 Q1,1,prepayment,2028,712.5,0.0007916666666666665
+B006,net_zero_2050,proposal,2028,2028 Q2,2,prepayment,2028,712.5,0.0007916666666666665
+B006,net_zero_2050,proposal,2028,2028 Q3,3,prepayment,2028,712.5,0.0007916666666666665
+B006,net_zero_2050,proposal,2028,2028 Q4,4,prepayment,2028,712.5,0.0007916666666666665
+B006,net_zero_2050,proposal,2028,2028 settlement by 30 September,,settlement,2027,1425.0,0.0015833333333333348
+B006,net_zero_2050,proposal,2029,2029 Q1,1,prepayment,2029,1068.75,0.0011875000000000002
+B006,net_zero_2050,proposal,2029,2029 Q2,2,prepayment,2029,1068.75,0.0011875000000000002
+B006,net_zero_2050,proposal,2029,2029 Q3,3,prepayment,2029,1068.75,0.0011875000000000002
+B006,net_zero_2050,proposal,2029,2029 Q4,4,prepayment,2029,1068.75,0.0011875000000000002
+B006,net_zero_2050,proposal,2029,2029 settlement by 30 September,,settlement,2028,2850.0,0.003166666666666666
+B006,net_zero_2050,proposal,2030,2030 Q1,1,prepayment,2030,1425.0,0.001583333333333333
+B006,net_zero_2050,proposal,2030,2030 Q2,2,prepayment,2030,1425.0,0.001583333333333333
+B006,net_zero_2050,proposal,2030,2030 Q3,3,prepayment,2030,1425.0,0.001583333333333333
+B006,net_zero_2050,proposal,2030,2030 Q4,4,prepayment,2030,1425.0,0.001583333333333333
+B006,net_zero_2050,proposal,2030,2030 settlement by 30 September,,settlement,2029,4275.0,0.004750000000000001
+B006,net_zero_2050,proposal,2031,2031 Q1,1,prepayment,2031,2137.5,0.0023750000000000004
+B006,net_zero_2050,proposal,2031,2031 Q2,2,prepayment,2031,2137.5,0.0023750000000000004
+B006,net_zero_2050,proposal,2031,2031 Q3,3,prepayment,2031,2137.5,0.0023750000000000004
+B006,net_zero_2050,proposal,2031,2031 Q4,4,prepayment,2031,2137.5,0.0023750000000000004
+B006,net_zero_2050,proposal,2031,2031 settlement by 30 September,,settlement,2030,5700.0,0.006333333333333332
+B006,net_zero_2050,proposal,2032,2032 Q1,1,prepayment,2032,2850.0,0.0031666666666666666
+B006,net_zero_2050,proposal,2032,2032 Q2,2,prepayment,2032,2850.0,0.0031666666666666666
+B006,net_zero_2050,proposal,2032,2032 Q3,3,prepayment,2032,2850.0,0.0031666666666666666
+B006,net_zero_2050,proposal,2032,2032 Q4,4,prepayment,2032,2850.0,0.0031666666666666666
+B006,net_zero_2050,proposal,2032,2032 settlement by 30 September,,settlement,2031,8550.0,0.009500000000000001
+B006,net_zero_2050,proposal,2033,2033 Q1,1,prepayment,2033,3562.5,0.003958333333333334
+B006,net_zero_2050,proposal,2033,2033 Q2,2,prepayment,2033,3562.5,0.003958333333333334
+B006,net_zero_2050,proposal,2033,2033 Q3,3,prepayment,2033,3562.5,0.003958333333333334
+B006,net_zero_2050,proposal,2033,2033 Q4,4,prepayment,2033,3562.5,0.003958333333333334
+B006,net_zero_2050,proposal,2033,2033 settlement by 30 September,,settlement,2032,11400.0,0.012666666666666666
+B006,net_zero_2050,proposal,2034,2034 Q1,1,prepayment,2034,4275.0,0.00475
+B006,net_zero_2050,proposal,2034,2034 Q2,2,prepayment,2034,4275.0,0.00475
+B006,net_zero_2050,proposal,2034,2034 Q3,3,prepayment,2034,4275.0,0.00475
+B006,net_zero_2050,proposal,2034,2034 Q4,4,prepayment,2034,4275.0,0.00475
+B006,net_zero_2050,proposal,2034,2034 settlement by 30 September,,settlement,2033,14250.0,0.015833333333333335
+B006,net_zero_2050,proposal,2035,2035 Q1,1,prepayment,2035,4987.5,0.005541666666666667
+B006,net_zero_2050,proposal,2035,2035 Q2,2,prepayment,2035,4987.5,0.005541666666666667
+B006,net_zero_2050,proposal,2035,2035 Q3,3,prepayment,2035,4987.5,0.005541666666666667
+B006,net_zero_2050,proposal,2035,2035 Q4,4,prepayment,2035,4987.5,0.005541666666666667
+B006,net_zero_2050,proposal,2035,2035 settlement by 30 September,,settlement,2034,17100.0,0.019
+B006,net_zero_2050,proposal,2036,2036 settlement by 30 September,,settlement,2035,19950.0,0.022166666666666668
+B007,current_policies,adopted,2027,2027 Q1,1,prepayment,2027,1031.25,0.0003437500000000003
+B007,current_policies,adopted,2027,2027 Q2,2,prepayment,2027,1031.25,0.0003437500000000003
+B007,current_policies,adopted,2027,2027 Q3,3,prepayment,2027,1031.25,0.0003437500000000003
+B007,current_policies,adopted,2027,2027 Q4,4,prepayment,2027,1031.25,0.0003437500000000003
+B007,current_policies,adopted,2028,2028 Q1,1,prepayment,2028,2062.5,0.0006874999999999991
+B007,current_policies,adopted,2028,2028 Q2,2,prepayment,2028,2062.5,0.0006874999999999991
+B007,current_policies,adopted,2028,2028 Q3,3,prepayment,2028,2062.5,0.0006874999999999991
+B007,current_policies,adopted,2028,2028 Q4,4,prepayment,2028,2062.5,0.0006874999999999991
+B007,current_policies,adopted,2028,2028 settlement by 30 September,,settlement,2027,4125.0,0.0013750000000000012
+B007,current_policies,adopted,2029,2029 Q1,1,prepayment,2029,5156.25,0.00171875
+B007,current_policies,adopted,2029,2029 Q2,2,prepayment,2029,5156.25,0.00171875
+B007,current_policies,adopted,2029,2029 Q3,3,prepayment,2029,5156.25,0.00171875
+B007,current_policies,adopted,2029,2029 Q4,4,prepayment,2029,5156.25,0.00171875
+B007,current_policies,adopted,2029,2029 settlement by 30 September,,settlement,2028,8250.0,0.0027499999999999964
+B007,current_policies,adopted,2030,2030 Q1,1,prepayment,2030,10725.0,0.003575
+B007,current_policies,adopted,2030,2030 Q2,2,prepayment,2030,10725.0,0.003575
+B007,current_policies,adopted,2030,2030 Q3,3,prepayment,2030,10725.0,0.003575
+B007,current_policies,adopted,2030,2030 Q4,4,prepayment,2030,10725.0,0.003575
+B007,current_policies,adopted,2030,2030 settlement by 30 September,,settlement,2029,20625.0,0.006875
+B007,current_policies,adopted,2031,2031 Q1,1,prepayment,2031,5156.25,0.00171875
+B007,current_policies,adopted,2031,2031 Q2,2,prepayment,2031,5156.25,0.00171875
+B007,current_policies,adopted,2031,2031 Q3,3,prepayment,2031,5156.25,0.00171875
+B007,current_policies,adopted,2031,2031 Q4,4,prepayment,2031,5156.25,0.00171875
+B007,current_policies,adopted,2031,2031 settlement by 30 September,,settlement,2030,42900.0,0.0143
+B007,current_policies,adopted,2032,2032 Q1,1,prepayment,2032,5156.25,0.00171875
+B007,current_policies,adopted,2032,2032 Q2,2,prepayment,2032,5156.25,0.00171875
+B007,current_policies,adopted,2032,2032 Q3,3,prepayment,2032,5156.25,0.00171875
+B007,current_policies,adopted,2032,2032 Q4,4,prepayment,2032,5156.25,0.00171875
+B007,current_policies,adopted,2032,2032 settlement by 30 September,,settlement,2031,20625.0,0.006875
+B007,current_policies,adopted,2033,2033 Q1,1,prepayment,2033,5156.25,0.00171875
+B007,current_policies,adopted,2033,2033 Q2,2,prepayment,2033,5156.25,0.00171875
+B007,current_policies,adopted,2033,2033 Q3,3,prepayment,2033,5156.25,0.00171875
+B007,current_policies,adopted,2033,2033 Q4,4,prepayment,2033,5156.25,0.00171875
+B007,current_policies,adopted,2033,2033 settlement by 30 September,,settlement,2032,20625.0,0.006875
+B007,current_policies,adopted,2034,2034 Q1,1,prepayment,2034,5775.0,0.0019250000000000003
+B007,current_policies,adopted,2034,2034 Q2,2,prepayment,2034,5775.0,0.0019250000000000003
+B007,current_policies,adopted,2034,2034 Q3,3,prepayment,2034,5775.0,0.0019250000000000003
+B007,current_policies,adopted,2034,2034 Q4,4,prepayment,2034,5775.0,0.0019250000000000003
+B007,current_policies,adopted,2034,2034 settlement by 30 September,,settlement,2033,20625.0,0.006875
+B007,current_policies,adopted,2035,2035 settlement by 30 September,,settlement,2034,23100.0,0.007700000000000001
+B007,current_policies,proposal,2027,2027 Q1,1,prepayment,2027,1031.25,0.0003437500000000003
+B007,current_policies,proposal,2027,2027 Q2,2,prepayment,2027,1031.25,0.0003437500000000003
+B007,current_policies,proposal,2027,2027 Q3,3,prepayment,2027,1031.25,0.0003437500000000003
+B007,current_policies,proposal,2027,2027 Q4,4,prepayment,2027,1031.25,0.0003437500000000003
+B007,current_policies,proposal,2028,2028 Q1,1,prepayment,2028,2062.5,0.0006874999999999991
+B007,current_policies,proposal,2028,2028 Q2,2,prepayment,2028,2062.5,0.0006874999999999991
+B007,current_policies,proposal,2028,2028 Q3,3,prepayment,2028,2062.5,0.0006874999999999991
+B007,current_policies,proposal,2028,2028 Q4,4,prepayment,2028,2062.5,0.0006874999999999991
+B007,current_policies,proposal,2028,2028 settlement by 30 September,,settlement,2027,4125.0,0.0013750000000000012
+B007,current_policies,proposal,2029,2029 Q1,1,prepayment,2029,2062.5,0.0006875000000000006
+B007,current_policies,proposal,2029,2029 Q2,2,prepayment,2029,2062.5,0.0006875000000000006
+B007,current_policies,proposal,2029,2029 Q3,3,prepayment,2029,2062.5,0.0006875000000000006
+B007,current_policies,proposal,2029,2029 Q4,4,prepayment,2029,2062.5,0.0006875000000000006
+B007,current_policies,proposal,2029,2029 settlement by 30 September,,settlement,2028,8250.0,0.0027499999999999964
+B007,current_policies,proposal,2030,2030 Q1,1,prepayment,2030,2062.5,0.0006874999999999991
+B007,current_policies,proposal,2030,2030 Q2,2,prepayment,2030,2062.5,0.0006874999999999991
+B007,current_policies,proposal,2030,2030 Q3,3,prepayment,2030,2062.5,0.0006874999999999991
+B007,current_policies,proposal,2030,2030 Q4,4,prepayment,2030,2062.5,0.0006874999999999991
+B007,current_policies,proposal,2030,2030 settlement by 30 September,,settlement,2029,8250.0,0.0027500000000000024
+B007,current_policies,proposal,2031,2031 Q1,1,prepayment,2031,4125.0,0.0013750000000000012
+B007,current_policies,proposal,2031,2031 Q2,2,prepayment,2031,4125.0,0.0013750000000000012
+B007,current_policies,proposal,2031,2031 Q3,3,prepayment,2031,4125.0,0.0013750000000000012
+B007,current_policies,proposal,2031,2031 Q4,4,prepayment,2031,4125.0,0.0013750000000000012
+B007,current_policies,proposal,2031,2031 settlement by 30 September,,settlement,2030,8250.0,0.0027499999999999964
+B007,current_policies,proposal,2032,2032 Q1,1,prepayment,2032,4125.0,0.0013749999999999997
+B007,current_policies,proposal,2032,2032 Q2,2,prepayment,2032,4125.0,0.0013749999999999997
+B007,current_policies,proposal,2032,2032 Q3,3,prepayment,2032,4125.0,0.0013749999999999997
+B007,current_policies,proposal,2032,2032 Q4,4,prepayment,2032,4125.0,0.0013749999999999997
+B007,current_policies,proposal,2032,2032 settlement by 30 September,,settlement,2031,16500.0,0.005500000000000005
+B007,current_policies,proposal,2033,2033 Q1,1,prepayment,2033,4125.0,0.0013749999999999997
+B007,current_policies,proposal,2033,2033 Q2,2,prepayment,2033,4125.0,0.0013749999999999997
+B007,current_policies,proposal,2033,2033 Q3,3,prepayment,2033,4125.0,0.0013749999999999997
+B007,current_policies,proposal,2033,2033 Q4,4,prepayment,2033,4125.0,0.0013749999999999997
+B007,current_policies,proposal,2033,2033 settlement by 30 September,,settlement,2032,16500.0,0.005499999999999999
+B007,current_policies,proposal,2034,2034 Q1,1,prepayment,2034,4125.0,0.0013749999999999997
+B007,current_policies,proposal,2034,2034 Q2,2,prepayment,2034,4125.0,0.0013749999999999997
+B007,current_policies,proposal,2034,2034 Q3,3,prepayment,2034,4125.0,0.0013749999999999997
+B007,current_policies,proposal,2034,2034 Q4,4,prepayment,2034,4125.0,0.0013749999999999997
+B007,current_policies,proposal,2034,2034 settlement by 30 September,,settlement,2033,16500.0,0.005499999999999999
+B007,current_policies,proposal,2035,2035 Q1,1,prepayment,2035,4125.0,0.0013750000000000006
+B007,current_policies,proposal,2035,2035 Q2,2,prepayment,2035,4125.0,0.0013750000000000006
+B007,current_policies,proposal,2035,2035 Q3,3,prepayment,2035,4125.0,0.0013750000000000006
+B007,current_policies,proposal,2035,2035 Q4,4,prepayment,2035,4125.0,0.0013750000000000006
+B007,current_policies,proposal,2035,2035 settlement by 30 September,,settlement,2034,16500.0,0.005499999999999999
+B007,current_policies,proposal,2036,2036 settlement by 30 September,,settlement,2035,16500.0,0.005500000000000002
+B007,delayed_transition,adopted,2027,2027 Q1,1,prepayment,2027,1375.0,0.0004583333333333337
+B007,delayed_transition,adopted,2027,2027 Q2,2,prepayment,2027,1375.0,0.0004583333333333337
+B007,delayed_transition,adopted,2027,2027 Q3,3,prepayment,2027,1375.0,0.0004583333333333337
+B007,delayed_transition,adopted,2027,2027 Q4,4,prepayment,2027,1375.0,0.0004583333333333337
+B007,delayed_transition,adopted,2028,2028 Q1,1,prepayment,2028,2750.0,0.0009166666666666655
+B007,delayed_transition,adopted,2028,2028 Q2,2,prepayment,2028,2750.0,0.0009166666666666655
+B007,delayed_transition,adopted,2028,2028 Q3,3,prepayment,2028,2750.0,0.0009166666666666655
+B007,delayed_transition,adopted,2028,2028 Q4,4,prepayment,2028,2750.0,0.0009166666666666655
+B007,delayed_transition,adopted,2028,2028 settlement by 30 September,,settlement,2027,5500.0,0.0018333333333333348
+B007,delayed_transition,adopted,2029,2029 Q1,1,prepayment,2029,6875.0,0.0022916666666666667
+B007,delayed_transition,adopted,2029,2029 Q2,2,prepayment,2029,6875.0,0.0022916666666666667
+B007,delayed_transition,adopted,2029,2029 Q3,3,prepayment,2029,6875.0,0.0022916666666666667
+B007,delayed_transition,adopted,2029,2029 Q4,4,prepayment,2029,6875.0,0.0022916666666666667
+B007,delayed_transition,adopted,2029,2029 settlement by 30 September,,settlement,2028,11000.0,0.003666666666666662
+B007,delayed_transition,adopted,2030,2030 Q1,1,prepayment,2030,14300.0,0.0047666666666666664
+B007,delayed_transition,adopted,2030,2030 Q2,2,prepayment,2030,14300.0,0.0047666666666666664
+B007,delayed_transition,adopted,2030,2030 Q3,3,prepayment,2030,14300.0,0.0047666666666666664
+B007,delayed_transition,adopted,2030,2030 Q4,4,prepayment,2030,14300.0,0.0047666666666666664
+B007,delayed_transition,adopted,2030,2030 settlement by 30 September,,settlement,2029,27500.0,0.009166666666666667
+B007,delayed_transition,adopted,2031,2031 Q1,1,prepayment,2031,6875.0,0.0022916666666666667
+B007,delayed_transition,adopted,2031,2031 Q2,2,prepayment,2031,6875.0,0.0022916666666666667
+B007,delayed_transition,adopted,2031,2031 Q3,3,prepayment,2031,6875.0,0.0022916666666666667
+B007,delayed_transition,adopted,2031,2031 Q4,4,prepayment,2031,6875.0,0.0022916666666666667
+B007,delayed_transition,adopted,2031,2031 settlement by 30 September,,settlement,2030,57200.0,0.019066666666666666
+B007,delayed_transition,adopted,2032,2032 Q1,1,prepayment,2032,6875.0,0.0022916666666666667
+B007,delayed_transition,adopted,2032,2032 Q2,2,prepayment,2032,6875.0,0.0022916666666666667
+B007,delayed_transition,adopted,2032,2032 Q3,3,prepayment,2032,6875.0,0.0022916666666666667
+B007,delayed_transition,adopted,2032,2032 Q4,4,prepayment,2032,6875.0,0.0022916666666666667
+B007,delayed_transition,adopted,2032,2032 settlement by 30 September,,settlement,2031,27500.0,0.009166666666666667
+B007,delayed_transition,adopted,2033,2033 Q1,1,prepayment,2033,6875.0,0.0022916666666666667
+B007,delayed_transition,adopted,2033,2033 Q2,2,prepayment,2033,6875.0,0.0022916666666666667
+B007,delayed_transition,adopted,2033,2033 Q3,3,prepayment,2033,6875.0,0.0022916666666666667
+B007,delayed_transition,adopted,2033,2033 Q4,4,prepayment,2033,6875.0,0.0022916666666666667
+B007,delayed_transition,adopted,2033,2033 settlement by 30 September,,settlement,2032,27500.0,0.009166666666666667
+B007,delayed_transition,adopted,2034,2034 Q1,1,prepayment,2034,7700.0,0.002566666666666667
+B007,delayed_transition,adopted,2034,2034 Q2,2,prepayment,2034,7700.0,0.002566666666666667
+B007,delayed_transition,adopted,2034,2034 Q3,3,prepayment,2034,7700.0,0.002566666666666667
+B007,delayed_transition,adopted,2034,2034 Q4,4,prepayment,2034,7700.0,0.002566666666666667
+B007,delayed_transition,adopted,2034,2034 settlement by 30 September,,settlement,2033,27500.0,0.009166666666666667
+B007,delayed_transition,adopted,2035,2035 settlement by 30 September,,settlement,2034,30800.0,0.010266666666666669
+B007,delayed_transition,proposal,2027,2027 Q1,1,prepayment,2027,1375.0,0.0004583333333333337
+B007,delayed_transition,proposal,2027,2027 Q2,2,prepayment,2027,1375.0,0.0004583333333333337
+B007,delayed_transition,proposal,2027,2027 Q3,3,prepayment,2027,1375.0,0.0004583333333333337
+B007,delayed_transition,proposal,2027,2027 Q4,4,prepayment,2027,1375.0,0.0004583333333333337
+B007,delayed_transition,proposal,2028,2028 Q1,1,prepayment,2028,2750.0,0.0009166666666666655
+B007,delayed_transition,proposal,2028,2028 Q2,2,prepayment,2028,2750.0,0.0009166666666666655
+B007,delayed_transition,proposal,2028,2028 Q3,3,prepayment,2028,2750.0,0.0009166666666666655
+B007,delayed_transition,proposal,2028,2028 Q4,4,prepayment,2028,2750.0,0.0009166666666666655
+B007,delayed_transition,proposal,2028,2028 settlement by 30 September,,settlement,2027,5500.0,0.0018333333333333348
+B007,delayed_transition,proposal,2029,2029 Q1,1,prepayment,2029,2750.0,0.0009166666666666674
+B007,delayed_transition,proposal,2029,2029 Q2,2,prepayment,2029,2750.0,0.0009166666666666674
+B007,delayed_transition,proposal,2029,2029 Q3,3,prepayment,2029,2750.0,0.0009166666666666674
+B007,delayed_transition,proposal,2029,2029 Q4,4,prepayment,2029,2750.0,0.0009166666666666674
+B007,delayed_transition,proposal,2029,2029 settlement by 30 September,,settlement,2028,11000.0,0.003666666666666662
+B007,delayed_transition,proposal,2030,2030 Q1,1,prepayment,2030,2750.0,0.0009166666666666655
+B007,delayed_transition,proposal,2030,2030 Q2,2,prepayment,2030,2750.0,0.0009166666666666655
+B007,delayed_transition,proposal,2030,2030 Q3,3,prepayment,2030,2750.0,0.0009166666666666655
+B007,delayed_transition,proposal,2030,2030 Q4,4,prepayment,2030,2750.0,0.0009166666666666655
+B007,delayed_transition,proposal,2030,2030 settlement by 30 September,,settlement,2029,11000.0,0.0036666666666666696
+B007,delayed_transition,proposal,2031,2031 Q1,1,prepayment,2031,5500.0,0.0018333333333333348
+B007,delayed_transition,proposal,2031,2031 Q2,2,prepayment,2031,5500.0,0.0018333333333333348
+B007,delayed_transition,proposal,2031,2031 Q3,3,prepayment,2031,5500.0,0.0018333333333333348
+B007,delayed_transition,proposal,2031,2031 Q4,4,prepayment,2031,5500.0,0.0018333333333333348
+B007,delayed_transition,proposal,2031,2031 settlement by 30 September,,settlement,2030,11000.0,0.003666666666666662
+B007,delayed_transition,proposal,2032,2032 Q1,1,prepayment,2032,5500.0,0.001833333333333333
+B007,delayed_transition,proposal,2032,2032 Q2,2,prepayment,2032,5500.0,0.001833333333333333
+B007,delayed_transition,proposal,2032,2032 Q3,3,prepayment,2032,5500.0,0.001833333333333333
+B007,delayed_transition,proposal,2032,2032 Q4,4,prepayment,2032,5500.0,0.001833333333333333
+B007,delayed_transition,proposal,2032,2032 settlement by 30 September,,settlement,2031,22000.0,0.007333333333333339
+B007,delayed_transition,proposal,2033,2033 Q1,1,prepayment,2033,5500.0,0.001833333333333333
+B007,delayed_transition,proposal,2033,2033 Q2,2,prepayment,2033,5500.0,0.001833333333333333
+B007,delayed_transition,proposal,2033,2033 Q3,3,prepayment,2033,5500.0,0.001833333333333333
+B007,delayed_transition,proposal,2033,2033 Q4,4,prepayment,2033,5500.0,0.001833333333333333
+B007,delayed_transition,proposal,2033,2033 settlement by 30 September,,settlement,2032,22000.0,0.007333333333333332
+B007,delayed_transition,proposal,2034,2034 Q1,1,prepayment,2034,5500.0,0.001833333333333333
+B007,delayed_transition,proposal,2034,2034 Q2,2,prepayment,2034,5500.0,0.001833333333333333
+B007,delayed_transition,proposal,2034,2034 Q3,3,prepayment,2034,5500.0,0.001833333333333333
+B007,delayed_transition,proposal,2034,2034 Q4,4,prepayment,2034,5500.0,0.001833333333333333
+B007,delayed_transition,proposal,2034,2034 settlement by 30 September,,settlement,2033,22000.0,0.007333333333333332
+B007,delayed_transition,proposal,2035,2035 Q1,1,prepayment,2035,5500.0,0.001833333333333334
+B007,delayed_transition,proposal,2035,2035 Q2,2,prepayment,2035,5500.0,0.001833333333333334
+B007,delayed_transition,proposal,2035,2035 Q3,3,prepayment,2035,5500.0,0.001833333333333334
+B007,delayed_transition,proposal,2035,2035 Q4,4,prepayment,2035,5500.0,0.001833333333333334
+B007,delayed_transition,proposal,2035,2035 settlement by 30 September,,settlement,2034,22000.0,0.007333333333333332
+B007,delayed_transition,proposal,2036,2036 settlement by 30 September,,settlement,2035,22000.0,0.007333333333333336
+B007,net_zero_2050,adopted,2027,2027 Q1,1,prepayment,2027,1718.75,0.0005729166666666672
+B007,net_zero_2050,adopted,2027,2027 Q2,2,prepayment,2027,1718.75,0.0005729166666666672
+B007,net_zero_2050,adopted,2027,2027 Q3,3,prepayment,2027,1718.75,0.0005729166666666672
+B007,net_zero_2050,adopted,2027,2027 Q4,4,prepayment,2027,1718.75,0.0005729166666666672
+B007,net_zero_2050,adopted,2028,2028 Q1,1,prepayment,2028,3437.5,0.0011458333333333318
+B007,net_zero_2050,adopted,2028,2028 Q2,2,prepayment,2028,3437.5,0.0011458333333333318
+B007,net_zero_2050,adopted,2028,2028 Q3,3,prepayment,2028,3437.5,0.0011458333333333318
+B007,net_zero_2050,adopted,2028,2028 Q4,4,prepayment,2028,3437.5,0.0011458333333333318
+B007,net_zero_2050,adopted,2028,2028 settlement by 30 September,,settlement,2027,6875.0,0.002291666666666669
+B007,net_zero_2050,adopted,2029,2029 Q1,1,prepayment,2029,8593.75,0.002864583333333333
+B007,net_zero_2050,adopted,2029,2029 Q2,2,prepayment,2029,8593.75,0.002864583333333333
+B007,net_zero_2050,adopted,2029,2029 Q3,3,prepayment,2029,8593.75,0.002864583333333333
+B007,net_zero_2050,adopted,2029,2029 Q4,4,prepayment,2029,8593.75,0.002864583333333333
+B007,net_zero_2050,adopted,2029,2029 settlement by 30 September,,settlement,2028,13750.0,0.004583333333333327
+B007,net_zero_2050,adopted,2030,2030 Q1,1,prepayment,2030,17875.0,0.005958333333333334
+B007,net_zero_2050,adopted,2030,2030 Q2,2,prepayment,2030,17875.0,0.005958333333333334
+B007,net_zero_2050,adopted,2030,2030 Q3,3,prepayment,2030,17875.0,0.005958333333333334
+B007,net_zero_2050,adopted,2030,2030 Q4,4,prepayment,2030,17875.0,0.005958333333333334
+B007,net_zero_2050,adopted,2030,2030 settlement by 30 September,,settlement,2029,34375.0,0.011458333333333333
+B007,net_zero_2050,adopted,2031,2031 Q1,1,prepayment,2031,8593.75,0.002864583333333333
+B007,net_zero_2050,adopted,2031,2031 Q2,2,prepayment,2031,8593.75,0.002864583333333333
+B007,net_zero_2050,adopted,2031,2031 Q3,3,prepayment,2031,8593.75,0.002864583333333333
+B007,net_zero_2050,adopted,2031,2031 Q4,4,prepayment,2031,8593.75,0.002864583333333333
+B007,net_zero_2050,adopted,2031,2031 settlement by 30 September,,settlement,2030,71500.0,0.023833333333333335
+B007,net_zero_2050,adopted,2032,2032 Q1,1,prepayment,2032,8593.75,0.002864583333333333
+B007,net_zero_2050,adopted,2032,2032 Q2,2,prepayment,2032,8593.75,0.002864583333333333
+B007,net_zero_2050,adopted,2032,2032 Q3,3,prepayment,2032,8593.75,0.002864583333333333
+B007,net_zero_2050,adopted,2032,2032 Q4,4,prepayment,2032,8593.75,0.002864583333333333
+B007,net_zero_2050,adopted,2032,2032 settlement by 30 September,,settlement,2031,34375.0,0.011458333333333333
+B007,net_zero_2050,adopted,2033,2033 Q1,1,prepayment,2033,8593.75,0.002864583333333333
+B007,net_zero_2050,adopted,2033,2033 Q2,2,prepayment,2033,8593.75,0.002864583333333333
+B007,net_zero_2050,adopted,2033,2033 Q3,3,prepayment,2033,8593.75,0.002864583333333333
+B007,net_zero_2050,adopted,2033,2033 Q4,4,prepayment,2033,8593.75,0.002864583333333333
+B007,net_zero_2050,adopted,2033,2033 settlement by 30 September,,settlement,2032,34375.0,0.011458333333333333
+B007,net_zero_2050,adopted,2034,2034 Q1,1,prepayment,2034,9625.0,0.003208333333333334
+B007,net_zero_2050,adopted,2034,2034 Q2,2,prepayment,2034,9625.0,0.003208333333333334
+B007,net_zero_2050,adopted,2034,2034 Q3,3,prepayment,2034,9625.0,0.003208333333333334
+B007,net_zero_2050,adopted,2034,2034 Q4,4,prepayment,2034,9625.0,0.003208333333333334
+B007,net_zero_2050,adopted,2034,2034 settlement by 30 September,,settlement,2033,34375.0,0.011458333333333333
+B007,net_zero_2050,adopted,2035,2035 settlement by 30 September,,settlement,2034,38500.0,0.012833333333333335
+B007,net_zero_2050,proposal,2027,2027 Q1,1,prepayment,2027,1718.75,0.0005729166666666672
+B007,net_zero_2050,proposal,2027,2027 Q2,2,prepayment,2027,1718.75,0.0005729166666666672
+B007,net_zero_2050,proposal,2027,2027 Q3,3,prepayment,2027,1718.75,0.0005729166666666672
+B007,net_zero_2050,proposal,2027,2027 Q4,4,prepayment,2027,1718.75,0.0005729166666666672
+B007,net_zero_2050,proposal,2028,2028 Q1,1,prepayment,2028,3437.5,0.0011458333333333318
+B007,net_zero_2050,proposal,2028,2028 Q2,2,prepayment,2028,3437.5,0.0011458333333333318
+B007,net_zero_2050,proposal,2028,2028 Q3,3,prepayment,2028,3437.5,0.0011458333333333318
+B007,net_zero_2050,proposal,2028,2028 Q4,4,prepayment,2028,3437.5,0.0011458333333333318
+B007,net_zero_2050,proposal,2028,2028 settlement by 30 September,,settlement,2027,6875.0,0.002291666666666669
+B007,net_zero_2050,proposal,2029,2029 Q1,1,prepayment,2029,3437.5,0.0011458333333333344
+B007,net_zero_2050,proposal,2029,2029 Q2,2,prepayment,2029,3437.5,0.0011458333333333344
+B007,net_zero_2050,proposal,2029,2029 Q3,3,prepayment,2029,3437.5,0.0011458333333333344
+B007,net_zero_2050,proposal,2029,2029 Q4,4,prepayment,2029,3437.5,0.0011458333333333344
+B007,net_zero_2050,proposal,2029,2029 settlement by 30 September,,settlement,2028,13750.0,0.004583333333333327
+B007,net_zero_2050,proposal,2030,2030 Q1,1,prepayment,2030,3437.5,0.0011458333333333318
+B007,net_zero_2050,proposal,2030,2030 Q2,2,prepayment,2030,3437.5,0.0011458333333333318
+B007,net_zero_2050,proposal,2030,2030 Q3,3,prepayment,2030,3437.5,0.0011458333333333318
+B007,net_zero_2050,proposal,2030,2030 Q4,4,prepayment,2030,3437.5,0.0011458333333333318
+B007,net_zero_2050,proposal,2030,2030 settlement by 30 September,,settlement,2029,13750.0,0.004583333333333338
+B007,net_zero_2050,proposal,2031,2031 Q1,1,prepayment,2031,6875.0,0.002291666666666669
+B007,net_zero_2050,proposal,2031,2031 Q2,2,prepayment,2031,6875.0,0.002291666666666669
+B007,net_zero_2050,proposal,2031,2031 Q3,3,prepayment,2031,6875.0,0.002291666666666669
+B007,net_zero_2050,proposal,2031,2031 Q4,4,prepayment,2031,6875.0,0.002291666666666669
+B007,net_zero_2050,proposal,2031,2031 settlement by 30 September,,settlement,2030,13750.0,0.004583333333333327
+B007,net_zero_2050,proposal,2032,2032 Q1,1,prepayment,2032,6875.0,0.0022916666666666662
+B007,net_zero_2050,proposal,2032,2032 Q2,2,prepayment,2032,6875.0,0.0022916666666666662
+B007,net_zero_2050,proposal,2032,2032 Q3,3,prepayment,2032,6875.0,0.0022916666666666662
+B007,net_zero_2050,proposal,2032,2032 Q4,4,prepayment,2032,6875.0,0.0022916666666666662
+B007,net_zero_2050,proposal,2032,2032 settlement by 30 September,,settlement,2031,27500.0,0.009166666666666675
+B007,net_zero_2050,proposal,2033,2033 Q1,1,prepayment,2033,6875.0,0.0022916666666666662
+B007,net_zero_2050,proposal,2033,2033 Q2,2,prepayment,2033,6875.0,0.0022916666666666662
+B007,net_zero_2050,proposal,2033,2033 Q3,3,prepayment,2033,6875.0,0.0022916666666666662
+B007,net_zero_2050,proposal,2033,2033 Q4,4,prepayment,2033,6875.0,0.0022916666666666662
+B007,net_zero_2050,proposal,2033,2033 settlement by 30 September,,settlement,2032,27500.0,0.009166666666666665
+B007,net_zero_2050,proposal,2034,2034 Q1,1,prepayment,2034,6875.0,0.0022916666666666662
+B007,net_zero_2050,proposal,2034,2034 Q2,2,prepayment,2034,6875.0,0.0022916666666666662
+B007,net_zero_2050,proposal,2034,2034 Q3,3,prepayment,2034,6875.0,0.0022916666666666662
+B007,net_zero_2050,proposal,2034,2034 Q4,4,prepayment,2034,6875.0,0.0022916666666666662
+B007,net_zero_2050,proposal,2034,2034 settlement by 30 September,,settlement,2033,27500.0,0.009166666666666665
+B007,net_zero_2050,proposal,2035,2035 Q1,1,prepayment,2035,6875.0,0.0022916666666666675
+B007,net_zero_2050,proposal,2035,2035 Q2,2,prepayment,2035,6875.0,0.0022916666666666675
+B007,net_zero_2050,proposal,2035,2035 Q3,3,prepayment,2035,6875.0,0.0022916666666666675
+B007,net_zero_2050,proposal,2035,2035 Q4,4,prepayment,2035,6875.0,0.0022916666666666675
+B007,net_zero_2050,proposal,2035,2035 settlement by 30 September,,settlement,2034,27500.0,0.009166666666666665
+B007,net_zero_2050,proposal,2036,2036 settlement by 30 September,,settlement,2035,27500.0,0.00916666666666667
+B009,current_policies,proposal,2027,2027 February to September,,block,2026,3420.0,0.0019000000000000017
+B009,current_policies,proposal,2027,2027 Q1,1,prepayment,2027,855.0,0.00047500000000000043
+B009,current_policies,proposal,2027,2027 Q2,2,prepayment,2027,855.0,0.00047500000000000043
+B009,current_policies,proposal,2027,2027 Q3,3,prepayment,2027,855.0,0.00047500000000000043
+B009,current_policies,proposal,2027,2027 Q4,4,prepayment,2027,855.0,0.00047500000000000043
+B009,current_policies,proposal,2028,2028 Q1,1,prepayment,2028,1710.0,0.0009499999999999998
+B009,current_policies,proposal,2028,2028 Q2,2,prepayment,2028,1710.0,0.0009499999999999998
+B009,current_policies,proposal,2028,2028 Q3,3,prepayment,2028,1710.0,0.0009499999999999998
+B009,current_policies,proposal,2028,2028 Q4,4,prepayment,2028,1710.0,0.0009499999999999998
+B009,current_policies,proposal,2028,2028 settlement by 30 September,,settlement,2027,3420.0,0.0019000000000000017
+B009,current_policies,proposal,2029,2029 Q1,1,prepayment,2029,2565.0,0.0014250000000000003
+B009,current_policies,proposal,2029,2029 Q2,2,prepayment,2029,2565.0,0.0014250000000000003
+B009,current_policies,proposal,2029,2029 Q3,3,prepayment,2029,2565.0,0.0014250000000000003
+B009,current_policies,proposal,2029,2029 Q4,4,prepayment,2029,2565.0,0.0014250000000000003
+B009,current_policies,proposal,2029,2029 settlement by 30 September,,settlement,2028,6840.0,0.003799999999999999
+B009,current_policies,proposal,2030,2030 Q1,1,prepayment,2030,3420.0,0.0018999999999999996
+B009,current_policies,proposal,2030,2030 Q2,2,prepayment,2030,3420.0,0.0018999999999999996
+B009,current_policies,proposal,2030,2030 Q3,3,prepayment,2030,3420.0,0.0018999999999999996
+B009,current_policies,proposal,2030,2030 Q4,4,prepayment,2030,3420.0,0.0018999999999999996
+B009,current_policies,proposal,2030,2030 settlement by 30 September,,settlement,2029,10260.0,0.005700000000000001
+B009,current_policies,proposal,2031,2031 Q1,1,prepayment,2031,5130.0,0.0028500000000000005
+B009,current_policies,proposal,2031,2031 Q2,2,prepayment,2031,5130.0,0.0028500000000000005
+B009,current_policies,proposal,2031,2031 Q3,3,prepayment,2031,5130.0,0.0028500000000000005
+B009,current_policies,proposal,2031,2031 Q4,4,prepayment,2031,5130.0,0.0028500000000000005
+B009,current_policies,proposal,2031,2031 settlement by 30 September,,settlement,2030,13680.0,0.007599999999999998
+B009,current_policies,proposal,2032,2032 Q1,1,prepayment,2032,6840.0,0.0038
+B009,current_policies,proposal,2032,2032 Q2,2,prepayment,2032,6840.0,0.0038
+B009,current_policies,proposal,2032,2032 Q3,3,prepayment,2032,6840.0,0.0038
+B009,current_policies,proposal,2032,2032 Q4,4,prepayment,2032,6840.0,0.0038
+B009,current_policies,proposal,2032,2032 settlement by 30 September,,settlement,2031,20520.0,0.011400000000000002
+B009,current_policies,proposal,2033,2033 Q1,1,prepayment,2033,8550.0,0.00475
+B009,current_policies,proposal,2033,2033 Q2,2,prepayment,2033,8550.0,0.00475
+B009,current_policies,proposal,2033,2033 Q3,3,prepayment,2033,8550.0,0.00475
+B009,current_policies,proposal,2033,2033 Q4,4,prepayment,2033,8550.0,0.00475
+B009,current_policies,proposal,2033,2033 settlement by 30 September,,settlement,2032,27360.0,0.0152
+B009,current_policies,proposal,2034,2034 Q1,1,prepayment,2034,10260.0,0.0057
+B009,current_policies,proposal,2034,2034 Q2,2,prepayment,2034,10260.0,0.0057
+B009,current_policies,proposal,2034,2034 Q3,3,prepayment,2034,10260.0,0.0057
+B009,current_policies,proposal,2034,2034 Q4,4,prepayment,2034,10260.0,0.0057
+B009,current_policies,proposal,2034,2034 settlement by 30 September,,settlement,2033,34200.0,0.019
+B009,current_policies,proposal,2035,2035 Q1,1,prepayment,2035,11970.0,0.00665
+B009,current_policies,proposal,2035,2035 Q2,2,prepayment,2035,11970.0,0.00665
+B009,current_policies,proposal,2035,2035 Q3,3,prepayment,2035,11970.0,0.00665
+B009,current_policies,proposal,2035,2035 Q4,4,prepayment,2035,11970.0,0.00665
+B009,current_policies,proposal,2035,2035 settlement by 30 September,,settlement,2034,41040.0,0.0228
+B009,current_policies,proposal,2036,2036 settlement by 30 September,,settlement,2035,47880.0,0.0266
+B009,delayed_transition,proposal,2027,2027 February to September,,block,2026,4560.0,0.0025333333333333354
+B009,delayed_transition,proposal,2027,2027 Q1,1,prepayment,2027,1140.0,0.0006333333333333338
+B009,delayed_transition,proposal,2027,2027 Q2,2,prepayment,2027,1140.0,0.0006333333333333338
+B009,delayed_transition,proposal,2027,2027 Q3,3,prepayment,2027,1140.0,0.0006333333333333338
+B009,delayed_transition,proposal,2027,2027 Q4,4,prepayment,2027,1140.0,0.0006333333333333338
+B009,delayed_transition,proposal,2028,2028 Q1,1,prepayment,2028,2280.0,0.0012666666666666664
+B009,delayed_transition,proposal,2028,2028 Q2,2,prepayment,2028,2280.0,0.0012666666666666664
+B009,delayed_transition,proposal,2028,2028 Q3,3,prepayment,2028,2280.0,0.0012666666666666664
+B009,delayed_transition,proposal,2028,2028 Q4,4,prepayment,2028,2280.0,0.0012666666666666664
+B009,delayed_transition,proposal,2028,2028 settlement by 30 September,,settlement,2027,4560.0,0.0025333333333333354
+B009,delayed_transition,proposal,2029,2029 Q1,1,prepayment,2029,3420.0,0.0019000000000000002
+B009,delayed_transition,proposal,2029,2029 Q2,2,prepayment,2029,3420.0,0.0019000000000000002
+B009,delayed_transition,proposal,2029,2029 Q3,3,prepayment,2029,3420.0,0.0019000000000000002
+B009,delayed_transition,proposal,2029,2029 Q4,4,prepayment,2029,3420.0,0.0019000000000000002
+B009,delayed_transition,proposal,2029,2029 settlement by 30 September,,settlement,2028,9120.0,0.0050666666666666655
+B009,delayed_transition,proposal,2030,2030 Q1,1,prepayment,2030,4560.0,0.0025333333333333328
+B009,delayed_transition,proposal,2030,2030 Q2,2,prepayment,2030,4560.0,0.0025333333333333328
+B009,delayed_transition,proposal,2030,2030 Q3,3,prepayment,2030,4560.0,0.0025333333333333328
+B009,delayed_transition,proposal,2030,2030 Q4,4,prepayment,2030,4560.0,0.0025333333333333328
+B009,delayed_transition,proposal,2030,2030 settlement by 30 September,,settlement,2029,13680.0,0.007600000000000001
+B009,delayed_transition,proposal,2031,2031 Q1,1,prepayment,2031,6840.0,0.0038000000000000004
+B009,delayed_transition,proposal,2031,2031 Q2,2,prepayment,2031,6840.0,0.0038000000000000004
+B009,delayed_transition,proposal,2031,2031 Q3,3,prepayment,2031,6840.0,0.0038000000000000004
+B009,delayed_transition,proposal,2031,2031 Q4,4,prepayment,2031,6840.0,0.0038000000000000004
+B009,delayed_transition,proposal,2031,2031 settlement by 30 September,,settlement,2030,18240.0,0.010133333333333331
+B009,delayed_transition,proposal,2032,2032 Q1,1,prepayment,2032,9120.0,0.005066666666666666
+B009,delayed_transition,proposal,2032,2032 Q2,2,prepayment,2032,9120.0,0.005066666666666666
+B009,delayed_transition,proposal,2032,2032 Q3,3,prepayment,2032,9120.0,0.005066666666666666
+B009,delayed_transition,proposal,2032,2032 Q4,4,prepayment,2032,9120.0,0.005066666666666666
+B009,delayed_transition,proposal,2032,2032 settlement by 30 September,,settlement,2031,27360.0,0.015200000000000002
+B009,delayed_transition,proposal,2033,2033 Q1,1,prepayment,2033,11400.0,0.006333333333333333
+B009,delayed_transition,proposal,2033,2033 Q2,2,prepayment,2033,11400.0,0.006333333333333333
+B009,delayed_transition,proposal,2033,2033 Q3,3,prepayment,2033,11400.0,0.006333333333333333
+B009,delayed_transition,proposal,2033,2033 Q4,4,prepayment,2033,11400.0,0.006333333333333333
+B009,delayed_transition,proposal,2033,2033 settlement by 30 September,,settlement,2032,36480.0,0.020266666666666665
+B009,delayed_transition,proposal,2034,2034 Q1,1,prepayment,2034,13680.0,0.0076
+B009,delayed_transition,proposal,2034,2034 Q2,2,prepayment,2034,13680.0,0.0076
+B009,delayed_transition,proposal,2034,2034 Q3,3,prepayment,2034,13680.0,0.0076
+B009,delayed_transition,proposal,2034,2034 Q4,4,prepayment,2034,13680.0,0.0076
+B009,delayed_transition,proposal,2034,2034 settlement by 30 September,,settlement,2033,45600.0,0.025333333333333333
+B009,delayed_transition,proposal,2035,2035 Q1,1,prepayment,2035,15960.0,0.008866666666666665
+B009,delayed_transition,proposal,2035,2035 Q2,2,prepayment,2035,15960.0,0.008866666666666665
+B009,delayed_transition,proposal,2035,2035 Q3,3,prepayment,2035,15960.0,0.008866666666666665
+B009,delayed_transition,proposal,2035,2035 Q4,4,prepayment,2035,15960.0,0.008866666666666665
+B009,delayed_transition,proposal,2035,2035 settlement by 30 September,,settlement,2034,54720.0,0.0304
+B009,delayed_transition,proposal,2036,2036 settlement by 30 September,,settlement,2035,63840.0,0.03546666666666666
+B009,net_zero_2050,proposal,2027,2027 February to September,,block,2026,5700.0,0.0031666666666666696
+B009,net_zero_2050,proposal,2027,2027 Q1,1,prepayment,2027,1425.0,0.0007916666666666674
+B009,net_zero_2050,proposal,2027,2027 Q2,2,prepayment,2027,1425.0,0.0007916666666666674
+B009,net_zero_2050,proposal,2027,2027 Q3,3,prepayment,2027,1425.0,0.0007916666666666674
+B009,net_zero_2050,proposal,2027,2027 Q4,4,prepayment,2027,1425.0,0.0007916666666666674
+B009,net_zero_2050,proposal,2028,2028 Q1,1,prepayment,2028,2850.0,0.001583333333333333
+B009,net_zero_2050,proposal,2028,2028 Q2,2,prepayment,2028,2850.0,0.001583333333333333
+B009,net_zero_2050,proposal,2028,2028 Q3,3,prepayment,2028,2850.0,0.001583333333333333
+B009,net_zero_2050,proposal,2028,2028 Q4,4,prepayment,2028,2850.0,0.001583333333333333
+B009,net_zero_2050,proposal,2028,2028 settlement by 30 September,,settlement,2027,5700.0,0.0031666666666666696
+B009,net_zero_2050,proposal,2029,2029 Q1,1,prepayment,2029,4275.0,0.0023750000000000004
+B009,net_zero_2050,proposal,2029,2029 Q2,2,prepayment,2029,4275.0,0.0023750000000000004
+B009,net_zero_2050,proposal,2029,2029 Q3,3,prepayment,2029,4275.0,0.0023750000000000004
+B009,net_zero_2050,proposal,2029,2029 Q4,4,prepayment,2029,4275.0,0.0023750000000000004
+B009,net_zero_2050,proposal,2029,2029 settlement by 30 September,,settlement,2028,11400.0,0.006333333333333332
+B009,net_zero_2050,proposal,2030,2030 Q1,1,prepayment,2030,5700.0,0.003166666666666666
+B009,net_zero_2050,proposal,2030,2030 Q2,2,prepayment,2030,5700.0,0.003166666666666666
+B009,net_zero_2050,proposal,2030,2030 Q3,3,prepayment,2030,5700.0,0.003166666666666666
+B009,net_zero_2050,proposal,2030,2030 Q4,4,prepayment,2030,5700.0,0.003166666666666666
+B009,net_zero_2050,proposal,2030,2030 settlement by 30 September,,settlement,2029,17100.0,0.009500000000000001
+B009,net_zero_2050,proposal,2031,2031 Q1,1,prepayment,2031,8550.0,0.004750000000000001
+B009,net_zero_2050,proposal,2031,2031 Q2,2,prepayment,2031,8550.0,0.004750000000000001
+B009,net_zero_2050,proposal,2031,2031 Q3,3,prepayment,2031,8550.0,0.004750000000000001
+B009,net_zero_2050,proposal,2031,2031 Q4,4,prepayment,2031,8550.0,0.004750000000000001
+B009,net_zero_2050,proposal,2031,2031 settlement by 30 September,,settlement,2030,22800.0,0.012666666666666665
+B009,net_zero_2050,proposal,2032,2032 Q1,1,prepayment,2032,11400.0,0.006333333333333333
+B009,net_zero_2050,proposal,2032,2032 Q2,2,prepayment,2032,11400.0,0.006333333333333333
+B009,net_zero_2050,proposal,2032,2032 Q3,3,prepayment,2032,11400.0,0.006333333333333333
+B009,net_zero_2050,proposal,2032,2032 Q4,4,prepayment,2032,11400.0,0.006333333333333333
+B009,net_zero_2050,proposal,2032,2032 settlement by 30 September,,settlement,2031,34200.0,0.019000000000000003
+B009,net_zero_2050,proposal,2033,2033 Q1,1,prepayment,2033,14250.0,0.007916666666666667
+B009,net_zero_2050,proposal,2033,2033 Q2,2,prepayment,2033,14250.0,0.007916666666666667
+B009,net_zero_2050,proposal,2033,2033 Q3,3,prepayment,2033,14250.0,0.007916666666666667
+B009,net_zero_2050,proposal,2033,2033 Q4,4,prepayment,2033,14250.0,0.007916666666666667
+B009,net_zero_2050,proposal,2033,2033 settlement by 30 September,,settlement,2032,45600.0,0.025333333333333333
+B009,net_zero_2050,proposal,2034,2034 Q1,1,prepayment,2034,17100.0,0.0095
+B009,net_zero_2050,proposal,2034,2034 Q2,2,prepayment,2034,17100.0,0.0095
+B009,net_zero_2050,proposal,2034,2034 Q3,3,prepayment,2034,17100.0,0.0095
+B009,net_zero_2050,proposal,2034,2034 Q4,4,prepayment,2034,17100.0,0.0095
+B009,net_zero_2050,proposal,2034,2034 settlement by 30 September,,settlement,2033,57000.0,0.03166666666666667
+B009,net_zero_2050,proposal,2035,2035 Q1,1,prepayment,2035,19950.0,0.011083333333333334
+B009,net_zero_2050,proposal,2035,2035 Q2,2,prepayment,2035,19950.0,0.011083333333333334
+B009,net_zero_2050,proposal,2035,2035 Q3,3,prepayment,2035,19950.0,0.011083333333333334
+B009,net_zero_2050,proposal,2035,2035 Q4,4,prepayment,2035,19950.0,0.011083333333333334
+B009,net_zero_2050,proposal,2035,2035 settlement by 30 September,,settlement,2034,68400.0,0.038
+B009,net_zero_2050,proposal,2036,2036 settlement by 30 September,,settlement,2035,79800.0,0.044333333333333336

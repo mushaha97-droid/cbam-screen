@@ -1,0 +1,43 @@
+# FIXTURE PORTFOLIO. NOT REAL BORROWER DATA. NOT A BANK'S BOOK.
+# fixture_not_a_forecast. Every name, number and country below was invented for
+# the Power BI track so the star-schema exporter has something to export while
+# the real gates are shut. It is not synthetic in the sense of CLAUDE.md Task 8
+# either: it is not drawn from the ABN AMRO sector mix and it is not 300 rows.
+# It is thirteen hand-written rows chosen to cover every tier, both rule
+# branches and every flag in config thresholds.yaml at least once.
+#
+# Read with the fixture config in tests/fixtures/, not with config/.
+# See docs/POWERBI.md for what unlocks real data.
+#
+# Coverage map, under the adopted branch unless stated:
+#   B001 tier 2, the hand example: 1000 t steel, fixture price 80,
+#        free allocation 0.975 in 2026, so cost is 3800 EUR
+#   B002 tier 2, high materiality, RATING_GAP, NO_DECLARANT. EBITDA is 420,000
+#        rather than a rounder 400,000 on purpose: at 400,000 one scenario and
+#        year lands exactly on the 12 percent band edge, where floating point
+#        decides the band, and a fixture should not depend on that.
+#   B003 tier 2 below the 50 t mass threshold, MONITOR
+#   B004 tier 2, supplier data verified, so no DEFAULT_VALUES flag
+#   B005 tier 0 because the origin is exempt, even though it imports steel
+#   B006 tier 2 with no origin supplied, ORIGIN_UNKNOWN
+#   B007 tier 1 with a sector production intensity, so a lost-allowance cost
+#   B008 tier 1 with no sector production intensity, so a zero cost and no flags
+#   B009 tier 0 on adopted, tier 3 on proposal
+#   B010 tier 0 on adopted, tier 3 on proposal with nothing to cost
+#   B011 tier 4, cost not available until portfolio.py exists
+#   B012 tier 4, negative EBITDA, LOW_PASS_THROUGH, RATING_GAP
+#   B013 tier 0, no imports, no flags
+borrower_id,name,nace_code,country,exposure_eur,turnover_eur,ebitda_eur,import_t_steel,import_t_aluminium,import_t_cement,import_t_fertiliser,import_t_hydrogen,import_mwh_electricity,top_supplier_country,share_top_supplier,declarant_status,supplier_data,pass_through,bank_transition_rating,working_capital_eur
+B001,Fixture Steel Importers BV,46.72,NL,12000000,25000000,1200000,1000,,,,,,CN,0.80,yes,default,unknown,L,4000000
+B002,Fixture Aluminium Trading NV,46.72,BE,8000000,18000000,420000,,4000,,,,,TR,0.55,no,default,unknown,L,2000000
+B003,Fixture Cement Import Cooperative,46.73,NL,1500000,3000000,250000,,,20,,,,UA,0.90,unknown,default,unknown,ML,500000
+B004,Fixture Fertiliser Blending BV,46.75,NL,6000000,14000000,900000,,,,900,,,EG,0.45,yes,verified,medium,M,2500000
+B005,Fixture Norway Steel Buyer BV,46.72,NL,3000000,9000000,600000,800,,,,,,NO,0.70,no,default,unknown,L,1000000
+B006,Fixture Origin Unknown Importer BV,46.72,DE,4000000,11000000,500000,300,,,,,,,,unknown,unknown,unknown,ML,900000
+B007,Fixture Clinker Works NV,23.51,NL,15000000,20000000,1000000,,,,,,,,,yes,default,unknown,L,3000000
+B008,Fixture Basic Steel Producer BV,24.10,NL,20000000,60000000,3000000,,,,,,,,,yes,verified,high,M,8000000
+B009,Fixture Metal Structures BV,25.11,NL,9000000,30000000,700000,,,,,,,,,unknown,default,unknown,L,1800000
+B010,Fixture Machinery Works NV,28.20,BE,5000000,12000000,800000,,,,,,,,,unknown,default,medium,L,2000000
+B011,Fixture Construction Group BV,41.20,NL,22000000,50000000,2000000,,,,,,,,,unknown,default,unknown,ML,6000000
+B012,Fixture Meat Processing BV,10.13,IT,3500000,8000000,-200000,,,,,,,,,unknown,default,unknown,L,400000
+B013,Fixture Software Services BV,62.01,NL,800000,4000000,700000,,,,,,,,,yes,verified,high,L,900000

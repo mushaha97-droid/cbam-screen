@@ -1,0 +1,38 @@
+key,value
+generated_at,2026-09-14T20:54:25Z
+engine_version,0.1.0
+engine_commit,8cc4949
+data_label,FIXTURE
+borrower_source,data/powerbi_fixture/borrowers_fixture.csv
+borrower_count,13
+borrower_rows_rejected,0
+config_dir,tests/fixtures
+years,2026 to 2035
+scenarios,"current_policies, delayed_transition, net_zero_2050"
+branches,"adopted, proposal"
+default_scenario,delayed_transition
+default_branch,adopted
+tier_branch_for_dim_borrower,adopted
+flag_reference_year,2027
+flag_reference_scenario,delayed_transition
+flag_reference_branch,adopted
+liquidity_shock_year,2027
+price_source,data/powerbi_fixture/prices_fixture.yaml
+price_source_label,fixture_not_a_forecast
+price_source_note,Fixture prices for the Power BI export only. Not NGFS. Not a forecast. Flat by construction so that no reader can mistake the shape for a scenario path.
+price_source_sha256,43a9b13d474640856176be1b376cc89121eed8f827f4469f0f64e08639832387
+config_sha256_cbam_rules.yaml,d228b2182393c7b9ffe02519898e3f6514ba1fe1d70e1fd5b0465956e2bf7df9
+config_sha256_emission_defaults.yaml,f3698433570c0f36e0a2a1138e1425f8dc1defb914f3291955b7285fac5d9fbb
+config_sha256_nace_tiers.yaml,a8e17019b5bc686e8747b710ba89d46caf3476c893fbac6fdf74e7495c11715d
+config_sha256_scenarios.yaml,b1598b62671fb3af1117c8d0c5d11d09a52703aa7730e0fa4a3f7e02dff89483
+config_sha256_thresholds.yaml,f7515173c10732ca8232e4ca7aae2ad5adab5bda0db3901c38355602800ca6e8
+rows_dim_borrower,13
+rows_dim_scenario,3
+rows_dim_branch,2
+rows_dim_year,11
+rows_fact_cost,780
+rows_fact_liquidity,1497
+rows_fact_flags,117
+tier_4_cost_note,"Tier 4 cost needs the upstream sector uplift from portfolio.py, which is not built yet (CLAUDE.md Task 9). Tier 4 rows carry a cost of zero and cost_basis input_share_uplift_unavailable. Zero means not computed, not no exposure."
+materiality_note,"Materiality bands are the author's assumptions in thresholds.yaml, not law and not supervisory guidance."
+fixture_warning,"FIXTURE DATA. Invented borrowers and invented flat prices. Not a bank's book, not a forecast, not anyone's exposure."
