@@ -1,7 +1,7 @@
 key,value
-generated_at,2026-09-14T20:54:25Z
+generated_at,2026-09-14T21:25:36Z
 engine_version,0.1.0
-engine_commit,8cc4949
+engine_commit,0bc4e6f
 data_label,FIXTURE
 borrower_source,data/powerbi_fixture/borrowers_fixture.csv
 borrower_count,13

@@ -62,7 +62,7 @@ from typing import Any, Iterable, Mapping, Sequence
 
 from src.config import CONFIG_FILES, Config, ConfigError, load_config, load_yaml_mapping
 from src.cost import CostResult, borrower_cost
-from src.flags import Materiality, evaluate_flags, materiality_band
+from src.flags import band_order, evaluate_flags, materiality_band
 from src.liquidity import liquidity_profile, shock_year
 from src.schema import Borrower, parse_borrowers
 from src.tiering import ADOPTED_BRANCH, TierResult, assign_tier
@@ -373,6 +373,10 @@ def _cost_grid(
     """
     rows: list[dict[str, str]] = []
     paths: dict[tuple[str, str, str], dict[int, float]] = {}
+    # Bands are text, and a report has to show them least to most material
+    # rather than alphabetically. The order is the one thresholds.yaml lists, so
+    # adding a band in config reorders the report without a change here.
+    band_rank = {band: index + 1 for index, band in enumerate(band_order(config))}
 
     for borrower in borrowers:
         for branch in branches:
@@ -404,6 +408,7 @@ def _cost_grid(
                             "cost_eur": _money(result.cost_eur),
                             "materiality_ratio": _ratio(band.ratio),
                             "band": band.band,
+                            "band_sort": str(band_rank[band.band]),
                             "band_label": band.label,
                             "price_eur": _money(config.ets_price(scenario, year)),
                             "free_allocation_share": _ratio(
