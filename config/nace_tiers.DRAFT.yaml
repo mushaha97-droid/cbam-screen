@@ -1,0 +1,370 @@
+# nace_tiers.DRAFT.yaml
+#
+# A starting point for config/nace_tiers.yaml, which CLAUDE.md says the owner
+# writes by hand. Nothing reads this file. The engine reads config/nace_tiers.yaml
+# and the tests read tests/fixtures/nace_tiers.yaml, so this draft can be edited
+# freely without breaking anything.
+#
+# HOW TO USE IT
+#   1. Read the comments on each block and change what you disagree with.
+#   2. Replace every "TODO-owner" with a real number and a real source.
+#   3. Copy the result over config/nace_tiers.yaml.
+#
+# WHAT IS DEFENSIBLE HERE AND WHAT IS NOT
+#   The tier assignments below follow the tier definitions in CLAUDE.md section 6
+#   and the producer NACE list it gives. Those are defensible as written.
+#   Every import intensity and every pass-through share is marked TODO-owner.
+#   They need Eurostat Comext (source 8) and CBS StatLine input-output tables
+#   (source 9), which are the owner's inputs. No placeholder number in this file
+#   should ever be shipped.
+#
+# TIER DEFINITIONS, restated from CLAUDE.md section 6
+#   Tier 1  NACE in the producer list. Makes a CBAM good in the EU, so loses
+#           free allocation as the phase-out runs.
+#   Tier 2  Imports a CBAM good from a non-exempt, non-EU origin. This is a
+#           property of the borrower row, not of its NACE code, so no sector is
+#           mapped to Tier 2 here.
+#   Tier 3  In the downstream-extension list and no direct import. Proposal only.
+#   Tier 4  Material CBAM-good input share and no direct import.
+#   Tier 0  None of the above.
+#
+# CONFIDENCE
+#   high    the tier follows directly from the CLAUDE.md definitions or from the
+#           text of an adopted regulation
+#   medium  a reasonable reading, but the sector is mixed and some borrowers in
+#           it will sit in a different tier
+#   low     a placeholder judgement that needs the owner's data to stand up
+
+meta:
+  config_version: "0.1.0-draft"
+  last_updated: "2026-09-14"
+  note: >-
+    Draft for the owner. Not loaded by the engine. Import intensities and
+    pass-through shares are placeholders marked TODO-owner.
+
+# Tier 1 producer prefixes, from CLAUDE.md section 6.
+#
+# JUDGEMENT CALL on "hydrogen": CLAUDE.md lists "hydrogen" in the producer list,
+# but hydrogen is not a NACE code. Hydrogen production sits in NACE 20.11,
+# manufacture of industrial gases, which also covers oxygen, nitrogen and carbon
+# dioxide. Using 20.11 therefore sweeps in producers that make no hydrogen at
+# all. Owner decision needed: keep 20.11 and accept the over-capture, or drop it
+# and identify hydrogen producers from the import and production columns instead.
+producer_nace:
+  - "24"      # Manufacture of basic metals. Covers iron, steel and aluminium.
+  - "23.5"    # Manufacture of cement, lime and plaster.
+  - "20.15"   # Manufacture of fertilisers and nitrogen compounds.
+  - "35.11"   # Production of electricity.
+  - "20.11"   # Manufacture of industrial gases. Stands in for hydrogen. See above.
+
+# Tier 3 downstream prefixes, for the December 2025 extension proposal.
+#
+# STATUS: proposal, and the product list is not yet confirmed from the proposal
+# document. The entries below are the NACE divisions where steel and aluminium
+# intensive downstream products are made. They are a placeholder shape, not a
+# reading of the proposal text. Replace them once the proposal's product annex
+# is available. See the TODO in data/SOURCES.md.
+downstream_nace:
+  - "25"      # Fabricated metal products, except machinery and equipment.
+  - "27"      # Electrical equipment.
+  - "28"      # Machinery and equipment not elsewhere classified.
+  - "29"      # Motor vehicles, trailers and semi-trailers.
+  - "30"      # Other transport equipment.
+
+sectors:
+
+  # ----- Tier 1, producers -----
+
+  "24.10":
+    label: "Manufacture of basic iron and steel and of ferro-alloys"
+    tier: 1
+    confidence: high
+    import_intensity:
+      steel:
+        value: TODO-owner
+        unit: "t per EUR million turnover"
+        source: "TODO-owner: Eurostat Comext, NL extra-EU imports by CN8, 2023 to 2025"
+        status: TODO-owner
+    pass_through_share:
+      value: TODO-owner
+      source: "TODO-owner: CBS StatLine input-output tables"
+      status: TODO-owner
+    source: "CLAUDE.md section 6 producer list"
+    status: assumption
+
+  "24.42":
+    label: "Aluminium production"
+    tier: 1
+    confidence: high
+    import_intensity:
+      aluminium:
+        value: TODO-owner
+        unit: "t per EUR million turnover"
+        source: "TODO-owner: Eurostat Comext"
+        status: TODO-owner
+    pass_through_share:
+      value: TODO-owner
+      source: "TODO-owner: CBS StatLine"
+      status: TODO-owner
+    source: "CLAUDE.md section 6 producer list"
+    status: assumption
+
+  "23.51":
+    label: "Manufacture of cement"
+    tier: 1
+    confidence: high
+    import_intensity:
+      cement:
+        value: TODO-owner
+        unit: "t per EUR million turnover"
+        source: "TODO-owner: Eurostat Comext"
+        status: TODO-owner
+    pass_through_share:
+      value: TODO-owner
+      source: "TODO-owner: CBS StatLine"
+      status: TODO-owner
+    source: "CLAUDE.md section 6 producer list"
+    status: assumption
+
+  "20.15":
+    label: "Manufacture of fertilisers and nitrogen compounds"
+    tier: 1
+    confidence: high
+    import_intensity:
+      fertiliser:
+        value: TODO-owner
+        unit: "t per EUR million turnover"
+        source: "TODO-owner: Eurostat Comext"
+        status: TODO-owner
+    pass_through_share:
+      value: TODO-owner
+      source: "TODO-owner: CBS StatLine"
+      status: TODO-owner
+    source: "CLAUDE.md section 6 producer list"
+    status: assumption
+
+  "35.11":
+    label: "Production of electricity"
+    tier: 1
+    confidence: high
+    import_intensity: {}
+    pass_through_share:
+      value: TODO-owner
+      source: "TODO-owner: CBS StatLine"
+      status: TODO-owner
+    source: "CLAUDE.md section 6 producer list"
+    status: assumption
+    note: >-
+      Electricity has no default emission factor in config/emission_defaults.yaml
+      yet. See the TODO there. Cost for this sector cannot be computed until that
+      gap is closed.
+
+  "20.11":
+    label: "Manufacture of industrial gases, standing in for hydrogen production"
+    tier: 1
+    confidence: low
+    import_intensity:
+      hydrogen:
+        value: TODO-owner
+        unit: "t per EUR million turnover"
+        source: "TODO-owner: Eurostat Comext"
+        status: TODO-owner
+    pass_through_share:
+      value: TODO-owner
+      source: "TODO-owner: CBS StatLine"
+      status: TODO-owner
+    source: "CLAUDE.md section 6 producer list, mapped to NACE by the author"
+    status: assumption
+    note: "Over-captures. See the note on producer_nace above."
+
+  # ----- Tier 3, downstream extension proposal -----
+
+  "25.11":
+    label: "Manufacture of metal structures and parts of structures"
+    tier: 3
+    confidence: medium
+    import_intensity:
+      steel:
+        value: TODO-owner
+        unit: "t per EUR million turnover"
+        source: "TODO-owner: Eurostat Comext"
+        status: TODO-owner
+    pass_through_share:
+      value: TODO-owner
+      source: "TODO-owner: CBS StatLine"
+      status: TODO-owner
+    source: "Commission proposal, December 2025, downstream extension"
+    status: proposal
+
+  "25.9":
+    label: "Manufacture of other fabricated metal products"
+    tier: 3
+    confidence: medium
+    import_intensity:
+      steel:
+        value: TODO-owner
+        unit: "t per EUR million turnover"
+        source: "TODO-owner: Eurostat Comext"
+        status: TODO-owner
+    pass_through_share:
+      value: TODO-owner
+      source: "TODO-owner: CBS StatLine"
+      status: TODO-owner
+    source: "Commission proposal, December 2025, downstream extension"
+    status: proposal
+
+  "28.9":
+    label: "Manufacture of other special-purpose machinery"
+    tier: 3
+    confidence: low
+    import_intensity:
+      steel:
+        value: TODO-owner
+        unit: "t per EUR million turnover"
+        source: "TODO-owner: Eurostat Comext"
+        status: TODO-owner
+    pass_through_share:
+      value: TODO-owner
+      source: "TODO-owner: CBS StatLine"
+      status: TODO-owner
+    source: "Commission proposal, December 2025, downstream extension"
+    status: proposal
+
+  "29.10":
+    label: "Manufacture of motor vehicles"
+    tier: 3
+    confidence: low
+    import_intensity:
+      steel:
+        value: TODO-owner
+        unit: "t per EUR million turnover"
+        source: "TODO-owner: Eurostat Comext"
+        status: TODO-owner
+      aluminium:
+        value: TODO-owner
+        unit: "t per EUR million turnover"
+        source: "TODO-owner: Eurostat Comext"
+        status: TODO-owner
+    pass_through_share:
+      value: TODO-owner
+      source: "TODO-owner: CBS StatLine"
+      status: TODO-owner
+    source: "Commission proposal, December 2025, downstream extension"
+    status: proposal
+
+  # ----- Tier 4, material input share, no direct import -----
+  #
+  # CLAUDE.md section 3 names agriculture, construction and food as the
+  # pass-through sectors to model. These are the three below. The tier is
+  # defensible from the tier definition. Every number is the owner's.
+
+  "41":
+    label: "Construction of buildings"
+    tier: 4
+    confidence: medium
+    import_intensity:
+      cement:
+        value: TODO-owner
+        unit: "t per EUR million turnover"
+        source: "TODO-owner: CBS StatLine input-output, cement input per unit output"
+        status: TODO-owner
+      steel:
+        value: TODO-owner
+        unit: "t per EUR million turnover"
+        source: "TODO-owner: CBS StatLine"
+        status: TODO-owner
+    pass_through_share:
+      value: TODO-owner
+      source: "TODO-owner: CBS StatLine"
+      status: TODO-owner
+    source: "CLAUDE.md section 3, pass-through to construction"
+    status: assumption
+
+  "42":
+    label: "Civil engineering"
+    tier: 4
+    confidence: medium
+    import_intensity:
+      cement:
+        value: TODO-owner
+        unit: "t per EUR million turnover"
+        source: "TODO-owner: CBS StatLine"
+        status: TODO-owner
+      steel:
+        value: TODO-owner
+        unit: "t per EUR million turnover"
+        source: "TODO-owner: CBS StatLine"
+        status: TODO-owner
+    pass_through_share:
+      value: TODO-owner
+      source: "TODO-owner: CBS StatLine"
+      status: TODO-owner
+    source: "CLAUDE.md section 3, pass-through to construction"
+    status: assumption
+
+  "01":
+    label: "Crop and animal production, hunting and related service activities"
+    tier: 4
+    confidence: medium
+    import_intensity:
+      fertiliser:
+        value: TODO-owner
+        unit: "t per EUR million turnover"
+        source: "TODO-owner: CBS StatLine"
+        status: TODO-owner
+    pass_through_share:
+      value: TODO-owner
+      source: "TODO-owner: CBS StatLine, agriculture is a price taker so expect a low share"
+      status: TODO-owner
+    source: "CLAUDE.md section 3, pass-through to agriculture"
+    status: assumption
+
+  "10":
+    label: "Manufacture of food products"
+    tier: 4
+    confidence: low
+    import_intensity:
+      fertiliser:
+        value: TODO-owner
+        unit: "t per EUR million turnover"
+        source: "TODO-owner: CBS StatLine, indirect through agricultural inputs"
+        status: TODO-owner
+      aluminium:
+        value: TODO-owner
+        unit: "t per EUR million turnover"
+        source: "TODO-owner: CBS StatLine, packaging"
+        status: TODO-owner
+    pass_through_share:
+      value: TODO-owner
+      source: "TODO-owner: CBS StatLine"
+      status: TODO-owner
+    source: "CLAUDE.md section 3, pass-through to food"
+    status: assumption
+
+  # ----- Tier 0, out of scope -----
+  #
+  # Not exhaustive. Anything not listed falls to Tier 0 by default, so these
+  # entries exist only to make the intent explicit for the biggest service
+  # sectors in a Dutch corporate book.
+
+  "62":
+    label: "Computer programming, consultancy and related activities"
+    tier: 0
+    confidence: high
+    import_intensity: {}
+    pass_through_share: {value: 0.0, source: "no CBAM input", status: assumption}
+    source: "no CBAM good in the input mix"
+    status: assumption
+
+  "68":
+    label: "Real estate activities"
+    tier: 0
+    confidence: medium
+    import_intensity: {}
+    pass_through_share: {value: 0.0, source: "no direct CBAM input", status: assumption}
+    source: "no CBAM good in the input mix"
+    status: assumption
+    note: >-
+      Arguable. Real estate carries construction cost through development
+      pipelines. Owner decision: leave at Tier 0, or move to Tier 4 with a low
+      input share taken from the construction row.
