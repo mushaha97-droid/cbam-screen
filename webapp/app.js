@@ -803,7 +803,7 @@
 
   // ----------------------------------------------------------------- charts
 
-  var SERIES_COLOURS = ["#a8c0b0", "#e0b061", "#4ade80"];
+  var SERIES_COLOURS = ["#9fb5b1", "#f9bd20", "#22c7b6"];
   var SERIES_DASH = ["6 3", "2 3", "0"];
 
   function lineChart(series, options) {
@@ -901,7 +901,7 @@
       var x = left + slot * index + (slot - barWidth) / 2;
       var y = top + plotHeight - barHeight;
       parts.push('<rect x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + barWidth.toFixed(1) +
-        '" height="' + Math.max(barHeight, 0).toFixed(1) + '" fill="' + (bar.colour || "#4ade80") +
+        '" height="' + Math.max(barHeight, 0).toFixed(1) + '" fill="' + (bar.colour || "#22c7b6") +
         '"><title>' + escapeHtml(bar.label + ": " + eur(bar.value)) + "</title></rect>");
       parts.push('<text x="' + (left + slot * index + slot / 2).toFixed(1) + '" y="' + (height - 30) +
         '" text-anchor="middle">' + escapeHtml(bar.short) + "</text>");
@@ -991,7 +991,7 @@
           label: row.window + ", " + row.kind,
           short: row.window.replace(shockYear() + " ", ""),
           value: num(row.cash_out_eur) || 0,
-          colour: row.kind === "block" ? "#e0b061" : "#4ade80"
+          colour: row.kind === "block" ? "#f9bd20" : "#22c7b6"
         };
       }), { ariaLabel: "Cash out by payment window in " + shockYear() + " for " + borrower.name }));
       html.push('<p class="subtitle">Total ' + escapeHtml(eur(sum(liquidity, function (row) {

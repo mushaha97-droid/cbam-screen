@@ -7,28 +7,28 @@
  */
 
 :root {
-  --forest: #0b1512;
-  --surface: #121f19;
-  --surface-2: #17281f;
-  --line: #24382d;
-  --ink: #e7f0e9;
-  --ink-dim: #a9bfb2;
-  --ink-faint: #7f9788;
-  --accent: #4ade80;
-  --accent-dim: #2f9e5c;
-  --amber: #e0b061;
-  --amber-dim: #7a5f2e;
+  --forest: #042320;
+  --surface: #0a2f2b;
+  --surface-2: #0f3b36;
+  --line: #1c4c45;
+  --ink: #e9f3f1;
+  --ink-dim: #a9c6c1;
+  --ink-faint: #7ba39c;
+  --accent: #22c7b6;
+  --accent-dim: #009488;
+  --amber: #f9bd20;
+  --amber-dim: #8a6a12;
 
   /* Materiality band ramp, dark ground, ordered by lightness alone so it
    * survives a greyscale print and a colourblind reader. The band letter is
    * always printed in the cell as well. */
-  --band-L: #16261e;
-  --band-ML: #1d3a2b;
-  --band-M: #285139;
+  --band-L: #0d2f2a;
+  --band-ML: #14514a;
+  --band-M: #1d7168;
   /* MH is lighter than the ramp's natural next step so that the near black
    * text on it clears 4.5 to 1. Ordering by lightness survives. */
-  --band-MH: #4f9268;
-  --band-H: #63b487;
+  --band-MH: #33a796;
+  --band-H: #f9bd20;
 
   --radius: 10px;
   --pad: 16px;
@@ -108,7 +108,7 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
   padding: 10px 12px;
   border-radius: var(--radius);
   border: 1px solid var(--amber);
-  background: #2a2014;
+  background: #2e2508;
   color: #ffe9c2;
   font-size: 0.86rem;
 }
@@ -308,9 +308,9 @@ button.linklike:focus-visible { outline: 2px solid var(--accent); outline-offset
   margin: 1px 3px 1px 0;
   white-space: nowrap;
 }
-.chip.flag { border-color: var(--amber-dim); background: #2a2014; color: var(--amber); }
+.chip.flag { border-color: var(--amber-dim); background: #2e2508; color: var(--amber); }
 .chip.est { border-color: var(--amber-dim); color: var(--amber); }
-.chip.status-proposal { border-color: var(--amber-dim); background: #2a2014; color: var(--amber); }
+.chip.status-proposal { border-color: var(--amber-dim); background: #2e2508; color: var(--amber); }
 .chip.status-adopted { border-color: var(--accent-dim); color: var(--accent); }
 
 .band {
