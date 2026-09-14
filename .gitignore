@@ -17,3 +17,7 @@ venv/
 .idea/
 .DS_Store
 Thumbs.db
+
+# Power BI Desktop local state inside a PBIP project. Machine-specific.
+**/.pbi/localSettings.json
+**/.pbi/cache.abf

@@ -1,0 +1,62 @@
+/// The year axis. It runs from the first obligation year to the last payment
+/// year, which is one year past the last obligation year, because a 2035
+/// obligation settles by 30 September 2036. Not a date table: the engine works
+/// in whole years and nothing here needs day-level time intelligence.
+table dim_year
+
+	/// Key. Joins to fact_cost on the obligation year and to fact_liquidity on
+	/// the year the cash leaves the borrower. Those are not the same year, and
+	/// that difference is the liquidity story.
+	column year
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: year
+		formatString: 0
+
+	/// The year as text, for axes that should not put a thousands separator in
+	/// the middle of 2027.
+	column year_label
+		dataType: string
+		summarizeBy: none
+		sourceColumn: year_label
+		sortByColumn: year
+
+	/// True for a year in which an obligation arises, 2026 to 2035.
+	column is_obligation_year
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: is_obligation_year
+
+	/// True for a year in which cash can leave. Nothing can be paid in 2026,
+	/// because no certificate exists to buy before 1 February 2027.
+	column is_payment_year
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: is_payment_year
+
+	/// True for the one year in which the 2026 block and the first quarterly
+	/// prepayments land together. Computed by liquidity.py from the timing
+	/// block of config/thresholds.yaml, not written in by hand.
+	column is_liquidity_shock_year
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: is_liquidity_shock_year
+
+	partition dim_year = m
+		mode: import
+		source =
+			let
+			    Folder = Text.TrimEnd(DataFolder, "\"),
+			    Source = Csv.Document(File.Contents(Folder & "\dim_year.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+			    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+			    Typed = Table.TransformColumnTypes(Headers, {
+			        {"year", Int64.Type},
+			        {"year_label", type text},
+			        {"is_obligation_year", type logical},
+			        {"is_payment_year", type logical},
+			        {"is_liquidity_shock_year", type logical}
+			    })
+			in
+			    Typed
+
+	annotation PBI_ResultType = Table

@@ -1,0 +1,35 @@
+relationship dim_borrower_to_fact_cost
+	fromColumn: fact_cost.borrower_id
+	toColumn: dim_borrower.borrower_id
+
+relationship dim_year_to_fact_cost
+	fromColumn: fact_cost.year
+	toColumn: dim_year.year
+
+relationship dim_scenario_to_fact_cost
+	fromColumn: fact_cost.scenario
+	toColumn: dim_scenario.scenario
+
+relationship dim_branch_to_fact_cost
+	fromColumn: fact_cost.branch
+	toColumn: dim_branch.branch
+
+relationship dim_borrower_to_fact_liquidity
+	fromColumn: fact_liquidity.borrower_id
+	toColumn: dim_borrower.borrower_id
+
+relationship dim_year_to_fact_liquidity
+	fromColumn: fact_liquidity.year
+	toColumn: dim_year.year
+
+relationship dim_scenario_to_fact_liquidity
+	fromColumn: fact_liquidity.scenario
+	toColumn: dim_scenario.scenario
+
+relationship dim_branch_to_fact_liquidity
+	fromColumn: fact_liquidity.branch
+	toColumn: dim_branch.branch
+
+relationship dim_borrower_to_fact_flags
+	fromColumn: fact_flags.borrower_id
+	toColumn: dim_borrower.borrower_id

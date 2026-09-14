@@ -1,0 +1,81 @@
+/// One row per carbon-price scenario, read from the scenarios block of the
+/// price file the export used. When config/scenarios.yaml is still gated, that
+/// price file is the fixture override, and the source column below says so in
+/// words rather than leaving the reader to guess.
+table dim_scenario
+
+	/// Key. Joins to fact_cost and fact_liquidity.
+	column scenario
+		dataType: string
+		summarizeBy: none
+		sourceColumn: scenario
+
+	/// Put this on slicers and axes, not the key.
+	column scenario_label
+		dataType: string
+		summarizeBy: none
+		sourceColumn: scenario_label
+		sortByColumn: sort_order
+
+	column status
+		dataType: string
+		summarizeBy: none
+		sourceColumn: status
+
+	/// Where the prices came from. On a fixture export this reads
+	/// fixture_not_a_forecast, which is the whole point of the column.
+	column source
+		dataType: string
+		summarizeBy: none
+		sourceColumn: source
+
+	column source_url
+		dataType: string
+		summarizeBy: none
+		sourceColumn: source_url
+
+	column region
+		dataType: string
+		summarizeBy: none
+		sourceColumn: region
+
+	column price_unit
+		dataType: string
+		summarizeBy: none
+		sourceColumn: price_unit
+
+	column sort_order
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: sort_order
+		formatString: 0
+
+	/// True for the scenario the export names as the default, which CLAUDE.md
+	/// Task 10 sets to Delayed Transition.
+	column is_default
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: is_default
+
+	partition dim_scenario = m
+		mode: import
+		source =
+			let
+			    Folder = Text.TrimEnd(DataFolder, "\"),
+			    Source = Csv.Document(File.Contents(Folder & "\dim_scenario.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+			    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+			    Typed = Table.TransformColumnTypes(Headers, {
+			        {"scenario", type text},
+			        {"scenario_label", type text},
+			        {"status", type text},
+			        {"source", type text},
+			        {"source_url", type text},
+			        {"region", type text},
+			        {"price_unit", type text},
+			        {"sort_order", Int64.Type},
+			        {"is_default", type logical}
+			    })
+			in
+			    Typed
+
+	annotation PBI_ResultType = Table

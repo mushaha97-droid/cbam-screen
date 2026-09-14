@@ -1,0 +1,19 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-GB
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+ref table dim_borrower
+ref table dim_scenario
+ref table dim_branch
+ref table dim_year
+ref table fact_cost
+ref table fact_liquidity
+ref table fact_flags
+ref table meta
+ref table _Measures

@@ -1,0 +1,34 @@
+/// Provenance for the whole export, as key and value pairs. This is the table
+/// that lets a report say what it is looking at: the data label, the price
+/// source and its hash, the sha256 of every config file, the engine version and
+/// commit, and the reference point the flags were evaluated at.
+///
+/// Not joined to anything. Read it with LOOKUPVALUE, which is what the banner
+/// measures in _Measures do. Every page must carry that banner.
+table meta
+
+	column key
+		dataType: string
+		summarizeBy: none
+		sourceColumn: key
+
+	column value
+		dataType: string
+		summarizeBy: none
+		sourceColumn: value
+
+	partition meta = m
+		mode: import
+		source =
+			let
+			    Folder = Text.TrimEnd(DataFolder, "\"),
+			    Source = Csv.Document(File.Contents(Folder & "\meta.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+			    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+			    Typed = Table.TransformColumnTypes(Headers, {
+			        {"key", type text},
+			        {"value", type text}
+			    })
+			in
+			    Typed
+
+	annotation PBI_ResultType = Table

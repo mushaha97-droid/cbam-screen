@@ -1,0 +1,422 @@
+/// Every measure in the model. The table holds no data of its own, only a
+/// hidden placeholder column, so that measures live in one place instead of
+/// being scattered across the facts.
+///
+/// CLAUDE.md section 7 says the UI must never show a number that cannot be
+/// traced to a config entry or an uploaded field. Applied to DAX that means two
+/// things. First, no measure invents a constant: where a measure needs a year,
+/// a default scenario or a default branch, it reads it from the meta table,
+/// which src/export_powerbi.py wrote from config. Second, every measure below
+/// carries a description saying which config entry its inputs came from.
+table _Measures
+
+	/// Total certificate cost across whatever is in view, in EUR. The costs
+	/// themselves come from src/cost.py, which reads the carbon price from the
+	/// price file named in meta.csv, the emission factors from
+	/// config/emission_defaults.yaml and the free-allocation share from the
+	/// free_allocation block of config/cbam_rules.yaml. This measure only adds
+	/// them up. Read fact_cost[cost_basis] before reading a zero.
+	measure 'Total Cost EUR' = SUM ( fact_cost[cost_eur] )
+		formatString: "€"#,##0
+		displayFolder: Cost
+
+	/// Cost for exactly one scenario and one branch, falling back to the
+	/// defaults the export recorded rather than to a constant written here. The
+	/// defaults are meta[default_scenario] and meta[default_branch], which
+	/// src/export_powerbi.py sets from its arguments and which CLAUDE.md Task
+	/// 10 fixes at Delayed Transition and current rules. Use this on any visual
+	/// where a stray multi-select would otherwise sum two scenarios together.
+	measure 'Cost (Selected Scenario and Branch)' =
+			VAR SelectedScenario =
+			    SELECTEDVALUE (
+			        dim_scenario[scenario],
+			        LOOKUPVALUE ( meta[value], meta[key], "default_scenario" )
+			    )
+			VAR SelectedBranch =
+			    SELECTEDVALUE (
+			        dim_branch[branch],
+			        LOOKUPVALUE ( meta[value], meta[key], "default_branch" )
+			    )
+			RETURN
+			    CALCULATE (
+			        [Total Cost EUR],
+			        dim_scenario[scenario] = SelectedScenario,
+			        dim_branch[branch] = SelectedBranch
+			    )
+		formatString: "€"#,##0
+		displayFolder: Cost
+
+	/// Cost divided by EBITDA. Blank where EBITDA in view is zero or negative,
+	/// because the ratio has no meaning there. config/thresholds.yaml handles
+	/// that case with the negative_ebitda_band rule instead, and the band
+	/// measure below reports the result of that rule.
+	measure 'Materiality Ratio' =
+			VAR Ebitda = SUM ( dim_borrower[ebitda_eur] )
+			RETURN
+			    IF ( Ebitda > 0, DIVIDE ( [Cost (Selected Scenario and Branch)], Ebitda ) )
+		formatString: 0.00%
+		displayFolder: Materiality
+
+	/// The materiality band the engine assigned. Not recomputed here: the band
+	/// boundaries live in the materiality_bands block of config/thresholds.yaml
+	/// and src/flags.py applies them, so this measure reads the answer off
+	/// fact_cost rather than restating 1, 3, 6 and 12 percent in DAX where they
+	/// could drift. Returns "mixed" when more than one band is in view.
+	measure 'Band' = SELECTEDVALUE ( fact_cost[band], "mixed" )
+		displayFolder: Materiality
+
+	/// The band written out, for example "3 to 6 percent of EBITDA", straight
+	/// from config/thresholds.yaml. These boundaries are the author's
+	/// assumptions, not law and not supervisory guidance, and any visual using
+	/// them must say so.
+	measure 'Band Label' =
+			SELECTEDVALUE ( fact_cost[band_label], "more than one band in view" )
+		displayFolder: Materiality
+
+	/// Exposure for the borrowers in view, as the bank supplied it in the
+	/// exposure_eur column. Never computed by the engine.
+	measure 'Exposure EUR' = SUM ( dim_borrower[exposure_eur] )
+		formatString: "€"#,##0
+		displayFolder: Exposure
+
+	/// Exposure of the borrowers that fall in the tier currently on the axis,
+	/// under the branch currently selected. Put fact_cost[tier_label_plain] on
+	/// rows and use this rather than a plain exposure sum, because tier depends
+	/// on the branch: a downstream borrower is out of scope under adopted law
+	/// and Tier 3 under the extension proposal in config/cbam_rules.yaml. The
+	/// TREATAS pushes the borrower list the fact rows imply back onto the
+	/// borrower dimension, which is where exposure lives.
+	measure 'Exposure by Tier' =
+			CALCULATE (
+			    SUM ( dim_borrower[exposure_eur] ),
+			    TREATAS ( VALUES ( fact_cost[borrower_id] ), dim_borrower[borrower_id] )
+			)
+		formatString: "€"#,##0
+		displayFolder: Exposure
+
+	/// Exposure of every borrower whose CBAM band sits at least min_band_gap
+	/// bands above the transition rating the bank already assigns. The gap
+	/// parameter is in the RATING_GAP entry of config/thresholds.yaml, and
+	/// src/flags.py applies it at the reference point recorded in meta. This is
+	/// the number a credit committee should be shown first: it says how much of
+	/// the book may be rated on a view that does not include this risk.
+	measure 'Exposure Carrying RATING_GAP' =
+			CALCULATE (
+			    SUM ( dim_borrower[exposure_eur] ),
+			    TREATAS (
+			        CALCULATETABLE (
+			            VALUES ( fact_flags[borrower_id] ),
+			            fact_flags[flag] = "RATING_GAP",
+			            fact_flags[active] = TRUE ()
+			        ),
+			        dim_borrower[borrower_id]
+			    )
+			)
+		formatString: "€"#,##0
+		displayFolder: Flags
+
+	/// Rank of this borrower by cost to EBITDA ratio, worst first, among the
+	/// borrowers left by the current filters. Filter a table visual to rank 20
+	/// or less for the top-20 list CLAUDE.md section 6 asks portfolio.py for.
+	/// Blank for a borrower with no usable ratio, which is a borrower with a
+	/// non-positive EBITDA, so those are ranked by band instead of being
+	/// silently placed at the bottom.
+	measure 'Top 20 Rank by Ratio' =
+			VAR Ratio = [Materiality Ratio]
+			RETURN
+			    IF (
+			        NOT ISBLANK ( Ratio ),
+			        RANKX (
+			            ALLSELECTED ( dim_borrower[borrower_id] ),
+			            [Materiality Ratio],
+			            ,
+			            DESC,
+			            DENSE
+			        )
+			    )
+		formatString: 0
+		displayFolder: Materiality
+
+	/// Cash leaving the borrower in the years in view. The payment timing comes
+	/// from src/liquidity.py, which reads the liquidity block of
+	/// config/thresholds.yaml: the 2026 obligation as one block in 2027,
+	/// because no certificate can be bought before 1 February 2027, then half
+	/// of each later obligation prepaid across four quarters with the balance
+	/// settling by 30 September of the following year.
+	measure 'Cash-Out EUR' = SUM ( fact_liquidity[cash_out_eur] )
+		formatString: "€"#,##0
+		displayFolder: Liquidity
+
+	/// Cash out in the year the 2026 block and the first quarterly prepayments
+	/// land together. The year is not written into this measure: it is read
+	/// from meta[liquidity_shock_year], which src/liquidity.py derived from the
+	/// timing block of config/thresholds.yaml. Change the timing in config and
+	/// this measure follows without an edit.
+	measure '2027 Cash-Out' =
+			VAR ShockYear =
+			    VALUE ( LOOKUPVALUE ( meta[value], meta[key], "liquidity_shock_year" ) )
+			RETURN
+			    CALCULATE ( [Cash-Out EUR], dim_year[year] = ShockYear )
+		formatString: "€"#,##0
+		displayFolder: Liquidity
+
+	/// Cash out as a share of working capital. Blank where no working capital
+	/// was supplied, because config/thresholds.yaml says in the
+	/// working_capital_note not to guess a denominator: a guessed one would
+	/// make the headline liquidity number meaningless.
+	measure 'Cash-Out % of Working Capital' =
+			VAR Capital = SUM ( dim_borrower[working_capital_eur] )
+			RETURN
+			    IF ( Capital > 0, DIVIDE ( [Cash-Out EUR], Capital ) )
+		formatString: 0.0%
+		displayFolder: Liquidity
+
+	/// Lowest cost across every scenario and branch combination left by the
+	/// slicers, for whatever is on the axis. This is the batch view CLAUDE.md
+	/// Task 10 asks for on the Portfolio page: put the plain tier label on rows
+	/// and show best beside worst, so a reader sees the range rather than one
+	/// point estimate.
+	measure 'Best Case Cost EUR' =
+			MINX (
+			    CROSSJOIN (
+			        ALLSELECTED ( dim_scenario[scenario] ),
+			        ALLSELECTED ( dim_branch[branch] )
+			    ),
+			    CALCULATE ( [Total Cost EUR] )
+			)
+		formatString: "€"#,##0
+		displayFolder: Batch view
+
+	/// Highest cost across every scenario and branch combination left by the
+	/// slicers. The pair with Best Case Cost EUR is the range a committee
+	/// should see. Note that the worst case will usually sit on the proposal
+	/// branch, which is not law, so show dim_branch[status] beside it.
+	measure 'Worst Case Cost EUR' =
+			MAXX (
+			    CROSSJOIN (
+			        ALLSELECTED ( dim_scenario[scenario] ),
+			        ALLSELECTED ( dim_branch[branch] )
+			    ),
+			    CALCULATE ( [Total Cost EUR] )
+			)
+		formatString: "€"#,##0
+		displayFolder: Batch view
+
+	/// Names the scenario and branch that produced the best case, so the number
+	/// is never shown without saying what it assumes. The scenario labels come
+	/// from the price file named in meta.csv and the branch labels from the
+	/// branches block of config/cbam_rules.yaml.
+	measure 'Best Case Scenario and Branch' =
+			VAR Combinations =
+			    ADDCOLUMNS (
+			        CROSSJOIN (
+			            ALLSELECTED ( dim_scenario[scenario] ),
+			            ALLSELECTED ( dim_branch[branch] )
+			        ),
+			        "@Cost", CALCULATE ( [Total Cost EUR] )
+			    )
+			VAR Lowest = MINX ( Combinations, [@Cost] )
+			RETURN
+			    CONCATENATEX (
+			        FILTER ( Combinations, [@Cost] = Lowest ),
+			        dim_scenario[scenario] & " on " & dim_branch[branch],
+			        ", "
+			    )
+		displayFolder: Batch view
+
+	/// Names the scenario and branch that produced the worst case. Show it
+	/// beside the worst-case number, because that combination will usually
+	/// include the proposal branch from config/cbam_rules.yaml, which is a
+	/// Commission proposal and not law.
+	measure 'Worst Case Scenario and Branch' =
+			VAR Combinations =
+			    ADDCOLUMNS (
+			        CROSSJOIN (
+			            ALLSELECTED ( dim_scenario[scenario] ),
+			            ALLSELECTED ( dim_branch[branch] )
+			        ),
+			        "@Cost", CALCULATE ( [Total Cost EUR] )
+			    )
+			VAR Highest = MAXX ( Combinations, [@Cost] )
+			RETURN
+			    CONCATENATEX (
+			        FILTER ( Combinations, [@Cost] = Highest ),
+			        dim_scenario[scenario] & " on " & dim_branch[branch],
+			        ", "
+			    )
+		displayFolder: Batch view
+
+	/// How many flags fired, counted across borrowers and flag codes. The flag
+	/// rules and their parameters are the flags block of
+	/// config/thresholds.yaml, applied by src/flags.py at the reference year,
+	/// scenario and branch recorded in meta. They are the author's assumptions,
+	/// not supervisory guidance.
+	measure 'Flag Count' =
+			CALCULATE ( COUNTROWS ( fact_flags ), fact_flags[active] = TRUE () )
+		formatString: #,##0
+		displayFolder: Flags
+
+	/// How many borrowers carry at least one flag, counted at the reference
+	/// point in meta. Put it beside Borrower Count on the Summary page: the
+	/// count of flags on its own says nothing about how many clients the
+	/// relationship managers actually have to call.
+	measure 'Borrowers with Any Flag' =
+			CALCULATE (
+			    DISTINCTCOUNT ( fact_flags[borrower_id] ),
+			    fact_flags[active] = TRUE ()
+			)
+		formatString: #,##0
+		displayFolder: Flags
+
+	/// The active flag codes for the borrower in view, comma separated, for a
+	/// chips column in a table visual.
+	measure 'Flags Active' =
+			CONCATENATEX (
+			    CALCULATETABLE ( VALUES ( fact_flags[flag] ), fact_flags[active] = TRUE () ),
+			    fact_flags[flag],
+			    ", ",
+			    fact_flags[flag],
+			    ASC
+			)
+		displayFolder: Flags
+
+	/// Share of borrowers with at least one input filled from a sector average
+	/// rather than supplied by the bank. src/schema.py does the filling, from
+	/// the sector defaults in config/nace_tiers.yaml, and marks the row. A high
+	/// number here means the portfolio view is indicative, and the Upload page
+	/// should say which columns would sharpen it.
+	measure '% Borrowers Estimated' =
+			DIVIDE (
+			    CALCULATE ( COUNTROWS ( dim_borrower ), dim_borrower[estimated] = TRUE () ),
+			    COUNTROWS ( dim_borrower )
+			)
+		formatString: 0.0%
+		displayFolder: Data quality
+
+	/// How many borrowers are in view. The denominator behind every share on
+	/// the page, and the number the Upload page reconciles against: rows
+	/// accepted by src/schema.py, not rows in the file the bank sent.
+	measure 'Borrower Count' = COUNTROWS ( dim_borrower )
+		formatString: #,##0
+		displayFolder: Data quality
+
+	/// FIXTURE, SYNTHETIC or UPLOADED, read from meta.csv where
+	/// src/export_powerbi.py stamped it. Every page must show this.
+	measure 'Data Label' = LOOKUPVALUE ( meta[value], meta[key], "data_label" )
+		displayFolder: Provenance
+
+	/// The banner every page carries. It names the data label, where the carbon
+	/// prices came from, when the export ran and which engine commit produced
+	/// it. On a fixture export the price source reads fixture_not_a_forecast,
+	/// so a screenshot cannot lose the label.
+	measure 'Data Banner' =
+			VAR Label = LOOKUPVALUE ( meta[value], meta[key], "data_label" )
+			VAR Prices = LOOKUPVALUE ( meta[value], meta[key], "price_source_label" )
+			VAR Generated = LOOKUPVALUE ( meta[value], meta[key], "generated_at" )
+			VAR Commit = LOOKUPVALUE ( meta[value], meta[key], "engine_commit" )
+			RETURN
+			    Label & " DATA. Carbon prices: " & Prices & ". Exported " & Generated
+			        & " from engine commit " & Commit
+			        & ". Not any bank's actual exposure. Materiality bands are the "
+			        & "author's assumptions, not law."
+		displayFolder: Provenance
+
+	/// The file the carbon prices were read from. While config/scenarios.yaml
+	/// is gated this names the fixture override instead, which is the only way
+	/// a reader can tell a wiring test from a screening result.
+	measure 'Price Source' = LOOKUPVALUE ( meta[value], meta[key], "price_source" )
+		displayFolder: Provenance
+
+	/// When the export ran, in UTC. Stale output is the quiet failure mode of
+	/// an import-mode model, so show this next to any headline number.
+	measure 'Generated At' = LOOKUPVALUE ( meta[value], meta[key], "generated_at" )
+		displayFolder: Provenance
+
+	/// The year, scenario and branch the flags were evaluated at, so a flag
+	/// chip never floats free of its reference point.
+	measure 'Flag Reference Point' =
+			LOOKUPVALUE ( meta[value], meta[key], "flag_reference_year" ) & ", "
+			    & LOOKUPVALUE ( meta[value], meta[key], "flag_reference_scenario" ) & ", "
+			    & LOOKUPVALUE ( meta[value], meta[key], "flag_reference_branch" )
+		displayFolder: Provenance
+
+	/// The "why this rating" box from CLAUDE.md Task 10, written out with this
+	/// borrower's own numbers in it. Every figure in the sentence is a column
+	/// on fact_cost or dim_borrower, so nothing in the box is computed here
+	/// that cannot be traced back to config. Needs one borrower, one year, one
+	/// scenario and one branch in view.
+	measure 'Why This Rating' =
+			VAR BorrowerName = SELECTEDVALUE ( dim_borrower[name] )
+			VAR TierLabel = SELECTEDVALUE ( fact_cost[tier_label_plain] )
+			VAR TierReason = SELECTEDVALUE ( dim_borrower[tier_reason] )
+			VAR Tonnes = SELECTEDVALUE ( fact_cost[counted_tonnes] )
+			VAR Price = SELECTEDVALUE ( fact_cost[price_eur] )
+			VAR FreeShare = SELECTEDVALUE ( fact_cost[free_allocation_share] )
+			VAR CostValue = SELECTEDVALUE ( fact_cost[cost_eur] )
+			VAR Basis = SELECTEDVALUE ( fact_cost[cost_basis_label] )
+			VAR BandText = SELECTEDVALUE ( fact_cost[band_label] )
+			VAR Ebitda = SELECTEDVALUE ( dim_borrower[ebitda_eur] )
+			VAR Break = UNICHAR ( 10 )
+			RETURN
+			    IF (
+			        ISBLANK ( BorrowerName ) || ISBLANK ( CostValue ),
+			        "Pick one borrower, one year, one scenario and one branch.",
+			        BorrowerName & " is shown as: " & TierLabel & "." & Break
+			            & TierReason & Break & Break
+			            & "Cost basis: " & Basis & "." & Break
+			            & "Counting tonnage " & FORMAT ( Tonnes, "#,##0.##" )
+			            & " t. Carbon price " & FORMAT ( Price, "#,##0.00" )
+			            & " EUR per tonne. Free allocation still granted "
+			            & FORMAT ( FreeShare, "0.0%" ) & ", so certificates cover "
+			            & FORMAT ( 1 - FreeShare, "0.0%" ) & " of embedded emissions."
+			            & Break
+			            & "Cost " & FORMAT ( CostValue, "#,##0" ) & " EUR against EBITDA "
+			            & FORMAT ( Ebitda, "#,##0" ) & " EUR, which is " & BandText & "."
+			            & Break & Break
+			            & "Band boundaries are the author's assumptions in "
+			            & "config/thresholds.yaml, not law."
+			    )
+		displayFolder: Borrower detail
+
+	/// The "what to ask this client" box from CLAUDE.md Task 10. Each line is a
+	/// flag and the engine's own reason for raising it, with this borrower's
+	/// numbers already in the sentence. When config/questions.yaml is written
+	/// in Task 7 the exporter will add a question column to fact_flags and this
+	/// measure will read that instead of the reason.
+	measure 'What To Ask This Client' =
+			VAR Break = UNICHAR ( 10 )
+			VAR ActiveFlags =
+			    CALCULATETABLE (
+			        SUMMARIZE ( fact_flags, fact_flags[flag], fact_flags[reason] ),
+			        fact_flags[active] = TRUE ()
+			    )
+			RETURN
+			    IF (
+			        COUNTROWS ( ActiveFlags ) = 0,
+			        "No flags fired at the reference point shown in the banner.",
+			        CONCATENATEX (
+			            ActiveFlags,
+			            fact_flags[flag] & ": " & fact_flags[reason],
+			            Break & Break,
+			            fact_flags[flag],
+			            ASC
+			        )
+			    )
+		displayFolder: Borrower detail
+
+	column Placeholder
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: Placeholder
+		formatString: 0
+
+	partition _Measures = m
+		mode: import
+		source =
+			let
+			    Source = #table(type table [Placeholder = Int64.Type], {})
+			in
+			    Source
+
+	annotation PBI_ResultType = Table

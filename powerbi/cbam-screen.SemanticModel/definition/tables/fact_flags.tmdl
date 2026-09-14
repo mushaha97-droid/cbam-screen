@@ -1,0 +1,73 @@
+/// One row per borrower and flag, whether or not the flag fired. The flag list
+/// comes from the flags block of config/thresholds.yaml, so a new flag in
+/// config appears here without anyone editing the model.
+///
+/// A flag is a statement about one reference point, because RATING_GAP and
+/// MONITOR both depend on the cost, and the cost depends on a year, a scenario
+/// and a branch. That reference point is stamped on every row and repeated in
+/// meta.csv. It is not joined to dim_year on purpose: letting the year slicer
+/// filter this table would make the flag chips change meaning without saying so.
+table fact_flags
+
+	column borrower_id
+		dataType: string
+		summarizeBy: none
+		sourceColumn: borrower_id
+
+	/// The flag code, for example RATING_GAP or NO_DECLARANT.
+	column flag
+		dataType: string
+		summarizeBy: none
+		sourceColumn: flag
+
+	/// True when the flag fired for this borrower at the reference point.
+	column active
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: active
+
+	/// The engine's own sentence saying why the flag fired, with this
+	/// borrower's numbers in it. Blank when the flag did not fire. This is what
+	/// the "what to ask this client" box shows.
+	column reason
+		dataType: string
+		summarizeBy: none
+		sourceColumn: reason
+
+	/// The year the flags were evaluated in. A stamp, not a key.
+	column evaluated_year
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: evaluated_year
+		formatString: 0
+
+	column evaluated_scenario
+		dataType: string
+		summarizeBy: none
+		sourceColumn: evaluated_scenario
+
+	column evaluated_branch
+		dataType: string
+		summarizeBy: none
+		sourceColumn: evaluated_branch
+
+	partition fact_flags = m
+		mode: import
+		source =
+			let
+			    Folder = Text.TrimEnd(DataFolder, "\"),
+			    Source = Csv.Document(File.Contents(Folder & "\fact_flags.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+			    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+			    Typed = Table.TransformColumnTypes(Headers, {
+			        {"borrower_id", type text},
+			        {"flag", type text},
+			        {"active", type logical},
+			        {"reason", type text},
+			        {"evaluated_year", Int64.Type},
+			        {"evaluated_scenario", type text},
+			        {"evaluated_branch", type text}
+			    })
+			in
+			    Typed
+
+	annotation PBI_ResultType = Table

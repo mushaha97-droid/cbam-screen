@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/platform/platformProperties.json",
+  "version": "2.0",
+  "config": {
+    "logicalId": "5f2a1c84-9d3e-4b17-8a60-2c7f4e91b350"
+  },
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "cbam-screen",
+    "description": "CBAM borrower screening star schema. Fixture data unless meta.csv says otherwise."
+  }
+}

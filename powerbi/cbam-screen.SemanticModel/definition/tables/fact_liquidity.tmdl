@@ -1,0 +1,103 @@
+/// When the cash actually leaves the borrower. Built by src/liquidity.py from
+/// the cost path, using the timing block of config/thresholds.yaml.
+///
+/// Deliberately not a cross join. A borrower that owes nothing in any year has
+/// no rows at all, because a zero payment row would make a liquidity page look
+/// like it had something to say.
+///
+/// The 2026 obligation cannot be paid before 1 February 2027, so it lands as
+/// one block in 2027. From the 2027 obligation onward half is prepaid across
+/// four quarters during the year of import and the balance settles by 30
+/// September of the following year. Those two rules collide in 2027, which is
+/// the liquidity shock.
+table fact_liquidity
+
+	column borrower_id
+		dataType: string
+		summarizeBy: none
+		sourceColumn: borrower_id
+
+	column scenario
+		dataType: string
+		summarizeBy: none
+		sourceColumn: scenario
+
+	column branch
+		dataType: string
+		summarizeBy: none
+		sourceColumn: branch
+
+	/// The year the cash leaves. Joins to dim_year. Not the same as
+	/// obligation_year, and the gap between them is the point of this table.
+	column year
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: year
+		formatString: 0
+
+	/// The payment window in words, for example "2027 February to September"
+	/// or "2029 Q3".
+	column window
+		dataType: string
+		summarizeBy: none
+		sourceColumn: window
+
+	/// 1 to 4 for a quarterly prepayment. Blank for the 2026 block and for a
+	/// settlement, which are not quarterly events.
+	column quarter
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: quarter
+		formatString: 0
+
+	/// block, prepayment or settlement.
+	column kind
+		dataType: string
+		summarizeBy: none
+		sourceColumn: kind
+
+	/// The year whose obligation this payment settles.
+	column obligation_year
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: obligation_year
+		formatString: 0
+
+	column cash_out_eur
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: cash_out_eur
+		formatString: "€"#,##0
+
+	/// This payment as a share of the borrower's working capital. Blank where
+	/// the bank supplied no working capital figure, because thresholds.yaml
+	/// says not to guess a denominator.
+	column share_of_working_capital
+		dataType: double
+		summarizeBy: none
+		sourceColumn: share_of_working_capital
+		formatString: 0.0%
+
+	partition fact_liquidity = m
+		mode: import
+		source =
+			let
+			    Folder = Text.TrimEnd(DataFolder, "\"),
+			    Source = Csv.Document(File.Contents(Folder & "\fact_liquidity.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+			    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+			    Typed = Table.TransformColumnTypes(Headers, {
+			        {"borrower_id", type text},
+			        {"scenario", type text},
+			        {"branch", type text},
+			        {"year", Int64.Type},
+			        {"window", type text},
+			        {"quarter", Int64.Type},
+			        {"kind", type text},
+			        {"obligation_year", Int64.Type},
+			        {"cash_out_eur", type number},
+			        {"share_of_working_capital", type number}
+			    })
+			in
+			    Typed
+
+	annotation PBI_ResultType = Table

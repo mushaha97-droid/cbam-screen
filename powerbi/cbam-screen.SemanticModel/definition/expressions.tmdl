@@ -1,0 +1,15 @@
+/// Folder holding the csv files written by src/export_powerbi.py. This is the
+/// one place a path is configured. Every table in the model builds its file
+/// name from it, so pointing the model at a different export means changing
+/// this value and nothing else.
+///
+/// Set it in Power BI Desktop under Home, Transform data, Edit parameters.
+///
+/// Power Query has no notion of the project folder, so this has to be an
+/// absolute path. The folder it should point at, in repo terms, is
+/// ..\data\powerbi_fixture\export relative to this powerbi folder. Written out
+/// in full on the machine this was authored on, that is the default below.
+/// Change it to wherever the repo sits on yours.
+expression DataFolder = "C:\Users\Mush\Desktop\projects\cbam-screen\data\powerbi_fixture\export" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+
+	annotation PBI_ResultType = Text

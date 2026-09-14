@@ -1,0 +1,184 @@
+/// The cost grid. One row per borrower, year, scenario and branch, so it is a
+/// full cross join and every combination exists even where the cost is zero.
+/// Every number came out of src/cost.py, which reads config/*.yaml. The price
+/// and free-allocation share that produced each cost sit on the row, so a
+/// reader can reconstruct the arithmetic without leaving the report.
+table fact_cost
+
+	column borrower_id
+		dataType: string
+		summarizeBy: none
+		sourceColumn: borrower_id
+
+	/// The year the obligation arises, not the year it is paid.
+	column year
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: year
+		formatString: 0
+
+	column scenario
+		dataType: string
+		summarizeBy: none
+		sourceColumn: scenario
+
+	column branch
+		dataType: string
+		summarizeBy: none
+		sourceColumn: branch
+
+	/// Tier under this row's branch. This is the one to trust when a branch
+	/// slicer is in play, because a downstream borrower is out of scope under
+	/// adopted law and Tier 3 under the proposal.
+	column tier
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: tier
+		formatString: 0
+
+	/// The plain-language label from CLAUDE.md Task 10, for this row's branch.
+	column tier_label_plain
+		dataType: string
+		summarizeBy: none
+		sourceColumn: tier_label_plain
+		sortByColumn: tier
+
+	/// Certificate cost in EUR for this borrower, year, scenario and branch.
+	/// From cost.py: tonnes times emission factor times the ETS price times one
+	/// minus the free-allocation share, summed over goods. Tier 1 instead
+	/// values the year-on-year step down in free allocation. Read cost_basis
+	/// before reading a zero.
+	column cost_eur
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: cost_eur
+		formatString: "€"#,##0
+
+	/// Cost divided by EBITDA. Blank where EBITDA is zero or negative, because
+	/// the ratio has no meaning there and thresholds.yaml sets the band by rule
+	/// instead.
+	column materiality_ratio
+		dataType: double
+		summarizeBy: none
+		sourceColumn: materiality_ratio
+		formatString: 0.00%
+
+	/// L, ML, M, MH or H. The band boundaries live in the materiality_bands
+	/// block of config/thresholds.yaml and are the author's assumptions, not
+	/// law and not supervisory guidance.
+	column band
+		dataType: string
+		summarizeBy: none
+		sourceColumn: band
+		sortByColumn: band_sort
+
+	/// Least to most material, in the order thresholds.yaml lists the bands.
+	/// Sorts the band column so a heatmap reads L to H rather than H, L, M.
+	column band_sort
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: band_sort
+		formatString: 0
+
+	/// The band written out, for example "3 to 6 percent of EBITDA". Taken
+	/// straight from thresholds.yaml, so a tooltip never has to restate a
+	/// boundary in its own words.
+	column band_label
+		dataType: string
+		summarizeBy: none
+		sourceColumn: band_label
+
+	/// Carbon price in EUR per tonne CO2 for this scenario and year, from the
+	/// price file named in meta.csv. On a fixture export this is a flat
+	/// invented number, not a forecast.
+	column price_eur
+		dataType: double
+		summarizeBy: none
+		sourceColumn: price_eur
+		formatString: "€"#,##0.00
+
+	/// Share of free allocation still granted in this year on this branch, from
+	/// the free_allocation block of config/cbam_rules.yaml. One minus this is
+	/// the share of embedded emissions that needs certificates.
+	column free_allocation_share
+		dataType: double
+		summarizeBy: none
+		sourceColumn: free_allocation_share
+		formatString: 0.0%
+
+	/// Tonnes that count toward the mass threshold. Electricity and hydrogen
+	/// are left out, because Article 2a(4) says the de minimis exemption does
+	/// not apply to them, and cbam_rules.yaml carries that per good.
+	column counted_tonnes
+		dataType: double
+		summarizeBy: none
+		sourceColumn: counted_tonnes
+		formatString: #,##0.##
+
+	/// The mass threshold itself, from config/cbam_rules.yaml. On the row so a
+	/// MONITOR chip can say what the borrower is below.
+	column threshold_tonnes
+		dataType: double
+		summarizeBy: none
+		sourceColumn: threshold_tonnes
+		formatString: #,##0.##
+
+	/// True when the counted tonnage falls below the threshold, so nothing is
+	/// owed this year however large the tonnage is worth.
+	column below_threshold
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: below_threshold
+
+	column estimated
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: estimated
+
+	/// What this row's cost rests on. Read it before reading a zero: a zero
+	/// because nothing is owed is not the same as a zero because the engine
+	/// could not compute the number yet. Tier 4 rows always carry
+	/// input_share_uplift_unavailable until portfolio.py exists.
+	column cost_basis
+		dataType: string
+		summarizeBy: none
+		sourceColumn: cost_basis
+
+	/// cost_basis in a sentence, for a tooltip or a card.
+	column cost_basis_label
+		dataType: string
+		summarizeBy: none
+		sourceColumn: cost_basis_label
+
+	partition fact_cost = m
+		mode: import
+		source =
+			let
+			    Folder = Text.TrimEnd(DataFolder, "\"),
+			    Source = Csv.Document(File.Contents(Folder & "\fact_cost.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+			    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+			    Typed = Table.TransformColumnTypes(Headers, {
+			        {"borrower_id", type text},
+			        {"year", Int64.Type},
+			        {"scenario", type text},
+			        {"branch", type text},
+			        {"tier", Int64.Type},
+			        {"tier_label_plain", type text},
+			        {"cost_eur", type number},
+			        {"materiality_ratio", type number},
+			        {"band", type text},
+			        {"band_sort", Int64.Type},
+			        {"band_label", type text},
+			        {"price_eur", type number},
+			        {"free_allocation_share", type number},
+			        {"counted_tonnes", type number},
+			        {"threshold_tonnes", type number},
+			        {"below_threshold", type logical},
+			        {"estimated", type logical},
+			        {"cost_basis", type text},
+			        {"cost_basis_label", type text}
+			    })
+			in
+			    Typed
+
+	annotation PBI_ResultType = Table

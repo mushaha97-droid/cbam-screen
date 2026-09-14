@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/platform/platformProperties.json",
+  "version": "2.0",
+  "config": {
+    "logicalId": "b83d7a19-46ce-4f02-9d5b-1e7a8c4d6f22"
+  },
+  "metadata": {
+    "type": "Report",
+    "displayName": "cbam-screen",
+    "description": "Empty canvas. The pages are built in Desktop from the blueprints in docs/POWERBI.md."
+  }
+}

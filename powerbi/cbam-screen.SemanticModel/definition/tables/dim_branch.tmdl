@@ -1,0 +1,84 @@
+/// One row per rule branch, from the branches block of config/cbam_rules.yaml.
+/// The adopted branch is law in force. The proposal branch applies both live
+/// Commission proposals together, the slower free-allocation phase-out to 2038
+/// and the downstream scope extension from 2028. Neither is law, and the status
+/// column must be shown wherever a branch is chosen.
+table dim_branch
+
+	/// Key. Joins to fact_cost and fact_liquidity.
+	column branch
+		dataType: string
+		summarizeBy: none
+		sourceColumn: branch
+
+	column branch_label
+		dataType: string
+		summarizeBy: none
+		sourceColumn: branch_label
+		sortByColumn: sort_order
+
+	/// adopted or proposal. CLAUDE.md section 2 requires this on screen
+	/// wherever a proposal drives a number.
+	column status
+		dataType: string
+		summarizeBy: none
+		sourceColumn: status
+
+	/// Which free-allocation schedule in config/cbam_rules.yaml this branch uses.
+	column free_allocation_schedule
+		dataType: string
+		summarizeBy: none
+		sourceColumn: free_allocation_schedule
+
+	/// True when the 2028 downstream extension proposal is switched on, which
+	/// is the only way a borrower reaches Tier 3.
+	column downstream_extension_applies
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: downstream_extension_applies
+
+	column description
+		dataType: string
+		summarizeBy: none
+		sourceColumn: description
+
+	column source
+		dataType: string
+		summarizeBy: none
+		sourceColumn: source
+
+	column sort_order
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: sort_order
+		formatString: 0
+
+	/// True for the branch the export names as the default, which CLAUDE.md
+	/// Task 10 sets to current rules, that is adopted.
+	column is_default
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: is_default
+
+	partition dim_branch = m
+		mode: import
+		source =
+			let
+			    Folder = Text.TrimEnd(DataFolder, "\"),
+			    Source = Csv.Document(File.Contents(Folder & "\dim_branch.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+			    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+			    Typed = Table.TransformColumnTypes(Headers, {
+			        {"branch", type text},
+			        {"branch_label", type text},
+			        {"status", type text},
+			        {"free_allocation_schedule", type text},
+			        {"downstream_extension_applies", type logical},
+			        {"description", type text},
+			        {"source", type text},
+			        {"sort_order", Int64.Type},
+			        {"is_default", type logical}
+			    })
+			in
+			    Typed
+
+	annotation PBI_ResultType = Table

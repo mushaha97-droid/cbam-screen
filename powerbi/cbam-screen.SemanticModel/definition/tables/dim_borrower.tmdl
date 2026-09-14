@@ -1,0 +1,185 @@
+/// One row per borrower. Written by src/export_powerbi.py from a borrower csv
+/// that schema.py validated. Optional fields the bank did not supply were
+/// filled from the sector defaults in config/nace_tiers.yaml, and the estimated
+/// column says when that happened.
+table dim_borrower
+
+	/// Key. Joins to fact_cost, fact_liquidity and fact_flags.
+	column borrower_id
+		dataType: string
+		summarizeBy: none
+		sourceColumn: borrower_id
+
+	column name
+		dataType: string
+		summarizeBy: none
+		sourceColumn: name
+
+	/// NACE code as the bank supplied it. The tier decision matches it against
+	/// the prefixes in config/nace_tiers.yaml by longest prefix.
+	column nace_code
+		dataType: string
+		summarizeBy: none
+		sourceColumn: nace_code
+
+	column country
+		dataType: string
+		summarizeBy: none
+		sourceColumn: country
+
+	/// Gross carrying amount as supplied by the bank. Never computed.
+	column exposure_eur
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: exposure_eur
+		formatString: "€"#,##0
+
+	column turnover_eur
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: turnover_eur
+		formatString: "€"#,##0
+
+	/// May be negative. A borrower with a non-positive EBITDA has no meaningful
+	/// cost to EBITDA ratio, so thresholds.yaml sets its band by rule instead.
+	column ebitda_eur
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: ebitda_eur
+		formatString: "€"#,##0
+
+	/// Blank where the bank supplied none. thresholds.yaml says explicitly not
+	/// to guess a denominator, so the liquidity share stays blank rather than
+	/// being estimated.
+	column working_capital_eur
+		dataType: double
+		summarizeBy: sum
+		sourceColumn: working_capital_eur
+		formatString: "€"#,##0
+
+	/// Tier under one branch only, the one named in meta.csv as
+	/// tier_branch_for_dim_borrower. Tier 3 exists only where the
+	/// downstream-extension proposal is switched on, so use fact_cost[tier]
+	/// whenever a branch slicer is in play.
+	column tier
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: tier
+		formatString: 0
+
+	/// The plain-language label from CLAUDE.md Task 10. CLAUDE.md section 9
+	/// forbids showing a tier number where a label exists, so put this on the
+	/// axis and leave tier for sorting.
+	column tier_label_plain
+		dataType: string
+		summarizeBy: none
+		sourceColumn: tier_label_plain
+		sortByColumn: tier
+
+	/// Which rule in tiering.py placed the borrower in its tier.
+	column tier_rule
+		dataType: string
+		summarizeBy: none
+		sourceColumn: tier_rule
+
+	/// The engine's own sentence explaining the tier, with this borrower's NACE
+	/// code and origin in it. Use it in the "why this rating" box.
+	column tier_reason
+		dataType: string
+		summarizeBy: none
+		sourceColumn: tier_reason
+
+	/// True when at least one input was filled from a sector average rather
+	/// than supplied by the bank.
+	column estimated
+		dataType: boolean
+		summarizeBy: none
+		sourceColumn: estimated
+
+	/// Which fields were filled from sector averages, semicolon separated.
+	column estimated_fields
+		dataType: string
+		summarizeBy: none
+		sourceColumn: estimated_fields
+
+	/// yes, no or unknown. Anything but yes on a borrower with a direct
+	/// obligation above the threshold raises NO_DECLARANT.
+	column declarant_status
+		dataType: string
+		summarizeBy: none
+		sourceColumn: declarant_status
+
+	/// verified, default or unknown. Anything but verified means the cost used
+	/// the default emission values in config/emission_defaults.yaml.
+	column supplier_data
+		dataType: string
+		summarizeBy: none
+		sourceColumn: supplier_data
+
+	column pass_through
+		dataType: string
+		summarizeBy: none
+		sourceColumn: pass_through
+
+	/// Sector default pass-through share from config/nace_tiers.yaml. Below the
+	/// max_share parameter in thresholds.yaml it raises LOW_PASS_THROUGH.
+	column pass_through_share_effective
+		dataType: double
+		summarizeBy: none
+		sourceColumn: pass_through_share_effective
+		formatString: 0.0%
+
+	column top_supplier_country
+		dataType: string
+		summarizeBy: none
+		sourceColumn: top_supplier_country
+
+	/// Above the min_share parameter in thresholds.yaml, and from outside the
+	/// EU, this raises SUPPLIER_CONCENTRATION.
+	column share_top_supplier
+		dataType: double
+		summarizeBy: none
+		sourceColumn: share_top_supplier
+		formatString: 0.0%
+
+	/// The bank's own transition rating, if it supplied one. RATING_GAP
+	/// compares it with the CBAM band.
+	column bank_transition_rating
+		dataType: string
+		summarizeBy: none
+		sourceColumn: bank_transition_rating
+
+	partition dim_borrower = m
+		mode: import
+		source =
+			let
+			    Folder = Text.TrimEnd(DataFolder, "\"),
+			    Source = Csv.Document(File.Contents(Folder & "\dim_borrower.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+			    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+			    Typed = Table.TransformColumnTypes(Headers, {
+			        {"borrower_id", type text},
+			        {"name", type text},
+			        {"nace_code", type text},
+			        {"country", type text},
+			        {"exposure_eur", type number},
+			        {"turnover_eur", type number},
+			        {"ebitda_eur", type number},
+			        {"working_capital_eur", type number},
+			        {"tier", Int64.Type},
+			        {"tier_label_plain", type text},
+			        {"tier_rule", type text},
+			        {"tier_reason", type text},
+			        {"estimated", type logical},
+			        {"estimated_fields", type text},
+			        {"declarant_status", type text},
+			        {"supplier_data", type text},
+			        {"pass_through", type text},
+			        {"pass_through_share_effective", type number},
+			        {"top_supplier_country", type text},
+			        {"share_top_supplier", type number},
+			        {"bank_transition_rating", type text}
+			    })
+			in
+			    Typed
+
+	annotation PBI_ResultType = Table
