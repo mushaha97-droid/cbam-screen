@@ -1,0 +1,19 @@
+# Raw third-party source files. Kept locally, never committed.
+data/raw/
+
+# Generated demo data
+data/synthetic_portfolio.csv
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

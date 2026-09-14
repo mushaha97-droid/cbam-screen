@@ -1,0 +1,40 @@
+# emission_defaults.yaml
+# Default embedded emission values in tCO2e per tonne of good, by CN group.
+# Used when a borrower has no verified supplier data.
+#
+# SCHEMA (Task 0 placeholder, filled in Task 2)
+#
+# meta:
+#   config_version: str
+#   last_updated: YYYY-MM-DD
+#   basis: str                     which sheet or table the values come from
+#
+# data_quality_scale:              plain English meaning of each score
+#   5: str
+#   4: str
+#   3: str
+#   2: str
+#   1: str
+#
+# defaults:
+#   <group_key>:                   must match a key in cbam_rules.yaml goods
+#     direct:
+#       value: float | null
+#       unit: "tCO2e/t"
+#     indirect:
+#       value: float | null
+#       unit: "tCO2e/t"
+#     total:
+#       value: float | null
+#       unit: "tCO2e/t"
+#     source: str                  regulation citation plus sheet and row
+#     status: adopted | proposal
+#     data_quality: int            1 to 5, see data_quality_scale
+#     note: str                    optional, for example how several CN rows were aggregated
+
+meta:
+  config_version: "0.0.0-scaffold"
+  last_updated: "2026-09-14"
+
+# TODO(Task 2): fill from the Commission default-values workbook for the
+# definitive period. Do not invent values.

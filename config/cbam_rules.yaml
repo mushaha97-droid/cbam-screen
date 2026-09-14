@@ -1,0 +1,67 @@
+# cbam_rules.yaml
+# Scope, thresholds, timeline and free-allocation phase-out for the EU CBAM.
+#
+# SCHEMA (Task 0 placeholder, filled in Task 1)
+#
+# meta:
+#   config_version: str
+#   last_updated: YYYY-MM-DD
+#
+# goods:            CBAM good groups. One entry per CN group used by the engine.
+#   <group_key>:
+#     sector: str                  Cement | Electricity | Fertilisers | Iron and steel | Aluminium | Chemicals
+#     label: str                   plain English name
+#     cn_codes: [str]              CN codes or CN headings exactly as listed in the source
+#     emissions_covered: str       direct | direct_and_indirect
+#     counts_toward_mass_threshold: bool
+#     source: str                  citation, article or annex
+#     status: adopted | proposal
+#
+# mass_threshold:
+#   value: number
+#   unit: str
+#   excluded_sectors: [str]
+#   source: str
+#   status: adopted | proposal
+#
+# exempt_origins:
+#   countries: [ {code: str, name: str} ]
+#   territories: [ {name: str, note: str} ]
+#   source: str
+#   status: adopted | proposal
+#
+# timeline:
+#   <event_key>:
+#     date: YYYY-MM-DD
+#     description: str
+#     source: str
+#     status: adopted | proposal
+#
+# free_allocation:
+#   <branch>:                      adopted | proposal_2038
+#     label: str
+#     status: adopted | proposal
+#     source: str
+#     end_year: int                first year with free allocation 0.0
+#     by_year:
+#       <year>:
+#         cbam_factor: float       share of the CBAM obligation that applies, 0.0 to 1.0
+#         free_allocation: float   1.0 - cbam_factor
+#         source: str
+#         status: adopted | proposal
+#
+# downstream_extension:
+#   status: proposal
+#   source: str
+#   start_year: int
+#   scope_description: str
+#   nace_codes: [str]
+#   cn_codes: [str]
+
+meta:
+  config_version: "0.0.0-scaffold"
+  last_updated: "2026-09-14"
+
+# TODO(Task 1): fill from Regulation (EU) 2023/956, the 2025 CBAM simplification
+# regulation, the December 2025 downstream extension proposal and the
+# 17 July 2026 phase-out proposal. Do not invent values.

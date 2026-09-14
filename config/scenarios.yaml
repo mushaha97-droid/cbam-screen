@@ -1,0 +1,34 @@
+# scenarios.yaml
+# EU carbon price paths, EUR per tonne CO2, one value per year 2026 to 2035.
+#
+# SCHEMA (Task 0 placeholder, filled in Task 3)
+#
+# meta:
+#   config_version: str
+#   last_updated: YYYY-MM-DD
+#   price_unit: str                for example "EUR2023 per tCO2"
+#   region: str                    region label used by the source
+#
+# scenarios:
+#   <scenario_key>:                net_zero_2050 | delayed_transition | current_policies
+#     label: str
+#     source: str                  document title, page or table number
+#     source_url: str
+#     retrieved: YYYY-MM-DD
+#     status: adopted | proposal   scenario paths are projections, not law; use "proposal"
+#                                  only for policy branches, use "scenario" here
+#     by_year:
+#       <year>:
+#         price: float
+#         interpolated: bool       true when the value was linearly interpolated
+#                                  between two years stated by the source
+#
+# Rule: never interpolate outside the range the source states, and never invent
+# a price. If the source cannot be fetched, leave the TODO in place and let the
+# Task 3 test fail loudly.
+
+meta:
+  config_version: "0.0.0-scaffold"
+  last_updated: "2026-09-14"
+
+# TODO(Task 3): fill from NGFS Phase V EU carbon prices. Do not invent values.

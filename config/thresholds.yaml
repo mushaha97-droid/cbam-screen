@@ -1,0 +1,31 @@
+# thresholds.yaml
+# Materiality bands and flag thresholds. These are the author's own assumptions,
+# not law. The UI must say so on every screen that uses them.
+#
+# SCHEMA (Task 0 placeholder, filled in Task 7)
+#
+# meta:
+#   config_version: str
+#   last_updated: YYYY-MM-DD
+#
+# materiality_bands:               cost divided by EBITDA
+#   - band: L | ML | M | MH | H
+#     min_ratio: float             inclusive lower bound
+#     max_ratio: float | null      exclusive upper bound, null means no upper bound
+#     label: str
+#   source: str                    "author assumption"
+#   status: assumption
+#
+# flags:
+#   <flag_key>:
+#     description: str
+#     params: mapping of named numeric parameters
+#     source: str
+#     status: adopted | assumption
+
+meta:
+  config_version: "0.0.0-scaffold"
+  last_updated: "2026-09-14"
+
+# TODO(Task 7): fill with the bands from CLAUDE.md section 6 and the flag
+# parameters from section 6 "Flags".

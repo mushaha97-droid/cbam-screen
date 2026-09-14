@@ -1,0 +1,2 @@
+borrower_id,name,nace_code,country,exposure_eur,turnover_eur,ebitda_eur,import_t_steel,import_t_aluminium,import_t_cement,import_t_fertiliser,import_t_hydrogen,import_mwh_electricity,top_supplier_country,share_top_supplier,declarant_status,supplier_data,pass_through,bank_transition_rating,working_capital_eur
+EXAMPLE-001,Example Steel Fabricator BV,25.11,NL,12000000,48000000,4800000,1000,0,0,0,0,0,IN,0.72,no,default,low,M,9000000

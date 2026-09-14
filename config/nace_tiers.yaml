@@ -1,0 +1,42 @@
+# nace_tiers.yaml
+# NACE code to CBAM tier, with confidence, sector default import intensity and
+# pass-through share.
+#
+# OWNER-WRITTEN FILE. Musharraf writes this by hand (CLAUDE.md Task 4).
+# A commented, schema-correct starting point sits in config/nace_tiers.DRAFT.yaml.
+# Copy the draft here and edit it, or write this file from scratch.
+#
+# SCHEMA
+#
+# meta:
+#   config_version: str
+#   last_updated: YYYY-MM-DD
+#
+# producer_nace: [str]             NACE prefixes that make a borrower Tier 1
+# downstream_nace: [str]           NACE prefixes in the 2028 extension proposal, Tier 3
+#
+# sectors:
+#   <nace_prefix>:                 matched by longest prefix, for example "24.10"
+#     label: str
+#     tier: 0 | 1 | 2 | 3 | 4
+#     confidence: high | medium | low
+#     import_intensity:            tonnes of CBAM good per million EUR turnover
+#       <good_group_key>:
+#         value: float
+#         unit: "t per EUR million turnover"
+#         source: str
+#         status: adopted | proposal | assumption | TODO-owner
+#     pass_through_share:
+#       value: float               0.0 to 1.0
+#       source: str
+#       status: adopted | assumption | TODO-owner
+#     source: str
+#     status: adopted | proposal | assumption | TODO-owner
+
+meta:
+  config_version: "0.0.0-scaffold"
+  last_updated: "2026-09-14"
+
+# TODO(owner): replace this file with the hand-written mapping. See
+# config/nace_tiers.DRAFT.yaml. The engine and its tests do not depend on this
+# file; tests run against fixtures in tests/fixtures/.
