@@ -168,6 +168,119 @@ def test_the_claude_md_hand_example_appears_in_fact_cost(result) -> None:
 
 
 # ---------------------------------------------------------------------------
+# fact_cost_line: the formula, with the borrower's own numbers in it
+# ---------------------------------------------------------------------------
+
+
+def test_the_hand_example_multiplies_out_on_its_own_cost_line(result) -> None:
+    """1,000 t x 1.9 tCO2/t x 80 EUR x 0.025 = 3,800 EUR, line by line.
+
+    This is the row a borrower page prints as the formula. If it did not
+    multiply out, the page would be showing a number the engine never computed.
+    """
+    rows = [
+        row
+        for row in result.tables["fact_cost_line"]
+        if row["borrower_id"] == "B001"
+        and row["year"] == "2026"
+        and row["scenario"] == "delayed_transition"
+        and row["branch"] == "adopted"
+    ]
+    assert len(rows) == 1
+    row = rows[0]
+    assert row["good_group"] == "steel"
+    assert float(row["quantity"]) == 1000.0
+    assert float(row["emission_factor"]) == 1.9
+    assert float(row["price_eur"]) == 80.0
+    assert float(row["free_allocation_share"]) == 0.975
+    assert float(row["charged_share"]) == pytest.approx(0.025)
+    assert float(row["cost_eur"]) == 3800.0
+    product = (
+        float(row["quantity"])
+        * float(row["emission_factor"])
+        * float(row["price_eur"])
+        * float(row["charged_share"])
+    )
+    assert product == pytest.approx(float(row["cost_eur"]))
+
+
+def test_every_cost_line_multiplies_out_to_its_own_cost(result) -> None:
+    for row in result.tables["fact_cost_line"]:
+        product = (
+            float(row["quantity"])
+            * float(row["emission_factor"])
+            * float(row["price_eur"])
+            * float(row["charged_share"])
+        )
+        assert product == pytest.approx(float(row["cost_eur"]), rel=1e-9), row
+
+
+def test_cost_lines_add_up_to_the_summary_row(result) -> None:
+    """No cost may appear on the summary row that no line accounts for."""
+    totals: dict[tuple[str, str, str, str], float] = {}
+    for row in result.tables["fact_cost_line"]:
+        key = (row["borrower_id"], row["year"], row["scenario"], row["branch"])
+        totals[key] = totals.get(key, 0.0) + float(row["cost_eur"])
+    seen = 0
+    for row in result.tables["fact_cost"]:
+        key = (row["borrower_id"], row["year"], row["scenario"], row["branch"])
+        if key in totals:
+            seen += 1
+            assert float(row["cost_eur"]) == pytest.approx(totals[key], rel=1e-9)
+        else:
+            # No line means no cost, and the basis says why.
+            assert float(row["cost_eur"]) == 0.0, row
+    assert seen == len(totals)
+
+
+def test_a_lost_allocation_line_charges_the_step_down_not_the_whole_obligation(
+    result,
+) -> None:
+    """B007 is a producer, so its cost is the free allocation withdrawn.
+
+    The charged share on such a line must be the year-on-year step, which is
+    small, not one minus the remaining allocation, which is large. Printing the
+    wrong one would overstate a producer's cost by an order of magnitude.
+    """
+    rows = [
+        row
+        for row in result.tables["fact_cost_line"]
+        if row["borrower_id"] == "B007" and row["cost_basis"] == "lost_allocation"
+    ]
+    assert rows
+    for row in rows:
+        charged = float(row["charged_share"])
+        assert 0.0 <= charged < 1.0 - float(row["free_allocation_share"]) or charged == 0.0
+        assert row["charged_share_label"] == "free allocation withdrawn this year"
+
+
+def test_a_cost_line_says_whether_its_factor_was_verified_or_a_default(result) -> None:
+    bases = {row["factor_basis"] for row in result.tables["fact_cost_line"]}
+    assert bases <= {"verified", "default"}
+    assert "default" in bases
+
+
+# ---------------------------------------------------------------------------
+# questions.csv
+# ---------------------------------------------------------------------------
+
+
+def test_every_flag_in_the_config_has_at_least_one_exported_question(
+    result, fixture_config: Config
+) -> None:
+    codes = set(fixture_config.thresholds["flags"].keys())
+    assert {row["flag"] for row in result.tables["questions"]} == codes
+    for row in result.tables["questions"]:
+        assert row["question_text"].endswith("?")
+        assert int(row["question_order"]) >= 1
+
+
+def test_the_questions_file_that_was_read_is_recorded_with_its_hash(result) -> None:
+    assert meta_value(result, "questions_source").endswith("config/questions.yaml")
+    assert len(meta_value(result, "questions_sha256")) == 64
+
+
+# ---------------------------------------------------------------------------
 # Bands come from thresholds.yaml, not from the exporter
 # ---------------------------------------------------------------------------
 
@@ -455,7 +568,13 @@ def test_an_unknown_scenario_name_is_rejected(tmp_path: Path) -> None:
 # ---------------------------------------------------------------------------
 
 
-def test_export_writes_eight_readable_csv_files(tmp_path: Path) -> None:
+def test_export_writes_ten_readable_csv_files(tmp_path: Path) -> None:
+    """Eight tables plus meta, and the questions the flags generate.
+
+    fact_cost_line and questions were added after the Power BI semantic model
+    was written. The model does not load them, which is why they are absent from
+    CSV_BACKED in test_powerbi_project.py. The web dashboard reads both.
+    """
     written = export(make_request(tmp_path))
     names = sorted(path.name for path in written.written)
     assert names == [
@@ -464,9 +583,11 @@ def test_export_writes_eight_readable_csv_files(tmp_path: Path) -> None:
         "dim_scenario.csv",
         "dim_year.csv",
         "fact_cost.csv",
+        "fact_cost_line.csv",
         "fact_flags.csv",
         "fact_liquidity.csv",
         "meta.csv",
+        "questions.csv",
     ]
     for path in written.written:
         with path.open(encoding="utf-8", newline="") as handle:

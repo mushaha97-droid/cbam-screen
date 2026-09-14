@@ -18,8 +18,11 @@ Tables written to the output directory:
     dim_branch.csv      one row per rule branch, adopted or proposal
     dim_year.csv        one row per year on the axis
     fact_cost.csv       borrower x year x scenario x branch
+    fact_cost_line.csv  the same, broken down to one row per good group, so the
+                        formula can be shown with the borrower's own numbers
     fact_liquidity.csv  borrower x scenario x branch x payment
     fact_flags.csv      borrower x flag, active true or false
+    questions.csv       flag x question, from config/questions.yaml
     meta.csv            key and value, including the data label and file hashes
 
 Two honest limits are stamped into the output rather than hidden:
@@ -64,6 +67,13 @@ from src.config import CONFIG_FILES, Config, ConfigError, load_config, load_yaml
 from src.cost import CostResult, borrower_cost
 from src.flags import band_order, evaluate_flags, materiality_band
 from src.liquidity import liquidity_profile, shock_year
+from src.questions import (
+    QuestionsError,
+    as_rows as question_rows,
+    check_covers_flags,
+    load_questions,
+    questions_path,
+)
 from src.schema import Borrower, parse_borrowers
 from src.tiering import ADOPTED_BRANCH, TierResult, assign_tier
 
@@ -102,6 +112,14 @@ COST_BASIS_LABELS: dict[str, str] = {
     "out_of_scope": "Not in scope, nothing owed",
 }
 
+# The share of embedded emissions a cost line actually charges for. Two bases
+# charge on different shares, and a report that printed one formula for both
+# would show a number that does not multiply out.
+CHARGED_SHARE_LABELS: dict[str, str] = {
+    "direct_obligation": "share not covered by free allocation",
+    "lost_allocation": "free allocation withdrawn this year",
+}
+
 DATA_LABELS = ("FIXTURE", "SYNTHETIC", "UPLOADED")
 
 TABLE_ORDER = (
@@ -110,8 +128,10 @@ TABLE_ORDER = (
     "dim_branch",
     "dim_year",
     "fact_cost",
+    "fact_cost_line",
     "fact_liquidity",
     "fact_flags",
+    "questions",
 )
 
 _QUARTER_IN_LABEL = re.compile(r"Q(\d+)\s*$")
@@ -165,6 +185,14 @@ def load_price_override(path: Path) -> dict[str, Any]:
 def config_with_prices(config: Config, prices: Mapping[str, Any]) -> Config:
     """Return the same config with its scenarios block replaced."""
     return dataclasses.replace(config, scenarios=dict(prices))
+
+
+def _repo_relative(path: Path) -> str:
+    """A path inside the repo, written the way the other meta rows write one."""
+    try:
+        return path.resolve().relative_to(REPO_ROOT).as_posix()
+    except ValueError:
+        return path.as_posix()
 
 
 def file_sha256(path: Path) -> str:
@@ -246,6 +274,24 @@ def _cost_basis(result: CostResult) -> str:
     if result.tier == 4:
         return "input_share_uplift_unavailable"
     return "out_of_scope"
+
+
+def _charged_share(
+    config: Config, basis: str, branch: str, year: int, line: Any
+) -> float:
+    """The share of embedded emissions this line is charged for.
+
+    Both shares come straight from cbam_rules.yaml through config. Nothing is
+    inferred from the cost, so a report can multiply the line out and get the
+    cost back rather than dividing to find the missing factor.
+    """
+    if basis == "lost_allocation":
+        # The Tier 1 cost is the year-on-year step down in free allocation,
+        # valued at the carbon price, not the whole obligation.
+        return config.free_allocation_share(
+            branch, year - 1
+        ) - config.free_allocation_share(branch, year)
+    return 1.0 - float(line.free_allocation_share)
 
 
 def build_dim_year(years: Sequence[int], payment_years: Iterable[int], config: Config) -> list[dict[str, str]]:
@@ -365,13 +411,27 @@ def _cost_grid(
     years: Sequence[int],
     scenarios: Sequence[str],
     branches: Sequence[str],
-) -> tuple[list[dict[str, str]], dict[tuple[str, str, str], dict[int, float]]]:
+) -> tuple[
+    list[dict[str, str]],
+    list[dict[str, str]],
+    dict[tuple[str, str, str], dict[int, float]],
+]:
     """Run the engine across every borrower, year, scenario and branch.
 
-    Returns the fact_cost rows and, alongside them, the cost by obligation year
-    for each borrower, scenario and branch, which the liquidity model needs.
+    Returns the fact_cost rows, the fact_cost_line rows underneath them, and the
+    cost by obligation year for each borrower, scenario and branch, which the
+    liquidity model needs.
+
+    The line rows exist so that a report can print the formula with the
+    borrower's own numbers in it. The emission factor is the one input to
+    cost = tonnes x factor x price x (1 - free allocation) that is not on
+    fact_cost, because a borrower can import two goods with two different
+    factors and a single averaged figure on the summary row would be a number
+    the engine never computed. These are the engine's own CostLine values,
+    copied out, not recomputed.
     """
     rows: list[dict[str, str]] = []
+    line_rows: list[dict[str, str]] = []
     paths: dict[tuple[str, str, str], dict[int, float]] = {}
     # Bands are text, and a report has to show them least to most material
     # rather than alphabetically. The order is the one thresholds.yaml lists, so
@@ -422,8 +482,31 @@ def _cost_grid(
                             "cost_basis_label": COST_BASIS_LABELS[basis],
                         }
                     )
+                    for order, line in enumerate(result.lines, start=1):
+                        charged = _charged_share(config, basis, branch, year, line)
+                        line_rows.append(
+                            {
+                                "borrower_id": borrower.borrower_id,
+                                "year": str(year),
+                                "scenario": scenario,
+                                "branch": branch,
+                                "line_order": str(order),
+                                "good_group": line.good_group,
+                                "quantity": _tonnes(line.quantity),
+                                "emission_factor": _ratio(line.emission_factor),
+                                "factor_basis": line.factor_basis,
+                                "price_eur": _money(line.price_eur),
+                                "free_allocation_share": _ratio(
+                                    line.free_allocation_share
+                                ),
+                                "charged_share": _ratio(charged),
+                                "charged_share_label": CHARGED_SHARE_LABELS[basis],
+                                "cost_eur": _money(line.cost_eur),
+                                "cost_basis": basis,
+                            }
+                        )
                 paths[(borrower.borrower_id, scenario, branch)] = by_year
-    return rows, paths
+    return rows, line_rows, paths
 
 
 def build_fact_liquidity(
@@ -509,6 +592,26 @@ def build_fact_flags(
                 }
             )
     return rows
+
+
+def build_questions(config: Config, config_dir: Path) -> tuple[list[dict[str, str]], Path]:
+    """The flag to question mapping, flattened for the export.
+
+    The questions live in config/questions.yaml so the wording can change
+    without a code change. They are exported as their own small table so that a
+    report never has to parse yaml, and because a question is not a property of
+    a borrower: it is a property of a flag, and joining it onto fact_flags would
+    repeat the same sentence once per borrower.
+    """
+    path = questions_path(config_dir)
+    try:
+        loaded = load_questions(path)
+        check_covers_flags(loaded, config)
+    except QuestionsError as exc:
+        raise ExportError(
+            f"the client questions could not be exported: {exc}"
+        ) from exc
+    return question_rows(loaded), path
 
 
 # ---------------------------------------------------------------------------
@@ -622,7 +725,9 @@ def build_export(request: ExportRequest) -> ExportResult:
     branches = config.branches()
 
     try:
-        cost_rows, paths = _cost_grid(borrowers, config, years, scenarios, branches)
+        cost_rows, cost_line_rows, paths = _cost_grid(
+            borrowers, config, years, scenarios, branches
+        )
     except ConfigError as exc:
         raise ExportError(
             f"the engine could not price the portfolio: {exc} "
@@ -647,6 +752,7 @@ def build_export(request: ExportRequest) -> ExportResult:
         for borrower in borrowers
     }
     payment_years = {int(row["year"]) for row in liquidity_rows}
+    question_table, questions_file = build_questions(config, request.config_dir)
 
     tables: dict[str, list[dict[str, str]]] = {
         "dim_borrower": build_dim_borrower(borrowers, tier_results),
@@ -654,11 +760,14 @@ def build_export(request: ExportRequest) -> ExportResult:
         "dim_branch": build_dim_branch(config, request.default_branch),
         "dim_year": build_dim_year(years, payment_years, config),
         "fact_cost": cost_rows,
+        "fact_cost_line": cost_line_rows,
         "fact_liquidity": liquidity_rows,
         "fact_flags": flag_rows,
+        "questions": question_table,
     }
 
     meta = _build_meta(
+        questions_file=questions_file,
         request=request,
         config=config,
         tables=tables,
@@ -689,6 +798,7 @@ def _build_meta(
     scenarios: Sequence[str],
     branches: Sequence[str],
     years: Sequence[int],
+    questions_file: Path,
 ) -> list[dict[str, str]]:
     """Key and value rows describing the run.
 
@@ -716,6 +826,8 @@ def _build_meta(
         ("liquidity_shock_year", str(shock_year(config))),
     ]
     entries.extend(sorted(prices_meta.items()))
+    entries.append(("questions_source", _repo_relative(questions_file)))
+    entries.append(("questions_sha256", file_sha256(questions_file)))
 
     for name in sorted(CONFIG_FILES.values()):
         path = request.config_dir / name

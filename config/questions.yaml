@@ -1,0 +1,164 @@
+# questions.yaml
+#
+# What to ask a client, once a flag has fired.
+#
+# CLAUDE.md Task 7: each flag in thresholds.yaml maps to one or two plain-English
+# due-diligence questions. The engine raises the flag and says why. This file
+# turns that into something a relationship manager can read out on a call without
+# knowing what CBAM is.
+#
+# READ THIS FIRST. Nothing here is law, guidance or a supervisory expectation.
+# These are the author's own questions. No regulator or bank has endorsed them,
+# and a bank using this tool should replace them with its own wording.
+#
+# Schema:
+#
+#   meta:              file-level provenance, as in every other config file
+#   questions:
+#     <FLAG_CODE>:     must be a flag code that exists in thresholds.yaml
+#       status:        assumption, from the closed vocabulary in src/config.py
+#       source:        who wrote it. owner means Musharraf Hassan wrote it
+#       why:           one line saying what the answer is for, for the analyst
+#       ask:           a list of one or two questions, each a full sentence
+#                      ending in a question mark
+#
+# Rules this file follows, and tests/test_questions.py enforces:
+#
+#   Every flag in thresholds.yaml has an entry here, and every entry here names a
+#   flag that exists. A flag with no question would reach a borrower page as an
+#   empty box.
+#
+#   One or two questions per flag. A list of six is a questionnaire, not a call.
+#
+#   No number appears in a question. The mass threshold, the pass-through share
+#   and the band gap all live in other config files and can change there. A
+#   question that restated one would drift out of step with the file that owns
+#   it, which is exactly what CLAUDE.md section 2 forbids.
+#
+#   No tier numbers and no flag codes in the question text. The client is being
+#   asked a question, not shown the tool's internals.
+
+meta:
+  config_version: "1.0.0"
+  last_updated: "2026-09-15"
+  status: assumption
+  source: owner
+  warning: >-
+    These questions are the author's assumptions about what a credit officer
+    should ask, not law and not supervisory guidance. Label them as assumptions
+    wherever they are shown.
+
+questions:
+
+  NO_DECLARANT:
+    status: assumption
+    source: owner
+    why: >-
+      Authorisation is an operational cliff, not a cost. Without it the borrower
+      cannot lawfully import the goods at all, so the first question is about
+      timing and the second is about what happens if the timing slips.
+    ask:
+      - "Have you applied for authorised CBAM declarant status, and what is the
+        application reference and the expected decision date?"
+      - "If the authorisation is not in place before your next shipment arrives,
+        who will act as the declarant for those goods?"
+
+  DEFAULT_VALUES:
+    status: assumption
+    source: owner
+    why: >-
+      Default emission values are deliberately conservative, so this borrower is
+      probably being charged more than its real emissions justify. The answer
+      tells you whether the cost in front of you is likely to fall.
+    ask:
+      - "Can your suppliers give you verified emissions data for each shipment,
+        and from which date?"
+      - "What would it cost you to obtain verified data, set against the extra
+        certificate cost that default values create?"
+
+  LOW_PASS_THROUGH:
+    status: assumption
+    source: owner
+    why: >-
+      Whether the cost lands on the borrower's own margin or on its customers is
+      the difference between a cash-flow item and a credit event.
+    ask:
+      - "Which of your customer contracts let you raise prices when input costs
+        rise, and how much notice do they need?"
+      - "If you cannot pass this cost on, which budget line absorbs it next
+        year?"
+
+  SUPPLIER_CONCENTRATION:
+    status: assumption
+    source: owner
+    why: >-
+      A borrower that can move volume to an EU or exempt origin has an option a
+      single-origin borrower does not. The answer is about how real that option
+      is, in months rather than in principle.
+    ask:
+      - "How much of this volume could move to a supplier inside the EU or in an
+        exempt country, and how long would that switch take?"
+      - "What happens to your delivery schedule and your price if that one origin
+        becomes unavailable?"
+
+  ESTIMATED_INPUTS:
+    status: assumption
+    source: owner
+    why: >-
+      The tool filled one or more fields from a sector average, so the number on
+      the screen is indicative. This question replaces a guess with a fact.
+    ask:
+      - "Can you give us your actual import volumes by product for the last full
+        year, so we can replace our sector estimate?"
+      - "Which of the figures we estimated are wrong enough to matter, and what
+        are the right ones?"
+
+  RATING_GAP:
+    status: assumption
+    source: owner
+    why: >-
+      This is the flag a credit committee cares about. The bank's own transition
+      rating and this screening disagree, and the borrower may hold the
+      information that explains why.
+    ask:
+      - "What is in your transition plan that we cannot see in the figures we
+        hold, and would explain why our own rating is lower than this screening?"
+      - "Which mitigating actions are funded and in the current budget, and when
+        do they complete?"
+
+  MONITOR:
+    status: assumption
+    source: owner
+    why: >-
+      Nothing is owed today, but the mass threshold is reviewed and an increase
+      in volume creates a full-year obligation backdated to 1 January. The point
+      of asking is to find out before the year turns, not after.
+    ask:
+      - "Do you expect your imports of these goods to stay below the mass
+        threshold next year, and what would push them over it?"
+      - "Who inside your business tracks that volume, and would you tell us in
+        the same year the threshold was crossed?"
+
+  NEGATIVE_EBITDA:
+    status: assumption
+    source: owner
+    why: >-
+      A cost-to-EBITDA ratio has no meaning here, so the screening band was set
+      by rule. The real question is whether there is any headroom at all.
+    ask:
+      - "How is this year's loss being funded, and does that funding leave room
+        for a new certificate cost?"
+      - "When do you expect to return to positive EBITDA, and what does that plan
+        assume about carbon costs?"
+
+  ORIGIN_UNKNOWN:
+    status: assumption
+    source: owner
+    why: >-
+      The tool could not test whether the origin is exempt, so it treated the
+      goods as in scope. If the origin turns out to be exempt, the cost on screen
+      falls to zero.
+    ask:
+      - "Which countries did these goods come from in the last full year, by
+        volume?"
+      - "Can your customs agent give us the declared origin for each shipment?"

@@ -115,8 +115,21 @@ self-contradictory on this point, so assume a restart is needed.
 | `fact_cost` | borrower, year, scenario, branch | 780 |
 | `fact_liquidity` | borrower, scenario, branch, payment | 1497 |
 | `fact_flags` | borrower, flag | 117 |
-| `meta` | key and value | 37 |
+| `meta` | key and value | 41 |
 | `_Measures` | no data, measures only | 0 |
+
+The exporter writes two further csv files that this semantic model does not
+load. They were added for the web dashboard in `webapp/`, after the model was
+written, and nothing on a Power BI page needs them yet:
+
+| File | Grain | Rows in the fixture export | What it is for |
+| --- | --- | --- | --- |
+| `fact_cost_line.csv` | borrower, year, scenario, branch, good group | 324 | the cost broken down to one row per good, carrying the emission factor, so a page can print the formula with the borrower's own numbers rather than dividing to find the factor back |
+| `questions.csv` | flag, question | 18 | the plain-English client questions from `config/questions.yaml`, so a report never has to parse yaml |
+
+To use them in Power BI, add two tables to the model the same way the eight
+existing ones are written, and `tests/test_powerbi_project.py` will then check
+their columns against the exporter as it does for the rest.
 
 Two grain decisions are worth knowing before you build anything.
 
@@ -463,9 +476,13 @@ boundaries are the author's assumptions.
 measure. One paragraph per active flag, each one the engine's own sentence with
 this borrower's numbers already in it.
 
-When CLAUDE.md Task 7's `config/questions.yaml` is written, the exporter gains a
-question column on `fact_flags` and this measure reads that instead of the
-reason. Nothing else on the page changes.
+CLAUDE.md Task 7's `config/questions.yaml` now exists, and the exporter writes
+its contents to `questions.csv` as a flag to question table. To show the
+questions rather than the engine's reasons, load that file as a table, relate
+`questions[flag]` to `fact_flags[flag]` as one to many, and put
+`questions[question_text]` in a table visual filtered to `fact_flags[active]` is
+true. The `What To Ask This Client` measure is left as it is, so nothing breaks
+if the extra table is not loaded.
 
 ### Page 4: Summary
 

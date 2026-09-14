@@ -1,0 +1,19 @@
+flag,question_order,question_text
+DEFAULT_VALUES,1,"Can your suppliers give you verified emissions data for each shipment, and from which date?"
+DEFAULT_VALUES,2,"What would it cost you to obtain verified data, set against the extra certificate cost that default values create?"
+ESTIMATED_INPUTS,1,"Can you give us your actual import volumes by product for the last full year, so we can replace our sector estimate?"
+ESTIMATED_INPUTS,2,"Which of the figures we estimated are wrong enough to matter, and what are the right ones?"
+LOW_PASS_THROUGH,1,"Which of your customer contracts let you raise prices when input costs rise, and how much notice do they need?"
+LOW_PASS_THROUGH,2,"If you cannot pass this cost on, which budget line absorbs it next year?"
+MONITOR,1,"Do you expect your imports of these goods to stay below the mass threshold next year, and what would push them over it?"
+MONITOR,2,"Who inside your business tracks that volume, and would you tell us in the same year the threshold was crossed?"
+NEGATIVE_EBITDA,1,"How is this year's loss being funded, and does that funding leave room for a new certificate cost?"
+NEGATIVE_EBITDA,2,"When do you expect to return to positive EBITDA, and what does that plan assume about carbon costs?"
+NO_DECLARANT,1,"Have you applied for authorised CBAM declarant status, and what is the application reference and the expected decision date?"
+NO_DECLARANT,2,"If the authorisation is not in place before your next shipment arrives, who will act as the declarant for those goods?"
+ORIGIN_UNKNOWN,1,"Which countries did these goods come from in the last full year, by volume?"
+ORIGIN_UNKNOWN,2,Can your customs agent give us the declared origin for each shipment?
+RATING_GAP,1,"What is in your transition plan that we cannot see in the figures we hold, and would explain why our own rating is lower than this screening?"
+RATING_GAP,2,"Which mitigating actions are funded and in the current budget, and when do they complete?"
+SUPPLIER_CONCENTRATION,1,"How much of this volume could move to a supplier inside the EU or in an exempt country, and how long would that switch take?"
+SUPPLIER_CONCENTRATION,2,What happens to your delivery schedule and your price if that one origin becomes unavailable?

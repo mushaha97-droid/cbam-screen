@@ -15,6 +15,7 @@ CONFIG_FILES = [
     "scenarios.yaml",
     "nace_tiers.yaml",
     "thresholds.yaml",
+    "questions.yaml",
 ]
 
 EXPECTED_PATHS = [
