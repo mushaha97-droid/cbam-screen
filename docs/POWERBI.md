@@ -175,7 +175,7 @@ CLAUDE.md Task 9 is done.
 
 ### Measures
 
-All twenty-six live in `_Measures`. Each one carries a description in the model
+All twenty-eight live in `_Measures`. Each one carries a description in the model
 naming the config entry its inputs came from, which is the CLAUDE.md section 7
 traceability rule applied to DAX. You can read those descriptions in Desktop in
 the Model view.
@@ -594,7 +594,7 @@ Task 9 is done, Tier 4 rows carry a cost of zero and the `cost_basis`
 - the fixture portfolio and the fixture prices, both labelled in the files
   themselves
 - the semantic model: tables, columns, types, relationships, the DataFolder
-  parameter and all twenty-six measures with their descriptions
+  parameter and all twenty-eight measures with their descriptions
 - the theme, the band ramp and the colour rules
 - these page blueprints
 - tests that keep the model and the exporter in step
