@@ -1279,6 +1279,13 @@
         "</strong>, exported " + escapeHtml(meta.generated_at || "at an unrecorded time") +
         ", carbon prices " + escapeHtml(meta.price_source_label || "unknown") +
         ", " + escapeHtml(meta.borrower_count || "an unrecorded number of") + " borrowers.</p>");
+      // The exporter validates the borrower rows, so the count of rejected ones
+      // is reported here rather than recomputed. Which rows and why is printed
+      // by the exporter itself when it runs.
+      var rejected = Number(meta.borrower_rows_rejected || 0);
+      html.push("<p>" + (rejected > 0
+        ? '<span class="missing">' + rejected + " borrower rows were rejected by the engine when this export was made</span>, so they are not on any view here. The exporter prints the reason for each one."
+        : "No borrower row was rejected when this export was made.") + "</p>");
     }
     html.push(accepted
       ? '<p class="ok">Loaded. Every view now shows this file set. Nothing was uploaded anywhere.</p>'
