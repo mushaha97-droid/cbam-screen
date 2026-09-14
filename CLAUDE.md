@@ -4,6 +4,8 @@ Portfolio tool by Musharraf Hassan. Open this repo in Claude Code and say "Read 
 
 ## 1. What we are building
 
+A screening tool for bank risk teams. Goal: an analyst goes from "here is our borrower list" to "here is who we need to talk to before the February 2027 certificate window" in under an hour, without reading the CBAM regulation.
+
 A local web app (Streamlit) where a bank uploads a borrower table and gets back, per borrower and for the portfolio:
 
 - CBAM tier (0 to 4)
@@ -12,6 +14,8 @@ A local web app (Streamlit) where a bank uploads a borrower table and gets back,
 - 2027 liquidity shock
 - flags (no declarant status, default emission values only, low pass-through, supplier concentration)
 - portfolio roll-up and comparison with any existing transition rating the bank supplies
+- a "what to ask this client" question set per borrower, generated from its flags
+- csv export of flagged borrowers for the credit file and a one-page summary for the risk committee
 
 Demo runs on a synthetic portfolio of 300 Dutch borrowers whose sector mix matches ABN AMRO's disclosed corporate lending by industry (Annual Report 2025). The word SYNTHETIC appears on every demo screen.
 
@@ -52,6 +56,7 @@ cbam-screen/
     scenarios.yaml           ETS price by scenario and year 2026 to 2035
     nace_tiers.yaml          NACE -> tier, confidence, sector default import intensity, pass-through share
     thresholds.yaml          cost/EBITDA bands -> L ML M MH H; flag thresholds
+    questions.yaml           flag -> due-diligence questions for the client questionnaire
   data/
     SOURCES.md
     abn_sector_mix.csv       pasted from annual report (I do this)
@@ -63,6 +68,8 @@ cbam-screen/
     cost.py        certificate cost engine
     liquidity.py   2027 timing model
     flags.py       flag rules
+    questions.py   flag -> client questions
+    summary.py     one-page committee summary export
     portfolio.py   roll-ups and comparison
     synth.py       synthetic portfolio generator
     app.py         Streamlit UI
@@ -105,10 +112,20 @@ Task 3: fill scenarios.yaml from source 7, annual 2026 to 2035, interpolated if 
 Task 4: I hand-write nace_tiers.yaml. Then write tiering.py. Test: fixture rows for each tier and the precedence rule.
 Task 5: schema.py with pydantic validation and sector-default filling. Test: a row with only required fields validates and is marked estimated.
 Task 6: cost.py. Test with hand example: 1,000 t steel, 1.9 tCO2/t, price 80, free_alloc 0.975 -> 3,800 EUR. Add examples above and below the 50 t threshold.
-Task 7: liquidity.py and flags.py with tests.
+Task 7: liquidity.py, flags.py and questions.py (maps each flag to one or two plain-English due-diligence questions, stored in config/questions.yaml) with tests.
 Task 8: synth.py. Read data/abn_sector_mix.csv and generate 300 borrowers whose exposure shares by NACE match it. Realistic turnover and EBITDA margins by sector from CBS, import volumes from sector intensities, random declarant status and supplier data. Test: sector shares within 2% of target.
 Task 9: portfolio.py roll-ups. Test on the synthetic set.
-Task 10: app.py. Pages: Upload (or load synthetic), Portfolio (heatmap exposure by tier x band, scenario and branch selectors), Borrowers (sortable table with flags, csv download), Borrower detail (cost path chart, liquidity chart, flag reasons), Methodology (rendered from docs/METHODOLOGY.md). SYNTHETIC banner when demo data is loaded.
+Task 10: app.py. Design for a risk analyst, not a developer. Pages:
+
+- Upload: download template button; upload csv; validation report in plain English (rows accepted, rows rejected and why, which optional fields were filled from sector defaults); reconciliation line at top: total exposure uploaded = total exposure shown. "Load synthetic demo" button with SYNTHETIC banner.
+- Portfolio: heatmap of exposure by tier x materiality band; scenario and branch dropdowns with sensible defaults (Delayed Transition, current rules); batch toggle that runs all scenarios and branches and shows best and worst case per tier; sum of exposure carrying RATING_GAP; "what changed vs your own rating" table.
+- Borrowers: sortable, filterable table with plain-language tier labels ("Makes CBAM goods in the EU", "Imports CBAM goods", "May be caught from 2028", "Pays via input prices", "Not affected"), band, 2027 cash-out, flags as chips; csv download of the filtered list.
+- Borrower detail: cost path chart 2026 to 2035 for all three scenarios; 2027 liquidity chart; "why this rating" box showing the formula with the borrower's own numbers plugged in; "what to ask this client" box listing the due-diligence questions generated from its flags (declarant status, supplier emissions data, pass-through, supplier country concentration, import volume confirmation).
+- Summary: one-page export (pdf or html) for a risk committee: portfolio totals, top 20 borrowers, flags count, scenario range, method note, synthetic/real data label.
+- Methodology: rendered from docs/METHODOLOGY.md, written for a risk manager.
+
+Rule: the UI never shows a number that cannot be traced to a config entry or an uploaded field.
+
 Task 11: METHODOLOGY.md: purpose, rule summary with sources, formulas, assumptions with status, data-quality scoring, limitations, how to verify each output. Then review it as a sceptical bank risk manager and list unsupported claims.
 Task 12: README with screenshot, how to run, disclaimer. Deploy to Streamlit Community Cloud. I add the link to my portfolio site.
 
@@ -116,6 +133,9 @@ Task 12: README with screenshot, how to run, disclaimer. Deploy to Streamlit Com
 
 - pytest green, including the hand examples.
 - App runs from `streamlit run src/app.py` with synthetic data and with the template csv.
+- A test user with only the seven required columns gets a full result with estimated flags, no errors.
+- Changing a date, threshold or price in config changes the output without touching src/.
+- Each borrower page shows its questions box and its formula box.
 - Every number shown in the UI traces to a config entry with a source.
 - Methodology page has no unsourced numeric claim.
 - README states: synthetic data, sector-level defaults, proposals labelled, not affiliated with any bank.
@@ -126,3 +146,4 @@ Task 12: README with screenshot, how to run, disclaimer. Deploy to Streamlit Com
 - Use or imply real borrower data.
 - Present outputs as any bank's actual exposure.
 - Build the UI before the cost engine tests pass.
+- Use tier numbers or code names in the UI where a plain-language label exists.
