@@ -1,0 +1,157 @@
+# FIXTURE cbam_rules.yaml. Test data, not law.
+#
+# The numbers here are chosen to make tests readable. They are deliberately
+# small and round. Never copy them into config/.
+#
+# The one exception is the 50 tonne mass threshold and the 0.975 free allocation
+# for 2026, which match the real rule so the hand example in the task list can be
+# checked end to end.
+
+meta:
+  config_version: "fixture"
+  last_updated: "2026-09-14"
+  note: "Fixture file for tests. Not a source of truth."
+
+branches:
+  adopted:
+    label: "Adopted law only"
+    free_allocation_schedule: adopted
+    downstream_extension_applies: false
+    status: adopted
+    source: "fixture"
+  proposal:
+    label: "Both Commission proposals applied"
+    free_allocation_schedule: proposal_2038
+    downstream_extension_applies: true
+    status: proposal
+    source: "fixture"
+
+goods:
+  steel:
+    sector: "Iron and steel"
+    label: "Iron and steel"
+    cn_codes: ["7208"]
+    emissions_covered: direct
+    counts_toward_mass_threshold: true
+    source: "fixture"
+    status: adopted
+  aluminium:
+    sector: "Aluminium"
+    label: "Aluminium"
+    cn_codes: ["7601"]
+    emissions_covered: direct
+    counts_toward_mass_threshold: true
+    source: "fixture"
+    status: adopted
+  cement:
+    sector: "Cement"
+    label: "Cement"
+    cn_codes: ["2523 29 00"]
+    emissions_covered: direct_and_indirect
+    counts_toward_mass_threshold: true
+    source: "fixture"
+    status: adopted
+  fertiliser:
+    sector: "Fertilisers"
+    label: "Fertilisers"
+    cn_codes: ["3102 10 19"]
+    emissions_covered: direct_and_indirect
+    counts_toward_mass_threshold: true
+    source: "fixture"
+    status: adopted
+  hydrogen:
+    sector: "Hydrogen"
+    label: "Hydrogen"
+    cn_codes: ["2804 10 00"]
+    emissions_covered: direct
+    counts_toward_mass_threshold: false
+    source: "fixture"
+    status: adopted
+  electricity:
+    sector: "Electricity"
+    label: "Electricity"
+    cn_codes: ["2716 00 00"]
+    emissions_covered: direct
+    counts_toward_mass_threshold: false
+    source: "fixture"
+    status: adopted
+
+mass_threshold:
+  value: 50
+  unit: "tonnes per importer per year"
+  excluded_goods: [hydrogen, electricity]
+  source: "fixture"
+  status: adopted
+
+exempt_origins:
+  countries:
+    - {code: IS, name: Iceland}
+    - {code: LI, name: Liechtenstein}
+    - {code: "NO", name: Norway}
+    - {code: CH, name: Switzerland}
+  territories:
+    - {name: "Busingen", note: "fixture"}
+  source: "fixture"
+  status: adopted
+
+eu_customs_territory:
+  codes: [NL, BE, DE, FR, IT, ES, PL]
+  source: "fixture, a subset of the EU customs territory"
+  status: adopted
+
+free_allocation:
+  adopted:
+    label: "Adopted phase-out, zero free allocation in 2034"
+    status: adopted
+    source: "fixture"
+    end_year: 2034
+    by_year:
+      2026: {cbam_factor: 0.025, free_allocation: 0.975, status: adopted, source: "fixture"}
+      2027: {cbam_factor: 0.05,  free_allocation: 0.95,  status: adopted, source: "fixture"}
+      2028: {cbam_factor: 0.10,  free_allocation: 0.90,  status: adopted, source: "fixture"}
+      2029: {cbam_factor: 0.225, free_allocation: 0.775, status: adopted, source: "fixture"}
+      2030: {cbam_factor: 0.485, free_allocation: 0.515, status: adopted, source: "fixture"}
+      2031: {cbam_factor: 0.61,  free_allocation: 0.39,  status: adopted, source: "fixture"}
+      2032: {cbam_factor: 0.735, free_allocation: 0.265, status: adopted, source: "fixture"}
+      2033: {cbam_factor: 0.86,  free_allocation: 0.14,  status: adopted, source: "fixture"}
+      2034: {cbam_factor: 1.0,   free_allocation: 0.0,   status: adopted, source: "fixture"}
+      2035: {cbam_factor: 1.0,   free_allocation: 0.0,   status: adopted, source: "fixture"}
+  proposal_2038:
+    label: "Proposed slower phase-out, zero free allocation in 2038"
+    status: proposal
+    source: "fixture"
+    end_year: 2038
+    by_year:
+      2026: {cbam_factor: 0.025, free_allocation: 0.975, status: proposal, source: "fixture"}
+      2027: {cbam_factor: 0.05,  free_allocation: 0.95,  status: proposal, source: "fixture"}
+      2028: {cbam_factor: 0.10,  free_allocation: 0.90,  status: proposal, source: "fixture"}
+      2029: {cbam_factor: 0.15,  free_allocation: 0.85,  status: proposal, source: "fixture"}
+      2030: {cbam_factor: 0.20,  free_allocation: 0.80,  status: proposal, source: "fixture"}
+      2031: {cbam_factor: 0.30,  free_allocation: 0.70,  status: proposal, source: "fixture"}
+      2032: {cbam_factor: 0.40,  free_allocation: 0.60,  status: proposal, source: "fixture"}
+      2033: {cbam_factor: 0.50,  free_allocation: 0.50,  status: proposal, source: "fixture"}
+      2034: {cbam_factor: 0.60,  free_allocation: 0.40,  status: proposal, source: "fixture"}
+      2035: {cbam_factor: 0.70,  free_allocation: 0.30,  status: proposal, source: "fixture"}
+      2036: {cbam_factor: 0.80,  free_allocation: 0.20,  status: proposal, source: "fixture"}
+      2037: {cbam_factor: 0.90,  free_allocation: 0.10,  status: proposal, source: "fixture"}
+      2038: {cbam_factor: 1.0,   free_allocation: 0.0,   status: proposal, source: "fixture"}
+
+downstream_extension:
+  status: proposal
+  source: "fixture"
+  start_year: 2028
+  scope_description: "Fixture downstream scope"
+  nace_codes: ["25.11", "28.2"]
+  cn_codes: []
+
+timeline:
+  certificate_sales_start:
+    date: "2027-02-01"
+    description: "Fixture"
+    source: "fixture"
+    status: adopted
+  annual_surrender_deadline:
+    date: "2027-09-30"
+    description: "Fixture"
+    source: "fixture"
+    status: adopted

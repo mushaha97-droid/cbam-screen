@@ -1,67 +1,502 @@
 # cbam_rules.yaml
 # Scope, thresholds, timeline and free-allocation phase-out for the EU CBAM.
 #
-# SCHEMA (Task 0 placeholder, filled in Task 1)
+# Every entry carries a source and a status. Status adopted means law in force.
+# Status proposal means a Commission proposal that is not law and may never be.
+# The UI, the docs and the code comments must repeat that distinction.
 #
-# meta:
-#   config_version: str
-#   last_updated: YYYY-MM-DD
-#
-# goods:            CBAM good groups. One entry per CN group used by the engine.
-#   <group_key>:
-#     sector: str                  Cement | Electricity | Fertilisers | Iron and steel | Aluminium | Chemicals
-#     label: str                   plain English name
-#     cn_codes: [str]              CN codes or CN headings exactly as listed in the source
-#     emissions_covered: str       direct | direct_and_indirect
-#     counts_toward_mass_threshold: bool
-#     source: str                  citation, article or annex
-#     status: adopted | proposal
-#
-# mass_threshold:
-#   value: number
-#   unit: str
-#   excluded_sectors: [str]
-#   source: str
-#   status: adopted | proposal
-#
-# exempt_origins:
-#   countries: [ {code: str, name: str} ]
-#   territories: [ {name: str, note: str} ]
-#   source: str
-#   status: adopted | proposal
-#
-# timeline:
-#   <event_key>:
-#     date: YYYY-MM-DD
-#     description: str
-#     source: str
-#     status: adopted | proposal
-#
-# free_allocation:
-#   <branch>:                      adopted | proposal_2038
-#     label: str
-#     status: adopted | proposal
-#     source: str
-#     end_year: int                first year with free allocation 0.0
-#     by_year:
-#       <year>:
-#         cbam_factor: float       share of the CBAM obligation that applies, 0.0 to 1.0
-#         free_allocation: float   1.0 - cbam_factor
-#         source: str
-#         status: adopted | proposal
-#
-# downstream_extension:
-#   status: proposal
-#   source: str
-#   start_year: int
-#   scope_description: str
-#   nace_codes: [str]
-#   cn_codes: [str]
+# IMPORTANT NOTE ON THE NAME "CBAM FACTOR"
+# In Article 10a(1a) of Directive 2003/87/EC the CBAM factor is the share of
+# free allocation that is RETAINED, not the share that is withdrawn. It is
+# 97,5 percent in 2026 falling to nothing from 2034. It is easy to read it the
+# other way round. This file therefore records both numbers on every year:
+#   cbam_factor      the value as the Directive states it, that is free
+#                    allocation retained
+#   free_allocation  the same number as a fraction, which is what the cost
+#                    engine multiplies by
+# The engine only ever reads free_allocation.
 
 meta:
-  config_version: "0.0.0-scaffold"
+  config_version: "1.0.0"
   last_updated: "2026-09-14"
+  note: >-
+    EUR-Lex refused automated requests on 2026-09-14. Every value below was read
+    from a byte-identical mirror of the official PDF, named in the source field.
+    The canonical EUR-Lex address is given alongside. See data/SOURCES.md.
 
-# TODO(Task 1): fill from Regulation (EU) 2023/956, the 2025 CBAM simplification
-# regulation, the December 2025 downstream extension proposal and the
-# 17 July 2026 phase-out proposal. Do not invent values.
+# ---------------------------------------------------------------------------
+# Rule branches
+# ---------------------------------------------------------------------------
+# The tool runs two branches side by side. The adopted branch is law today.
+# The proposal branch applies both live Commission proposals together, because
+# a bank stressing the policy path would not apply one without the other.
+
+branches:
+  adopted:
+    label: "Adopted law"
+    description: >-
+      Regulation (EU) 2023/956 as amended by Regulation (EU) 2025/2083, and the
+      free-allocation phase-out in Article 10a(1a) of Directive 2003/87/EC.
+    free_allocation_schedule: adopted
+    downstream_extension_applies: false
+    status: adopted
+    source: "Regulation (EU) 2023/956; Directive 2003/87/EC Article 10a(1a)"
+  proposal:
+    label: "Both Commission proposals applied"
+    description: >-
+      The slower free-allocation phase-out to 2038 proposed in COM(2026) 616 of
+      17 July 2026, together with the downstream scope extension from 2028
+      proposed in COM(2025) 989 of 17 December 2025. Neither is law.
+    free_allocation_schedule: proposal_2038
+    downstream_extension_applies: true
+    status: proposal
+    source: "COM(2026) 616 final; COM(2025) 989 final"
+
+# ---------------------------------------------------------------------------
+# Goods in scope
+# ---------------------------------------------------------------------------
+# Keys match the import columns of data/template_borrowers.csv and the good
+# group keys of config/emission_defaults.yaml.
+#
+# emissions_covered comes from Annex II to the Regulation, titled "List of goods
+# for which only direct emissions are to be taken into account". Anything in
+# Annex II is direct only; everything else is direct and indirect. Note that
+# ELECTRICITY WAS MOVED INTO ANNEX II by Regulation (EU) 2025/2083, so under the
+# law in force only cement and fertilisers carry indirect emissions.
+#
+# counts_toward_mass_threshold is false for electricity and hydrogen, because
+# Article 2a(4) says the de minimis exemption does not apply to them.
+
+goods:
+  cement:
+    sector: "Cement"
+    label: "Cement, clinker and calcined clays"
+    cn_codes:
+      - "ex 2507 00 80"
+      - "2523 10 00"
+      - "2523 21 00"
+      - "2523 29 00"
+      - "2523 30 00"
+      - "2523 90 00"
+    greenhouse_gases: ["carbon dioxide"]
+    emissions_covered: direct_and_indirect
+    counts_toward_mass_threshold: true
+    source: "Regulation (EU) 2023/956 Annex I, Cement. Not listed in Annex II."
+    status: adopted
+
+  electricity:
+    sector: "Electricity"
+    label: "Electrical energy"
+    cn_codes: ["2716 00 00"]
+    greenhouse_gases: ["carbon dioxide"]
+    emissions_covered: direct
+    counts_toward_mass_threshold: false
+    unit: "MWh"
+    source: >-
+      Regulation (EU) 2023/956 Annex I, Electricity. Moved into Annex II, direct
+      emissions only, by Regulation (EU) 2025/2083. Excluded from the de minimis
+      threshold by Article 2a(4).
+    status: adopted
+
+  fertiliser:
+    sector: "Fertilisers"
+    label: "Nitrogen fertilisers, ammonia and nitric acid"
+    cn_codes:
+      - "2808 00 00"
+      - "2814"
+      - "2834 21 00"
+      - "3102"
+      - "3105"
+    cn_codes_excluded: ["3105 60 00"]
+    greenhouse_gases: ["carbon dioxide"]
+    greenhouse_gases_status: unverified
+    greenhouse_gases_note: >-
+      TODO: the greenhouse gas column for Fertilisers could not be read. The only
+      copy of the consolidated text that could be fetched on 2026-09-14 clips the
+      Fertilisers table at the right page margin, so the gas cells and part of the
+      3105 description are missing from the text layer. Secondary sources say
+      carbon dioxide plus nitrous oxide, which is not good enough to record here.
+      Document needed: Annex I of Regulation (EU) 2023/956 as published in
+      OJ L 130, 16.5.2023, page 52, EUR-Lex CELEX 32023R0956, PDF. This affects
+      the gas list only. It does not affect the CN codes, the emission factors or
+      any cost number, because the default values are given in tCO2e per tonne.
+    emissions_covered: direct_and_indirect
+    counts_toward_mass_threshold: true
+    source: "Regulation (EU) 2023/956 Annex I, Fertilisers. Not listed in Annex II."
+    status: adopted
+
+  steel:
+    sector: "Iron and steel"
+    label: "Iron and steel and articles of iron or steel"
+    cn_codes:
+      - "72"
+      - "2601 12 00"
+      - "7301"
+      - "7302"
+      - "7303 00"
+      - "7304"
+      - "7305"
+      - "7306"
+      - "7307"
+      - "7308"
+      - "7309 00"
+      - "7310"
+      - "7311 00"
+      - "7318"
+      - "7326"
+    cn_codes_excluded:
+      - "7202 2"
+      - "7202 30 00"
+      - "7202 50 00"
+      - "7202 70 00"
+      - "7202 80 00"
+      - "7202 91 00"
+      - "7202 92 00"
+      - "7202 93 00"
+      - "7202 99"
+      - "7204"
+    greenhouse_gases: ["carbon dioxide"]
+    emissions_covered: direct
+    counts_toward_mass_threshold: true
+    source: "Regulation (EU) 2023/956 Annex I, Iron and steel. Listed in Annex II."
+    status: adopted
+
+  aluminium:
+    sector: "Aluminium"
+    label: "Aluminium and articles of aluminium"
+    cn_codes:
+      - "7601"
+      - "7603"
+      - "7604"
+      - "7605"
+      - "7606"
+      - "7607"
+      - "7608"
+      - "7609 00 00"
+      - "7610"
+      - "7611 00 00"
+      - "7612"
+      - "7613 00 00"
+      - "7614"
+      - "7616"
+    greenhouse_gases: ["carbon dioxide", "perfluorocarbons"]
+    emissions_covered: direct
+    counts_toward_mass_threshold: true
+    source: "Regulation (EU) 2023/956 Annex I, Aluminium. Listed in Annex II."
+    status: adopted
+
+  hydrogen:
+    sector: "Chemicals"
+    label: "Hydrogen"
+    cn_codes: ["2804 10 00"]
+    greenhouse_gases: ["carbon dioxide"]
+    emissions_covered: direct
+    counts_toward_mass_threshold: false
+    source: >-
+      Regulation (EU) 2023/956 Annex I, Chemicals. Listed in Annex II. Excluded
+      from the de minimis threshold by Article 2a(4).
+    status: adopted
+
+# ---------------------------------------------------------------------------
+# The de minimis mass threshold
+# ---------------------------------------------------------------------------
+
+mass_threshold:
+  value: 50
+  unit: "tonnes of net mass, per importer, per calendar year"
+  excluded_goods: [electricity, hydrogen]
+  aggregation: >-
+    The threshold applies to the total net mass of goods under all CN codes
+    aggregated per importer and per calendar year, not per CN code.
+  retroactive_on_breach: true
+  retroactive_note: >-
+    Article 2a(2). Once the threshold is exceeded during a year, the importer is
+    liable for all emissions embedded in all goods imported in that whole
+    calendar year, back to 1 January, not only from the point the threshold was
+    crossed. The cost engine reflects this by charging the full year once the
+    threshold is passed.
+  review_note: >-
+    Article 2a(3). The Commission reviews the threshold by 30 April each year
+    against a target of 1 percent of embedded emissions and may amend it by
+    delegated act where the recomputed value differs by more than 15 tonnes.
+    Any change applies from 1 January of the following year. So 50 tonnes is not
+    a permanent constant and this entry needs rechecking each spring.
+  source: >-
+    Regulation (EU) 2023/956 Article 2a, inserted by Regulation (EU) 2025/2083,
+    and Annex VII point 1.
+  status: adopted
+
+# ---------------------------------------------------------------------------
+# Origins outside scope
+# ---------------------------------------------------------------------------
+
+exempt_origins:
+  countries:
+    - {code: IS, name: "Iceland"}
+    - {code: LI, name: "Liechtenstein"}
+    - {code: "NO", name: "Norway"}
+    - {code: CH, name: "Switzerland"}
+  territories:
+    - {name: "Busingen", note: "German territory, Annex III point 1"}
+    - {name: "Heligoland", note: "German territory, Annex III point 1"}
+    - {name: "Livigno", note: "Italian territory, Annex III point 1"}
+    - {name: "Ceuta", note: "Spanish territory, Annex III point 1"}
+    - {name: "Melilla", note: "Spanish territory, Annex III point 1"}
+  verified_absent:
+    - "Campione d'Italia"
+    - "the Italian waters of Lake Lugano"
+  verified_absent_note: >-
+    Checked and confirmed absent from Annex III of the consolidated text. They
+    appear in some other EU customs and VAT instruments, which is why they are
+    recorded here as checked rather than simply left out.
+  electricity_specific_exemptions: []
+  electricity_specific_note: >-
+    Annex III point 2 covers third countries and territories outside scope for
+    the importation of electricity. In the current consolidated text it is an
+    empty placeholder, to be filled by the Commission under Article 2(11).
+  source: >-
+    Regulation (EU) 2023/956 Annex III, consolidated text 02023R0956 as at
+    20 October 2025.
+  status: adopted
+
+# ---------------------------------------------------------------------------
+# Origins inside the EU customs territory
+# ---------------------------------------------------------------------------
+# Needed by the tier rule, which asks whether an import came from outside the
+# EU. These are the 27 member states.
+
+eu_customs_territory:
+  codes:
+    [AT, BE, BG, HR, CY, CZ, DK, EE, FI, FR, DE, GR, HU, IE, IT, LV, LT, LU,
+     MT, NL, PL, PT, RO, SK, SI, ES, SE]
+  note: >-
+    The 27 EU member states by ISO 3166-1 alpha-2 code. The Union customs
+    territory is defined in Article 4 of the Union Customs Code and is not
+    exactly the sum of the member states, since it excludes some territories and
+    includes Monaco. For a screening tool at borrower level the member state
+    list is the right granularity, and the territories that matter for CBAM are
+    handled by the exempt_origins block above.
+  source: >-
+    Regulation (EU) 2023/956 applies to goods imported into the customs
+    territory of the Union, Article 2(1). Member state list is the EU's own.
+  status: adopted
+
+# ---------------------------------------------------------------------------
+# Timeline
+# ---------------------------------------------------------------------------
+
+timeline:
+  definitive_regime_start:
+    date: "2026-01-01"
+    description: "The definitive CBAM regime begins. Article 31 applies."
+    source: "Regulation (EU) 2023/956"
+    status: adopted
+  certificate_sales_start:
+    date: "2027-02-01"
+    description: >-
+      From 1 February 2027 a member state sells CBAM certificates on a common
+      central platform to authorised CBAM declarants established in it. No
+      certificate can be bought before this date, which is why the 2026
+      obligation lands as a single block in 2027.
+    source: "Regulation (EU) 2023/956 Article 20(1), as amended by 2025/2083"
+    status: adopted
+  first_declaration_deadline:
+    date: "2027-09-30"
+    description: >-
+      By 30 September of each year, and for the first time in 2027 for the year
+      2026, each authorised CBAM declarant submits a CBAM declaration for the
+      preceding calendar year.
+    source: "Regulation (EU) 2023/956 Article 6(1), as amended by 2025/2083"
+    status: adopted
+  first_surrender_deadline:
+    date: "2027-09-30"
+    description: "Certificate surrender, same wording and date as the declaration."
+    source: "Regulation (EU) 2023/956 Article 22(1), as amended by 2025/2083"
+    status: adopted
+  quarterly_holding_requirement_start:
+    date: "2027-01-01"
+    description: >-
+      From 1 January 2027 a declarant must hold certificates covering at least
+      50 percent of embedded emissions at the end of each quarter. This is what
+      turns the obligation from one annual block into a quarterly cash need.
+    source: "Regulation (EU) 2023/956 Article 22(2), as amended by 2025/2083"
+    status: adopted
+  downstream_extension_start:
+    date: "2028-01-01"
+    description: "Proposed start of the downstream scope extension. Not law."
+    source: "COM(2025) 989 final Article 2 and recital 53"
+    status: proposal
+
+# ---------------------------------------------------------------------------
+# Certificate pricing
+# ---------------------------------------------------------------------------
+
+certificate_price_method:
+  default:
+    description: >-
+      The Commission calculates the price of CBAM certificates as the weekly
+      average of the closing prices of EU ETS allowances on the auction platform.
+    basis: weekly_average
+    source: "Regulation (EU) 2023/956 Article 21(1), as amended by 2025/2083"
+    status: adopted
+  year_2026:
+    description: >-
+      By way of derogation, emissions declared in respect of 2026 are priced at
+      the quarterly average of the closing prices of EU ETS allowances on the
+      auction platform, for the quarter in which the goods were imported. Note
+      that it is the quarter of importation, not a single annual figure.
+    basis: quarterly_average_of_quarter_of_import
+    applies_to_year: 2026
+    source: "Regulation (EU) 2023/956 Article 21(1a), as amended by 2025/2083"
+    status: adopted
+    modelling_note: >-
+      The engine uses one annual price per scenario per year, so it cannot
+      reproduce the quarterly split. For 2026 the annual scenario price stands in
+      for the average of the four quarterly averages. Say so in the methodology.
+
+# ---------------------------------------------------------------------------
+# Free-allocation phase-out
+# ---------------------------------------------------------------------------
+
+free_allocation:
+
+  adopted:
+    label: "Adopted phase-out, no CBAM factor from 2034"
+    status: adopted
+    source: >-
+      Directive 2003/87/EC Article 10a(1a), third subparagraph, as inserted by
+      Directive (EU) 2023/959. Consolidated text 02003L0087 as at 1 March 2024.
+    quoted_text: >-
+      The CBAM factor shall be equal to 100 percent for the period between the
+      entry into force of that Regulation and the end of 2025 and shall be equal
+      to 97,5 percent in 2026, 95 percent in 2027, 90 percent in 2028,
+      77,5 percent in 2029, 51,5 percent in 2030, 39 percent in 2031,
+      26,5 percent in 2032 and 14 percent in 2033. From 2034, no CBAM factor
+      shall apply.
+    end_year: 2034
+    by_year:
+      2025: {cbam_factor: 1.0,   free_allocation: 1.0,   status: adopted, source: "Art. 10a(1a)"}
+      2026: {cbam_factor: 0.975, free_allocation: 0.975, status: adopted, source: "Art. 10a(1a)"}
+      2027: {cbam_factor: 0.95,  free_allocation: 0.95,  status: adopted, source: "Art. 10a(1a)"}
+      2028: {cbam_factor: 0.90,  free_allocation: 0.90,  status: adopted, source: "Art. 10a(1a)"}
+      2029: {cbam_factor: 0.775, free_allocation: 0.775, status: adopted, source: "Art. 10a(1a)"}
+      2030: {cbam_factor: 0.515, free_allocation: 0.515, status: adopted, source: "Art. 10a(1a)"}
+      2031: {cbam_factor: 0.39,  free_allocation: 0.39,  status: adopted, source: "Art. 10a(1a)"}
+      2032: {cbam_factor: 0.265, free_allocation: 0.265, status: adopted, source: "Art. 10a(1a)"}
+      2033: {cbam_factor: 0.14,  free_allocation: 0.14,  status: adopted, source: "Art. 10a(1a)"}
+      2034: {cbam_factor: 0.0,   free_allocation: 0.0,   status: adopted, source: "Art. 10a(1a), no CBAM factor applies"}
+      2035: {cbam_factor: 0.0,   free_allocation: 0.0,   status: adopted, source: "Art. 10a(1a), no CBAM factor applies"}
+
+  proposal_2038:
+    label: "Proposed slower phase-out, CBAM factor 0 percent from 2038"
+    status: proposal
+    source: >-
+      COM(2026) 616 final, 2026/0212 (COD), 17 July 2026, Article 1(15)(b)(i),
+      replacing the second subparagraph of Article 10a(1a) of Directive
+      2003/87/EC. A Commission proposal. Not law.
+    quoted_text: >-
+      The CBAM factor shall be equal to 100 percent for the period between the
+      entry into force of that Regulation and the end of 2025 and shall be equal
+      to 97,5 percent in 2026, 95 percent in 2027, 91.5 percent in 2028,
+      81 percent in 2029, 59 percent in 2030, 48 percent in 2031,
+      37,5 percent in 2032 and 27 percent in 2033, 15 percent from 2034 to 2037.
+      From 2038, a CBAM factor of 0 percent shall apply.
+    quoted_text_note: >-
+      Decimal separators are inconsistent in the original, 91.5 with a point and
+      97,5 with a comma. Reproduced as printed.
+    end_year: 2038
+    by_year:
+      2025: {cbam_factor: 1.0,   free_allocation: 1.0,   status: proposal, source: "COM(2026) 616 Art. 1(15)(b)(i)"}
+      2026: {cbam_factor: 0.975, free_allocation: 0.975, status: proposal, source: "COM(2026) 616 Art. 1(15)(b)(i)"}
+      2027: {cbam_factor: 0.95,  free_allocation: 0.95,  status: proposal, source: "COM(2026) 616 Art. 1(15)(b)(i)"}
+      2028: {cbam_factor: 0.915, free_allocation: 0.915, status: proposal, source: "COM(2026) 616 Art. 1(15)(b)(i)"}
+      2029: {cbam_factor: 0.81,  free_allocation: 0.81,  status: proposal, source: "COM(2026) 616 Art. 1(15)(b)(i)"}
+      2030: {cbam_factor: 0.59,  free_allocation: 0.59,  status: proposal, source: "COM(2026) 616 Art. 1(15)(b)(i)"}
+      2031: {cbam_factor: 0.48,  free_allocation: 0.48,  status: proposal, source: "COM(2026) 616 Art. 1(15)(b)(i)"}
+      2032: {cbam_factor: 0.375, free_allocation: 0.375, status: proposal, source: "COM(2026) 616 Art. 1(15)(b)(i)"}
+      2033: {cbam_factor: 0.27,  free_allocation: 0.27,  status: proposal, source: "COM(2026) 616 Art. 1(15)(b)(i)"}
+      2034: {cbam_factor: 0.15,  free_allocation: 0.15,  status: proposal, source: "COM(2026) 616 Art. 1(15)(b)(i)"}
+      2035: {cbam_factor: 0.15,  free_allocation: 0.15,  status: proposal, source: "COM(2026) 616 Art. 1(15)(b)(i)"}
+      2036: {cbam_factor: 0.15,  free_allocation: 0.15,  status: proposal, source: "COM(2026) 616 Art. 1(15)(b)(i)"}
+      2037: {cbam_factor: 0.15,  free_allocation: 0.15,  status: proposal, source: "COM(2026) 616 Art. 1(15)(b)(i)"}
+      2038: {cbam_factor: 0.0,   free_allocation: 0.0,   status: proposal, source: "COM(2026) 616 Art. 1(15)(b)(i)"}
+    newly_added_goods_ramp:
+      description: >-
+        The proposal sets a separate ramp for goods added to CBAM Annex I later.
+        The CBAM factor stays at 100 percent until the first year of the next
+        five-year period under Article 11, then 97,9 percent in year one and
+        95,8 percent in year two, rejoining the main schedule at the 2028 value.
+      status: proposal
+      source: "COM(2026) 616 final Article 1(15)(b)(i)"
+      modelling_note: "Not modelled. The tool has no concept of newly added goods."
+
+# ---------------------------------------------------------------------------
+# Downstream extension proposal
+# ---------------------------------------------------------------------------
+
+downstream_extension:
+  status: proposal
+  source: >-
+    COM(2025) 989 final, 2025/0419 (COD), 17 December 2025, proposal amending
+    Regulation (EU) 2023/956 as regards the extension of its scope to downstream
+    goods and anti-circumvention measures. A Commission proposal. Not law.
+  start_year: 2028
+  start_date: "2028-01-01"
+  start_source: "COM(2025) 989 final Article 2 and recital 53"
+  scope_description: >-
+    Selected steel and aluminium intensive downstream products, chosen on trade
+    intensity and a carbon cost-push indicator with an emissions floor. This is
+    option 2 of three assessed, the balanced extension. The explanatory
+    memorandum states that downstream products of cement, fertilisers and
+    hydrogen are not included, and that downstream products of electricity were
+    not considered. The Commission's own figure is about 180 additional CN codes,
+    with roughly half the newly captured importers being small and medium
+    enterprises.
+  scope_defined_by: cn_code
+  nace_codes: []
+  nace_codes_note: >-
+    The proposal uses no NACE codes at all. Scope is defined purely by CN code.
+    The downstream_nace list in nace_tiers.yaml is therefore the author's own
+    mapping from CN codes to sectors, not a reading of the proposal, and must be
+    labelled as such wherever it drives an output.
+  iron_and_steel_additions:
+    - "7312 10"
+    - "7314 31 00"
+    - "7314 39 00"
+    - "7314 41 00"
+    - "7314 49 00"
+    - "7317 00"
+    - "7320 20 89"
+    - "7320 90 90"
+    - "7323 94 00"
+    - "7323 99 00"
+    - "7325"
+  iron_and_steel_additions_note: >-
+    The proposal also splits the existing exclusion 7202 2 into 7202 21 00 and
+    7202 29.
+  combined_metal_products_cn_codes: []
+  combined_metal_products_note: >-
+    TODO: transcribe the full CN code list of the new Combined metal products
+    table. The table runs about 15 PDF pages and was not transcribed in full.
+    Many entries are ex-codes qualified by the words containing steel or
+    aluminium. Headings seen include ex 7415 10 00, ex 8302 42 00, 8408, 8413,
+    8416, 8418, 8419, 8425, 8428, 8450, 8454, 8474, 8501, 8504, 8704, 8708,
+    9403 and ex 9406 90 90. Document needed: Council register ST-16973-2025-ADD-1,
+    which is COM(2025) 989 annexes 1 to 3, at
+    https://data.consilium.europa.eu/doc/document/ST-16973-2025-ADD-1/en/pdf
+    This gap does not affect any cost number today, because Tier 3 is driven by
+    NACE mapping rather than by CN code.
+  precursor_scrap_codes:
+    - {code: "ex 7204", description: "Ferrous scrap, except post-consumer scrap"}
+    - {code: "ex 7602", description: "Aluminium scrap, except post-consumer scrap"}
+  precursor_note: >-
+    Added by Annex III of the proposal as a new Annex VIII, a list of non-CBAM
+    goods treated as input materials or precursors.
+  electricity_emission_factor_note: >-
+    The same proposal applies revised electricity emission factor rules
+    retroactively to imports from 1 January 2026. Not modelled here. See the
+    electricity TODO in emission_defaults.yaml.
+  parliament_position_note: >-
+    Press reporting of 277 tariff lines refers to the European Parliament ENVI
+    committee position, not the Commission proposal. Not verified against a
+    primary source and not used.
