@@ -1,0 +1,4 @@
+scenario,scenario_label,status,source,source_url,region,price_unit,sort_order,is_default
+current_policies,"Current Policies (FIXTURE, flat 60)",scenario,"fixture_not_a_forecast. Invented flat value, no source.",fixture,fixture,"EUR per tCO2, fixture",1,false
+delayed_transition,"Delayed Transition (FIXTURE, flat 80)",scenario,"fixture_not_a_forecast. Invented flat value, no source.",fixture,fixture,"EUR per tCO2, fixture",2,true
+net_zero_2050,"Net Zero 2050 (FIXTURE, flat 100)",scenario,"fixture_not_a_forecast. Invented flat value, no source.",fixture,fixture,"EUR per tCO2, fixture",3,false

@@ -1,0 +1,118 @@
+borrower_id,flag,active,reason,evaluated_year,evaluated_scenario,evaluated_branch
+B001,DEFAULT_VALUES,true,"supplier data is default, so default emission values were used. Defaults are conservative, so the cost is more likely high than low, and verified data would reduce it.",2027,delayed_transition,adopted
+B001,ESTIMATED_INPUTS,false,,2027,delayed_transition,adopted
+B001,LOW_PASS_THROUGH,false,,2027,delayed_transition,adopted
+B001,MONITOR,false,,2027,delayed_transition,adopted
+B001,NEGATIVE_EBITDA,false,,2027,delayed_transition,adopted
+B001,NO_DECLARANT,false,,2027,delayed_transition,adopted
+B001,ORIGIN_UNKNOWN,false,,2027,delayed_transition,adopted
+B001,RATING_GAP,false,,2027,delayed_transition,adopted
+B001,SUPPLIER_CONCENTRATION,true,"80% of supply comes from CN, above the 60% parameter, which is outside the EU and in CBAM scope.",2027,delayed_transition,adopted
+B002,DEFAULT_VALUES,true,"supplier data is default, so default emission values were used. Defaults are conservative, so the cost is more likely high than low, and verified data would reduce it.",2027,delayed_transition,adopted
+B002,ESTIMATED_INPUTS,false,,2027,delayed_transition,adopted
+B002,LOW_PASS_THROUGH,false,,2027,delayed_transition,adopted
+B002,MONITOR,false,,2027,delayed_transition,adopted
+B002,NEGATIVE_EBITDA,false,,2027,delayed_transition,adopted
+B002,NO_DECLARANT,true,carries a direct obligation above the threshold but declarant status is no. Only an authorised CBAM declarant may import these goods.,2027,delayed_transition,adopted
+B002,ORIGIN_UNKNOWN,false,,2027,delayed_transition,adopted
+B002,RATING_GAP,true,CBAM band MH sits 3 bands above the bank's own transition rating of L. The existing rating may not reflect this risk.,2027,delayed_transition,adopted
+B002,SUPPLIER_CONCENTRATION,false,,2027,delayed_transition,adopted
+B003,DEFAULT_VALUES,true,"supplier data is default, so default emission values were used. Defaults are conservative, so the cost is more likely high than low, and verified data would reduce it.",2027,delayed_transition,adopted
+B003,ESTIMATED_INPUTS,false,,2027,delayed_transition,adopted
+B003,LOW_PASS_THROUGH,false,,2027,delayed_transition,adopted
+B003,MONITOR,true,"20 t of counting CBAM goods against a 50 t threshold, so nothing is owed this year. A small rise in volume creates a full-year obligation backdated to 1 January.",2027,delayed_transition,adopted
+B003,NEGATIVE_EBITDA,false,,2027,delayed_transition,adopted
+B003,NO_DECLARANT,false,,2027,delayed_transition,adopted
+B003,ORIGIN_UNKNOWN,false,,2027,delayed_transition,adopted
+B003,RATING_GAP,false,,2027,delayed_transition,adopted
+B003,SUPPLIER_CONCENTRATION,true,"90% of supply comes from UA, above the 60% parameter, which is outside the EU and in CBAM scope.",2027,delayed_transition,adopted
+B004,DEFAULT_VALUES,false,,2027,delayed_transition,adopted
+B004,ESTIMATED_INPUTS,false,,2027,delayed_transition,adopted
+B004,LOW_PASS_THROUGH,false,,2027,delayed_transition,adopted
+B004,MONITOR,false,,2027,delayed_transition,adopted
+B004,NEGATIVE_EBITDA,false,,2027,delayed_transition,adopted
+B004,NO_DECLARANT,false,,2027,delayed_transition,adopted
+B004,ORIGIN_UNKNOWN,false,,2027,delayed_transition,adopted
+B004,RATING_GAP,false,,2027,delayed_transition,adopted
+B004,SUPPLIER_CONCENTRATION,false,,2027,delayed_transition,adopted
+B005,DEFAULT_VALUES,true,"supplier data is default, so default emission values were used. Defaults are conservative, so the cost is more likely high than low, and verified data would reduce it.",2027,delayed_transition,adopted
+B005,ESTIMATED_INPUTS,false,,2027,delayed_transition,adopted
+B005,LOW_PASS_THROUGH,false,,2027,delayed_transition,adopted
+B005,MONITOR,false,,2027,delayed_transition,adopted
+B005,NEGATIVE_EBITDA,false,,2027,delayed_transition,adopted
+B005,NO_DECLARANT,false,,2027,delayed_transition,adopted
+B005,ORIGIN_UNKNOWN,false,,2027,delayed_transition,adopted
+B005,RATING_GAP,false,,2027,delayed_transition,adopted
+B005,SUPPLIER_CONCENTRATION,true,"70% of supply comes from NO, above the 60% parameter, though that origin is outside CBAM scope.",2027,delayed_transition,adopted
+B006,DEFAULT_VALUES,true,"supplier data is unknown, so default emission values were used. Defaults are conservative, so the cost is more likely high than low, and verified data would reduce it.",2027,delayed_transition,adopted
+B006,ESTIMATED_INPUTS,false,,2027,delayed_transition,adopted
+B006,LOW_PASS_THROUGH,false,,2027,delayed_transition,adopted
+B006,MONITOR,false,,2027,delayed_transition,adopted
+B006,NEGATIVE_EBITDA,false,,2027,delayed_transition,adopted
+B006,NO_DECLARANT,true,carries a direct obligation above the threshold but declarant status is unknown. Only an authorised CBAM declarant may import these goods.,2027,delayed_transition,adopted
+B006,ORIGIN_UNKNOWN,true,"CBAM imports were reported with no supplier origin, so the tool could not test whether the origin is exempt. Treated as in scope.",2027,delayed_transition,adopted
+B006,RATING_GAP,false,,2027,delayed_transition,adopted
+B006,SUPPLIER_CONCENTRATION,false,,2027,delayed_transition,adopted
+B007,DEFAULT_VALUES,true,"supplier data is default, so default emission values were used. Defaults are conservative, so the cost is more likely high than low, and verified data would reduce it.",2027,delayed_transition,adopted
+B007,ESTIMATED_INPUTS,true,"filled from sector averages: import_t_cement, pass_through_share_effective. The cost is indicative only.",2027,delayed_transition,adopted
+B007,LOW_PASS_THROUGH,false,,2027,delayed_transition,adopted
+B007,MONITOR,false,,2027,delayed_transition,adopted
+B007,NEGATIVE_EBITDA,false,,2027,delayed_transition,adopted
+B007,NO_DECLARANT,false,,2027,delayed_transition,adopted
+B007,ORIGIN_UNKNOWN,false,,2027,delayed_transition,adopted
+B007,RATING_GAP,false,,2027,delayed_transition,adopted
+B007,SUPPLIER_CONCENTRATION,false,,2027,delayed_transition,adopted
+B008,DEFAULT_VALUES,false,,2027,delayed_transition,adopted
+B008,ESTIMATED_INPUTS,false,,2027,delayed_transition,adopted
+B008,LOW_PASS_THROUGH,false,,2027,delayed_transition,adopted
+B008,MONITOR,false,,2027,delayed_transition,adopted
+B008,NEGATIVE_EBITDA,false,,2027,delayed_transition,adopted
+B008,NO_DECLARANT,false,,2027,delayed_transition,adopted
+B008,ORIGIN_UNKNOWN,false,,2027,delayed_transition,adopted
+B008,RATING_GAP,false,,2027,delayed_transition,adopted
+B008,SUPPLIER_CONCENTRATION,false,,2027,delayed_transition,adopted
+B009,DEFAULT_VALUES,true,"supplier data is default, so default emission values were used. Defaults are conservative, so the cost is more likely high than low, and verified data would reduce it.",2027,delayed_transition,adopted
+B009,ESTIMATED_INPUTS,true,"filled from sector averages: import_t_steel, pass_through_share_effective. The cost is indicative only.",2027,delayed_transition,adopted
+B009,LOW_PASS_THROUGH,false,,2027,delayed_transition,adopted
+B009,MONITOR,false,,2027,delayed_transition,adopted
+B009,NEGATIVE_EBITDA,false,,2027,delayed_transition,adopted
+B009,NO_DECLARANT,false,,2027,delayed_transition,adopted
+B009,ORIGIN_UNKNOWN,false,,2027,delayed_transition,adopted
+B009,RATING_GAP,false,,2027,delayed_transition,adopted
+B009,SUPPLIER_CONCENTRATION,false,,2027,delayed_transition,adopted
+B010,DEFAULT_VALUES,true,"supplier data is default, so default emission values were used. Defaults are conservative, so the cost is more likely high than low, and verified data would reduce it.",2027,delayed_transition,adopted
+B010,ESTIMATED_INPUTS,false,,2027,delayed_transition,adopted
+B010,LOW_PASS_THROUGH,false,,2027,delayed_transition,adopted
+B010,MONITOR,false,,2027,delayed_transition,adopted
+B010,NEGATIVE_EBITDA,false,,2027,delayed_transition,adopted
+B010,NO_DECLARANT,false,,2027,delayed_transition,adopted
+B010,ORIGIN_UNKNOWN,false,,2027,delayed_transition,adopted
+B010,RATING_GAP,false,,2027,delayed_transition,adopted
+B010,SUPPLIER_CONCENTRATION,false,,2027,delayed_transition,adopted
+B011,DEFAULT_VALUES,true,"supplier data is default, so default emission values were used. Defaults are conservative, so the cost is more likely high than low, and verified data would reduce it.",2027,delayed_transition,adopted
+B011,ESTIMATED_INPUTS,true,"filled from sector averages: import_t_cement, pass_through_share_effective. The cost is indicative only.",2027,delayed_transition,adopted
+B011,LOW_PASS_THROUGH,false,,2027,delayed_transition,adopted
+B011,MONITOR,false,,2027,delayed_transition,adopted
+B011,NEGATIVE_EBITDA,false,,2027,delayed_transition,adopted
+B011,NO_DECLARANT,false,,2027,delayed_transition,adopted
+B011,ORIGIN_UNKNOWN,false,,2027,delayed_transition,adopted
+B011,RATING_GAP,false,,2027,delayed_transition,adopted
+B011,SUPPLIER_CONCENTRATION,false,,2027,delayed_transition,adopted
+B012,DEFAULT_VALUES,true,"supplier data is default, so default emission values were used. Defaults are conservative, so the cost is more likely high than low, and verified data would reduce it.",2027,delayed_transition,adopted
+B012,ESTIMATED_INPUTS,true,"filled from sector averages: import_t_fertiliser, pass_through_share_effective. The cost is indicative only.",2027,delayed_transition,adopted
+B012,LOW_PASS_THROUGH,true,no pass-through was reported and the sector default share of 20% sits below 30%.,2027,delayed_transition,adopted
+B012,MONITOR,false,,2027,delayed_transition,adopted
+B012,NEGATIVE_EBITDA,true,"EBITDA is -200,000, so the cost to EBITDA ratio has no meaning and the band was set to H by rule.",2027,delayed_transition,adopted
+B012,NO_DECLARANT,false,,2027,delayed_transition,adopted
+B012,ORIGIN_UNKNOWN,false,,2027,delayed_transition,adopted
+B012,RATING_GAP,true,CBAM band H sits 4 bands above the bank's own transition rating of L. The existing rating may not reflect this risk.,2027,delayed_transition,adopted
+B012,SUPPLIER_CONCENTRATION,false,,2027,delayed_transition,adopted
+B013,DEFAULT_VALUES,false,,2027,delayed_transition,adopted
+B013,ESTIMATED_INPUTS,false,,2027,delayed_transition,adopted
+B013,LOW_PASS_THROUGH,false,,2027,delayed_transition,adopted
+B013,MONITOR,false,,2027,delayed_transition,adopted
+B013,NEGATIVE_EBITDA,false,,2027,delayed_transition,adopted
+B013,NO_DECLARANT,false,,2027,delayed_transition,adopted
+B013,ORIGIN_UNKNOWN,false,,2027,delayed_transition,adopted
+B013,RATING_GAP,false,,2027,delayed_transition,adopted
+B013,SUPPLIER_CONCENTRATION,false,,2027,delayed_transition,adopted

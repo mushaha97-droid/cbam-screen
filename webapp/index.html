@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CBAM Borrower Screening Panel</title>
+<meta name="description" content="Analyst dashboard over the CBAM screening engine's exported star schema. Every number comes from the export.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <div class="brand">CBAM Borrower Screening Panel <span>analyst dashboard</span></div>
+  <div id="data-banner" class="banner" role="status" aria-live="polite">Loading the export.</div>
+</header>
+
+<nav class="tabs" role="tablist" aria-label="Views">
+  <button role="tab" id="tab-portfolio" aria-controls="panel-portfolio" aria-selected="true" data-view="portfolio">Portfolio</button>
+  <button role="tab" id="tab-borrowers" aria-controls="panel-borrowers" aria-selected="false" tabindex="-1" data-view="borrowers">Borrowers</button>
+  <button role="tab" id="tab-detail" aria-controls="panel-detail" aria-selected="false" tabindex="-1" data-view="detail">Borrower detail</button>
+  <button role="tab" id="tab-summary" aria-controls="panel-summary" aria-selected="false" tabindex="-1" data-view="summary">Summary</button>
+  <button role="tab" id="tab-data" aria-controls="panel-data" aria-selected="false" tabindex="-1" data-view="data">Your own data</button>
+</nav>
+
+<main id="main">
+
+  <section role="tabpanel" id="panel-portfolio" aria-labelledby="tab-portfolio" tabindex="-1">
+    <h1>Portfolio</h1>
+    <p class="subtitle">Where this book is exposed, under one carbon-price scenario and one rule branch at a time.</p>
+
+    <div class="controls no-print">
+      <div class="field">
+        <label for="sel-scenario">Carbon price scenario</label>
+        <select id="sel-scenario"></select>
+      </div>
+      <div class="field">
+        <label for="sel-branch">Rule branch</label>
+        <select id="sel-branch"></select>
+      </div>
+      <div class="field">
+        <label for="sel-year">Obligation year</label>
+        <select id="sel-year"></select>
+      </div>
+      <div class="field">
+        <label id="branch-status-label" for="branch-status">Branch status</label>
+        <span id="branch-status" aria-labelledby="branch-status-label"></span>
+      </div>
+    </div>
+
+    <div class="cards" id="portfolio-cards"></div>
+
+    <div class="panel">
+      <h2>Exposure by what a borrower is and how material the cost is</h2>
+      <p class="subtitle" id="heatmap-subtitle"></p>
+      <div class="scroll-x">
+        <table class="heatmap" id="heatmap"></table>
+      </div>
+      <div id="reconcile" class="reconcile"></div>
+    </div>
+
+    <div class="panel">
+      <h2>Best and worst case per group</h2>
+      <p class="subtitle">Across all three scenarios and both rule branches, in the selected year. Lowest and highest total certificate cost for the borrowers in each group, with the combination that produced it.</p>
+      <div class="scroll-x">
+        <table id="range-table"></table>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>What changed against the bank's own rating</h2>
+      <p class="subtitle" id="rating-gap-subtitle"></p>
+      <div class="scroll-x">
+        <table id="rating-gap-table"></table>
+      </div>
+    </div>
+  </section>
+
+  <section role="tabpanel" id="panel-borrowers" aria-labelledby="tab-borrowers" tabindex="-1" hidden>
+    <h1>Borrowers</h1>
+    <p class="subtitle" id="borrowers-subtitle"></p>
+
+    <div class="controls no-print">
+      <div class="field">
+        <label for="f-search">Search name, id or country</label>
+        <input type="search" id="f-search" placeholder="for example Steel or NL">
+      </div>
+      <div class="field">
+        <label for="f-tier">What it is</label>
+        <select id="f-tier"></select>
+      </div>
+      <div class="field">
+        <label for="f-band">Cost against EBITDA</label>
+        <select id="f-band"></select>
+      </div>
+      <div class="field">
+        <label for="f-flag">Carries flag</label>
+        <select id="f-flag"></select>
+      </div>
+      <div class="field">
+        <label for="btn-clear">&nbsp;</label>
+        <button class="action" id="btn-clear" type="button">Clear filters</button>
+      </div>
+      <div class="field">
+        <label for="btn-csv">&nbsp;</label>
+        <button class="action" id="btn-csv" type="button">Download this list as csv</button>
+      </div>
+    </div>
+
+    <div class="panel">
+      <p class="subtitle" id="borrowers-count"></p>
+      <div class="scroll-x">
+        <table id="borrowers-table"></table>
+      </div>
+    </div>
+  </section>
+
+  <section role="tabpanel" id="panel-detail" aria-labelledby="tab-detail" tabindex="-1" hidden>
+    <div id="detail-body"></div>
+  </section>
+
+  <section role="tabpanel" id="panel-summary" aria-labelledby="tab-summary" tabindex="-1" hidden>
+    <div class="controls no-print">
+      <button class="action primary" id="btn-print" type="button">Print or save as PDF</button>
+      <span class="subtitle" style="margin:0">One page for a risk committee. It prints what is on screen, on the scenario, branch and year chosen on the Portfolio view.</span>
+    </div>
+    <div id="summary-body"></div>
+  </section>
+
+  <section role="tabpanel" id="panel-data" aria-labelledby="tab-data" tabindex="-1" hidden>
+    <h1>Use your own data</h1>
+    <p class="subtitle">Nothing is uploaded. The files are read in this browser tab and never leave your machine.</p>
+
+    <div class="panel">
+      <h2>How to get a file set</h2>
+      <p>Run the exporter in the repo against your own borrower list. It writes one folder of csv files, which is what this page reads:</p>
+      <pre class="formula">python -m src.export_powerbi \
+    --borrowers path/to/your_borrowers.csv \
+    --out path/to/export \
+    --data-label UPLOADED</pre>
+      <p class="subtitle">The engine computes every number. This page only adds up and ranks what the engine wrote, so a figure you see here is a figure the engine produced.</p>
+    </div>
+
+    <div class="dropzone" id="dropzone">
+      <p><strong>Drag the export folder's csv files here</strong></p>
+      <p>or</p>
+      <p><input type="file" id="file-input" multiple accept=".csv,text/csv"></p>
+      <p class="subtitle">Select all the csv files inside the export folder at once.</p>
+    </div>
+
+    <div class="panel report" id="load-report"></div>
+  </section>
+
+</main>
+
+<footer id="footer"></footer>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+year,year_label,is_obligation_year,is_payment_year,is_liquidity_shock_year
+2026,2026,true,false,false
+2027,2027,true,true,true
+2028,2028,true,true,false
+2029,2029,true,true,false
+2030,2030,true,true,false
+2031,2031,true,true,false
+2032,2032,true,true,false
+2033,2033,true,true,false
+2034,2034,true,true,false
+2035,2035,true,true,false
+2036,2036,false,true,false

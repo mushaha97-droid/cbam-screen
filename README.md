@@ -29,6 +29,25 @@ pip install -r requirements.txt
 pytest
 ```
 
+## Web dashboard
+
+`webapp/` is the same screening outputs as a static page. Open it and you are
+using the tool: no install, no login, no Python running behind it.
+
+```
+cd webapp
+python -m http.server 8765
+```
+
+It reads the exported csv star schema, and it computes nothing of its own. Every
+cost, band, flag and cash flow on screen came out of the engine, and the page
+only sums, ranks and draws them. It ships with the fixture export, and the
+FIXTURE banner on every screen comes from `meta.csv`, not from the page. Drag in
+your own export folder on the Your own data tab and the banner changes with it.
+Those files are read in the browser and are not uploaded anywhere.
+
+See **[webapp/README.md](webapp/README.md)**.
+
 ## Power BI track
 
 The same screening outputs are also delivered as a Power BI dashboard. Power BI

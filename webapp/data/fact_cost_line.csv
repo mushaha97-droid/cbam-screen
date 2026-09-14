@@ -1,0 +1,325 @@
+borrower_id,year,scenario,branch,line_order,good_group,quantity,emission_factor,factor_basis,price_eur,free_allocation_share,charged_share,charged_share_label,cost_eur,cost_basis
+B001,2026,current_policies,adopted,1,steel,1000.0,1.9,default,60.0,0.975,0.025000000000000022,share not covered by free allocation,2850.0,direct_obligation
+B001,2027,current_policies,adopted,1,steel,1000.0,1.9,default,60.0,0.95,0.050000000000000044,share not covered by free allocation,5700.0,direct_obligation
+B001,2028,current_policies,adopted,1,steel,1000.0,1.9,default,60.0,0.9,0.09999999999999998,share not covered by free allocation,11400.0,direct_obligation
+B001,2029,current_policies,adopted,1,steel,1000.0,1.9,default,60.0,0.775,0.22499999999999998,share not covered by free allocation,25650.0,direct_obligation
+B001,2030,current_policies,adopted,1,steel,1000.0,1.9,default,60.0,0.515,0.485,share not covered by free allocation,55290.0,direct_obligation
+B001,2031,current_policies,adopted,1,steel,1000.0,1.9,default,60.0,0.39,0.61,share not covered by free allocation,69540.0,direct_obligation
+B001,2032,current_policies,adopted,1,steel,1000.0,1.9,default,60.0,0.265,0.735,share not covered by free allocation,83790.0,direct_obligation
+B001,2033,current_policies,adopted,1,steel,1000.0,1.9,default,60.0,0.14,0.86,share not covered by free allocation,98040.0,direct_obligation
+B001,2034,current_policies,adopted,1,steel,1000.0,1.9,default,60.0,0.0,1.0,share not covered by free allocation,114000.0,direct_obligation
+B001,2035,current_policies,adopted,1,steel,1000.0,1.9,default,60.0,0.0,1.0,share not covered by free allocation,114000.0,direct_obligation
+B001,2026,delayed_transition,adopted,1,steel,1000.0,1.9,default,80.0,0.975,0.025000000000000022,share not covered by free allocation,3800.0,direct_obligation
+B001,2027,delayed_transition,adopted,1,steel,1000.0,1.9,default,80.0,0.95,0.050000000000000044,share not covered by free allocation,7600.0,direct_obligation
+B001,2028,delayed_transition,adopted,1,steel,1000.0,1.9,default,80.0,0.9,0.09999999999999998,share not covered by free allocation,15200.0,direct_obligation
+B001,2029,delayed_transition,adopted,1,steel,1000.0,1.9,default,80.0,0.775,0.22499999999999998,share not covered by free allocation,34200.0,direct_obligation
+B001,2030,delayed_transition,adopted,1,steel,1000.0,1.9,default,80.0,0.515,0.485,share not covered by free allocation,73720.0,direct_obligation
+B001,2031,delayed_transition,adopted,1,steel,1000.0,1.9,default,80.0,0.39,0.61,share not covered by free allocation,92720.0,direct_obligation
+B001,2032,delayed_transition,adopted,1,steel,1000.0,1.9,default,80.0,0.265,0.735,share not covered by free allocation,111720.0,direct_obligation
+B001,2033,delayed_transition,adopted,1,steel,1000.0,1.9,default,80.0,0.14,0.86,share not covered by free allocation,130720.0,direct_obligation
+B001,2034,delayed_transition,adopted,1,steel,1000.0,1.9,default,80.0,0.0,1.0,share not covered by free allocation,152000.0,direct_obligation
+B001,2035,delayed_transition,adopted,1,steel,1000.0,1.9,default,80.0,0.0,1.0,share not covered by free allocation,152000.0,direct_obligation
+B001,2026,net_zero_2050,adopted,1,steel,1000.0,1.9,default,100.0,0.975,0.025000000000000022,share not covered by free allocation,4750.0,direct_obligation
+B001,2027,net_zero_2050,adopted,1,steel,1000.0,1.9,default,100.0,0.95,0.050000000000000044,share not covered by free allocation,9500.0,direct_obligation
+B001,2028,net_zero_2050,adopted,1,steel,1000.0,1.9,default,100.0,0.9,0.09999999999999998,share not covered by free allocation,19000.0,direct_obligation
+B001,2029,net_zero_2050,adopted,1,steel,1000.0,1.9,default,100.0,0.775,0.22499999999999998,share not covered by free allocation,42750.0,direct_obligation
+B001,2030,net_zero_2050,adopted,1,steel,1000.0,1.9,default,100.0,0.515,0.485,share not covered by free allocation,92150.0,direct_obligation
+B001,2031,net_zero_2050,adopted,1,steel,1000.0,1.9,default,100.0,0.39,0.61,share not covered by free allocation,115900.0,direct_obligation
+B001,2032,net_zero_2050,adopted,1,steel,1000.0,1.9,default,100.0,0.265,0.735,share not covered by free allocation,139650.0,direct_obligation
+B001,2033,net_zero_2050,adopted,1,steel,1000.0,1.9,default,100.0,0.14,0.86,share not covered by free allocation,163400.0,direct_obligation
+B001,2034,net_zero_2050,adopted,1,steel,1000.0,1.9,default,100.0,0.0,1.0,share not covered by free allocation,190000.0,direct_obligation
+B001,2035,net_zero_2050,adopted,1,steel,1000.0,1.9,default,100.0,0.0,1.0,share not covered by free allocation,190000.0,direct_obligation
+B001,2026,current_policies,proposal,1,steel,1000.0,1.9,default,60.0,0.975,0.025000000000000022,share not covered by free allocation,2850.0,direct_obligation
+B001,2027,current_policies,proposal,1,steel,1000.0,1.9,default,60.0,0.95,0.050000000000000044,share not covered by free allocation,5700.0,direct_obligation
+B001,2028,current_policies,proposal,1,steel,1000.0,1.9,default,60.0,0.9,0.09999999999999998,share not covered by free allocation,11400.0,direct_obligation
+B001,2029,current_policies,proposal,1,steel,1000.0,1.9,default,60.0,0.85,0.15000000000000002,share not covered by free allocation,17100.0,direct_obligation
+B001,2030,current_policies,proposal,1,steel,1000.0,1.9,default,60.0,0.8,0.19999999999999996,share not covered by free allocation,22800.0,direct_obligation
+B001,2031,current_policies,proposal,1,steel,1000.0,1.9,default,60.0,0.7,0.30000000000000004,share not covered by free allocation,34200.0,direct_obligation
+B001,2032,current_policies,proposal,1,steel,1000.0,1.9,default,60.0,0.6,0.4,share not covered by free allocation,45600.0,direct_obligation
+B001,2033,current_policies,proposal,1,steel,1000.0,1.9,default,60.0,0.5,0.5,share not covered by free allocation,57000.0,direct_obligation
+B001,2034,current_policies,proposal,1,steel,1000.0,1.9,default,60.0,0.4,0.6,share not covered by free allocation,68400.0,direct_obligation
+B001,2035,current_policies,proposal,1,steel,1000.0,1.9,default,60.0,0.3,0.7,share not covered by free allocation,79800.0,direct_obligation
+B001,2026,delayed_transition,proposal,1,steel,1000.0,1.9,default,80.0,0.975,0.025000000000000022,share not covered by free allocation,3800.0,direct_obligation
+B001,2027,delayed_transition,proposal,1,steel,1000.0,1.9,default,80.0,0.95,0.050000000000000044,share not covered by free allocation,7600.0,direct_obligation
+B001,2028,delayed_transition,proposal,1,steel,1000.0,1.9,default,80.0,0.9,0.09999999999999998,share not covered by free allocation,15200.0,direct_obligation
+B001,2029,delayed_transition,proposal,1,steel,1000.0,1.9,default,80.0,0.85,0.15000000000000002,share not covered by free allocation,22800.0,direct_obligation
+B001,2030,delayed_transition,proposal,1,steel,1000.0,1.9,default,80.0,0.8,0.19999999999999996,share not covered by free allocation,30400.0,direct_obligation
+B001,2031,delayed_transition,proposal,1,steel,1000.0,1.9,default,80.0,0.7,0.30000000000000004,share not covered by free allocation,45600.0,direct_obligation
+B001,2032,delayed_transition,proposal,1,steel,1000.0,1.9,default,80.0,0.6,0.4,share not covered by free allocation,60800.0,direct_obligation
+B001,2033,delayed_transition,proposal,1,steel,1000.0,1.9,default,80.0,0.5,0.5,share not covered by free allocation,76000.0,direct_obligation
+B001,2034,delayed_transition,proposal,1,steel,1000.0,1.9,default,80.0,0.4,0.6,share not covered by free allocation,91200.0,direct_obligation
+B001,2035,delayed_transition,proposal,1,steel,1000.0,1.9,default,80.0,0.3,0.7,share not covered by free allocation,106400.0,direct_obligation
+B001,2026,net_zero_2050,proposal,1,steel,1000.0,1.9,default,100.0,0.975,0.025000000000000022,share not covered by free allocation,4750.0,direct_obligation
+B001,2027,net_zero_2050,proposal,1,steel,1000.0,1.9,default,100.0,0.95,0.050000000000000044,share not covered by free allocation,9500.0,direct_obligation
+B001,2028,net_zero_2050,proposal,1,steel,1000.0,1.9,default,100.0,0.9,0.09999999999999998,share not covered by free allocation,19000.0,direct_obligation
+B001,2029,net_zero_2050,proposal,1,steel,1000.0,1.9,default,100.0,0.85,0.15000000000000002,share not covered by free allocation,28500.0,direct_obligation
+B001,2030,net_zero_2050,proposal,1,steel,1000.0,1.9,default,100.0,0.8,0.19999999999999996,share not covered by free allocation,38000.0,direct_obligation
+B001,2031,net_zero_2050,proposal,1,steel,1000.0,1.9,default,100.0,0.7,0.30000000000000004,share not covered by free allocation,57000.0,direct_obligation
+B001,2032,net_zero_2050,proposal,1,steel,1000.0,1.9,default,100.0,0.6,0.4,share not covered by free allocation,76000.0,direct_obligation
+B001,2033,net_zero_2050,proposal,1,steel,1000.0,1.9,default,100.0,0.5,0.5,share not covered by free allocation,95000.0,direct_obligation
+B001,2034,net_zero_2050,proposal,1,steel,1000.0,1.9,default,100.0,0.4,0.6,share not covered by free allocation,114000.0,direct_obligation
+B001,2035,net_zero_2050,proposal,1,steel,1000.0,1.9,default,100.0,0.3,0.7,share not covered by free allocation,133000.0,direct_obligation
+B002,2026,current_policies,adopted,1,aluminium,4000.0,2.0,default,60.0,0.975,0.025000000000000022,share not covered by free allocation,12000.0,direct_obligation
+B002,2027,current_policies,adopted,1,aluminium,4000.0,2.0,default,60.0,0.95,0.050000000000000044,share not covered by free allocation,24000.0,direct_obligation
+B002,2028,current_policies,adopted,1,aluminium,4000.0,2.0,default,60.0,0.9,0.09999999999999998,share not covered by free allocation,48000.0,direct_obligation
+B002,2029,current_policies,adopted,1,aluminium,4000.0,2.0,default,60.0,0.775,0.22499999999999998,share not covered by free allocation,108000.0,direct_obligation
+B002,2030,current_policies,adopted,1,aluminium,4000.0,2.0,default,60.0,0.515,0.485,share not covered by free allocation,232800.0,direct_obligation
+B002,2031,current_policies,adopted,1,aluminium,4000.0,2.0,default,60.0,0.39,0.61,share not covered by free allocation,292800.0,direct_obligation
+B002,2032,current_policies,adopted,1,aluminium,4000.0,2.0,default,60.0,0.265,0.735,share not covered by free allocation,352800.0,direct_obligation
+B002,2033,current_policies,adopted,1,aluminium,4000.0,2.0,default,60.0,0.14,0.86,share not covered by free allocation,412800.0,direct_obligation
+B002,2034,current_policies,adopted,1,aluminium,4000.0,2.0,default,60.0,0.0,1.0,share not covered by free allocation,480000.0,direct_obligation
+B002,2035,current_policies,adopted,1,aluminium,4000.0,2.0,default,60.0,0.0,1.0,share not covered by free allocation,480000.0,direct_obligation
+B002,2026,delayed_transition,adopted,1,aluminium,4000.0,2.0,default,80.0,0.975,0.025000000000000022,share not covered by free allocation,16000.0,direct_obligation
+B002,2027,delayed_transition,adopted,1,aluminium,4000.0,2.0,default,80.0,0.95,0.050000000000000044,share not covered by free allocation,32000.0,direct_obligation
+B002,2028,delayed_transition,adopted,1,aluminium,4000.0,2.0,default,80.0,0.9,0.09999999999999998,share not covered by free allocation,64000.0,direct_obligation
+B002,2029,delayed_transition,adopted,1,aluminium,4000.0,2.0,default,80.0,0.775,0.22499999999999998,share not covered by free allocation,144000.0,direct_obligation
+B002,2030,delayed_transition,adopted,1,aluminium,4000.0,2.0,default,80.0,0.515,0.485,share not covered by free allocation,310400.0,direct_obligation
+B002,2031,delayed_transition,adopted,1,aluminium,4000.0,2.0,default,80.0,0.39,0.61,share not covered by free allocation,390400.0,direct_obligation
+B002,2032,delayed_transition,adopted,1,aluminium,4000.0,2.0,default,80.0,0.265,0.735,share not covered by free allocation,470400.0,direct_obligation
+B002,2033,delayed_transition,adopted,1,aluminium,4000.0,2.0,default,80.0,0.14,0.86,share not covered by free allocation,550400.0,direct_obligation
+B002,2034,delayed_transition,adopted,1,aluminium,4000.0,2.0,default,80.0,0.0,1.0,share not covered by free allocation,640000.0,direct_obligation
+B002,2035,delayed_transition,adopted,1,aluminium,4000.0,2.0,default,80.0,0.0,1.0,share not covered by free allocation,640000.0,direct_obligation
+B002,2026,net_zero_2050,adopted,1,aluminium,4000.0,2.0,default,100.0,0.975,0.025000000000000022,share not covered by free allocation,20000.0,direct_obligation
+B002,2027,net_zero_2050,adopted,1,aluminium,4000.0,2.0,default,100.0,0.95,0.050000000000000044,share not covered by free allocation,40000.0,direct_obligation
+B002,2028,net_zero_2050,adopted,1,aluminium,4000.0,2.0,default,100.0,0.9,0.09999999999999998,share not covered by free allocation,80000.0,direct_obligation
+B002,2029,net_zero_2050,adopted,1,aluminium,4000.0,2.0,default,100.0,0.775,0.22499999999999998,share not covered by free allocation,180000.0,direct_obligation
+B002,2030,net_zero_2050,adopted,1,aluminium,4000.0,2.0,default,100.0,0.515,0.485,share not covered by free allocation,388000.0,direct_obligation
+B002,2031,net_zero_2050,adopted,1,aluminium,4000.0,2.0,default,100.0,0.39,0.61,share not covered by free allocation,488000.0,direct_obligation
+B002,2032,net_zero_2050,adopted,1,aluminium,4000.0,2.0,default,100.0,0.265,0.735,share not covered by free allocation,588000.0,direct_obligation
+B002,2033,net_zero_2050,adopted,1,aluminium,4000.0,2.0,default,100.0,0.14,0.86,share not covered by free allocation,688000.0,direct_obligation
+B002,2034,net_zero_2050,adopted,1,aluminium,4000.0,2.0,default,100.0,0.0,1.0,share not covered by free allocation,800000.0,direct_obligation
+B002,2035,net_zero_2050,adopted,1,aluminium,4000.0,2.0,default,100.0,0.0,1.0,share not covered by free allocation,800000.0,direct_obligation
+B002,2026,current_policies,proposal,1,aluminium,4000.0,2.0,default,60.0,0.975,0.025000000000000022,share not covered by free allocation,12000.0,direct_obligation
+B002,2027,current_policies,proposal,1,aluminium,4000.0,2.0,default,60.0,0.95,0.050000000000000044,share not covered by free allocation,24000.0,direct_obligation
+B002,2028,current_policies,proposal,1,aluminium,4000.0,2.0,default,60.0,0.9,0.09999999999999998,share not covered by free allocation,48000.0,direct_obligation
+B002,2029,current_policies,proposal,1,aluminium,4000.0,2.0,default,60.0,0.85,0.15000000000000002,share not covered by free allocation,72000.0,direct_obligation
+B002,2030,current_policies,proposal,1,aluminium,4000.0,2.0,default,60.0,0.8,0.19999999999999996,share not covered by free allocation,96000.0,direct_obligation
+B002,2031,current_policies,proposal,1,aluminium,4000.0,2.0,default,60.0,0.7,0.30000000000000004,share not covered by free allocation,144000.0,direct_obligation
+B002,2032,current_policies,proposal,1,aluminium,4000.0,2.0,default,60.0,0.6,0.4,share not covered by free allocation,192000.0,direct_obligation
+B002,2033,current_policies,proposal,1,aluminium,4000.0,2.0,default,60.0,0.5,0.5,share not covered by free allocation,240000.0,direct_obligation
+B002,2034,current_policies,proposal,1,aluminium,4000.0,2.0,default,60.0,0.4,0.6,share not covered by free allocation,288000.0,direct_obligation
+B002,2035,current_policies,proposal,1,aluminium,4000.0,2.0,default,60.0,0.3,0.7,share not covered by free allocation,336000.0,direct_obligation
+B002,2026,delayed_transition,proposal,1,aluminium,4000.0,2.0,default,80.0,0.975,0.025000000000000022,share not covered by free allocation,16000.0,direct_obligation
+B002,2027,delayed_transition,proposal,1,aluminium,4000.0,2.0,default,80.0,0.95,0.050000000000000044,share not covered by free allocation,32000.0,direct_obligation
+B002,2028,delayed_transition,proposal,1,aluminium,4000.0,2.0,default,80.0,0.9,0.09999999999999998,share not covered by free allocation,64000.0,direct_obligation
+B002,2029,delayed_transition,proposal,1,aluminium,4000.0,2.0,default,80.0,0.85,0.15000000000000002,share not covered by free allocation,96000.0,direct_obligation
+B002,2030,delayed_transition,proposal,1,aluminium,4000.0,2.0,default,80.0,0.8,0.19999999999999996,share not covered by free allocation,128000.0,direct_obligation
+B002,2031,delayed_transition,proposal,1,aluminium,4000.0,2.0,default,80.0,0.7,0.30000000000000004,share not covered by free allocation,192000.0,direct_obligation
+B002,2032,delayed_transition,proposal,1,aluminium,4000.0,2.0,default,80.0,0.6,0.4,share not covered by free allocation,256000.0,direct_obligation
+B002,2033,delayed_transition,proposal,1,aluminium,4000.0,2.0,default,80.0,0.5,0.5,share not covered by free allocation,320000.0,direct_obligation
+B002,2034,delayed_transition,proposal,1,aluminium,4000.0,2.0,default,80.0,0.4,0.6,share not covered by free allocation,384000.0,direct_obligation
+B002,2035,delayed_transition,proposal,1,aluminium,4000.0,2.0,default,80.0,0.3,0.7,share not covered by free allocation,448000.0,direct_obligation
+B002,2026,net_zero_2050,proposal,1,aluminium,4000.0,2.0,default,100.0,0.975,0.025000000000000022,share not covered by free allocation,20000.0,direct_obligation
+B002,2027,net_zero_2050,proposal,1,aluminium,4000.0,2.0,default,100.0,0.95,0.050000000000000044,share not covered by free allocation,40000.0,direct_obligation
+B002,2028,net_zero_2050,proposal,1,aluminium,4000.0,2.0,default,100.0,0.9,0.09999999999999998,share not covered by free allocation,80000.0,direct_obligation
+B002,2029,net_zero_2050,proposal,1,aluminium,4000.0,2.0,default,100.0,0.85,0.15000000000000002,share not covered by free allocation,120000.0,direct_obligation
+B002,2030,net_zero_2050,proposal,1,aluminium,4000.0,2.0,default,100.0,0.8,0.19999999999999996,share not covered by free allocation,160000.0,direct_obligation
+B002,2031,net_zero_2050,proposal,1,aluminium,4000.0,2.0,default,100.0,0.7,0.30000000000000004,share not covered by free allocation,240000.0,direct_obligation
+B002,2032,net_zero_2050,proposal,1,aluminium,4000.0,2.0,default,100.0,0.6,0.4,share not covered by free allocation,320000.0,direct_obligation
+B002,2033,net_zero_2050,proposal,1,aluminium,4000.0,2.0,default,100.0,0.5,0.5,share not covered by free allocation,400000.0,direct_obligation
+B002,2034,net_zero_2050,proposal,1,aluminium,4000.0,2.0,default,100.0,0.4,0.6,share not covered by free allocation,480000.0,direct_obligation
+B002,2035,net_zero_2050,proposal,1,aluminium,4000.0,2.0,default,100.0,0.3,0.7,share not covered by free allocation,560000.0,direct_obligation
+B004,2026,current_policies,adopted,1,fertiliser,900.0,2.6,default,60.0,0.975,0.025000000000000022,share not covered by free allocation,3510.0,direct_obligation
+B004,2027,current_policies,adopted,1,fertiliser,900.0,2.6,default,60.0,0.95,0.050000000000000044,share not covered by free allocation,7020.0,direct_obligation
+B004,2028,current_policies,adopted,1,fertiliser,900.0,2.6,default,60.0,0.9,0.09999999999999998,share not covered by free allocation,14040.0,direct_obligation
+B004,2029,current_policies,adopted,1,fertiliser,900.0,2.6,default,60.0,0.775,0.22499999999999998,share not covered by free allocation,31590.0,direct_obligation
+B004,2030,current_policies,adopted,1,fertiliser,900.0,2.6,default,60.0,0.515,0.485,share not covered by free allocation,68094.0,direct_obligation
+B004,2031,current_policies,adopted,1,fertiliser,900.0,2.6,default,60.0,0.39,0.61,share not covered by free allocation,85644.0,direct_obligation
+B004,2032,current_policies,adopted,1,fertiliser,900.0,2.6,default,60.0,0.265,0.735,share not covered by free allocation,103194.0,direct_obligation
+B004,2033,current_policies,adopted,1,fertiliser,900.0,2.6,default,60.0,0.14,0.86,share not covered by free allocation,120744.0,direct_obligation
+B004,2034,current_policies,adopted,1,fertiliser,900.0,2.6,default,60.0,0.0,1.0,share not covered by free allocation,140400.0,direct_obligation
+B004,2035,current_policies,adopted,1,fertiliser,900.0,2.6,default,60.0,0.0,1.0,share not covered by free allocation,140400.0,direct_obligation
+B004,2026,delayed_transition,adopted,1,fertiliser,900.0,2.6,default,80.0,0.975,0.025000000000000022,share not covered by free allocation,4680.0,direct_obligation
+B004,2027,delayed_transition,adopted,1,fertiliser,900.0,2.6,default,80.0,0.95,0.050000000000000044,share not covered by free allocation,9360.0,direct_obligation
+B004,2028,delayed_transition,adopted,1,fertiliser,900.0,2.6,default,80.0,0.9,0.09999999999999998,share not covered by free allocation,18720.0,direct_obligation
+B004,2029,delayed_transition,adopted,1,fertiliser,900.0,2.6,default,80.0,0.775,0.22499999999999998,share not covered by free allocation,42120.0,direct_obligation
+B004,2030,delayed_transition,adopted,1,fertiliser,900.0,2.6,default,80.0,0.515,0.485,share not covered by free allocation,90792.0,direct_obligation
+B004,2031,delayed_transition,adopted,1,fertiliser,900.0,2.6,default,80.0,0.39,0.61,share not covered by free allocation,114192.0,direct_obligation
+B004,2032,delayed_transition,adopted,1,fertiliser,900.0,2.6,default,80.0,0.265,0.735,share not covered by free allocation,137592.0,direct_obligation
+B004,2033,delayed_transition,adopted,1,fertiliser,900.0,2.6,default,80.0,0.14,0.86,share not covered by free allocation,160992.0,direct_obligation
+B004,2034,delayed_transition,adopted,1,fertiliser,900.0,2.6,default,80.0,0.0,1.0,share not covered by free allocation,187200.0,direct_obligation
+B004,2035,delayed_transition,adopted,1,fertiliser,900.0,2.6,default,80.0,0.0,1.0,share not covered by free allocation,187200.0,direct_obligation
+B004,2026,net_zero_2050,adopted,1,fertiliser,900.0,2.6,default,100.0,0.975,0.025000000000000022,share not covered by free allocation,5850.0,direct_obligation
+B004,2027,net_zero_2050,adopted,1,fertiliser,900.0,2.6,default,100.0,0.95,0.050000000000000044,share not covered by free allocation,11700.0,direct_obligation
+B004,2028,net_zero_2050,adopted,1,fertiliser,900.0,2.6,default,100.0,0.9,0.09999999999999998,share not covered by free allocation,23400.0,direct_obligation
+B004,2029,net_zero_2050,adopted,1,fertiliser,900.0,2.6,default,100.0,0.775,0.22499999999999998,share not covered by free allocation,52650.0,direct_obligation
+B004,2030,net_zero_2050,adopted,1,fertiliser,900.0,2.6,default,100.0,0.515,0.485,share not covered by free allocation,113490.0,direct_obligation
+B004,2031,net_zero_2050,adopted,1,fertiliser,900.0,2.6,default,100.0,0.39,0.61,share not covered by free allocation,142740.0,direct_obligation
+B004,2032,net_zero_2050,adopted,1,fertiliser,900.0,2.6,default,100.0,0.265,0.735,share not covered by free allocation,171990.0,direct_obligation
+B004,2033,net_zero_2050,adopted,1,fertiliser,900.0,2.6,default,100.0,0.14,0.86,share not covered by free allocation,201240.0,direct_obligation
+B004,2034,net_zero_2050,adopted,1,fertiliser,900.0,2.6,default,100.0,0.0,1.0,share not covered by free allocation,234000.0,direct_obligation
+B004,2035,net_zero_2050,adopted,1,fertiliser,900.0,2.6,default,100.0,0.0,1.0,share not covered by free allocation,234000.0,direct_obligation
+B004,2026,current_policies,proposal,1,fertiliser,900.0,2.6,default,60.0,0.975,0.025000000000000022,share not covered by free allocation,3510.0,direct_obligation
+B004,2027,current_policies,proposal,1,fertiliser,900.0,2.6,default,60.0,0.95,0.050000000000000044,share not covered by free allocation,7020.0,direct_obligation
+B004,2028,current_policies,proposal,1,fertiliser,900.0,2.6,default,60.0,0.9,0.09999999999999998,share not covered by free allocation,14040.0,direct_obligation
+B004,2029,current_policies,proposal,1,fertiliser,900.0,2.6,default,60.0,0.85,0.15000000000000002,share not covered by free allocation,21060.0,direct_obligation
+B004,2030,current_policies,proposal,1,fertiliser,900.0,2.6,default,60.0,0.8,0.19999999999999996,share not covered by free allocation,28080.0,direct_obligation
+B004,2031,current_policies,proposal,1,fertiliser,900.0,2.6,default,60.0,0.7,0.30000000000000004,share not covered by free allocation,42120.0,direct_obligation
+B004,2032,current_policies,proposal,1,fertiliser,900.0,2.6,default,60.0,0.6,0.4,share not covered by free allocation,56160.0,direct_obligation
+B004,2033,current_policies,proposal,1,fertiliser,900.0,2.6,default,60.0,0.5,0.5,share not covered by free allocation,70200.0,direct_obligation
+B004,2034,current_policies,proposal,1,fertiliser,900.0,2.6,default,60.0,0.4,0.6,share not covered by free allocation,84240.0,direct_obligation
+B004,2035,current_policies,proposal,1,fertiliser,900.0,2.6,default,60.0,0.3,0.7,share not covered by free allocation,98280.0,direct_obligation
+B004,2026,delayed_transition,proposal,1,fertiliser,900.0,2.6,default,80.0,0.975,0.025000000000000022,share not covered by free allocation,4680.0,direct_obligation
+B004,2027,delayed_transition,proposal,1,fertiliser,900.0,2.6,default,80.0,0.95,0.050000000000000044,share not covered by free allocation,9360.0,direct_obligation
+B004,2028,delayed_transition,proposal,1,fertiliser,900.0,2.6,default,80.0,0.9,0.09999999999999998,share not covered by free allocation,18720.0,direct_obligation
+B004,2029,delayed_transition,proposal,1,fertiliser,900.0,2.6,default,80.0,0.85,0.15000000000000002,share not covered by free allocation,28080.0,direct_obligation
+B004,2030,delayed_transition,proposal,1,fertiliser,900.0,2.6,default,80.0,0.8,0.19999999999999996,share not covered by free allocation,37440.0,direct_obligation
+B004,2031,delayed_transition,proposal,1,fertiliser,900.0,2.6,default,80.0,0.7,0.30000000000000004,share not covered by free allocation,56160.0,direct_obligation
+B004,2032,delayed_transition,proposal,1,fertiliser,900.0,2.6,default,80.0,0.6,0.4,share not covered by free allocation,74880.0,direct_obligation
+B004,2033,delayed_transition,proposal,1,fertiliser,900.0,2.6,default,80.0,0.5,0.5,share not covered by free allocation,93600.0,direct_obligation
+B004,2034,delayed_transition,proposal,1,fertiliser,900.0,2.6,default,80.0,0.4,0.6,share not covered by free allocation,112320.0,direct_obligation
+B004,2035,delayed_transition,proposal,1,fertiliser,900.0,2.6,default,80.0,0.3,0.7,share not covered by free allocation,131040.0,direct_obligation
+B004,2026,net_zero_2050,proposal,1,fertiliser,900.0,2.6,default,100.0,0.975,0.025000000000000022,share not covered by free allocation,5850.0,direct_obligation
+B004,2027,net_zero_2050,proposal,1,fertiliser,900.0,2.6,default,100.0,0.95,0.050000000000000044,share not covered by free allocation,11700.0,direct_obligation
+B004,2028,net_zero_2050,proposal,1,fertiliser,900.0,2.6,default,100.0,0.9,0.09999999999999998,share not covered by free allocation,23400.0,direct_obligation
+B004,2029,net_zero_2050,proposal,1,fertiliser,900.0,2.6,default,100.0,0.85,0.15000000000000002,share not covered by free allocation,35100.0,direct_obligation
+B004,2030,net_zero_2050,proposal,1,fertiliser,900.0,2.6,default,100.0,0.8,0.19999999999999996,share not covered by free allocation,46800.0,direct_obligation
+B004,2031,net_zero_2050,proposal,1,fertiliser,900.0,2.6,default,100.0,0.7,0.30000000000000004,share not covered by free allocation,70200.0,direct_obligation
+B004,2032,net_zero_2050,proposal,1,fertiliser,900.0,2.6,default,100.0,0.6,0.4,share not covered by free allocation,93600.0,direct_obligation
+B004,2033,net_zero_2050,proposal,1,fertiliser,900.0,2.6,default,100.0,0.5,0.5,share not covered by free allocation,117000.0,direct_obligation
+B004,2034,net_zero_2050,proposal,1,fertiliser,900.0,2.6,default,100.0,0.4,0.6,share not covered by free allocation,140400.0,direct_obligation
+B004,2035,net_zero_2050,proposal,1,fertiliser,900.0,2.6,default,100.0,0.3,0.7,share not covered by free allocation,163800.0,direct_obligation
+B006,2026,current_policies,adopted,1,steel,300.0,1.9,default,60.0,0.975,0.025000000000000022,share not covered by free allocation,855.0,direct_obligation
+B006,2027,current_policies,adopted,1,steel,300.0,1.9,default,60.0,0.95,0.050000000000000044,share not covered by free allocation,1710.0,direct_obligation
+B006,2028,current_policies,adopted,1,steel,300.0,1.9,default,60.0,0.9,0.09999999999999998,share not covered by free allocation,3420.0,direct_obligation
+B006,2029,current_policies,adopted,1,steel,300.0,1.9,default,60.0,0.775,0.22499999999999998,share not covered by free allocation,7695.0,direct_obligation
+B006,2030,current_policies,adopted,1,steel,300.0,1.9,default,60.0,0.515,0.485,share not covered by free allocation,16587.0,direct_obligation
+B006,2031,current_policies,adopted,1,steel,300.0,1.9,default,60.0,0.39,0.61,share not covered by free allocation,20862.0,direct_obligation
+B006,2032,current_policies,adopted,1,steel,300.0,1.9,default,60.0,0.265,0.735,share not covered by free allocation,25137.0,direct_obligation
+B006,2033,current_policies,adopted,1,steel,300.0,1.9,default,60.0,0.14,0.86,share not covered by free allocation,29412.0,direct_obligation
+B006,2034,current_policies,adopted,1,steel,300.0,1.9,default,60.0,0.0,1.0,share not covered by free allocation,34200.0,direct_obligation
+B006,2035,current_policies,adopted,1,steel,300.0,1.9,default,60.0,0.0,1.0,share not covered by free allocation,34200.0,direct_obligation
+B006,2026,delayed_transition,adopted,1,steel,300.0,1.9,default,80.0,0.975,0.025000000000000022,share not covered by free allocation,1140.0,direct_obligation
+B006,2027,delayed_transition,adopted,1,steel,300.0,1.9,default,80.0,0.95,0.050000000000000044,share not covered by free allocation,2280.0,direct_obligation
+B006,2028,delayed_transition,adopted,1,steel,300.0,1.9,default,80.0,0.9,0.09999999999999998,share not covered by free allocation,4560.0,direct_obligation
+B006,2029,delayed_transition,adopted,1,steel,300.0,1.9,default,80.0,0.775,0.22499999999999998,share not covered by free allocation,10260.0,direct_obligation
+B006,2030,delayed_transition,adopted,1,steel,300.0,1.9,default,80.0,0.515,0.485,share not covered by free allocation,22116.0,direct_obligation
+B006,2031,delayed_transition,adopted,1,steel,300.0,1.9,default,80.0,0.39,0.61,share not covered by free allocation,27816.0,direct_obligation
+B006,2032,delayed_transition,adopted,1,steel,300.0,1.9,default,80.0,0.265,0.735,share not covered by free allocation,33516.0,direct_obligation
+B006,2033,delayed_transition,adopted,1,steel,300.0,1.9,default,80.0,0.14,0.86,share not covered by free allocation,39216.0,direct_obligation
+B006,2034,delayed_transition,adopted,1,steel,300.0,1.9,default,80.0,0.0,1.0,share not covered by free allocation,45600.0,direct_obligation
+B006,2035,delayed_transition,adopted,1,steel,300.0,1.9,default,80.0,0.0,1.0,share not covered by free allocation,45600.0,direct_obligation
+B006,2026,net_zero_2050,adopted,1,steel,300.0,1.9,default,100.0,0.975,0.025000000000000022,share not covered by free allocation,1425.0,direct_obligation
+B006,2027,net_zero_2050,adopted,1,steel,300.0,1.9,default,100.0,0.95,0.050000000000000044,share not covered by free allocation,2850.0,direct_obligation
+B006,2028,net_zero_2050,adopted,1,steel,300.0,1.9,default,100.0,0.9,0.09999999999999998,share not covered by free allocation,5700.0,direct_obligation
+B006,2029,net_zero_2050,adopted,1,steel,300.0,1.9,default,100.0,0.775,0.22499999999999998,share not covered by free allocation,12825.0,direct_obligation
+B006,2030,net_zero_2050,adopted,1,steel,300.0,1.9,default,100.0,0.515,0.485,share not covered by free allocation,27645.0,direct_obligation
+B006,2031,net_zero_2050,adopted,1,steel,300.0,1.9,default,100.0,0.39,0.61,share not covered by free allocation,34770.0,direct_obligation
+B006,2032,net_zero_2050,adopted,1,steel,300.0,1.9,default,100.0,0.265,0.735,share not covered by free allocation,41895.0,direct_obligation
+B006,2033,net_zero_2050,adopted,1,steel,300.0,1.9,default,100.0,0.14,0.86,share not covered by free allocation,49020.0,direct_obligation
+B006,2034,net_zero_2050,adopted,1,steel,300.0,1.9,default,100.0,0.0,1.0,share not covered by free allocation,57000.0,direct_obligation
+B006,2035,net_zero_2050,adopted,1,steel,300.0,1.9,default,100.0,0.0,1.0,share not covered by free allocation,57000.0,direct_obligation
+B006,2026,current_policies,proposal,1,steel,300.0,1.9,default,60.0,0.975,0.025000000000000022,share not covered by free allocation,855.0,direct_obligation
+B006,2027,current_policies,proposal,1,steel,300.0,1.9,default,60.0,0.95,0.050000000000000044,share not covered by free allocation,1710.0,direct_obligation
+B006,2028,current_policies,proposal,1,steel,300.0,1.9,default,60.0,0.9,0.09999999999999998,share not covered by free allocation,3420.0,direct_obligation
+B006,2029,current_policies,proposal,1,steel,300.0,1.9,default,60.0,0.85,0.15000000000000002,share not covered by free allocation,5130.0,direct_obligation
+B006,2030,current_policies,proposal,1,steel,300.0,1.9,default,60.0,0.8,0.19999999999999996,share not covered by free allocation,6840.0,direct_obligation
+B006,2031,current_policies,proposal,1,steel,300.0,1.9,default,60.0,0.7,0.30000000000000004,share not covered by free allocation,10260.0,direct_obligation
+B006,2032,current_policies,proposal,1,steel,300.0,1.9,default,60.0,0.6,0.4,share not covered by free allocation,13680.0,direct_obligation
+B006,2033,current_policies,proposal,1,steel,300.0,1.9,default,60.0,0.5,0.5,share not covered by free allocation,17100.0,direct_obligation
+B006,2034,current_policies,proposal,1,steel,300.0,1.9,default,60.0,0.4,0.6,share not covered by free allocation,20520.0,direct_obligation
+B006,2035,current_policies,proposal,1,steel,300.0,1.9,default,60.0,0.3,0.7,share not covered by free allocation,23940.0,direct_obligation
+B006,2026,delayed_transition,proposal,1,steel,300.0,1.9,default,80.0,0.975,0.025000000000000022,share not covered by free allocation,1140.0,direct_obligation
+B006,2027,delayed_transition,proposal,1,steel,300.0,1.9,default,80.0,0.95,0.050000000000000044,share not covered by free allocation,2280.0,direct_obligation
+B006,2028,delayed_transition,proposal,1,steel,300.0,1.9,default,80.0,0.9,0.09999999999999998,share not covered by free allocation,4560.0,direct_obligation
+B006,2029,delayed_transition,proposal,1,steel,300.0,1.9,default,80.0,0.85,0.15000000000000002,share not covered by free allocation,6840.0,direct_obligation
+B006,2030,delayed_transition,proposal,1,steel,300.0,1.9,default,80.0,0.8,0.19999999999999996,share not covered by free allocation,9120.0,direct_obligation
+B006,2031,delayed_transition,proposal,1,steel,300.0,1.9,default,80.0,0.7,0.30000000000000004,share not covered by free allocation,13680.0,direct_obligation
+B006,2032,delayed_transition,proposal,1,steel,300.0,1.9,default,80.0,0.6,0.4,share not covered by free allocation,18240.0,direct_obligation
+B006,2033,delayed_transition,proposal,1,steel,300.0,1.9,default,80.0,0.5,0.5,share not covered by free allocation,22800.0,direct_obligation
+B006,2034,delayed_transition,proposal,1,steel,300.0,1.9,default,80.0,0.4,0.6,share not covered by free allocation,27360.0,direct_obligation
+B006,2035,delayed_transition,proposal,1,steel,300.0,1.9,default,80.0,0.3,0.7,share not covered by free allocation,31920.0,direct_obligation
+B006,2026,net_zero_2050,proposal,1,steel,300.0,1.9,default,100.0,0.975,0.025000000000000022,share not covered by free allocation,1425.0,direct_obligation
+B006,2027,net_zero_2050,proposal,1,steel,300.0,1.9,default,100.0,0.95,0.050000000000000044,share not covered by free allocation,2850.0,direct_obligation
+B006,2028,net_zero_2050,proposal,1,steel,300.0,1.9,default,100.0,0.9,0.09999999999999998,share not covered by free allocation,5700.0,direct_obligation
+B006,2029,net_zero_2050,proposal,1,steel,300.0,1.9,default,100.0,0.85,0.15000000000000002,share not covered by free allocation,8550.0,direct_obligation
+B006,2030,net_zero_2050,proposal,1,steel,300.0,1.9,default,100.0,0.8,0.19999999999999996,share not covered by free allocation,11400.0,direct_obligation
+B006,2031,net_zero_2050,proposal,1,steel,300.0,1.9,default,100.0,0.7,0.30000000000000004,share not covered by free allocation,17100.0,direct_obligation
+B006,2032,net_zero_2050,proposal,1,steel,300.0,1.9,default,100.0,0.6,0.4,share not covered by free allocation,22800.0,direct_obligation
+B006,2033,net_zero_2050,proposal,1,steel,300.0,1.9,default,100.0,0.5,0.5,share not covered by free allocation,28500.0,direct_obligation
+B006,2034,net_zero_2050,proposal,1,steel,300.0,1.9,default,100.0,0.4,0.6,share not covered by free allocation,34200.0,direct_obligation
+B006,2035,net_zero_2050,proposal,1,steel,300.0,1.9,default,100.0,0.3,0.7,share not covered by free allocation,39900.0,direct_obligation
+B007,2027,current_policies,adopted,1,cement,5000.0,1.1,default,60.0,0.95,0.025000000000000022,free allocation withdrawn this year,8250.0,lost_allocation
+B007,2028,current_policies,adopted,1,cement,5000.0,1.1,default,60.0,0.9,0.04999999999999993,free allocation withdrawn this year,16500.0,lost_allocation
+B007,2029,current_policies,adopted,1,cement,5000.0,1.1,default,60.0,0.775,0.125,free allocation withdrawn this year,41250.0,lost_allocation
+B007,2030,current_policies,adopted,1,cement,5000.0,1.1,default,60.0,0.515,0.26,free allocation withdrawn this year,85800.0,lost_allocation
+B007,2031,current_policies,adopted,1,cement,5000.0,1.1,default,60.0,0.39,0.125,free allocation withdrawn this year,41250.0,lost_allocation
+B007,2032,current_policies,adopted,1,cement,5000.0,1.1,default,60.0,0.265,0.125,free allocation withdrawn this year,41250.0,lost_allocation
+B007,2033,current_policies,adopted,1,cement,5000.0,1.1,default,60.0,0.14,0.125,free allocation withdrawn this year,41250.0,lost_allocation
+B007,2034,current_policies,adopted,1,cement,5000.0,1.1,default,60.0,0.0,0.14,free allocation withdrawn this year,46200.0,lost_allocation
+B007,2035,current_policies,adopted,1,cement,5000.0,1.1,default,60.0,0.0,0.0,free allocation withdrawn this year,0.0,lost_allocation
+B007,2027,delayed_transition,adopted,1,cement,5000.0,1.1,default,80.0,0.95,0.025000000000000022,free allocation withdrawn this year,11000.0,lost_allocation
+B007,2028,delayed_transition,adopted,1,cement,5000.0,1.1,default,80.0,0.9,0.04999999999999993,free allocation withdrawn this year,22000.0,lost_allocation
+B007,2029,delayed_transition,adopted,1,cement,5000.0,1.1,default,80.0,0.775,0.125,free allocation withdrawn this year,55000.0,lost_allocation
+B007,2030,delayed_transition,adopted,1,cement,5000.0,1.1,default,80.0,0.515,0.26,free allocation withdrawn this year,114400.0,lost_allocation
+B007,2031,delayed_transition,adopted,1,cement,5000.0,1.1,default,80.0,0.39,0.125,free allocation withdrawn this year,55000.0,lost_allocation
+B007,2032,delayed_transition,adopted,1,cement,5000.0,1.1,default,80.0,0.265,0.125,free allocation withdrawn this year,55000.0,lost_allocation
+B007,2033,delayed_transition,adopted,1,cement,5000.0,1.1,default,80.0,0.14,0.125,free allocation withdrawn this year,55000.0,lost_allocation
+B007,2034,delayed_transition,adopted,1,cement,5000.0,1.1,default,80.0,0.0,0.14,free allocation withdrawn this year,61600.0,lost_allocation
+B007,2035,delayed_transition,adopted,1,cement,5000.0,1.1,default,80.0,0.0,0.0,free allocation withdrawn this year,0.0,lost_allocation
+B007,2027,net_zero_2050,adopted,1,cement,5000.0,1.1,default,100.0,0.95,0.025000000000000022,free allocation withdrawn this year,13750.0,lost_allocation
+B007,2028,net_zero_2050,adopted,1,cement,5000.0,1.1,default,100.0,0.9,0.04999999999999993,free allocation withdrawn this year,27500.0,lost_allocation
+B007,2029,net_zero_2050,adopted,1,cement,5000.0,1.1,default,100.0,0.775,0.125,free allocation withdrawn this year,68750.0,lost_allocation
+B007,2030,net_zero_2050,adopted,1,cement,5000.0,1.1,default,100.0,0.515,0.26,free allocation withdrawn this year,143000.0,lost_allocation
+B007,2031,net_zero_2050,adopted,1,cement,5000.0,1.1,default,100.0,0.39,0.125,free allocation withdrawn this year,68750.0,lost_allocation
+B007,2032,net_zero_2050,adopted,1,cement,5000.0,1.1,default,100.0,0.265,0.125,free allocation withdrawn this year,68750.0,lost_allocation
+B007,2033,net_zero_2050,adopted,1,cement,5000.0,1.1,default,100.0,0.14,0.125,free allocation withdrawn this year,68750.0,lost_allocation
+B007,2034,net_zero_2050,adopted,1,cement,5000.0,1.1,default,100.0,0.0,0.14,free allocation withdrawn this year,77000.0,lost_allocation
+B007,2035,net_zero_2050,adopted,1,cement,5000.0,1.1,default,100.0,0.0,0.0,free allocation withdrawn this year,0.0,lost_allocation
+B007,2027,current_policies,proposal,1,cement,5000.0,1.1,default,60.0,0.95,0.025000000000000022,free allocation withdrawn this year,8250.0,lost_allocation
+B007,2028,current_policies,proposal,1,cement,5000.0,1.1,default,60.0,0.9,0.04999999999999993,free allocation withdrawn this year,16500.0,lost_allocation
+B007,2029,current_policies,proposal,1,cement,5000.0,1.1,default,60.0,0.85,0.050000000000000044,free allocation withdrawn this year,16500.0,lost_allocation
+B007,2030,current_policies,proposal,1,cement,5000.0,1.1,default,60.0,0.8,0.04999999999999993,free allocation withdrawn this year,16500.0,lost_allocation
+B007,2031,current_policies,proposal,1,cement,5000.0,1.1,default,60.0,0.7,0.10000000000000009,free allocation withdrawn this year,33000.0,lost_allocation
+B007,2032,current_policies,proposal,1,cement,5000.0,1.1,default,60.0,0.6,0.09999999999999998,free allocation withdrawn this year,33000.0,lost_allocation
+B007,2033,current_policies,proposal,1,cement,5000.0,1.1,default,60.0,0.5,0.09999999999999998,free allocation withdrawn this year,33000.0,lost_allocation
+B007,2034,current_policies,proposal,1,cement,5000.0,1.1,default,60.0,0.4,0.09999999999999998,free allocation withdrawn this year,33000.0,lost_allocation
+B007,2035,current_policies,proposal,1,cement,5000.0,1.1,default,60.0,0.3,0.10000000000000003,free allocation withdrawn this year,33000.0,lost_allocation
+B007,2027,delayed_transition,proposal,1,cement,5000.0,1.1,default,80.0,0.95,0.025000000000000022,free allocation withdrawn this year,11000.0,lost_allocation
+B007,2028,delayed_transition,proposal,1,cement,5000.0,1.1,default,80.0,0.9,0.04999999999999993,free allocation withdrawn this year,22000.0,lost_allocation
+B007,2029,delayed_transition,proposal,1,cement,5000.0,1.1,default,80.0,0.85,0.050000000000000044,free allocation withdrawn this year,22000.0,lost_allocation
+B007,2030,delayed_transition,proposal,1,cement,5000.0,1.1,default,80.0,0.8,0.04999999999999993,free allocation withdrawn this year,22000.0,lost_allocation
+B007,2031,delayed_transition,proposal,1,cement,5000.0,1.1,default,80.0,0.7,0.10000000000000009,free allocation withdrawn this year,44000.0,lost_allocation
+B007,2032,delayed_transition,proposal,1,cement,5000.0,1.1,default,80.0,0.6,0.09999999999999998,free allocation withdrawn this year,44000.0,lost_allocation
+B007,2033,delayed_transition,proposal,1,cement,5000.0,1.1,default,80.0,0.5,0.09999999999999998,free allocation withdrawn this year,44000.0,lost_allocation
+B007,2034,delayed_transition,proposal,1,cement,5000.0,1.1,default,80.0,0.4,0.09999999999999998,free allocation withdrawn this year,44000.0,lost_allocation
+B007,2035,delayed_transition,proposal,1,cement,5000.0,1.1,default,80.0,0.3,0.10000000000000003,free allocation withdrawn this year,44000.0,lost_allocation
+B007,2027,net_zero_2050,proposal,1,cement,5000.0,1.1,default,100.0,0.95,0.025000000000000022,free allocation withdrawn this year,13750.0,lost_allocation
+B007,2028,net_zero_2050,proposal,1,cement,5000.0,1.1,default,100.0,0.9,0.04999999999999993,free allocation withdrawn this year,27500.0,lost_allocation
+B007,2029,net_zero_2050,proposal,1,cement,5000.0,1.1,default,100.0,0.85,0.050000000000000044,free allocation withdrawn this year,27500.0,lost_allocation
+B007,2030,net_zero_2050,proposal,1,cement,5000.0,1.1,default,100.0,0.8,0.04999999999999993,free allocation withdrawn this year,27500.0,lost_allocation
+B007,2031,net_zero_2050,proposal,1,cement,5000.0,1.1,default,100.0,0.7,0.10000000000000009,free allocation withdrawn this year,55000.0,lost_allocation
+B007,2032,net_zero_2050,proposal,1,cement,5000.0,1.1,default,100.0,0.6,0.09999999999999998,free allocation withdrawn this year,55000.0,lost_allocation
+B007,2033,net_zero_2050,proposal,1,cement,5000.0,1.1,default,100.0,0.5,0.09999999999999998,free allocation withdrawn this year,55000.0,lost_allocation
+B007,2034,net_zero_2050,proposal,1,cement,5000.0,1.1,default,100.0,0.4,0.09999999999999998,free allocation withdrawn this year,55000.0,lost_allocation
+B007,2035,net_zero_2050,proposal,1,cement,5000.0,1.1,default,100.0,0.3,0.10000000000000003,free allocation withdrawn this year,55000.0,lost_allocation
+B009,2026,current_policies,proposal,1,steel,1200.0,1.9,default,60.0,0.975,0.025000000000000022,share not covered by free allocation,3420.0,direct_obligation
+B009,2027,current_policies,proposal,1,steel,1200.0,1.9,default,60.0,0.95,0.050000000000000044,share not covered by free allocation,6840.0,direct_obligation
+B009,2028,current_policies,proposal,1,steel,1200.0,1.9,default,60.0,0.9,0.09999999999999998,share not covered by free allocation,13680.0,direct_obligation
+B009,2029,current_policies,proposal,1,steel,1200.0,1.9,default,60.0,0.85,0.15000000000000002,share not covered by free allocation,20520.0,direct_obligation
+B009,2030,current_policies,proposal,1,steel,1200.0,1.9,default,60.0,0.8,0.19999999999999996,share not covered by free allocation,27360.0,direct_obligation
+B009,2031,current_policies,proposal,1,steel,1200.0,1.9,default,60.0,0.7,0.30000000000000004,share not covered by free allocation,41040.0,direct_obligation
+B009,2032,current_policies,proposal,1,steel,1200.0,1.9,default,60.0,0.6,0.4,share not covered by free allocation,54720.0,direct_obligation
+B009,2033,current_policies,proposal,1,steel,1200.0,1.9,default,60.0,0.5,0.5,share not covered by free allocation,68400.0,direct_obligation
+B009,2034,current_policies,proposal,1,steel,1200.0,1.9,default,60.0,0.4,0.6,share not covered by free allocation,82080.0,direct_obligation
+B009,2035,current_policies,proposal,1,steel,1200.0,1.9,default,60.0,0.3,0.7,share not covered by free allocation,95760.0,direct_obligation
+B009,2026,delayed_transition,proposal,1,steel,1200.0,1.9,default,80.0,0.975,0.025000000000000022,share not covered by free allocation,4560.0,direct_obligation
+B009,2027,delayed_transition,proposal,1,steel,1200.0,1.9,default,80.0,0.95,0.050000000000000044,share not covered by free allocation,9120.0,direct_obligation
+B009,2028,delayed_transition,proposal,1,steel,1200.0,1.9,default,80.0,0.9,0.09999999999999998,share not covered by free allocation,18240.0,direct_obligation
+B009,2029,delayed_transition,proposal,1,steel,1200.0,1.9,default,80.0,0.85,0.15000000000000002,share not covered by free allocation,27360.0,direct_obligation
+B009,2030,delayed_transition,proposal,1,steel,1200.0,1.9,default,80.0,0.8,0.19999999999999996,share not covered by free allocation,36480.0,direct_obligation
+B009,2031,delayed_transition,proposal,1,steel,1200.0,1.9,default,80.0,0.7,0.30000000000000004,share not covered by free allocation,54720.0,direct_obligation
+B009,2032,delayed_transition,proposal,1,steel,1200.0,1.9,default,80.0,0.6,0.4,share not covered by free allocation,72960.0,direct_obligation
+B009,2033,delayed_transition,proposal,1,steel,1200.0,1.9,default,80.0,0.5,0.5,share not covered by free allocation,91200.0,direct_obligation
+B009,2034,delayed_transition,proposal,1,steel,1200.0,1.9,default,80.0,0.4,0.6,share not covered by free allocation,109440.0,direct_obligation
+B009,2035,delayed_transition,proposal,1,steel,1200.0,1.9,default,80.0,0.3,0.7,share not covered by free allocation,127680.0,direct_obligation
+B009,2026,net_zero_2050,proposal,1,steel,1200.0,1.9,default,100.0,0.975,0.025000000000000022,share not covered by free allocation,5700.0,direct_obligation
+B009,2027,net_zero_2050,proposal,1,steel,1200.0,1.9,default,100.0,0.95,0.050000000000000044,share not covered by free allocation,11400.0,direct_obligation
+B009,2028,net_zero_2050,proposal,1,steel,1200.0,1.9,default,100.0,0.9,0.09999999999999998,share not covered by free allocation,22800.0,direct_obligation
+B009,2029,net_zero_2050,proposal,1,steel,1200.0,1.9,default,100.0,0.85,0.15000000000000002,share not covered by free allocation,34200.0,direct_obligation
+B009,2030,net_zero_2050,proposal,1,steel,1200.0,1.9,default,100.0,0.8,0.19999999999999996,share not covered by free allocation,45600.0,direct_obligation
+B009,2031,net_zero_2050,proposal,1,steel,1200.0,1.9,default,100.0,0.7,0.30000000000000004,share not covered by free allocation,68400.0,direct_obligation
+B009,2032,net_zero_2050,proposal,1,steel,1200.0,1.9,default,100.0,0.6,0.4,share not covered by free allocation,91200.0,direct_obligation
+B009,2033,net_zero_2050,proposal,1,steel,1200.0,1.9,default,100.0,0.5,0.5,share not covered by free allocation,114000.0,direct_obligation
+B009,2034,net_zero_2050,proposal,1,steel,1200.0,1.9,default,100.0,0.4,0.6,share not covered by free allocation,136800.0,direct_obligation
+B009,2035,net_zero_2050,proposal,1,steel,1200.0,1.9,default,100.0,0.3,0.7,share not covered by free allocation,159600.0,direct_obligation

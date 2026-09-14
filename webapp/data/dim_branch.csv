@@ -1,0 +1,3 @@
+branch,branch_label,status,free_allocation_schedule,downstream_extension_applies,description,source,sort_order,is_default
+adopted,Adopted law only,adopted,adopted,false,,fixture,1,true
+proposal,Both Commission proposals applied,proposal,proposal_2038,true,,fixture,2,false
