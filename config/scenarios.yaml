@@ -1,34 +1,127 @@
 # scenarios.yaml
 # EU carbon price paths, EUR per tonne CO2, one value per year 2026 to 2035.
 #
-# SCHEMA (Task 0 placeholder, filled in Task 3)
+# ============================================================================
+# STATUS: GATED. NO PRICES RECORDED. DO NOT SHIP A COST NUMBER FROM THIS FILE.
+# ============================================================================
 #
-# meta:
-#   config_version: str
-#   last_updated: YYYY-MM-DD
-#   price_unit: str                for example "EUR2023 per tCO2"
-#   region: str                    region label used by the source
+# Task 3 could not be completed. The NGFS Phase V year-by-year carbon prices for
+# the EU are not published in any document that could be fetched on 2026-09-14.
+# Rather than interpolate, guess or reuse a global number as if it were an EU
+# number, this file records the schema, the gap and the exact document needed.
 #
-# scenarios:
-#   <scenario_key>:                net_zero_2050 | delayed_transition | current_policies
-#     label: str
-#     source: str                  document title, page or table number
-#     source_url: str
-#     retrieved: YYYY-MM-DD
-#     status: adopted | proposal   scenario paths are projections, not law; use "proposal"
-#                                  only for policy branches, use "scenario" here
-#     by_year:
-#       <year>:
-#         price: float
-#         interpolated: bool       true when the value was linearly interpolated
-#                                  between two years stated by the source
+# src/config.py raises ConfigError when anything asks for a price, so the cost
+# engine cannot silently produce a zero. The engine tests run against
+# tests/fixtures/scenarios.yaml, which carries fixture prices.
 #
-# Rule: never interpolate outside the range the source states, and never invent
-# a price. If the source cannot be fetched, leave the TODO in place and let the
-# Task 3 test fail loudly.
+# WHAT WAS SEARCHED, AND WHAT WAS FOUND
+#
+# 1. NGFS Phase 5 Scenario Explorer, https://data.ene.iiasa.ac.at/ngfs/
+#    Login-walled. Redirects to a login page. The anonymous API returns 403.
+#    The Zenodo record for the data set, DOI 10.5281/zenodo.13989530, is
+#    publicly listed but its files are restricted and it redirects back to the
+#    Explorer.
+#
+# 2. NGFS published Phase V documentation. Four documents were read in full.
+#    Every carbon price appears either as a chart without data labels, or as
+#    prose at a global or R5 "OECD and EU" aggregate, at milestone years only.
+#    Nothing at EU27 or Europe granularity. Nothing annual. Almost nothing for
+#    Delayed Transition, which is not one of the scenarios documented in the
+#    November 2025 narratives note and appears only as an unlabelled series.
+#
+#    The numbers that ARE published, recorded here as evidence and NOT used as
+#    prices, because they are global or R5 rather than EU and are milestone
+#    rather than annual:
+#      Net Zero 2050, global weighted shadow price, REMIND-MAgPIE:
+#        "an increase from 98 USD per tCO2 to 294 USD per tCO2 within ten
+#        years", reaching around 294 by 2035. US dollars, 2010 basis.
+#        Source: NGFS Climate Scenarios for central banks and supervisors,
+#        Phase V, November 2024, page 21.
+#      Net Zero 2050, R5 "OECD and EU": "at least 150 USD per tCO2 by 2030"
+#        and "450 USD per tCO2 by 2050".
+#        Source: NGFS long-term scenarios, narratives and key findings,
+#        7 November 2025, page 24.
+#      Current Policies, global: "up to 10 US$2010 per tCO2 by 2030".
+#        Source: same document, page 34.
+#      Delayed Transition: no published number found, for any region or year.
+#
+# 3. EU-institution publications citing NGFS Phase V with numbers. None found.
+#    ECB Occasional Paper 336 uses Phase III. The Fit-for-55 one-off exercise
+#    uses Phase IV. The 2025 EU-wide stress test uses the NGFS short-term NDC
+#    path. None of them is Phase V, and none reproduces EU carbon prices as
+#    numbers.
+#
+# TODO: fetch the NGFS Phase V variable "Price|Carbon" for the EU or Europe
+# region, annual, 2026 to 2035, for Net Zero 2050, Delayed Transition and
+# Current Policies, from the NGFS Scenario Explorer download page at
+# https://data.ece.iiasa.ac.at/ngfs/#/downloads. This needs a guest login, which
+# is the owner's to authorise. The unit there is US$2010 per tCO2, so a
+# conversion to EUR and a price-year restatement are also needed, and both must
+# be recorded with their own source. Regional aggregates in the Explorer are
+# emissions-weighted, and native model regions differ between REMIND, MESSAGE
+# and GCAM, so the region label must be checked against the model region mapping
+# in the Technical Documentation V5.0, pages 166 and 201.
+#
+# SCHEMA, for when the numbers arrive
+#   scenarios:
+#     <key>:
+#       label, source, source_url, retrieved, status, region, price_unit
+#       by_year:
+#         <year>: {price: float, interpolated: bool}
+#   Set interpolated true on any year whose value was linearly interpolated
+#   between two years the source states. Never interpolate outside the range the
+#   source gives, and never record a price no source states.
 
 meta:
-  config_version: "0.0.0-scaffold"
+  config_version: "0.1.0-gated"
   last_updated: "2026-09-14"
+  price_unit: "EUR per tCO2, nominal. Not yet populated."
+  region: "EU. Not yet populated."
+  status: gated
+  gate_reason: >-
+    NGFS Phase V EU carbon prices are not available in any fetchable public
+    document. See the comment block at the top of this file and the NGFS
+    entries in data/SOURCES.md.
+  todo_document_needed: >-
+    NGFS Phase V, variable Price|Carbon, EU or Europe region, annual 2026 to
+    2035, for Net Zero 2050, Delayed Transition and Current Policies, from the
+    NGFS Scenario Explorer bulk download. Guest login required.
 
-# TODO(Task 3): fill from NGFS Phase V EU carbon prices. Do not invent values.
+scenarios:
+  net_zero_2050:
+    label: "Net Zero 2050"
+    source: "TODO: NGFS Phase V Scenario Explorer, variable Price|Carbon"
+    source_url: "https://data.ece.iiasa.ac.at/ngfs/#/downloads"
+    retrieved: null
+    status: scenario
+    region: null
+    price_unit: null
+    by_year: {}
+    todo: "No price recorded. See the gate note in meta."
+
+  delayed_transition:
+    label: "Delayed Transition"
+    source: "TODO: NGFS Phase V Scenario Explorer, variable Price|Carbon"
+    source_url: "https://data.ece.iiasa.ac.at/ngfs/#/downloads"
+    retrieved: null
+    status: scenario
+    region: null
+    price_unit: null
+    by_year: {}
+    todo: >-
+      No price recorded, and no published Phase V number exists for this
+      scenario in any region or year. Note also that Delayed Transition
+      introduces carbon pricing in 2030, so at 2030 exactly its price may not
+      yet sit above Current Policies. Do not assume the ordering holds in that
+      year without checking the data.
+
+  current_policies:
+    label: "Current Policies"
+    source: "TODO: NGFS Phase V Scenario Explorer, variable Price|Carbon"
+    source_url: "https://data.ece.iiasa.ac.at/ngfs/#/downloads"
+    retrieved: null
+    status: scenario
+    region: null
+    price_unit: null
+    by_year: {}
+    todo: "No price recorded. See the gate note in meta."

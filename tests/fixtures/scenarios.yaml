@@ -1,0 +1,65 @@
+# FIXTURE scenarios.yaml. Test data, not NGFS output.
+#
+# Prices are round numbers. They satisfy the ordering the Task 3 test checks,
+# that is Net Zero above Delayed above Current Policies from 2030 onward, so
+# the ordering test can be exercised against a file that is known good.
+
+meta:
+  config_version: "fixture"
+  last_updated: "2026-09-14"
+  price_unit: "EUR per tCO2, fixture"
+  region: "fixture"
+  note: "Fixture file for tests. Not a source of truth."
+
+scenarios:
+  net_zero_2050:
+    label: "Fixture Net Zero 2050"
+    source: "fixture"
+    source_url: "fixture"
+    retrieved: "2026-09-14"
+    status: scenario
+    by_year:
+      2026: {price: 80.0, interpolated: false}
+      2027: {price: 95.0, interpolated: false}
+      2028: {price: 110.0, interpolated: false}
+      2029: {price: 130.0, interpolated: false}
+      2030: {price: 150.0, interpolated: false}
+      2031: {price: 170.0, interpolated: true}
+      2032: {price: 190.0, interpolated: true}
+      2033: {price: 210.0, interpolated: true}
+      2034: {price: 230.0, interpolated: true}
+      2035: {price: 250.0, interpolated: false}
+  delayed_transition:
+    label: "Fixture Delayed Transition"
+    source: "fixture"
+    source_url: "fixture"
+    retrieved: "2026-09-14"
+    status: scenario
+    by_year:
+      2026: {price: 70.0, interpolated: false}
+      2027: {price: 72.0, interpolated: false}
+      2028: {price: 75.0, interpolated: false}
+      2029: {price: 78.0, interpolated: false}
+      2030: {price: 90.0, interpolated: false}
+      2031: {price: 110.0, interpolated: true}
+      2032: {price: 130.0, interpolated: true}
+      2033: {price: 150.0, interpolated: true}
+      2034: {price: 170.0, interpolated: true}
+      2035: {price: 190.0, interpolated: false}
+  current_policies:
+    label: "Fixture Current Policies"
+    source: "fixture"
+    source_url: "fixture"
+    retrieved: "2026-09-14"
+    status: scenario
+    by_year:
+      2026: {price: 65.0, interpolated: false}
+      2027: {price: 66.0, interpolated: false}
+      2028: {price: 67.0, interpolated: false}
+      2029: {price: 68.0, interpolated: false}
+      2030: {price: 70.0, interpolated: false}
+      2031: {price: 72.0, interpolated: true}
+      2032: {price: 74.0, interpolated: true}
+      2033: {price: 76.0, interpolated: true}
+      2034: {price: 78.0, interpolated: true}
+      2035: {price: 80.0, interpolated: false}
