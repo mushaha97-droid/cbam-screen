@@ -1,0 +1,190 @@
+# thresholds.yaml
+#
+# Materiality bands, flag parameters and the liquidity timing model.
+#
+# READ THIS FIRST. Almost nothing in this file comes from law. These are the
+# author's own assumptions about what counts as a material CBAM cost for a
+# corporate borrower. No regulator, supervisor or bank has endorsed them. Every
+# screen that uses them must say so, and the methodology page must repeat it.
+#
+# The one exception is the timing block, where the dates are law and only the
+# split of cash across the year is an assumption. Each entry says which it is.
+
+# FIXTURE copy of config/thresholds.yaml. Kept identical on purpose, so the
+# engine tests exercise the same bands and parameters that ship.
+
+meta:
+  config_version: "fixture"
+  last_updated: "2026-09-14"
+  warning: >-
+    Materiality bands and flag parameters are the author's assumptions, not law
+    and not supervisory guidance. Label them as assumptions wherever they drive
+    an output.
+
+# ---------------------------------------------------------------------------
+# Materiality: annual CBAM cost divided by EBITDA
+# ---------------------------------------------------------------------------
+# Bands are taken from CLAUDE.md section 6. Read as: min_ratio inclusive,
+# max_ratio exclusive, so a ratio of exactly 0.03 lands in M, not ML.
+#
+# A borrower with zero or negative EBITDA has no meaningful ratio. The engine
+# returns the band named in negative_ebitda_band and flags the row rather than
+# dividing by a negative number and reporting a negative percentage.
+
+materiality_bands:
+  source: "Author assumption. CLAUDE.md section 6."
+  status: assumption
+  negative_ebitda_band: H
+  negative_ebitda_note: >-
+    A borrower that cannot cover its existing cost base has no headroom for a
+    new one, so a non-positive EBITDA is treated as the highest band rather than
+    as an undefined ratio.
+  bands:
+    - {band: L,  min_ratio: 0.00, max_ratio: 0.01, label: "below 1 percent of EBITDA"}
+    - {band: ML, min_ratio: 0.01, max_ratio: 0.03, label: "1 to 3 percent of EBITDA"}
+    - {band: M,  min_ratio: 0.03, max_ratio: 0.06, label: "3 to 6 percent of EBITDA"}
+    - {band: MH, min_ratio: 0.06, max_ratio: 0.12, label: "6 to 12 percent of EBITDA"}
+    - {band: H,  min_ratio: 0.12, max_ratio: null, label: "above 12 percent of EBITDA"}
+
+# ---------------------------------------------------------------------------
+# Flags
+# ---------------------------------------------------------------------------
+
+flags:
+
+  NO_DECLARANT:
+    description: >-
+      The borrower carries a direct CBAM obligation above the mass threshold but
+      has not confirmed it is an authorised CBAM declarant. Without authorisation
+      it cannot lawfully import the goods at all from the start of the definitive
+      regime, so this is an operational cliff, not a cost question.
+    params: {}
+    source: >-
+      Regulation (EU) 2023/956 Article 4, goods may be imported only by an
+      authorised CBAM declarant. The decision to flag is the author's.
+    status: assumption
+
+  DEFAULT_VALUES:
+    description: >-
+      The cost was computed from default emission values rather than verified
+      supplier data. Default values are deliberately conservative, so the cost is
+      more likely to be overstated than understated, and the borrower can reduce
+      it by obtaining verified data.
+    params: {}
+    source: "Author assumption"
+    status: assumption
+
+  LOW_PASS_THROUGH:
+    description: >-
+      The borrower reports a low ability to pass the cost on to its customers, so
+      the cost lands on its own margin. Raised when the reported category is low,
+      or when the sector default pass-through share falls below the parameter.
+    params:
+      max_share: 0.3
+    source: "Author assumption"
+    status: assumption
+
+  SUPPLIER_CONCENTRATION:
+    description: >-
+      More than the parameter share of supply comes from a single non-EU origin,
+      so the borrower has little room to switch away from a CBAM cost.
+    params:
+      min_share: 0.6
+    source: "Author assumption. CLAUDE.md section 6."
+    status: assumption
+
+  ESTIMATED_INPUTS:
+    description: >-
+      One or more input fields were filled from sector averages rather than
+      supplied by the bank, so the cost is indicative only.
+    params: {}
+    source: "Author assumption"
+    status: assumption
+
+  RATING_GAP:
+    description: >-
+      The CBAM materiality band sits at least the parameter number of bands above
+      the transition rating the bank already assigns. This is the flag that
+      matters for a credit committee, because it says the existing rating may not
+      reflect this risk.
+    params:
+      min_band_gap: 2
+    source: "Author assumption. CLAUDE.md section 6."
+    status: assumption
+
+  MONITOR:
+    description: >-
+      The borrower imports CBAM goods but stays below the mass threshold, so it
+      owes nothing today. Worth watching, because the threshold is reviewed every
+      year and a small increase in volume creates a full-year obligation
+      retroactive to 1 January.
+    params: {}
+    source: >-
+      Regulation (EU) 2023/956 Article 2a. The decision to flag is the author's.
+    status: assumption
+
+  NEGATIVE_EBITDA:
+    description: >-
+      EBITDA is zero or negative, so the materiality ratio has no meaning and the
+      band was set by the negative_ebitda_band rule instead.
+    params: {}
+    source: "Author assumption"
+    status: assumption
+
+  ORIGIN_UNKNOWN:
+    description: >-
+      The borrower reports CBAM imports but no supplier origin, so the tool could
+      not test whether the origin is exempt. The row was treated as in scope.
+    params: {}
+    source: "Author assumption"
+    status: assumption
+
+# ---------------------------------------------------------------------------
+# Liquidity timing
+# ---------------------------------------------------------------------------
+# The dates are law. The split of cash within a year is an assumption.
+#
+# Two regimes:
+#   The 2026 obligation cannot be paid early, because no certificate exists to
+#   buy before 1 February 2027. It therefore lands as one block between
+#   1 February and 30 September 2027.
+#   From the 2027 obligation onward, Article 22(2) requires a declarant to hold
+#   certificates covering at least half its embedded emissions at the end of each
+#   quarter. So part of the cash goes out during the year of import and the rest
+#   settles at surrender in the following September.
+#
+# The assumption is that the quarterly part is paid in four equal instalments.
+# The law sets a minimum holding, not a payment schedule, so a borrower could
+# buy earlier or later within the year.
+
+liquidity:
+  source: >-
+    Regulation (EU) 2023/956 Articles 20(1), 22(1) and 22(2), as amended by
+    Regulation (EU) 2025/2083. The within-year split is the author's assumption.
+  status: assumption
+  first_obligation_year: 2026
+  block_payment:
+    applies_to_obligation_years: [2026]
+    payment_year_offset: 1
+    window_start: "02-01"
+    window_end: "09-30"
+    description: "One block, paid between 1 February and 30 September 2027."
+  quarterly:
+    applies_from_obligation_year: 2027
+    prepayment_share: 0.5
+    prepayment_share_source: >-
+      Article 22(2) requires certificates covering at least 50 percent of
+      embedded emissions at the end of each quarter. Taking the minimum is the
+      author's choice and is the least conservative reading.
+    instalments_in_obligation_year: 4
+    settlement_offset_years: 1
+    settlement_month_day: "09-30"
+    description: >-
+      Half the obligation is paid across four equal quarterly instalments during
+      the year of import. The balance settles at surrender by 30 September of the
+      following year.
+  working_capital_note: >-
+    Cash out is reported as a share of working capital only where the bank
+    supplied a working capital figure. Where it did not, the share is null rather
+    than estimated, because a guessed denominator would make the headline
+    liquidity number meaningless.

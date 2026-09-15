@@ -1,0 +1,81 @@
+# FIXTURE emission_defaults.yaml. Test data, not published values.
+#
+# The steel factor is 1.9, which is the number the hand example in CLAUDE.md
+# Task 6 uses. The rest are round numbers picked to make arithmetic in tests
+# easy to check by eye.
+
+meta:
+  config_version: "fixture"
+  last_updated: "2026-09-14"
+  note: "Fixture file for tests. Not a source of truth."
+
+data_quality_scale:
+  5: "fixture"
+  4: "fixture"
+  3: "fixture"
+  2: "fixture"
+  1: "fixture"
+
+good_groups:
+  steel:
+    label: "Fixture steel"
+    sector: "Iron and steel"
+    representative_cn: "7208"
+    direct: {value: 1.9, unit: "tCO2e/t"}
+    indirect: {value: null, unit: "tCO2e/t"}
+    total: {value: 1.9, unit: "tCO2e/t"}
+    source: "fixture"
+    status: adopted
+    data_quality: 3
+  aluminium:
+    label: "Fixture aluminium"
+    sector: "Aluminium"
+    representative_cn: "7601"
+    direct: {value: 2.0, unit: "tCO2e/t"}
+    indirect: {value: null, unit: "tCO2e/t"}
+    total: {value: 2.0, unit: "tCO2e/t"}
+    source: "fixture"
+    status: adopted
+    data_quality: 3
+  cement:
+    label: "Fixture cement"
+    sector: "Cement"
+    representative_cn: "2523 29 00"
+    direct: {value: 1.0, unit: "tCO2e/t"}
+    indirect: {value: 0.1, unit: "tCO2e/t"}
+    total: {value: 1.1, unit: "tCO2e/t"}
+    source: "fixture"
+    status: adopted
+    data_quality: 3
+  fertiliser:
+    label: "Fixture fertiliser"
+    sector: "Fertilisers"
+    representative_cn: "3102 10 19"
+    direct: {value: 2.5, unit: "tCO2e/t"}
+    indirect: {value: 0.1, unit: "tCO2e/t"}
+    total: {value: 2.6, unit: "tCO2e/t"}
+    source: "fixture"
+    status: adopted
+    data_quality: 3
+  hydrogen:
+    label: "Fixture hydrogen"
+    sector: "Hydrogen"
+    representative_cn: "2804 10 00"
+    direct: {value: 10.0, unit: "tCO2e/t"}
+    indirect: {value: null, unit: "tCO2e/t"}
+    total: {value: 10.0, unit: "tCO2e/t"}
+    source: "fixture"
+    status: adopted
+    data_quality: 3
+  electricity:
+    label: "Fixture electricity, a deliberate gap"
+    sector: "Electricity"
+    representative_cn: null
+    direct: {value: null, unit: "tCO2e/MWh"}
+    indirect: {value: null, unit: "tCO2e/MWh"}
+    total: {value: null, unit: "tCO2e/MWh"}
+    source: null
+    status: TODO
+    todo: "Fixture mirror of the real gap, so tests cover the missing-factor path."
+    todo_document_needed: "fixture"
+    data_quality: 1

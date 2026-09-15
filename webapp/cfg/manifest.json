@@ -1,0 +1,191 @@
+{
+  "generated_by": "python -m tools.bundle_webapp",
+  "generated_at": "2026-09-15T00:33:06Z",
+  "engine_entrypoint": "src.engine_api.screen_json",
+  "rule_config_note": "The rule files in this bundle are the fixture set from tests/fixtures/, the same set the dashboard export was built from. config/nace_tiers.yaml is still a scaffold, so there is no sector map in config/ to bundle. See tools/bundle_webapp.py.",
+  "price_note": "scenarios.yaml is the real gated file and carries no prices. prices_fixture.yaml stands in for it and is not a forecast.",
+  "files": [
+    {
+      "kind": "engine",
+      "path": "engine/src/__init__.py",
+      "source": "src/__init__.py",
+      "sha256": "0d203fd1ea226b22a92c26fa846baf308a28a0cf2148d0cdba53f699ddcf3a94",
+      "bytes": 166,
+      "note": "",
+      "meta": {}
+    },
+    {
+      "kind": "engine",
+      "path": "engine/src/config.py",
+      "source": "src/config.py",
+      "sha256": "ec3ffb86041d4fcefd6326eed56f91cc660902d8b97f28245e707817e6730fc1",
+      "bytes": 11697,
+      "note": "",
+      "meta": {}
+    },
+    {
+      "kind": "engine",
+      "path": "engine/src/tiering.py",
+      "source": "src/tiering.py",
+      "sha256": "4b32add71e275c8456ee652f1f2d276e920cddeca58ccff5f589afb845463dd0",
+      "bytes": 9070,
+      "note": "",
+      "meta": {}
+    },
+    {
+      "kind": "engine",
+      "path": "engine/src/schema.py",
+      "source": "src/schema.py",
+      "sha256": "dd42ff8cf328ac4459e5ff0566bb2ff6aad33453725a71c2dc4bd32cb7548e1b",
+      "bytes": 9467,
+      "note": "",
+      "meta": {}
+    },
+    {
+      "kind": "engine",
+      "path": "engine/src/cost.py",
+      "source": "src/cost.py",
+      "sha256": "e954cfa3b6c19371ee97debdaf0dfbf1681ff110155b677597c23eda18e19261",
+      "bytes": 14772,
+      "note": "",
+      "meta": {}
+    },
+    {
+      "kind": "engine",
+      "path": "engine/src/flags.py",
+      "source": "src/flags.py",
+      "sha256": "fc543c9823617c38a388ce42316d812b33cf526ec18e6986829d71217eedefd5",
+      "bytes": 8947,
+      "note": "",
+      "meta": {}
+    },
+    {
+      "kind": "engine",
+      "path": "engine/src/liquidity.py",
+      "source": "src/liquidity.py",
+      "sha256": "121971d2fe3b93e2d328a19879e154596de2142b4ab8bc7977f07e574ede89b5",
+      "bytes": 5662,
+      "note": "",
+      "meta": {}
+    },
+    {
+      "kind": "engine",
+      "path": "engine/src/questions.py",
+      "source": "src/questions.py",
+      "sha256": "6f1fd6bdd6c9ef3dcd5bdff3fa1d11c203ba9ccecf6c7c185a98130117904789",
+      "bytes": 7685,
+      "note": "",
+      "meta": {}
+    },
+    {
+      "kind": "engine",
+      "path": "engine/src/engine_api.py",
+      "source": "src/engine_api.py",
+      "sha256": "64bcd097bea1e99bb29a04eca2e1efd50e0e02bdafbda1b56104a54e40de6aa1",
+      "bytes": 39511,
+      "note": "",
+      "meta": {}
+    },
+    {
+      "kind": "config",
+      "path": "cfg/cbam_rules.yaml",
+      "source": "tests/fixtures/cbam_rules.yaml",
+      "sha256": "d228b2182393c7b9ffe02519898e3f6514ba1fe1d70e1fd5b0465956e2bf7df9",
+      "bytes": 5521,
+      "note": "",
+      "meta": {
+        "config_version": "fixture",
+        "last_updated": "2026-09-14",
+        "note": "Fixture file for tests. Not a source of truth."
+      }
+    },
+    {
+      "kind": "config",
+      "path": "cfg/emission_defaults.yaml",
+      "source": "tests/fixtures/emission_defaults.yaml",
+      "sha256": "f3698433570c0f36e0a2a1138e1425f8dc1defb914f3291955b7285fac5d9fbb",
+      "bytes": 2355,
+      "note": "",
+      "meta": {
+        "config_version": "fixture",
+        "last_updated": "2026-09-14",
+        "note": "Fixture file for tests. Not a source of truth."
+      }
+    },
+    {
+      "kind": "config",
+      "path": "cfg/nace_tiers.yaml",
+      "source": "tests/fixtures/nace_tiers.yaml",
+      "sha256": "a8e17019b5bc686e8747b710ba89d46caf3476c893fbac6fdf74e7495c11715d",
+      "bytes": 2631,
+      "note": "",
+      "meta": {
+        "config_version": "fixture",
+        "last_updated": "2026-09-14",
+        "note": "Fixture file for tests. Not a source of truth."
+      }
+    },
+    {
+      "kind": "config",
+      "path": "cfg/thresholds.yaml",
+      "source": "tests/fixtures/thresholds.yaml",
+      "sha256": "f7515173c10732ca8232e4ca7aae2ad5adab5bda0db3901c38355602800ca6e8",
+      "bytes": 8218,
+      "note": "",
+      "meta": {
+        "config_version": "fixture",
+        "last_updated": "2026-09-14"
+      }
+    },
+    {
+      "kind": "config",
+      "path": "cfg/scenarios.yaml",
+      "source": "config/scenarios.yaml",
+      "sha256": "2aba1046830e85a6ebda0c56b2c75a13fbce8aea261c8902770d41cb7fadf426",
+      "bytes": 6075,
+      "note": "",
+      "meta": {
+        "config_version": "0.1.0-gated",
+        "status": "gated",
+        "last_updated": "2026-09-14"
+      }
+    },
+    {
+      "kind": "config",
+      "path": "cfg/questions.yaml",
+      "source": "config/questions.yaml",
+      "sha256": "316d5eca51bc3476bef75ef5cc366aac91ce36975e83eeb55bd55f34649b82c7",
+      "bytes": 6808,
+      "note": "",
+      "meta": {
+        "config_version": "1.0.0",
+        "status": "assumption",
+        "last_updated": "2026-09-15"
+      }
+    },
+    {
+      "kind": "config",
+      "path": "cfg/prices_fixture.yaml",
+      "source": "data/powerbi_fixture/prices_fixture.yaml",
+      "sha256": "43a9b13d474640856176be1b376cc89121eed8f827f4469f0f64e08639832387",
+      "bytes": 4668,
+      "note": "",
+      "meta": {
+        "config_version": "fixture-1.0.0",
+        "status": "fixture",
+        "label": "fixture_not_a_forecast",
+        "last_updated": "2026-09-14",
+        "note": "Fixture prices for the Power BI export only. Not NGFS. Not a forecast. Flat by construction so that no reader can mistake the shape for a scenario path."
+      }
+    },
+    {
+      "kind": "template",
+      "path": "template_borrowers.csv",
+      "source": "data/template_borrowers.csv",
+      "sha256": "95b8fc78eb2c5395063108a4d9a6802a6df56ff3bb1ccaa747fc8b144d60fac6",
+      "bytes": 433,
+      "note": "The blank borrower template, offered as a download on the screening view.",
+      "meta": {}
+    }
+  ]
+}
