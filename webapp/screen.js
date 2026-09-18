@@ -288,9 +288,25 @@
       "a flat one cannot be mistaken for a forecast. Every number on this page that depends on a " +
       "price carries that label.</p>" +
       "<p>What does <em>not</em> depend on a price, and is therefore not labelled: what a borrower is, " +
-      "whether it crosses the 50 tonne mass threshold, the flags other than RATING_GAP, the questions " +
-      "to put to the client, and which fields the tool had to estimate. When the prices arrive, the " +
-      "same code reads them from the same file and these labels change on their own.</p></div>";
+      "whether it crosses the mass threshold of " + esc(thresholdText()) + ", the flags other than " +
+      "RATING_GAP, the questions to put to the client, and which fields the tool had to estimate. " +
+      "When the prices arrive, the same code reads them from the same file and these labels change " +
+      "on their own.</p></div>";
+  }
+
+  /* The mass threshold as the config states it, value and unit. Written out of
+   * the engine's answer rather than typed into the sentence, because CLAUDE.md
+   * section 10 says the page never shows a number that cannot be traced to a
+   * config entry, and a number in prose is still a number. */
+  function thresholdText() {
+    var threshold = (engine.options || {}).mass_threshold;
+    if (!threshold) {
+      // Before the engine has answered there is no figure to quote, and a
+      // placeholder number would be the exact thing this function exists to
+      // avoid. Name the file instead.
+      return "the value in cbam_rules.yaml";
+    }
+    return String(threshold.value) + " " + String(threshold.unit || "");
   }
 
   // --------------------------------------------------------------- the form
@@ -394,15 +410,14 @@
   function buildOptionalFields() {
     var options = engine.options || {};
     var goods = options.goods || [];
-    var threshold = options.mass_threshold || {};
     var parts = [];
 
     parts.push("<h3>What it imports</h3>");
     parts.push('<p class="subtitle">Volumes per year. Tonnes, except electricity, which is MWh. ' +
       "A volume you supply here is the only thing that can put a borrower in the direct-obligation " +
       "group, because a volume estimated from a sector average says nothing about where the goods " +
-      "came from. Goods marked below do not count toward the " +
-      esc(String(threshold.value || "")) + " tonne mass threshold.</p>");
+      "came from. Goods marked below do not count toward the mass threshold of " +
+      esc(thresholdText()) + ".</p>");
     parts.push('<div class="form-grid">');
     goods.forEach(function (good) {
       parts.push(field({
