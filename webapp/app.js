@@ -195,7 +195,7 @@
 
   var data = null;   // the loaded dataset and its indexes
   var ui = {
-    view: "portfolio",
+    view: "screen",
     scenario: null,
     branch: null,
     year: null,
@@ -216,7 +216,15 @@
 
     var borrowers = tables.dim_borrower || [];
     var borrowerById = {};
-    borrowers.forEach(function (row) { borrowerById[row.borrower_id] = row; });
+    borrowers.forEach(function (row) {
+      // Where this row came from. A borrower screened in the Screen a borrower
+      // tab carries SCREENED, set when its rows were merged in. Anything with
+      // no label of its own came from the file set, so it takes that label.
+      // Two kinds of row on one table have to be told apart on the row itself,
+      // not in the banner.
+      if (!row.source_label) { row.source_label = meta.data_label || "UNLABELLED"; }
+      borrowerById[row.borrower_id] = row;
+    });
 
     // fact_cost, keyed for the selectors, and kept per borrower for the chart.
     var costByKey = {};
@@ -335,9 +343,16 @@
   function renderBanner() {
     var label = data.meta.data_label || "UNLABELLED";
     var node = byId("data-banner");
+    var screened = data.borrowers.filter(function (row) {
+      return row.source_label === "SCREENED";
+    }).length;
     var parts = [];
     parts.push("<strong>" + escapeHtml(label) + " DATA.</strong> ");
     parts.push(escapeHtml(dataWarning()) + " ");
+    if (screened) {
+      parts.push("<strong>" + screened + (screened === 1 ? " borrower" : " borrowers") +
+        " screened in this tab</strong>, marked SCREENED in the Source column. The rest came from the file set. ");
+    }
     parts.push("Carbon prices: " + escapeHtml(data.meta.price_source_label || "unknown source") + ". ");
     parts.push("Materiality bands are the author's assumptions in config/thresholds.yaml, not law.");
     node.innerHTML = parts.join("");
@@ -347,7 +362,7 @@
 
   function renderFooter() {
     var repo = "https://github.com/mushaha97-droid/mushaha97-droid.github.io/tree/main/cbam-screen";
-    setHtml("footer", [
+    setHtml("footer-data", [
       "<p><strong>" + escapeHtml(data.meta.data_label || "UNLABELLED") + "</strong>",
       " data, exported " + escapeHtml(data.meta.generated_at || "at an unrecorded time"),
       " from engine " + escapeHtml(data.meta.engine_version || "version unknown"),
@@ -658,7 +673,8 @@
     { key: "cash_out", label: "Cash out", type: "eur" },
     { key: "flags", label: "Flags", type: "flags", wrap: true },
     { key: "estimated", label: "Estimated", type: "est" },
-    { key: "exposure_eur", label: "Exposure", type: "eur" }
+    { key: "exposure_eur", label: "Exposure", type: "eur" },
+    { key: "source_label", label: "Source", type: "text" }
   ];
 
   function borrowerRows() {
@@ -680,7 +696,8 @@
         flags: flags,
         estimated: isTrue(borrower.estimated),
         exposure_eur: num(borrower.exposure_eur),
-        bank_transition_rating: borrower.bank_transition_rating
+        bank_transition_rating: borrower.bank_transition_rating,
+        source_label: borrower.source_label || ""
       };
     });
   }
@@ -747,10 +764,13 @@
       html.push('<td class="num">' + escapeHtml(row.materiality_ratio === null ? "no ratio" : pct(row.materiality_ratio)) + "</td>");
       html.push('<td class="num">' + escapeHtml(eur(row.cash_out)) + "</td>");
       html.push('<td class="wrap">' + (row.flags.length
-        ? row.flags.map(function (code) { return '<span class="chip flag">' + escapeHtml(code) + "</span>"; }).join("")
+        ? row.flags.map(function (code) { return '<span class="chip flag">' + escapeHtml(code) + "</span>"; }).join(" ")
         : '<span class="chip">none</span>') + "</td>");
       html.push("<td>" + (row.estimated ? '<span class="chip est">estimated</span>' : "") + "</td>");
       html.push('<td class="num">' + escapeHtml(eur(row.exposure_eur)) + "</td>");
+      html.push("<td>" + (row.source_label === "SCREENED"
+        ? '<span class="chip status-adopted">SCREENED</span>'
+        : '<span class="chip">' + escapeHtml(row.source_label) + "</span>") + "</td>");
       html.push("</tr>");
     });
     html.push("</tbody>");
@@ -774,6 +794,7 @@
         estimated: row.estimated ? "true" : "false",
         exposure_eur: row.exposure_eur,
         bank_transition_rating: row.bank_transition_rating,
+        source: row.source_label,
         year: ui.year,
         scenario: ui.scenario,
         branch: ui.branch,
@@ -783,8 +804,8 @@
     });
     var header = ["borrower_id", "name", "country", "nace_code", "what_it_is", "band",
       "cost_eur", "cost_basis", "materiality_ratio", "cash_out_shock_year_eur", "flags",
-      "estimated", "exposure_eur", "bank_transition_rating", "year", "scenario", "branch",
-      "data_label", "generated_at"];
+      "estimated", "exposure_eur", "bank_transition_rating", "source", "year", "scenario",
+      "branch", "data_label", "generated_at"];
     // The label travels with the file. A number in a credit file with no label
     // on it is the outcome this whole project exists to avoid.
     var banner = "# " + (data.meta.data_label || "UNLABELLED") + " DATA. " + dataWarning() +
@@ -1324,11 +1345,103 @@
     renderSummary();
   }
 
+  // ------------------------------------------------ borrowers screened here
+
+  /* A borrower screened on the Screen a borrower view arrives as the same star
+   * schema the exporter writes, because engine_api builds both. So adding one
+   * to the open dataset is a concatenation, not a translation, and every
+   * dashboard view then treats it exactly like an exported row.
+   *
+   * The two datasets have to agree on their axes first. If the screening run
+   * used a different scenario set, branch set or year range from the file set
+   * on screen, the rows cannot be added, because a borrower with no cost row
+   * for the selected combination would silently drop out of the heatmap and
+   * break the reconciliation line. So the axes are compared and the merge is
+   * refused with a reason rather than done badly.
+   */
+  function axesOf(tables) {
+    function keys(rows, column, filter) {
+      return (rows || []).filter(filter || function () { return true; })
+        .map(function (row) { return row[column]; })
+        .sort()
+        .join(",");
+    }
+    return {
+      scenarios: keys(tables.dim_scenario, "scenario"),
+      branches: keys(tables.dim_branch, "branch"),
+      years: keys(tables.dim_year, "year", function (row) {
+        return isTrue(row.is_obligation_year);
+      })
+    };
+  }
+
+  function addScreened(result) {
+    if (!data) {
+      return { ok: false, why: "No file set is open, so there is nothing to add these borrowers to." };
+    }
+    if (!result || !result.tables || !result.tables.dim_borrower || !result.tables.dim_borrower.length) {
+      return { ok: false, why: "That screening run produced no borrower rows." };
+    }
+    if (!result.priced) {
+      return {
+        ok: false,
+        why: "No carbon price set was available for that run, so it has no cost, band or cash-out rows. " +
+          "The dashboard views are built on those, so adding the borrower would put it in every table as a blank."
+      };
+    }
+
+    var mine = axesOf(data.tables);
+    var theirs = axesOf(result.tables);
+    var mismatched = ["scenarios", "branches", "years"].filter(function (axis) {
+      return mine[axis] !== theirs[axis];
+    });
+    if (mismatched.length) {
+      return {
+        ok: false,
+        why: "The screening run and the open file set do not agree on their " +
+          mismatched.join(" and ") + ". Adding the borrower would leave it with no row " +
+          "for some combinations, which the reconciliation line would then report as lost exposure."
+      };
+    }
+
+    var incoming = {};
+    result.tables.dim_borrower.forEach(function (row) {
+      row.source_label = "SCREENED";
+      incoming[row.borrower_id] = true;
+    });
+
+    var tables = {};
+    Object.keys(data.tables).forEach(function (name) { tables[name] = data.tables[name]; });
+
+    // Screening the same borrower_id twice replaces it rather than doubling it.
+    ["dim_borrower", "fact_cost", "fact_cost_line", "fact_liquidity", "fact_flags"].forEach(function (name) {
+      var kept = (tables[name] || []).filter(function (row) { return !incoming[row.borrower_id]; });
+      tables[name] = kept.concat(result.tables[name] || []);
+    });
+
+    var replaced = {
+      data_label: "UPLOADED",
+      fixture_warning: "Your own screened rows sit alongside the file set this page opened with. " +
+        "Nothing here is a bank's book, a forecast or anyone's exposure."
+    };
+    tables.meta = (tables.meta || []).map(function (row) {
+      return Object.prototype.hasOwnProperty.call(replaced, row.key)
+        ? { key: row.key, value: replaced[row.key] }
+        : row;
+    });
+
+    var accepted = acceptTables(tables, "the file set plus the borrowers you screened in this tab");
+    if (!accepted) {
+      return { ok: false, why: "The merged file set was incomplete, so nothing was changed." };
+    }
+    return { ok: true, added: Object.keys(incoming).length };
+  }
+
   // ---------------------------------------------------------------- events
 
   function selectView(view) {
     ui.view = view;
-    ["portfolio", "borrowers", "detail", "summary", "data"].forEach(function (name) {
+    ["screen", "portfolio", "borrowers", "detail", "summary", "data"].forEach(function (name) {
       var tab = byId("tab-" + name);
       var panel = byId("panel-" + name);
       var on = name === view;
@@ -1485,6 +1598,32 @@
       }
     });
   }
+
+  /* What screen.js is allowed to reach into. Everything here either draws or
+   * reads; nothing computes a CBAM number, because nothing in this file does.
+   * The screening view keeps its own rendering and borrows these so that a
+   * chart, a band chip or a euro amount looks the same wherever it appears. */
+  window.CBAM = {
+    parseCsv: parseCsv,
+    escapeHtml: escapeHtml,
+    num: num,
+    isTrue: isTrue,
+    eur: eur,
+    eur2: eur2,
+    pct: pct,
+    plain: plain,
+    sum: sum,
+    lineChart: lineChart,
+    barChart: barChart,
+    bandChip: function (band, label) {
+      if (!band) { return ""; }
+      return '<span class="band band-' + escapeHtml(band) + '" title="' +
+        escapeHtml(label || "") + '">' + escapeHtml(band) + "</span>";
+    },
+    selectView: function (view) { selectView(view); },
+    addScreened: addScreened,
+    hasDataset: function () { return Boolean(data); }
+  };
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", start);

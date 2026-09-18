@@ -4,9 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CBAM Borrower Screening Panel</title>
-<meta name="description" content="Analyst dashboard over the CBAM screening engine's exported star schema. Every number comes from the export.">
+<meta name="description" content="Screen a borrower for CBAM exposure in your browser. The tested Python engine runs client-side, so nothing you type is uploaded.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -14,12 +15,13 @@
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="topbar">
-  <div class="brand">CBAM Borrower Screening Panel <span>analyst dashboard</span></div>
+  <div class="brand">CBAM Borrower Screening Panel <span>screening tool</span></div>
   <div id="data-banner" class="banner" role="status" aria-live="polite">Loading the export.</div>
 </header>
 
 <nav class="tabs" role="tablist" aria-label="Views">
-  <button role="tab" id="tab-portfolio" aria-controls="panel-portfolio" aria-selected="true" data-view="portfolio">Portfolio</button>
+  <button role="tab" id="tab-screen" aria-controls="panel-screen" aria-selected="true" data-view="screen">Screen a borrower</button>
+  <button role="tab" id="tab-portfolio" aria-controls="panel-portfolio" aria-selected="false" tabindex="-1" data-view="portfolio">Portfolio</button>
   <button role="tab" id="tab-borrowers" aria-controls="panel-borrowers" aria-selected="false" tabindex="-1" data-view="borrowers">Borrowers</button>
   <button role="tab" id="tab-detail" aria-controls="panel-detail" aria-selected="false" tabindex="-1" data-view="detail">Borrower detail</button>
   <button role="tab" id="tab-summary" aria-controls="panel-summary" aria-selected="false" tabindex="-1" data-view="summary">Summary</button>
@@ -28,7 +30,62 @@
 
 <main id="main">
 
-  <section role="tabpanel" id="panel-portfolio" aria-labelledby="tab-portfolio" tabindex="-1">
+  <section role="tabpanel" id="panel-screen" aria-labelledby="tab-screen" tabindex="-1">
+    <h1>Screen a borrower</h1>
+    <p class="subtitle">Enter what you know about one borrower, or upload a list, and the engine works out the CBAM tier, the certificate cost, the materiality band, the 2027 cash out, the flags and the questions to put to the client. Nothing you type leaves this page.</p>
+
+    <div class="panel engine" id="engine-panel" role="status" aria-live="polite">
+      <h2>The engine</h2>
+      <p class="subtitle" id="engine-line">Starting up.</p>
+      <div class="progress"><div class="bar" id="engine-bar" style="width:0%"></div></div>
+      <p class="subtitle" id="engine-detail"></p>
+    </div>
+
+    <div id="price-notice"></div>
+
+    <form id="screen-form" novalidate>
+      <div class="panel">
+        <h2>What the engine needs</h2>
+        <p class="subtitle">These seven are required. The engine refuses a row that is missing one, rather than filling it in.</p>
+        <div class="form-grid" id="required-fields"></div>
+      </div>
+
+      <details class="panel" id="optional-panel">
+        <summary>Everything else, if you have it</summary>
+        <p class="subtitle">Leave a box empty and the engine fills it from the sector map in the config, then marks the borrower as estimated and names the field it guessed. A field with no sector default stays empty and is named too, so a missing number never becomes a silent zero.</p>
+        <div id="optional-fields"></div>
+      </details>
+
+      <div class="controls no-print">
+        <button class="action primary" id="btn-screen" type="submit" disabled>Screen this borrower</button>
+        <button class="action" id="btn-example" type="button" disabled>Fill the worked example</button>
+        <button class="action" id="btn-clear-form" type="button">Clear the form</button>
+      </div>
+      <div id="form-errors"></div>
+    </form>
+
+    <div class="panel">
+      <h2>Or screen a whole list</h2>
+      <p class="subtitle">One row per borrower, the columns of the template. The file is read in this browser tab and never uploaded. Every row goes through the same engine as the form above.</p>
+      <div class="controls no-print">
+        <a class="action" id="btn-template" href="template_borrowers.csv" download="template_borrowers.csv">Download the template csv</a>
+        <span class="field">
+          <label for="screen-file">Upload a borrower csv</label>
+          <input type="file" id="screen-file" accept=".csv,text/csv" disabled>
+        </span>
+      </div>
+      <div id="screen-batch"></div>
+    </div>
+
+    <div id="screen-result"></div>
+
+    <details class="panel" id="config-panel">
+      <summary>The config these numbers came from</summary>
+      <div id="config-provenance"><p class="subtitle">Shown once the engine has loaded its config.</p></div>
+    </details>
+  </section>
+
+  <section role="tabpanel" id="panel-portfolio" aria-labelledby="tab-portfolio" tabindex="-1" hidden>
     <h1>Portfolio</h1>
     <p class="subtitle">Where this book is exposed, under one carbon-price scenario and one rule branch at a time.</p>
 
@@ -156,8 +213,12 @@
 
 </main>
 
-<footer id="footer"></footer>
+<footer>
+  <div id="footer-data"></div>
+  <p id="footer-note">Colour scheme inspired by ABN AMRO's palette. Independent portfolio tool by Musharraf Hassan, not affiliated with any bank. Synthetic and fixture data only.</p>
+</footer>
 
 <script src="app.js"></script>
+<script src="screen.js"></script>
 </body>
 </html>

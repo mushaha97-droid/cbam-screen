@@ -308,6 +308,17 @@ button.linklike:focus-visible { outline: 2px solid var(--accent); outline-offset
   margin: 1px 3px 1px 0;
   white-space: nowrap;
 }
+/* The fixture-price label, which sits next to every number that depends on a
+ * carbon price the project does not have. It is amber for the same reason
+ * every flag on this page is amber: it means "do not act on this yet". It is
+ * the one chip allowed to wrap, because inside a narrow card tile a nowrap
+ * chip gets clipped, and half a warning is worse than none. */
+.chip.fixture {
+  border-color: var(--amber);
+  background: #2e2508;
+  color: var(--amber);
+  white-space: normal;
+}
 .chip.flag { border-color: var(--amber-dim); background: #2e2508; color: var(--amber); }
 .chip.est { border-color: var(--amber-dim); color: var(--amber); }
 .chip.status-proposal { border-color: var(--amber-dim); background: #2e2508; color: var(--amber); }
