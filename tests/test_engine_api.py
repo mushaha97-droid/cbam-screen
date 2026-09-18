@@ -33,10 +33,12 @@ from src.engine_api import (
     TIER_LABEL_PLAIN,
     ScreenRequest,
     config_provenance,
+    form_options_json,
     has_prices,
     screen,
     screen_json,
 )
+from src.schema import IMPORT_COLUMNS
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 FIXTURE_DIR = REPO_ROOT / "tests" / "fixtures"
@@ -386,6 +388,82 @@ def test_a_broken_config_directory_comes_back_as_a_message_not_a_traceback():
     # than the whole path.
     assert "config directory not found" in result["error"]
     assert "directory" in result["error"]
+
+
+# ---------------------------------------------------------------------------
+# The form's own options, so the page parses no yaml
+# ---------------------------------------------------------------------------
+
+
+def test_the_form_options_come_out_of_the_config_not_out_of_a_list():
+    options = json.loads(form_options_json(FIXTURE_DIR.as_posix()))
+    codes = {entry["code"] for entry in options["nace"]}
+    assert "24.10" in codes and "41" in codes
+    assert options["mass_threshold"]["value"] == pytest.approx(50.0)
+    assert options["shock_year"] == 2027
+    assert options["bands"] == ["L", "ML", "M", "MH", "H"]
+    assert options["scenarios"] and options["branches"]
+
+
+def test_every_good_group_offered_names_the_column_it_is_written_into():
+    """A form box that wrote into the wrong column would cost the wrong money."""
+    options = json.loads(form_options_json(FIXTURE_DIR.as_posix()))
+    for good in options["goods"]:
+        assert good["column"].startswith("import_")
+        assert good["label"]
+    columns = {good["column"] for good in options["goods"]}
+    assert columns == set(IMPORT_COLUMNS.values())
+
+
+def test_a_form_box_actually_reaches_the_cost_it_claims_to():
+    """Each offered good is fed through screen() and has to produce a cost line.
+
+    This is the test that would catch a renamed good group or a column that no
+    longer exists, which on the page would look like a silent zero.
+    """
+    options = json.loads(form_options_json(FIXTURE_DIR.as_posix()))
+    for good in options["goods"]:
+        if not good["counts_toward_mass_threshold"]:
+            # Electricity and hydrogen are outside the mass threshold, so a
+            # volume of them alone leaves the borrower below it by design.
+            continue
+        row = {
+            "borrower_id": "BOX",
+            "name": "One Box BV",
+            "nace_code": "46.72",
+            "country": "NL",
+            "exposure_eur": 1_000_000,
+            "turnover_eur": 5_000_000,
+            "ebitda_eur": 500_000,
+            "top_supplier_country": "IN",
+            good["column"]: 1000,
+        }
+        result = run([row])
+        lines = [
+            line
+            for line in result["tables"]["fact_cost_line"]
+            if line["year"] == "2026"
+            and line["scenario"] == "delayed_transition"
+            and line["branch"] == "adopted"
+        ]
+        assert len(lines) == 1, f"{good['column']} produced no cost line"
+        assert lines[0]["good_group"] == good["group"]
+        assert float(lines[0]["cost_eur"]) > 0
+
+
+def test_the_exempt_and_eu_country_lists_are_the_ones_the_rule_tests():
+    options = json.loads(form_options_json(FIXTURE_DIR.as_posix()))
+    exempt = {entry["code"] for entry in options["exempt_countries"]}
+    assert {"IS", "LI", "NO", "CH"} <= exempt
+    assert "NL" in options["eu_countries"]
+    assert options["eu_countries_source"], "the list must say where it came from"
+
+
+def test_an_exempt_origin_does_not_make_an_importer_a_declarant():
+    """Offered in the form as exempt, so the engine had better agree."""
+    row = dict(HAND_EXAMPLE, borrower_id="B004", top_supplier_country="NO")
+    detail = run([row])["borrowers"][0]
+    assert detail["tier_by_branch"]["adopted"]["tier"] != 2
 
 
 def test_screen_takes_a_request_object_as_well_as_json():

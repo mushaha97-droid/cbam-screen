@@ -65,10 +65,23 @@ from src.questions import (
     load_questions,
     questions_path,
 )
-from src.schema import Borrower, parse_borrowers
+from src.schema import (
+    IMPORT_COLUMNS,
+    Borrower,
+    DeclarantStatus,
+    PassThrough,
+    SupplierData,
+    TransitionRating,
+    parse_borrowers,
+)
 from src.tiering import ADOPTED_BRANCH, TierResult, assign_tier
 
 import re
+
+# schema.py owns the mapping from a good group to the borrower column that
+# carries its quantity. Aliased here so the form and the engine cannot disagree
+# about which box a number goes in.
+IMPORT_COLUMNS_BY_GROUP = IMPORT_COLUMNS
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 
@@ -952,6 +965,85 @@ def _borrower_detail(
             for branch in branches
         },
     }
+
+
+def form_options(config_dir: Path) -> dict[str, Any]:
+    """The choices a borrower form should offer, read out of the config in use.
+
+    The form needs a NACE list, a country list, the good groups and the enum
+    values for the four categorical fields. Every one of those is already stated
+    in config, so the page asks the engine for them rather than parsing yaml in
+    JavaScript or hard-coding a list that would go stale the moment config
+    changed.
+
+    The country lists are the ones the tier rule actually tests against. A
+    fixture config lists a subset of the EU, and the page says so, because a
+    form that quietly offered seven EU countries as if they were twenty-seven
+    would be lying about the rule rather than about the list.
+    """
+    config = load_config(Path(config_dir))
+    goods = config.goods()
+    sectors = config.nace_tiers.get("sectors") or {}
+    exempt = (config.exempt_origins().get("countries") or [])
+    eu_block = config.cbam_rules.get("eu_customs_territory") or {}
+
+    nace: list[dict[str, str]] = []
+    for prefix in sorted(sectors):
+        entry = sectors[prefix] or {}
+        nace.append(
+            {
+                "code": str(prefix),
+                "label": _text(entry.get("label")),
+                "tier": str(entry.get("tier", "")),
+                "confidence": _text(entry.get("confidence")),
+            }
+        )
+
+    return {
+        "nace": nace,
+        "producer_nace": [str(p) for p in (config.nace_tiers.get("producer_nace") or [])],
+        "downstream_nace": [
+            str(p) for p in (config.nace_tiers.get("downstream_nace") or [])
+        ],
+        "eu_countries": [str(code).upper() for code in (eu_block.get("codes") or [])],
+        "eu_countries_source": _text(eu_block.get("source")),
+        "exempt_countries": [
+            {"code": str(c.get("code", "")).upper(), "name": _text(c.get("name"))}
+            for c in exempt
+            if isinstance(c, Mapping)
+        ],
+        "goods": [
+            {
+                "group": key,
+                "column": IMPORT_COLUMNS_BY_GROUP.get(key, ""),
+                "label": _text((goods[key] or {}).get("label") or key),
+                "counts_toward_mass_threshold": bool(
+                    (goods[key] or {}).get("counts_toward_mass_threshold")
+                ),
+            }
+            for key in sorted(goods)
+            if key in IMPORT_COLUMNS_BY_GROUP
+        ],
+        "mass_threshold": {
+            "value": float(config.mass_threshold()["value"]),
+            "unit": _text(config.mass_threshold().get("unit")),
+        },
+        "enums": {
+            "declarant_status": [item.value for item in DeclarantStatus],
+            "supplier_data": [item.value for item in SupplierData],
+            "pass_through": [item.value for item in PassThrough],
+            "bank_transition_rating": [item.value for item in TransitionRating],
+        },
+        "bands": band_order(config),
+        "scenarios": config.scenario_keys(),
+        "branches": config.branches(),
+        "shock_year": shock_year(config),
+    }
+
+
+def form_options_json(config_dir: str) -> str:
+    """The form options as JSON, for the page."""
+    return json.dumps(form_options(Path(config_dir)))
 
 
 def screen_json(payload_json: str) -> str:

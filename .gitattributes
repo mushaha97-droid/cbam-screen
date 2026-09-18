@@ -1,0 +1,9 @@
+# The files in webapp/engine/ and webapp/cfg/ are hashed into
+# webapp/cfg/manifest.json, and the page re-hashes them in the browser to check
+# that what it loaded is what the manifest says. A checkout that rewrote their
+# line endings would break that check on a bundle that is perfectly fine, so
+# these are pinned to LF on every platform. tools/bundle_webapp.py writes them
+# with LF for the same reason.
+webapp/engine/src/*.py text eol=lf
+webapp/cfg/* text eol=lf
+webapp/template_borrowers.csv text eol=lf

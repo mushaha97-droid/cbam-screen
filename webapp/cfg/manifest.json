@@ -1,6 +1,6 @@
 {
   "generated_by": "python -m tools.bundle_webapp",
-  "generated_at": "2026-09-15T00:33:06Z",
+  "generated_at": "2026-09-15T11:15:54Z",
   "engine_entrypoint": "src.engine_api.screen_json",
   "rule_config_note": "The rule files in this bundle are the fixture set from tests/fixtures/, the same set the dashboard export was built from. config/nace_tiers.yaml is still a scaffold, so there is no sector map in config/ to bundle. See tools/bundle_webapp.py.",
   "price_note": "scenarios.yaml is the real gated file and carries no prices. prices_fixture.yaml stands in for it and is not a forecast.",
@@ -81,8 +81,8 @@
       "kind": "engine",
       "path": "engine/src/engine_api.py",
       "source": "src/engine_api.py",
-      "sha256": "64bcd097bea1e99bb29a04eca2e1efd50e0e02bdafbda1b56104a54e40de6aa1",
-      "bytes": 39511,
+      "sha256": "97047503cdaaee66083912c511e163b37e46ea50ea08eafab10eac63e0880d28",
+      "bytes": 43087,
       "note": "",
       "meta": {}
     },
@@ -129,8 +129,8 @@
       "kind": "config",
       "path": "cfg/thresholds.yaml",
       "source": "tests/fixtures/thresholds.yaml",
-      "sha256": "f7515173c10732ca8232e4ca7aae2ad5adab5bda0db3901c38355602800ca6e8",
-      "bytes": 8218,
+      "sha256": "1d7988566cbf29f5dc1b8e31c0514b6fc184f92456fea15988f8b9ea9586369d",
+      "bytes": 8028,
       "note": "",
       "meta": {
         "config_version": "fixture",

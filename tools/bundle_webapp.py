@@ -54,7 +54,6 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import shutil
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -100,8 +99,26 @@ TEMPLATE_SOURCE = "data/template_borrowers.csv"
 TEMPLATE_NAME = "template_borrowers.csv"
 
 
+def normalised(path: Path) -> bytes:
+    """The file's bytes with line endings forced to LF.
+
+    Every bundled file is text. Git on Windows checks the sources out with CRLF
+    and on Linux with LF, so hashing the source bytes as they sit on disk would
+    put a different manifest in the repo depending on who ran the bundler, and
+    the page would then report a hash mismatch on a perfectly good bundle.
+    Normalising first means the manifest records the bytes the page is actually
+    served, on any machine.
+    """
+    return path.read_bytes().replace(b"\r\n", b"\n")
+
+
+def sha256_bytes(payload: bytes) -> str:
+    return hashlib.sha256(payload).hexdigest()
+
+
 def sha256(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    """The hash of the file's normalised bytes, which is what gets written."""
+    return sha256_bytes(normalised(path))
 
 
 def _meta_of(path: Path) -> dict[str, str]:
@@ -128,19 +145,20 @@ def build(check_only: bool = False) -> tuple[list[str], dict[str, Any]]:
     def place(source: Path, target: Path, kind: str, note: str = "") -> None:
         if not source.is_file():
             raise SystemExit(f"bundle source missing: {source}")
-        digest = sha256(source)
-        if not target.is_file() or sha256(target) != digest:
+        payload = normalised(source)
+        digest = sha256_bytes(payload)
+        if not target.is_file() or target.read_bytes() != payload:
             stale.append(target.relative_to(WEBAPP).as_posix())
             if not check_only:
                 target.parent.mkdir(parents=True, exist_ok=True)
-                shutil.copyfile(source, target)
+                target.write_bytes(payload)
         entries.append(
             {
                 "kind": kind,
                 "path": target.relative_to(WEBAPP).as_posix(),
                 "source": source.relative_to(REPO_ROOT).as_posix(),
                 "sha256": digest,
-                "bytes": source.stat().st_size,
+                "bytes": len(payload),
                 "note": note,
                 "meta": _meta_of(source),
             }
