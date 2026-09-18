@@ -361,7 +361,7 @@
   }
 
   function renderFooter() {
-    var repo = "https://github.com/mushaha97-droid/mushaha97-droid.github.io/tree/main/cbam-screen";
+    var repo = "https://github.com/mushaha97-droid/cbam-screen";
     setHtml("footer-data", [
       "<p><strong>" + escapeHtml(data.meta.data_label || "UNLABELLED") + "</strong>",
       " data, exported " + escapeHtml(data.meta.generated_at || "at an unrecorded time"),
