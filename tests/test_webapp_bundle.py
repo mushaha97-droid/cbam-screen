@@ -6,20 +6,23 @@ fail the build if they drift. A stale copy would not error anywhere: it would
 quietly answer with last week's formula, which is exactly the failure this
 project exists to avoid.
 
-They also check the three things about the bundle that cannot be seen from
-Python alone:
+They also check the things about the bundle that cannot be seen from Python
+alone:
 
     the bundled modules import nothing the browser cannot carry
     the bundled config really is the gated price file, so the gate on the page
         is the live one rather than a mock of it
     the bundle, run as the page runs it, reproduces the CLAUDE.md hand example
+    the page's own scripts parse, and the page actually loads them, so a right
+        answer from the engine has somewhere to be drawn
 """
 
 from __future__ import annotations
 
 import ast
-import hashlib
 import json
+import shutil
+import subprocess
 from pathlib import Path
 
 import pytest
@@ -30,6 +33,8 @@ from tools.bundle_webapp import (
     CONFIG_FILES,
     ENGINE_MODULES,
     manifest_is_current,
+    normalised,
+    sha256_bytes,
 )
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -56,7 +61,13 @@ FORBIDDEN_IMPORTS = {
 
 
 def sha256(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    """Hash of the file's bytes with line endings normalised to LF.
+
+    The bundler writes LF and hashes LF, so that a Windows checkout and a Linux
+    checkout produce the same manifest. These tests have to agree with it or
+    they would fail on whichever platform did not write the manifest.
+    """
+    return sha256_bytes(normalised(path))
 
 
 @pytest.fixture(scope="module")
@@ -100,12 +111,23 @@ def test_no_bundled_module_imports_something_the_browser_lacks(module: str):
 
 
 def test_every_manifest_entry_hashes_what_is_actually_on_disk(manifest: dict):
+    """The page re-hashes these in the browser, so they have to be exact.
+
+    Hashed without normalising here, on purpose. The bundler writes LF and
+    .gitattributes pins these paths to LF, so the bytes the browser fetches are
+    the bytes on disk. If a checkout ever rewrote them, this fails, which is the
+    point.
+    """
     assert manifest["files"], "the manifest lists no files"
     for entry in manifest["files"]:
         path = WEBAPP / entry["path"]
         assert path.is_file(), f"{entry['path']} is in the manifest but not on disk"
-        assert sha256(path) == entry["sha256"], f"{entry['path']} does not match its hash"
+        assert sha256_bytes(path.read_bytes()) == entry["sha256"], (
+            f"{entry['path']} does not match its hash. If the line endings were "
+            f"rewritten on checkout, check .gitattributes."
+        )
         assert len(entry["sha256"]) == 64
+        assert entry["bytes"] == path.stat().st_size
 
 
 def test_the_manifest_names_the_source_of_every_file(manifest: dict):
@@ -184,3 +206,43 @@ def test_the_borrower_template_is_offered_unchanged():
     assert sha256(WEBAPP / "template_borrowers.csv") == sha256(
         REPO_ROOT / "data" / "template_borrowers.csv"
     )
+
+
+# The page's own scripts. Every test above this line can pass while the page
+# shows nothing at all, because a script that does not parse never runs and a
+# browser reports it only to its console. That happened: one string in
+# screen.js opened with a double quote and closed with a single one, the whole
+# file failed to parse, and the Screen a borrower view rendered an empty form
+# with a dead button while pytest stayed green. These two parse the files the
+# way the browser does, so that failure is a test failure and not a discovery.
+PAGE_SCRIPTS = ("app.js", "screen.js")
+
+
+@pytest.mark.parametrize("script", PAGE_SCRIPTS)
+def test_each_page_script_parses(script: str):
+    """Hand the file to a real JavaScript parser and see if it is a program.
+
+    Skipped rather than failed where node is absent, because node is not a
+    dependency of this project and a skip that says why is more use than a
+    failure that means nothing. The browser check in the verification run is
+    what this stands in for between browser runs.
+    """
+    node = shutil.which("node")
+    if node is None:
+        pytest.skip("node is not on PATH, so the page scripts cannot be parsed here")
+    finished = subprocess.run(
+        [node, "--check", str(WEBAPP / script)],
+        capture_output=True,
+        text=True,
+    )
+    assert finished.returncode == 0, (
+        f"webapp/{script} is not valid JavaScript, so the browser would abandon "
+        f"it and the page would render dead:\n{finished.stderr}"
+    )
+
+
+@pytest.mark.parametrize("script", PAGE_SCRIPTS)
+def test_each_page_script_is_referenced_by_the_page(script: str):
+    """A script that parses but is not on the page is just as invisible."""
+    html = (WEBAPP / "index.html").read_text(encoding="utf-8")
+    assert f'src="{script}"' in html, f"index.html does not load {script}"
